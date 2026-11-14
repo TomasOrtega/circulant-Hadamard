@@ -1,7 +1,8 @@
 /*! 3Blue1Brown styles: see 3b1b-source.md in the built website. */
 @import "./vendor/3b1b.css";
 @source "./index.html";
-@source "./lesson.jsx";
+@source "./node.jsx";
+@source "./dependency-graph.jsx";
 
 @font-face {
   font-family: "Figtree Variable";

@@ -8,12 +8,12 @@
 
 The recursive lesson structure now needs a shared layout across many pages.
 Use React 19.2.7 and React DOM to generate static HTML through
-[build-lessons.jsx](../website/build-lessons.jsx), replacing the single-page
+[build-lessons.jsx](https://github.com/TomasOrtega/circulant-Hadamard/blob/eff0cad336c140ddd677560ca64e25d2da4cf723/website/build-lessons.jsx), replacing the single-page
 approach in the [earlier tooling decision](2026-11-13-234909-bun-and-static-html.md).
 
 Keep Bun and the existing copied Tailwind stylesheet. Reuse the upstream
 lesson, section, typography, and button conventions in
-[lesson.jsx](../website/lesson.jsx), with attribution in the
+[lesson.jsx](https://github.com/TomasOrtega/circulant-Hadamard/blob/eff0cad336c140ddd677560ca64e25d2da4cf723/website/lesson.jsx), with attribution in the
 [vendor notes](../website/vendor/README.md).
 
 Each lesson has an explicit HTML URL. Navigation uses ordinary links, including
@@ -49,3 +49,6 @@ This records a change in implementation driven by the new lesson requirements,
 with the earlier static-page decision preserved. Codex implemented and checked
 the layout, content model, and generator. This interval overlaps the
 [lesson hierarchy work](2026-11-14-002050-recursive-lesson-hierarchy.md) and is not additive person-hours.
+
+Link maintenance (2026-11-14): moved source links now point to the snapshot
+before the node refactor; the original decision is unchanged.

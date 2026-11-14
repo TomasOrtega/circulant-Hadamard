@@ -11,7 +11,7 @@ explanations, chapter clips, and a right-hand “Dig in deeper” link for each
 chapter. Deeper views repeat that structure. Every non-root view also has a
 visible button back to its direct parent.
 
-Use a recursive content tree in [lessons.js](../website/lessons.js). Stop at
+Use a recursive content tree in [lessons.js](https://github.com/TomasOrtega/circulant-Hadamard/blob/eff0cad336c140ddd677560ca64e25d2da4cf723/website/lessons.js). Stop at
 standard undergraduate prerequisites: foundation nodes are leaves, enforced
 by the build. Breadcrumbs allow larger jumps, and parent buttons return to the
 corresponding chapter in the higher-level view.
@@ -46,3 +46,6 @@ This records the presentation structure and AI-assisted drafting and
 implementation. The draft proof sections establish no mathematical result.
 The background comes from the existing report, with the small example checked
 directly.
+
+Link maintenance (2026-11-14): moved source links now point to the snapshot
+before the node refactor; the original decision is unchanged.

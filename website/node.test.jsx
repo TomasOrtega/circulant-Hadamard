@@ -4,34 +4,32 @@ import { tmpdir } from "node:os";
 import { join, resolve } from "node:path";
 import { pathToFileURL } from "node:url";
 import { renderToStaticMarkup } from "react-dom/server";
-import { buildLessons } from "./build-lessons.jsx";
-import {
-  collectLessons,
-  hrefFor,
-  pagePath,
-  chapterAnchor,
-} from "./lesson-tree.js";
-import { LessonPage } from "./lesson.jsx";
-import { lessons } from "./lessons.js";
+import { buildNodes } from "./build-nodes.jsx";
+import { collectNodes, hrefFor, pagePath, nodeAnchor } from "./node-tree.js";
+import { NodePage } from "./node.jsx";
+import rootNode from "./nodes/overview.js";
 
-const output = mkdtempSync(join(tmpdir(), "circulant-lessons-"));
-const entries = buildLessons({ outDir: output });
+const output = mkdtempSync(join(tmpdir(), "circulant-nodes-"));
+const entries = buildNodes({ outDir: output });
 afterAll(() => rmSync(output, { recursive: true, force: true }));
 
-describe("recursive lesson navigation", () => {
-  test("every chapter has its own page, a deeper link, and a direct parent link", () => {
+describe("recursive node navigation", () => {
+  test("every node has its own page, a deeper link, and a direct parent link", () => {
     expect(
       Math.max(...entries.map((entry) => entry.path.length)),
     ).toBeGreaterThan(2);
     for (const entry of entries) {
       const html = readFileSync(join(output, pagePath(entry)), "utf8");
-      expect(html).toContain(`<h1>${entry.lesson.title}</h1>`);
+      expect(html).toContain(`<h1>${entry.node.title}</h1>`);
+      expect(html).toContain(
+        "A project for the Caltech × SAIR Mathathon, by Steven Creech and Tomas Ortega",
+      );
       const parent = entry.ancestors.at(-1);
       if (parent) {
         const parentHtml = readFileSync(join(output, pagePath(parent)), "utf8");
         expect(parentHtml).toContain(`href="${hrefFor(entry, parent)}"`);
         expect(html).toContain(
-          `href="${hrefFor(parent, entry)}#${chapterAnchor(entry.lesson)}"`,
+          `href="${hrefFor(parent, entry)}#${nodeAnchor(entry.node)}"`,
         );
         expect(html).toContain("Back to higher-level view:");
       } else {
@@ -54,7 +52,7 @@ describe("recursive lesson navigation", () => {
         const targetHtml = pages.get(decodeURIComponent(target.pathname));
         expect(
           targetHtml,
-          `Broken lesson link: ${filename} → ${href}`,
+          `Broken node link: ${filename} → ${href}`,
         ).toBeDefined();
         if (target.hash)
           expect(targetHtml).toContain(`id="${target.hash.slice(1)}"`);
@@ -62,16 +60,16 @@ describe("recursive lesson navigation", () => {
     }
   });
 
-  test("every view has an overview slot, and each chapter has a clip and deeper button", () => {
+  test("every view has an overview slot, and each child node has a clip and deeper button", () => {
     for (const entry of entries) {
       const html = readFileSync(join(output, pagePath(entry)), "utf8");
-      const chapters = entry.lesson.chapters ?? [];
+      const children = entry.node.children ?? [];
       expect(html).toContain("Overview video");
-      expect([...html.matchAll(/>Chapter clip</g)]).toHaveLength(
-        chapters.length,
+      expect([...html.matchAll(/>Node excerpt</g)]).toHaveLength(
+        children.length,
       );
       expect([...html.matchAll(/aria-label="Dig in deeper:/g)]).toHaveLength(
-        chapters.length,
+        children.length,
       );
       expect(html).not.toContain("<iframe");
       expect(html).not.toContain("<video");
@@ -87,42 +85,57 @@ describe("recursive lesson navigation", () => {
       expect(new URL(stylesheet, pathToFileURL(filename)).pathname).toBe(
         join(output, "styles.css"),
       );
-      expect(html).not.toContain("<!-- lesson-content -->");
+      expect(html).not.toContain("<!-- node-content -->");
       expect(html).not.toContain("{{asset-root}}");
     }
   });
 });
 
-describe("lesson authoring constraints", () => {
+describe("node authoring constraints", () => {
   test("undergraduate foundations are terminal views", () => {
-    const foundations = entries.filter((entry) => entry.lesson.foundation);
+    const foundations = entries.filter((entry) => entry.node.foundation);
     expect(foundations.length).toBeGreaterThan(0);
     for (const entry of foundations) {
-      expect(entry.lesson.chapters).toHaveLength(0);
+      expect(entry.node.children).toHaveLength(0);
       expect(readFileSync(join(output, pagePath(entry)), "utf8")).not.toContain(
         "Dig in deeper",
       );
     }
-    const foundation = foundations[0].lesson;
+    const foundation = foundations[0].node;
     expect(() =>
-      collectLessons({ ...foundation, chapters: [foundation] }),
+      collectNodes({
+        ...foundation,
+        children: [
+          {
+            node: foundation,
+            script: ["Cut script"],
+            segment: null,
+            dependsOn: [],
+          },
+        ],
+      }),
     ).toThrow("Undergraduate foundations must be leaves");
   });
 
   test("duplicate slugs and circular hierarchies fail the build", () => {
     expect(() =>
-      collectLessons({
-        ...lessons,
-        chapters: [lessons.chapters[0], lessons.chapters[0]],
+      collectNodes({
+        ...rootNode,
+        children: [rootNode.children[0], rootNode.children[0]],
       }),
-    ).toThrow("Duplicate chapter slugs");
-    const circular = { ...lessons, chapters: [] };
-    circular.chapters.push(circular);
-    expect(() => collectLessons(circular)).toThrow("Circular lesson hierarchy");
+    ).toThrow("Duplicate child node IDs");
+    const circular = { ...rootNode, children: [] };
+    circular.children.push({
+      node: circular,
+      script: ["Cut script"],
+      segment: null,
+      dependsOn: [],
+    });
+    expect(() => collectNodes(circular)).toThrow("Circular node hierarchy");
   });
 
   test("the displayed order-four example has orthogonal cyclic shifts", () => {
-    const firstRow = entries.find((entry) => entry.lesson.exampleRow).lesson
+    const firstRow = entries.find((entry) => entry.node.exampleRow).node
       .exampleRow;
     for (let shift = 0; shift < firstRow.length; shift++) {
       const correlation = firstRow.reduce(
@@ -136,20 +149,26 @@ describe("lesson authoring constraints", () => {
 
   test("configured videos render real players and relative file URLs work at depth", () => {
     const child = {
-      ...lessons.chapters[0].chapters[0],
+      ...rootNode.children[0].node.children[0].node,
       video: { src: "media/test.mp4", captions: "media/test.vtt" },
-      clip: { youtubeId: "abcdefghijk" },
     };
-    const configured = collectLessons({
-      ...lessons,
+    const configured = collectNodes({
+      ...rootNode,
       video: { youtubeId: "abcdefghijk" },
-      chapters: [child],
+      children: [
+        {
+          node: child,
+          script: ["Parent cut narration"],
+          segment: { start: 10, end: 30 },
+          dependsOn: [],
+        },
+      ],
     });
     const rootHtml = renderToStaticMarkup(
-      <LessonPage entry={configured[0]} entries={configured} />,
+      <NodePage entry={configured[0]} entries={configured} />,
     );
     const childHtml = renderToStaticMarkup(
-      <LessonPage entry={configured[1]} entries={configured} />,
+      <NodePage entry={configured[1]} entries={configured} />,
     );
     expect(rootHtml).toContain(
       "https://www.youtube-nocookie.com/embed/abcdefghijk",

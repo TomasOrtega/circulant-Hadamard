@@ -9,34 +9,32 @@ import {
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { renderToStaticMarkup } from "react-dom/server";
-import { lessons } from "./lessons.js";
-import { assetRoot, collectLessons, pagePath } from "./lesson-tree.js";
-import { LessonPage } from "./lesson.jsx";
+import rootNode from "./nodes/overview.js";
+import { assetRoot, collectNodes, pagePath } from "./node-tree.js";
+import { NodePage } from "./node.jsx";
 
-export function buildLessons({
-  outDir = resolve("dist"),
-  root = lessons,
-} = {}) {
-  const entries = collectLessons(root);
+export function buildNodes({ outDir = resolve("dist"), root = rootNode } = {}) {
+  const entries = collectNodes(root);
   const template = readFileSync("index.html", "utf8");
   rmSync(resolve(outDir, "lessons"), { recursive: true, force: true });
+  rmSync(resolve(outDir, "nodes"), { recursive: true, force: true });
   for (const entry of entries) {
     const title = entry.path.length
-      ? `${entry.lesson.title} · Circulant Hadamard`
-      : entry.lesson.title;
+      ? `${entry.node.title} · Circulant Hadamard`
+      : entry.node.title;
     const metadata = renderToStaticMarkup(
       <>
         <title>{title}</title>
-        <meta name="description" content={entry.lesson.summary} />
+        <meta name="description" content={entry.node.summary} />
       </>,
     );
     const content = renderToStaticMarkup(
-      <LessonPage entry={entry} entries={entries} />,
+      <NodePage entry={entry} entries={entries} />,
     );
     const html = template
-      .replace("<!-- lesson-meta -->", () => metadata)
+      .replace("<!-- node-meta -->", () => metadata)
       .replaceAll("{{asset-root}}", assetRoot(entry))
-      .replace("<!-- lesson-content -->", () => content);
+      .replace("<!-- node-content -->", () => content);
     const output = resolve(outDir, pagePath(entry));
     mkdirSync(dirname(output), { recursive: true });
     writeFileSync(output, html);
@@ -50,6 +48,6 @@ if (
   process.argv[1] &&
   resolve(process.argv[1]) === fileURLToPath(import.meta.url)
 ) {
-  const entries = buildLessons();
-  console.log(`Built ${entries.length} lesson pages.`);
+  const entries = buildNodes();
+  console.log(`Built ${entries.length} node pages.`);
 }

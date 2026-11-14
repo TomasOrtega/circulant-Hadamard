@@ -1,9 +1,11 @@
-import { assetRoot, chapterAnchor, hrefFor } from "./lesson-tree.js";
+import { assetRoot, nodeAnchor, hrefFor, findChildEntry } from "./node-tree.js";
+import { DependencyGraph } from "./dependency-graph.jsx";
+import { cutVideo, mediaUrl, formatTime } from "./node-video.js";
 
 const buttonBase =
   "inline-flex max-w-full items-center justify-center gap-2 rounded-md font-sans text-balance no-underline min-h-12 min-w-12 p-3 text-lg";
 
-function LessonButton({
+function NodeButton({
   href,
   children,
   primary = false,
@@ -20,61 +22,73 @@ function LessonButton({
   );
 }
 
-function Media({ video, title, clip = false, base }) {
-  const label = clip ? "Chapter clip" : "Overview video";
+function Media({ video, title, excerpt = false, base }) {
+  const label = excerpt ? "Node excerpt" : "Overview video";
   const frameClass = "aspect-video w-full rounded-md bg-black";
+  const segment = video?.segment;
+  let player = null;
   if (video?.youtubeId) {
-    if (!/^[A-Za-z0-9_-]{11}$/.test(video.youtubeId)) {
-      throw new Error(`Invalid YouTube ID for ${title}`);
-    }
-    return (
+    const query = segment
+      ? `?${new URLSearchParams({ start: segment.start, end: segment.end })}`
+      : "";
+    player = (
       <iframe
-        className={frameClass}
-        src={`https://www.youtube-nocookie.com/embed/${video.youtubeId}`}
+        className={`${frameClass} min-h-50`}
+        src={`https://www.youtube-nocookie.com/embed/${video.youtubeId}${query}`}
         title={`${label}: ${title}`}
         loading="lazy"
         allow="fullscreen; picture-in-picture"
         allowFullScreen
       />
     );
-  }
-  if (video?.src) {
-    const source = /^https?:\/\//.test(video.src)
-      ? video.src
-      : `${base}${video.src}`;
-    return (
+  } else if (video?.src) {
+    const source = mediaUrl(video.src, base);
+    const cutSource = segment
+      ? `${source.split("#")[0]}#t=${segment.start},${segment.end}`
+      : source;
+    player = (
       <video
         className={frameClass}
         controls
         preload="none"
         playsInline
         aria-label={`${label}: ${title}`}
+        data-cut-start={segment?.start}
+        data-cut-end={segment?.end}
       >
-        <source src={source} />
+        <source src={cutSource} />
         {video.captions && (
           <track
             kind="captions"
-            src={`${base}${video.captions}`}
+            src={mediaUrl(video.captions, base)}
             srcLang="en"
             label="English"
             default
           />
         )}
-        Your browser cannot play this video. <a href={source}>Open the video</a>
-        .
+        Your browser cannot play this video.{" "}
+        <a href={cutSource}>Open the video</a>.
       </video>
     );
   }
   return (
     <figure className="flex w-full flex-col gap-3">
-      <div
-        className={`${frameClass} flex flex-col items-center justify-center gap-4 p-8 text-center font-sans text-white`}
-      >
-        <span className="text-lg">{label}</span>
-        <span className="text-sm text-gray">Video not added yet</span>
-      </div>
+      {player ?? (
+        <div
+          className={`${frameClass} flex flex-col items-center justify-center gap-4 p-8 text-center font-sans text-white`}
+        >
+          <span className="text-lg">{label}</span>
+          <span className="text-sm text-gray">
+            {excerpt ? "Excerpt not added yet" : "Video not added yet"}
+          </span>
+        </div>
+      )}
       <figcaption className="text-center font-sans text-sm text-dark-gray">
-        {title}
+        {segment
+          ? `Cut from the overview · ${formatTime(segment.start)}–${formatTime(segment.end)}`
+          : excerpt
+            ? title
+            : `Full overview · ${title}`}
       </figcaption>
     </figure>
   );
@@ -84,12 +98,12 @@ function ParentButton({ entry }) {
   const parent = entry.ancestors.at(-1);
   if (!parent) return null;
   return (
-    <LessonButton
-      href={`${hrefFor(parent, entry)}#${chapterAnchor(entry.lesson)}`}
-      aria-label={`Back to higher-level view: ${parent.lesson.title}`}
+    <NodeButton
+      href={`${hrefFor(parent, entry)}#${nodeAnchor(entry.node)}`}
+      aria-label={`Back to higher-level view: ${parent.node.title}`}
     >
-      <span aria-hidden="true">←</span> Back to {parent.lesson.shortTitle}
-    </LessonButton>
+      <span aria-hidden="true">←</span> Back to {parent.node.shortTitle}
+    </NodeButton>
   );
 }
 
@@ -104,11 +118,11 @@ function Breadcrumbs({ entry }) {
           key={ancestor.path.join("/")}
           className="inline-flex items-center gap-2"
         >
-          <a href={hrefFor(ancestor, entry)}>{ancestor.lesson.shortTitle}</a>
+          <a href={hrefFor(ancestor, entry)}>{ancestor.node.shortTitle}</a>
           <span aria-hidden="true">/</span>
         </span>
       ))}
-      <span aria-current="page">{entry.lesson.shortTitle}</span>
+      <span aria-current="page">{entry.node.shortTitle}</span>
     </nav>
   );
 }
@@ -146,40 +160,43 @@ function Matrix({ row }) {
   );
 }
 
-function Chapter({ child, entry, entries }) {
-  const target = entries.find((candidate) => candidate.lesson === child);
-  const count = child.chapters?.length ?? 0;
+function ChildNode({ child, entry, entries }) {
+  const node = child.node;
+  const target = findChildEntry(node, entry, entries);
+  const count = node.children?.length ?? 0;
   return (
-    <section id={chapterAnchor(child)} className="width-lg">
+    <section id={nodeAnchor(node)} className="width-lg">
       <Heading>
-        {target.numbers.join(".")}. {child.title}
+        {target.numbers.join(".")}. {node.title}
       </Heading>
       <div className="grid grid-cols-[minmax(0,1fr)_14rem] items-start gap-12 max-md:grid-cols-1 max-md:gap-8">
         <div className="flex min-w-0 flex-col gap-8">
-          <p>{child.summary}</p>
+          {child.script.map((paragraph) => (
+            <p key={paragraph}>{paragraph}</p>
+          ))}
           <div className="w-full max-w-125 self-center">
             <Media
-              video={child.clip}
-              title={child.title}
-              clip
+              video={cutVideo(entry.node, child)}
+              title={node.title}
+              excerpt
               base={assetRoot(entry)}
             />
           </div>
         </div>
         <aside className="flex flex-col items-start gap-4 max-md:items-center">
-          <LessonButton
+          <NodeButton
             href={hrefFor(target, entry)}
             primary
-            aria-label={`Dig in deeper: ${child.title}`}
+            aria-label={`Dig in deeper: ${node.title}`}
           >
             Dig in deeper <span aria-hidden="true">→</span>
-          </LessonButton>
+          </NodeButton>
           <p className="font-sans text-sm text-dark-gray">
-            {child.foundation
+            {node.foundation
               ? "Undergraduate foundation"
               : count
-                ? `${count} subchapters`
-                : "Draft proof section"}
+                ? `${count} child nodes`
+                : "Draft proof node"}
           </p>
         </aside>
       </div>
@@ -187,10 +204,10 @@ function Chapter({ child, entry, entries }) {
   );
 }
 
-export function LessonPage({ entry, entries }) {
-  const { lesson } = entry;
+export function NodePage({ entry, entries }) {
+  const { node } = entry;
   const root = entries[0];
-  const chapters = lesson.chapters ?? [];
+  const children = node.children ?? [];
   const base = assetRoot(entry);
   return (
     <>
@@ -201,16 +218,16 @@ export function LessonPage({ entry, entries }) {
         Jump to main content
       </a>
       <header className="dark relative flex flex-wrap items-center justify-between gap-4 bg-white p-8 text-black max-md:p-4 print:hidden">
-        <LessonButton href={hrefFor(root, entry)}>
+        <NodeButton href={hrefFor(root, entry)}>
           <span className="font-serif text-2xl">Circulant Hadamard</span>
-        </LessonButton>
+        </NodeButton>
         <nav aria-label="Project links" className="flex flex-wrap gap-2">
-          <LessonButton href="https://competition.sair.foundation/competitions/mathathon/problems/76">
+          <NodeButton href="https://competition.sair.foundation/competitions/mathathon/problems/76">
             Problem 76
-          </LessonButton>
-          <LessonButton href="https://github.com/TomasOrtega/circulant-Hadamard">
+          </NodeButton>
+          <NodeButton href="https://github.com/TomasOrtega/circulant-Hadamard">
             Repository
-          </LessonButton>
+          </NodeButton>
         </nav>
       </header>
       <main id="content" className="striped">
@@ -222,52 +239,53 @@ export function LessonPage({ entry, entries }) {
           <hgroup className="flex flex-col items-center gap-4 font-sans">
             <p className="text-dark-gray">
               {entry.numbers.length
-                ? `Chapter ${entry.numbers.join(".")}`
-                : "A lesson, one layer at a time"}
+                ? `Node ${entry.numbers.join(".")}`
+                : "The argument, one node at a time"}
             </p>
-            <h1>{lesson.title}</h1>
+            <h1>{node.title}</h1>
             <span className="text-sm text-dark-gray">
-              {lesson.foundation
+              {node.foundation
                 ? "Undergraduate foundation"
-                : lesson.draft
-                  ? "Draft proof section"
-                  : "Draft lesson"}
+                : node.draft
+                  ? "Draft proof node"
+                  : "Draft node"}
             </span>
           </hgroup>
           <div className="w-full max-w-200">
-            <Media video={lesson.video} title={lesson.title} base={base} />
+            <Media video={node.video} title={node.title} base={base} />
           </div>
-          <p className="max-w-175 text-center text-lg">{lesson.summary}</p>
+          <DependencyGraph entry={entry} entries={entries} />
+          <p className="max-w-175 text-center text-lg">{node.summary}</p>
         </section>
         <section>
           <div className="flex flex-col gap-8">
-            {lesson.paragraphs.map((paragraph) => (
+            {node.script.map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>
             ))}
-            {lesson.equation && (
+            {node.equation && (
               <p role="math" className="text-center text-2xl">
-                {lesson.equation}
+                {node.equation}
               </p>
             )}
-            {lesson.exampleRow && <Matrix row={lesson.exampleRow} />}
+            {node.exampleRow && <Matrix row={node.exampleRow} />}
           </div>
-          {!!chapters.length && (
+          {!!children.length && (
             <nav
-              aria-label="Chapters in this lesson"
+              aria-label="Child nodes in this view"
               className="flex flex-col items-start gap-4 font-sans"
             >
-              {chapters.map((chapter, index) => (
-                <a key={chapter.id} href={`#${chapterAnchor(chapter)}`}>
-                  {index + 1}. {chapter.title}
+              {children.map(({ node: child }, index) => (
+                <a key={child.id} href={`#${nodeAnchor(child)}`}>
+                  {index + 1}. {child.title}
                 </a>
               ))}
             </nav>
           )}
         </section>
-        {chapters.map((chapter) => (
-          <Chapter
-            key={chapter.id}
-            child={chapter}
+        {children.map((child) => (
+          <ChildNode
+            key={child.node.id}
+            child={child}
             entry={entry}
             entries={entries}
           />
@@ -281,10 +299,13 @@ export function LessonPage({ entry, entries }) {
       </main>
       <footer className="flex flex-col items-center gap-4 bg-alt-white p-8 text-center font-sans text-sm text-dark-gray">
         <p>
-          A project for the Caltech × SAIR Mathathon, by Steven Creech and
-          Tomas Ortega
+          A project for the Caltech × SAIR Mathathon, by Steven Creech and Tomas
+          Ortega
         </p>
       </footer>
+      {node.video?.src && children.some((child) => child.segment) && (
+        <script src={`${base}video-player.js`} defer />
+      )}
     </>
   );
 }

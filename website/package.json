@@ -9,7 +9,8 @@
   },
   "scripts": {
     "build:css": "tailwindcss --input styles.css --output dist/styles.css --minify",
-    "build:lessons": "bun run build-lessons.jsx",
+    "build:nodes": "bun run build-nodes.jsx",
+    "build:player": "bun build video-player.js --target browser --format iife --outfile dist/video-player.js --minify",
     "test": "bun test"
   },
   "dependencies": {

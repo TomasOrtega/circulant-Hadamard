@@ -7,7 +7,7 @@
 ## Context and decision
 
 Use “A project for the Caltech × SAIR Mathathon, by Steven Creech and Tomas
-Ortega” in the shared [lesson footer](../website/lesson.jsx), replacing the
+Ortega” in the shared [lesson footer](https://github.com/TomasOrtega/circulant-Hadamard/blob/eff0cad336c140ddd677560ca64e25d2da4cf723/website/lesson.jsx), replacing the
 separate project sentence and author affiliations.
 
 ## Rationale
@@ -23,3 +23,6 @@ from all 12 generated pages and confirmed the requested text. Lint checks and
 ## Report relevance
 
 This is a presentation copy edit implemented and checked by Codex.
+
+Link maintenance (2026-11-14): moved source links now point to the snapshot
+before the node refactor; the original decision is unchanged.

@@ -26,12 +26,17 @@ and provenance are in [vendor/README.md](vendor/README.md).
 
 Use Bun for dependency installation and scripts, with the pinned version in
 [package.json](package.json) and the committed `bun.lock`. Keep application code
-compatible with Node.js 24+ as a fallback. Use React to pre-render the shared
-lesson layout into static pages. Keep chapter, breadcrumb, and parent navigation
-as ordinary links so deep URLs and browser history work without client scripts.
+compatible with Node.js 24+ as a fallback. Use React to pre-render node views
+into static pages. Keep graph, breadcrumb, and parent navigation as ordinary
+links. Limit client JavaScript to playback bounds for native video cuts.
 
-Edit the recursive content tree in [lessons.js](lessons.js). Every view has an
-overview video, text, and child chapter previews with clips and deeper links.
+Use the vocabulary in [GLOSSARY.md](../GLOSSARY.md): nodes at every depth.
+Keep one content file per node in [nodes/](nodes/), starting at
+[overview.js](nodes/overview.js). Every view has its own full overview video,
+a dependency graph immediately below it, script-based text, and child previews.
+Each preview is a timed cut of the parent's video, using the corresponding
+parent-script excerpt; a child's own video is its separate, deeper overview.
+Validate dependency references and cycles, cut bounds, and script content.
 Every non-root view must have a visible link back to its direct parent.
 Stop expanding at standard undergraduate prerequisites: `foundation: true`
 nodes must have no children. Keep unfinished proof material visibly marked as
@@ -39,5 +44,5 @@ draft, and leave unavailable videos as empty slots.
 
 Run `make -C website check` and `make -C website` after changes. Preview `website/dist/`: the source
 `styles.css` requires compilation. The build installs locked dependencies when
-needed and emits lesson pages, CSS, local fonts, and their license files.
-See [README.md](README.md) for lesson and video authoring.
+needed and emits node pages, CSS, the cut player, local fonts, and licenses.
+See [README.md](README.md) for node and video authoring.
