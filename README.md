@@ -7,6 +7,7 @@ Steven Creech (Rutgers University) and Tomas Ortega (Princeton University).
 - [tex/](tex/): report, slides, and shared bibliography.
 - [rules/](rules/): participant and judge rules, taken from the competition website.
 - [website/](website/): project website.
+- [website/README.md](website/README.md): recursive lesson and video authoring.
 - [decision_log/](decision_log/): timestamped decisions and evidence for the report.
 
 To build locally, install uv, Bun 1.4.4, and a TeX system with `bibtex`, `chktex`,
@@ -18,6 +19,7 @@ uv run prek install
 uv run prek -a --quiet
 make -C tex check
 make -C tex
+make -C website check
 make -C website
 ```
 
