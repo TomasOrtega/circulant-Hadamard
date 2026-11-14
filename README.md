@@ -7,8 +7,10 @@ Steven Creech (Rutgers University) and Tomas Ortega (Princeton University).
 - [tex/](tex/): report, slides, and shared bibliography.
 - [rules/](rules/): participant and judge rules, taken from the competition website.
 - [website/](website/): project website.
+- [decision_log/](decision_log/): timestamped decisions and evidence for the report.
 
-To build locally, install uv and a TeX system with `bibtex`, `chktex`, `latexmk`, `latexpand`, and Beamer, and run:
+To build locally, install uv, Bun 1.4.4, and a TeX system with `bibtex`, `chktex`,
+`latexmk`, `latexpand`, and Beamer, and run:
 
 ```sh
 uv sync --locked
