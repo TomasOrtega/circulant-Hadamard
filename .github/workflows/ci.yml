@@ -1,0 +1,57 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: astral-sh/setup-uv@v9
+        with:
+          version: "0.13.8"
+          enable-cache: true
+      - name: Install dependencies
+        run: uv sync --locked
+      - name: Run prek
+        run: uv run --locked prek -a --quiet
+
+  tex:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Install TeX
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            chktex latexmk texlive-latex-extra texlive-pictures \
+            texlive-fonts-recommended texlive-extra-utils
+      - name: Check TeX
+        run: make -C tex check
+      - name: Build report and slides
+        run: make -C tex
+      - uses: actions/upload-artifact@v7
+        with:
+          name: tex-documents
+          path: |
+            tex/build/report.tex
+            tex/build/report.pdf
+            tex/build/slides.pdf
+          if-no-files-found: error
+
+  website:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Build website
+        run: make -C website
+      - uses: actions/upload-artifact@v7
+        with:
+          name: website
+          path: website/dist/
+          if-no-files-found: error

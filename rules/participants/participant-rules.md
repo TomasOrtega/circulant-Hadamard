@@ -1,0 +1,88 @@
+# Participant Rules
+
+Round 1 is an onsite event at Caltech. Teams work for 40 hours, from Nov 13 at 8:00 PM until the submission deadline, Nov 15 at 12:00 PM. Your team picks one problem from the problem list and works toward an alternative proof, a clearer exposition, or a new connection. By the deadline you submit a report and slides, plus, optionally, supplementary materials and a Lean project. On the afternoon of Nov 15 you present your work to a panel of judges.
+
+The judges score your presentation. A panel of AI models reviews your report. The judges decide the winners. There will be overall winners, as well as winners for each of 5 tracks: Algebra/Number Theory, Combinatorics, Analysis, Geometry, and Computation/Applied Mathematics.
+
+You take four steps on the SAIR competition platform: registration (§1), teams (§2), problem selection (§3), and submission (§4). Then you give your presentation (§5). How to prepare each item you submit is in the [Submission Guidelines](submission-guidelines.md). All times are Pacific Time.
+
+## Key dates
+
+| When | What happens |
+|---|---|
+| Before Nov 13, 8:00 PM | Register (§1) and form your team (§2). The problem list is published. |
+| **Nov 13, 8:00 PM** | Round 1 starts. Teams are fixed. Problem selection (§3) and submission (§4) open. |
+| **Nov 14, 11:59 PM** | **Problem selection deadline.** Problems are locked. |
+| **Nov 15, 12:00 PM** | **Submission deadline.** |
+| **Nov 15, 12:00 PM to 3:30 PM** | Presentations, in six sessions (§5). |
+| **Nov 15, 5:00 PM to 6:00 PM** | Closing ceremony. Results are announced. |
+
+## 1. Registration
+
+- **When.** Before Round 1 starts, on Nov 13 at 8:00 PM.
+- **Where.** On the SAIR competition platform. Teams, problem selection, and submission also take place there.
+- **Invitation only.** Sign up or log in with a SAIR ID that uses the email address your invitation was sent to. Other addresses cannot register.
+- **Terms.** When you register, you accept the Mathathon Terms of Service and Privacy Policy.
+
+## 2. Teams
+
+- **When.** Until Round 1 starts, on Nov 13 at 8:00 PM. From then on, teams are fixed: no one can join, leave, or change teams.
+- **Size.** At most 4 members. You can be on only one team.
+- **Joining a team.** There are four ways to be on a team:
+  - **Your team is already set up.** If you formed a team when you applied to Mathathon, the organizers enter it on the platform for you. You see your team as soon as you log in, and you do not need to do anything.
+  - **Create a team.** You become its Owner, and you can invite others to join.
+  - **Ask to join a team** that has fewer than 4 members. You join once the team accepts your request.
+  - **Accept an invitation** from a team's Owner or Admin.
+- **Roles.** The Owner is the person who created the team, or the person named by the organizers. The Owner can make any member an Admin.
+
+  | | Owner | Admin | Member |
+  |---|---|---|---|
+  | Invite members | ✓ | ✓ | |
+  | Set roles | ✓ | | |
+  | Select or switch the problem (§3) | ✓ | ✓ | |
+  | Submit, replace, or withdraw the submission (§4) | ✓ | ✓ | ✓ |
+
+- **Open Math OS.** Every Mathathon team can have a team edition of [Open Math OS](https://www.openmathmodel.org/), a research workspace with open frontier models and scientific computing tools. Once your team is formed, choose **Apply for a team** on [openmathmodel.org](https://www.openmathmodel.org/).
+
+## 3. Problem selection
+
+- **When.** From Nov 13 at 8:00 PM until the problem selection deadline, **Nov 14 at 11:59 PM**. At that deadline your problem is locked.
+- **Who.** The Owner or an Admin.
+- **One problem.** Your team is signed up for exactly one problem at a time. You present, and are judged on, only that problem.
+- **From the list only.** Only problems on the published problem list are judged.
+- **At most 4 teams per problem.** Places are first come, first served. A problem is full when 4 teams are signed up for it. A full problem cannot be selected until one of its teams switches to another problem.
+- **Switching.** Until the problem selection deadline, you can switch to any problem that is not full. Your old place is released at once.
+- **No problem at the deadline.** If your team has no problem at the problem selection deadline, you will not be assigned a presentation slot, and will not be judged.
+
+## 4. Submission
+
+- **When.** From Nov 13 at 8:00 PM until **Nov 15 at 12:00 PM**.
+- **Who.** Any team member.
+- **What to submit:**
+  - a report, as one `.tex` file and its PDF (required);
+  - slides, as a PDF (required);
+  - supplementary materials (optional);
+  - a Lean project (optional).
+
+  How to prepare each item is in the [Submission Guidelines](submission-guidelines.md).
+- **One submission per team.** Submit either one ZIP file or one GitHub repository link with its full commit hash. Put every item in it. A Lean project must be a repository: if you submit a ZIP file, give the Lean repository's link and full commit hash in the report's title block instead.
+- **Before the deadline,** you can replace your submission, or withdraw it and submit again. The version in place at the deadline is the one that is judged.
+- **After the deadline,** nothing can be submitted or changed, and a missing report gets no LLM review. Submit on time.
+- **Integrity.** The following are violations. Consequences range from a note in the judges' discussion to disqualification.
+  - presenting known work as your own;
+  - calling a claim Lean-verified when it fails the checks, or hiding a mismatch between a formal statement and its claim.
+
+## 5. Presentation
+
+- **When.** Nov 15, from 12:00 PM to 3:30 PM, in six sessions. Your session, time, and room are announced after problems are locked (§3).
+- **Length.** At most 20 minutes of presentation, followed by at most 10 minutes of questions (Q&A).
+- **Judges.** Each presentation has 2 to 5 judges. When possible, at least one of them is an expert in your problem's field. They score the presentation and the Q&A. They may view your report and other materials after scoring your presentation, but before making final decisions.
+- **Questions to expect:**
+  - definitions;
+  - the key step;
+  - what is new and what is already known;
+  - what the AI did, and whether you understand it;
+  - how sure you are of your claims.
+- **How you are judged:**
+  - how judges score your presentation, with the guidelines and the rubric: [Judge Guidelines](../judges/judge-guidelines.md);
+  - how the LLM panel reviews your report: [Judge Rules §4](../judges/judge-rules.md#4-llm-panel).

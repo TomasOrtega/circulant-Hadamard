@@ -1,0 +1,23 @@
+[project]
+name = "circulant-hadamard"
+version = "0.1.0"
+description = "Circulant Hadamard Mathathon submission"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = []
+
+[tool.uv]
+package = false
+
+[tool.ruff]
+target-version = "py313"
+line-length = 88
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[dependency-groups]
+dev = [
+    "prek>=0.5.10",
+    "ruff>=0.17.5",
+]
