@@ -1,0 +1,12 @@
+directories:
+  base: videos/build
+  subdirs:
+    output: rendered
+  cache: videos/.cache
+camera:
+  resolution: (1920, 1080)
+  fps: 30
+  background_color: "#000000"
+text:
+  font: Helvetica
+log_level: WARNING

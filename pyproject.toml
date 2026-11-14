@@ -9,6 +9,9 @@ dependencies = []
 [tool.uv]
 package = false
 
+[tool.uv.sources]
+manimgl = { git = "https://github.com/3b1b/manim.git", rev = "fafa083a4fb274bba9cabde0b6e2f50ba6da0622" }
+
 [tool.ruff]
 target-version = "py313"
 line-length = 88
@@ -20,4 +23,11 @@ select = ["E", "F", "I", "UP", "B"]
 dev = [
     "prek>=0.5.10",
     "ruff>=0.17.5",
+]
+narration = [
+    "google-cloud-texttospeech>=2.38.0",
+]
+video = [
+    "av>=19.0.2",
+    "manimgl>=1.7.2",
 ]

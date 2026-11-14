@@ -21,10 +21,13 @@
 Follow [website/AGENTS.md](website/AGENTS.md) when changing the website's markup,
 styles, or assets.
 
+## Video changes
+
+Follow [videos/AGENTS.md](videos/AGENTS.md) when authoring or changing Manim
+scenes, narration timing, or video rendering.
+
 ## Working conventions
 
-- The development environment is macOS with GNU sed. The GitHub user is
-  `TomasOrtega`.
 - Use `python3` for scripts needing only the standard library; use `uv run` in a
   Python package. `uv run --python VERSION` selects a Python version.
 - Use `prek -a --quiet` for linting, through `uv run` when using this project's
