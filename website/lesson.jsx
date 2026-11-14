@@ -280,11 +280,9 @@ export function LessonPage({ entry, entries }) {
         )}
       </main>
       <footer className="flex flex-col items-center gap-4 bg-alt-white p-8 text-center font-sans text-sm text-dark-gray">
-        <p>A project for the Caltech × SAIR Mathathon.</p>
         <p>
-          Steven Creech · Rutgers University
-          <br />
-          Tomas Ortega · Princeton University
+          A project for the Caltech × SAIR Mathathon, by Steven Creech and
+          Tomas Ortega
         </p>
       </footer>
     </>
