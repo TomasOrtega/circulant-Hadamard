@@ -4,12 +4,11 @@
 
 Steven Creech (Rutgers University) and Tomas Ortega (Princeton University).
 
-- `tex/`: report, slides, and shared bibliography.
-- [tex/assets/](tex/assets/README.md): shared images and diagrams.
-- [rules/](rules/README.md): participant and judge rules.
-- `website/`: project website.
+- [tex/](tex/): report, slides, and shared bibliography.
+- [rules/](rules/): participant and judge rules, taken from the competition website.
+- [website/](website/): project website.
 
-Install uv and a TeX system with `bibtex`, `chktex`, `latexmk`, `latexpand`, and Beamer.
+To build locally, install uv and a TeX system with `bibtex`, `chktex`, `latexmk`, `latexpand`, and Beamer, and run:
 
 ```sh
 uv sync --locked
