@@ -26,12 +26,15 @@ jobs:
     steps:
       - uses: actions/checkout@v7
       - name: Check and build TeX
-        uses: xu-cheng/texlive-action@v3
+        uses: xu-cheng/latex-action@v4
         with:
           texlive_version: 2026
-          run: |
-            make -C tex check
-            make -C tex
+          working_directory: tex
+          pre_compile: make check
+          root_file: |
+            build/report.tex
+            slides.tex
+          args: -pdf -file-line-error -halt-on-error -interaction=nonstopmode -outdir=build
       - uses: actions/upload-artifact@v7
         with:
           name: tex-documents
