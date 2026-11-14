@@ -25,16 +25,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
-      - name: Install TeX
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y --no-install-recommends \
-            chktex latexmk texlive-latex-extra texlive-pictures \
-            texlive-fonts-recommended texlive-extra-utils
-      - name: Check TeX
-        run: make -C tex check
-      - name: Build report and slides
-        run: make -C tex
+      - name: Check and build TeX
+        uses: xu-cheng/texlive-action@v3
+        with:
+          texlive_version: 2026
+          run: |
+            make -C tex check
+            make -C tex
       - uses: actions/upload-artifact@v7
         with:
           name: tex-documents
