@@ -1,6 +1,7 @@
 import { assetRoot, nodeAnchor, hrefFor, findChildEntry } from "./node-tree.js";
 import { DependencyGraph } from "./dependency-graph.jsx";
 import { cutVideo, mediaUrl, formatTime } from "./node-video.js";
+import { renderMarkdown } from "./markdown.js";
 
 const buttonBase =
   "inline-flex max-w-full items-center justify-center gap-2 rounded-md font-sans text-balance no-underline min-h-12 min-w-12 p-3 text-lg";
@@ -137,26 +138,14 @@ function Heading({ id, children }) {
   );
 }
 
-function Matrix({ row }) {
+function Markdown({ script }) {
   return (
-    <div className="overflow-x-auto">
-      <table
-        className="mx-auto font-mono text-xl"
-        aria-label={`Circulant matrix generated from the first row (${row.join(", ")})`}
-      >
-        <tbody>
-          {row.map((_, rowIndex) => (
-            <tr key={rowIndex}>
-              {row.map((_, columnIndex) => (
-                <td key={columnIndex}>
-                  {row[(columnIndex - rowIndex + row.length) % row.length]}
-                </td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+    <div
+      className="flex min-w-0 flex-col gap-8 overflow-x-auto"
+      dangerouslySetInnerHTML={{
+        __html: renderMarkdown(script.join("\n\n")).html,
+      }}
+    />
   );
 }
 
@@ -171,9 +160,7 @@ function ChildNode({ child, entry, entries }) {
       </Heading>
       <div className="grid grid-cols-[minmax(0,1fr)_14rem] items-start gap-12 max-md:grid-cols-1 max-md:gap-8">
         <div className="flex min-w-0 flex-col gap-8">
-          {child.script.map((paragraph) => (
-            <p key={paragraph}>{paragraph}</p>
-          ))}
+          <Markdown script={child.script} />
           <div className="w-full max-w-125 self-center">
             <Media
               video={cutVideo(entry.node, child)}
@@ -258,17 +245,7 @@ export function NodePage({ entry, entries }) {
           <p className="max-w-175 text-center text-lg">{node.summary}</p>
         </section>
         <section>
-          <div className="flex flex-col gap-8">
-            {node.script.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
-            ))}
-            {node.equation && (
-              <p role="math" className="text-center text-2xl">
-                {node.equation}
-              </p>
-            )}
-            {node.exampleRow && <Matrix row={node.exampleRow} />}
-          </div>
+          <Markdown script={node.script} />
           {!!children.length && (
             <nav
               aria-label="Child nodes in this view"

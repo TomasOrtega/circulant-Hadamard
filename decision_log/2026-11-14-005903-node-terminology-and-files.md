@@ -9,7 +9,7 @@
 The user requested separate content files and a standard name at every depth:
 **node**. Split the former content tree into 12 files in
 [website/nodes/](../website/nodes/), starting at
-[overview.js](../website/nodes/overview.js).
+[overview.js](https://github.com/TomasOrtega/circulant-Hadamard/blob/978137b/website/nodes/overview.js).
 
 Use the same vocabulary in the renderer, build, tests, interface, URLs, and
 authoring guide. Record definitions in [GLOSSARY.md](../GLOSSARY.md).
@@ -38,3 +38,6 @@ and passed afterward. The authoring guide and agent instructions were updated.
 
 This records an organizational and terminology choice implemented by Codex.
 The work resumed after an interruption with the user's node-naming request.
+
+Link maintenance (2026-11-14): the former JavaScript node source now links
+to its pre-migration snapshot; the original decision is unchanged.

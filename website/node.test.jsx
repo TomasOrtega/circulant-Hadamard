@@ -7,7 +7,9 @@ import { renderToStaticMarkup } from "react-dom/server";
 import { buildNodes } from "./build-nodes.jsx";
 import { collectNodes, hrefFor, pagePath, nodeAnchor } from "./node-tree.js";
 import { NodePage } from "./node.jsx";
-import rootNode from "./nodes/overview.js";
+import { loadNodes } from "./load-nodes.js";
+
+const rootNode = loadNodes();
 
 const output = mkdtempSync(join(tmpdir(), "circulant-nodes-"));
 const entries = buildNodes({ outDir: output });
@@ -87,6 +89,15 @@ describe("recursive node navigation", () => {
       );
       expect(html).not.toContain("<!-- node-content -->");
       expect(html).not.toContain("{{asset-root}}");
+      const mathStylesheet = html.match(
+        /<link rel="stylesheet" href="([^"]*math\.css)"/,
+      )[1];
+      expect(new URL(mathStylesheet, pathToFileURL(filename)).pathname).toBe(
+        join(output, "math.css"),
+      );
+      expect(readFileSync(join(output, "math.css"), "utf8")).toContain(
+        "mjx-container",
+      );
     }
   });
 });
@@ -135,15 +146,24 @@ describe("node authoring constraints", () => {
   });
 
   test("the displayed order-four example has orthogonal cyclic shifts", () => {
-    const firstRow = entries.find((entry) => entry.node.exampleRow).node
-      .exampleRow;
-    for (let shift = 0; shift < firstRow.length; shift++) {
-      const correlation = firstRow.reduce(
-        (sum, value, position) =>
-          sum + value * firstRow[(position + shift) % firstRow.length],
-        0,
-      );
-      expect(correlation).toBe(shift === 0 ? firstRow.length : 0);
+    const source = entries
+      .find((entry) => entry.node.id === "example")
+      .node.script.join("\n\n");
+    const matrix = source
+      .match(/\\begin\{pmatrix\}([\s\S]*?)\\end\{pmatrix\}/)[1]
+      .trim()
+      .split(/\\\\/)
+      .map((row) => row.trim().split("&").map(Number));
+    expect(matrix).toHaveLength(4);
+    for (let row = 0; row < 4; row++) {
+      expect(matrix[row]).toHaveLength(4);
+      for (let other = 0; other < 4; other++) {
+        const product = matrix[row].reduce(
+          (sum, value, column) => sum + value * matrix[other][column],
+          0,
+        );
+        expect(product).toBe(row === other ? 4 : 0);
+      }
     }
   });
 

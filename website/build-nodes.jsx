@@ -9,15 +9,21 @@ import {
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { renderToStaticMarkup } from "react-dom/server";
-import rootNode from "./nodes/overview.js";
+import { loadNodes } from "./load-nodes.js";
+import { mathStyles } from "./markdown.js";
 import { assetRoot, collectNodes, pagePath } from "./node-tree.js";
 import { NodePage } from "./node.jsx";
 
-export function buildNodes({ outDir = resolve("dist"), root = rootNode } = {}) {
+export function buildNodes({
+  outDir = resolve("dist"),
+  root = loadNodes(),
+} = {}) {
   const entries = collectNodes(root);
+  const stylesheet = mathStyles(entries);
   const template = readFileSync("index.html", "utf8");
   rmSync(resolve(outDir, "lessons"), { recursive: true, force: true });
   rmSync(resolve(outDir, "nodes"), { recursive: true, force: true });
+  mkdirSync(outDir, { recursive: true });
   for (const entry of entries) {
     const title = entry.path.length
       ? `${entry.node.title} · Circulant Hadamard`
@@ -39,6 +45,7 @@ export function buildNodes({ outDir = resolve("dist"), root = rootNode } = {}) {
     mkdirSync(dirname(output), { recursive: true });
     writeFileSync(output, html);
   }
+  writeFileSync(resolve(outDir, "math.css"), stylesheet);
   if (existsSync("media"))
     cpSync("media", resolve(outDir, "media"), { recursive: true });
   return entries;

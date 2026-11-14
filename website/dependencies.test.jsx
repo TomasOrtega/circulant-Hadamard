@@ -1,10 +1,12 @@
 import { describe, expect, test } from "bun:test";
 import { readdirSync } from "node:fs";
 import { renderToStaticMarkup } from "react-dom/server";
-import rootNode from "./nodes/overview.js";
+import { loadNodes } from "./load-nodes.js";
 import { dependencyGraph } from "./dependencies.js";
 import { collectNodes, hrefFor } from "./node-tree.js";
 import { NodePage } from "./node.jsx";
+
+const rootNode = loadNodes();
 import { cutVideo } from "./node-video.js";
 
 const leaf = (id) => ({
@@ -38,9 +40,9 @@ describe("node files and dependency navigation", () => {
     const entries = collectNodes(rootNode);
     expect(
       readdirSync("nodes")
-        .filter((name) => name.endsWith(".js"))
+        .filter((name) => name.endsWith(".md"))
         .sort(),
-    ).toEqual([...new Set(entries.map(({ node }) => `${node.id}.js`))].sort());
+    ).toEqual([...new Set(entries.map(({ node }) => `${node.id}.md`))].sort());
     for (const { node } of entries) {
       expect(node).not.toHaveProperty("chapters");
       expect(node).not.toHaveProperty("paragraphs");

@@ -31,12 +31,18 @@ into static pages. Keep graph, breadcrumb, and parent navigation as ordinary
 links. Limit client JavaScript to playback bounds for native video cuts.
 
 Use the vocabulary in [GLOSSARY.md](../GLOSSARY.md): nodes at every depth.
-Keep one content file per node in [nodes/](nodes/), starting at
-[overview.js](nodes/overview.js). Every view has its own full overview video,
-a dependency graph immediately below it, script-based text, and child previews.
+Keep one Markdown file per node in [nodes/](nodes/), starting at
+[overview.md](nodes/overview.md). Put metadata in YAML frontmatter and prose and
+LaTeX in the body. Child IDs replace code imports; cut scripts use YAML literal
+blocks (`script: |`) and support Markdown and math. Every view has its own full
+overview video, a dependency graph immediately below it, script-based text, and
+child previews.
 Each preview is a timed cut of the parent's video, using the corresponding
 parent-script excerpt; a child's own video is its separate, deeper overview.
 Validate dependency references and cycles, cut bounds, and script content.
+Render inline `$...$` and display `$$...$$` math at build time with MathJax SVG.
+Keep generated math styles in the shared `math.css`; content needs no client
+math renderer. Preserve node paths and parent context when editing the loader.
 Every non-root view must have a visible link back to its direct parent.
 Stop expanding at standard undergraduate prerequisites: `foundation: true`
 nodes must have no children. Keep unfinished proof material visibly marked as

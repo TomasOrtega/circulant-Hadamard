@@ -4,15 +4,18 @@ BUN ?= bun
 FONT_FAMILIES := figtree source-serif-4 sometype-mono
 FONT_FILES := $(addsuffix -latin-wght-normal.woff2,$(FONT_FAMILIES))
 FONT_LICENSES := $(addsuffix -OFL.txt,$(FONT_FAMILIES))
-NODE_SOURCES := $(wildcard nodes/*.js)
+NODE_SOURCES := $(wildcard nodes/*.md)
 
-all: dist/index.html dist/styles.css dist/video-player.js dist/3b1b-source.md dist/tailwindcss-LICENSE.txt $(addprefix dist/fonts/,$(FONT_FILES) $(FONT_LICENSES))
+all: dist/index.html dist/styles.css dist/math.css dist/video-player.js dist/3b1b-source.md dist/tailwindcss-LICENSE.txt dist/mathjax-LICENSE.txt $(addprefix dist/fonts/,$(FONT_FILES) $(FONT_LICENSES))
 
 node_modules/.installed: package.json bun.lock
 	$(BUN) install --frozen-lockfile --ignore-scripts
 	touch $@
 
-dist/index.html: index.html $(NODE_SOURCES) node-tree.js node.jsx dependencies.js dependency-graph.jsx node-video.js build-nodes.jsx node_modules/.installed $(wildcard media/*)
+dist/index.html: index.html $(NODE_SOURCES) load-nodes.js markdown.js node-tree.js node.jsx dependencies.js dependency-graph.jsx node-video.js build-nodes.jsx node_modules/.installed $(wildcard media/*)
+	$(BUN) run --bun build:nodes
+
+dist/math.css: dist/index.html
 	$(BUN) run --bun build:nodes
 
 dist/styles.css: styles.css vendor/3b1b.css index.html node.jsx dependency-graph.jsx node_modules/.installed
@@ -30,6 +33,10 @@ dist/3b1b-source.md: vendor/README.md
 dist/tailwindcss-LICENSE.txt: node_modules/.installed
 	mkdir -p dist
 	cp node_modules/tailwindcss/LICENSE $@
+
+dist/mathjax-LICENSE.txt: node_modules/.installed
+	mkdir -p dist
+	cp node_modules/mathjax-full/LICENSE $@
 
 dist/fonts/%-latin-wght-normal.woff2: node_modules/.installed
 	mkdir -p dist/fonts

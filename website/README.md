@@ -5,47 +5,67 @@ Serve `website/dist/` with a static HTTP server to preview the site. React
 pre-renders every node; graph links, breadcrumbs, and parent buttons work
 without a client router. Native video cuts use a small playback controller.
 
-## One file per node
+## One Markdown file per node
 
-Edit the files in [nodes/](nodes/), starting at [overview.js](nodes/overview.js).
-Each file exports one node and imports its child nodes. Use **node** at every
-level; name each file `<id>.js`. The shared vocabulary is in
-[GLOSSARY.md](../GLOSSARY.md).
+Edit the `.md` files in [nodes/](nodes/), starting at
+[overview.md](nodes/overview.md). Use **node** at every level and name each file
+`<id>.md`. The shared vocabulary is in [GLOSSARY.md](../GLOSSARY.md).
 
-A node defines its `id`, `title`, `shortTitle`, `summary`, `video`, `script`, and
-`children`. Each child entry links a node to a cut from this parent's video:
+Each file begins with YAML frontmatter, followed by its written script and
+explanation in Markdown. Node references use IDs rather than JavaScript imports:
 
-```js
-import detail from "./detail.js";
+```markdown
+---
+id: overview
+title: The proof at a glance
+shortTitle: Overview
+summary: The route through the argument.
+video:
+  src: media/overview.mp4
+  duration: 1200
+children:
+  - node: question
+    dependsOn: []
+    segment: { start: 90, end: 210 }
+    script: |
+      The corresponding cut introduces a sign matrix $H$.
 
-export default {
-  id: "overview",
-  title: "The proof at a glance",
-  shortTitle: "Overview",
-  summary: "The route through the argument.",
-  video: { src: "media/overview.mp4", duration: 1200 },
-  script: ["The written introduction follows the opening narration."],
-  children: [
-    {
-      node: detail,
-      dependsOn: [],
-      segment: { start: 90, end: 210 },
-      script: ["A written explanation following this cut's narration."],
-    },
-  ],
-};
+      Its rows should satisfy
+
+      $$
+      H H^{\mathsf{T}} = n I_n.
+      $$
+---
+
+The full written explanation follows the overview's narration.
+
+For a sign matrix $H$, the Hadamard condition is
+
+$$
+H H^{\mathsf{T}} = n I_n.
+$$
 ```
 
-`script` is the draft narration outline and its readable written explanation.
-It need not be a word-for-word transcript. The parent file owns the script
-excerpt for each cut; the child's own file owns the deeper explanation.
-Display order follows the overview's narrative. Node IDs must be stable slugs.
-Reusing a node file under multiple parents keeps each view's own breadcrumbs,
-back button, and graph links.
+`id` defaults to the filename and must match it when supplied. `shortTitle` and
+`summary` default to `title`; use plain text for those metadata fields. Omitted
+`video` and `children` default to an empty slot and an empty list. A new node
+needs a title and a nonempty Markdown body.
+
+The body supports headings, emphasis, lists, links, tables, and LaTeX math.
+Write inline math as `$...$` and display math between `$$` lines. Ordinary
+LaTeX backslashes need no JavaScript escaping. MathJax generates SVG at build
+time, with shared styles in `math.css`. No client-side math script is needed.
+Malformed YAML, missing node references, and malformed equations fail the build.
+
+The body is the node's readable script and explanation, rather than a required
+verbatim transcript. The parent file owns each cut's `script` as an indented
+Markdown literal block (`|`); the child's own file owns the deeper explanation.
+Display order follows the overview's narrative. Reused node IDs preserve each
+view's own breadcrumbs, back button, and graph links.
 
 Mark undergraduate prerequisites with `foundation: true` and no children. The
 build rejects deeper expansion of a foundation. Keep unfinished proof nodes
-marked `draft: true`. The supplied script outlines are drafts, and the proof
+marked `draft: true`. The supplied narration outlines are drafts, and the proof
 argument and videos still await the team's material.
 
 ## Dependency graph
@@ -63,20 +83,24 @@ scroll horizontally on small screens. The initial dependency maps are drafts.
 ## One long video per node
 
 Every node owns a full overview video. Its children's preview players use cuts
-of that same source, rather than independent uploads. Opening a child shows its
-own long, more detailed overview, with cuts for its children in turn.
+of that same source. Opening a child shows its own long, more detailed overview,
+with cuts for its children in turn.
 
-Configure a node's `video` once:
+Use `youtubeId: YOUR_VIDEO_ID` for YouTube or `src` for a hosted/local file.
+The optional `duration` gives the full length in seconds. A local example:
 
-- YouTube: `{ youtubeId: "YOUR_VIDEO_ID", duration: 1200 }`.
-- Hosted file: `{ src: "https://example.com/overview.mp4", duration: 1200 }`.
-- Local file: `{ src: "media/overview.mp4", captions: "media/overview.vtt", duration: 1200 }`.
+```yaml
+video:
+  src: media/overview.mp4
+  captions: media/overview.vtt
+  duration: 1200
+```
 
 Put local media under `website/media/`; it is copied into the build. Relative
-paths work at every depth. `duration`, `segment.start`, and `segment.end` are
-seconds from the start of the parent's full video. YouTube IDs have 11
-characters and its cut times use whole seconds. File videos allow fractional
-seconds. A cut must have `0 <= start < end`, within the duration when supplied.
+paths work at every depth. `segment.start` and `segment.end` are seconds from
+the start of the parent's full video. YouTube IDs have 11 characters and its
+cut times use whole seconds. File videos allow fractional seconds. A cut must
+have `0 <= start < end`, within the duration when supplied.
 
 Leave `video` or `segment` as `null` until the source or timing is known. An
 unset cut stays an empty slot even if its parent's full video is available.
@@ -87,5 +111,5 @@ and a small controller that stops at the end, bounds seeking, and restarts the
 cut on replay. Full overviews keep ordinary controls. Videos never autoplay.
 
 The shared renderer is [node.jsx](node.jsx), with the pinned
-[3Blue1Brown styling](vendor/README.md). The dependency graph is in
-[dependency-graph.jsx](dependency-graph.jsx).
+[3Blue1Brown styling](vendor/README.md). Parsing and math rendering are in
+[load-nodes.js](load-nodes.js) and [markdown.js](markdown.js).

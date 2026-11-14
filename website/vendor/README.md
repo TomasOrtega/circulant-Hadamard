@@ -21,3 +21,5 @@ adapted for this project's static recursive nodes.
 The upstream repository has no license file at this revision; this copy does
 not assign a license to their work. Tailwind's MIT license and the Fontsource
 fonts' SIL Open Font Licenses are included in the built website.
+Build-time math rendering uses MathJax; its Apache license is included as
+`mathjax-LICENSE.txt` alongside the generated SVG and shared math styles.
