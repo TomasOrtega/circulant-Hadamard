@@ -7,7 +7,7 @@ Steven Creech (Rutgers University) and Tomas Ortega (Princeton University).
 - [tex/](tex/): report, slides, and shared bibliography.
 - [rules/](rules/): participant and judge rules, taken from the competition website.
 - [website/](website/): project website.
-- [website/README.md](website/README.md): node, dependency, and video authoring.
+- [website](website): node, dependency, and video authoring.
 - [GLOSSARY.md](GLOSSARY.md): the proof exposition's shared vocabulary.
 - [decision_log/](decision_log/): timestamped decisions and evidence for the report.
 
