@@ -166,7 +166,8 @@ Every view starts with its video. Views with proof children, or with proof
 siblings, follow it with a collapsed “Show the proof map” dropdown. All graphs
 use the same native disclosure. Expanded proof nodes present the written
 exposition across the full child-section width, with a neutral “Dig in deeper”
-button directly below each heading, left-aligned with the text and a small gap.
+button in a right-aligned row directly below each heading, with a small gap and
+the child-node count to the right of the button.
 On the main overview, the Markdown body gives the definitions, example, and
 theorem. Use Markdown blockquotes with bold labels and italic statements for
 boxed theorems, lemmas, and propositions. The shared renderer supplies the

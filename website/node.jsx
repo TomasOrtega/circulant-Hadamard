@@ -159,28 +159,30 @@ function ChildNode({ child, entry, entries }) {
   const count = node.children?.length ?? 0;
   return (
     <section id={nodeAnchor(node)} className="width-lg">
-      <header className="flex flex-col items-start gap-4">
+      <header className="flex flex-col gap-4">
         <h2>
           <hr />
           <span>{node.number ? `${node.number}. ` : ""}{node.title}</span>
           <hr />
         </h2>
-        <NodeButton
-          href={hrefFor(target, entry)}
-          aria-label={`Dig in deeper: ${node.title}`}
-        >
-          Dig in deeper <span aria-hidden="true">→</span>
-        </NodeButton>
+        <div className="flex items-center justify-end gap-4">
+          <NodeButton
+            href={hrefFor(target, entry)}
+            aria-label={`Dig in deeper: ${node.title}`}
+          >
+            Dig in deeper <span aria-hidden="true">→</span>
+          </NodeButton>
+          <p className="font-sans text-sm text-dark-gray">
+            {node.blackBox
+              ? `Accepted black box · ${node.blackBox}`
+              : node.foundation
+              ? "Undergraduate foundation"
+              : count
+                ? `${count} child nodes`
+                : "Statement ready · video script pending"}
+          </p>
+        </div>
       </header>
-      <p className="font-sans text-sm text-dark-gray">
-        {node.blackBox
-          ? `Accepted black box · ${node.blackBox}`
-          : node.foundation
-          ? "Undergraduate foundation"
-          : count
-            ? `${count} child nodes`
-            : "Statement ready · video script pending"}
-      </p>
       <Markdown script={child.script} />
       {phaseExplorerStages[node.id] && <PhaseExplorer
         id={`phase-${node.id}`}
