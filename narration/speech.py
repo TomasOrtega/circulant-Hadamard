@@ -3,9 +3,9 @@ import io
 import json
 import math
 import os
-import re
 import tempfile
 import wave
+import xml.etree.ElementTree as ET
 from contextlib import contextmanager
 from dataclasses import asdict, dataclass
 from pathlib import Path
@@ -13,6 +13,14 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_CACHE = ROOT / "narration" / ".cache"
 MAX_REQUEST_BYTES = 4500
+GEMINI_REQUEST_BYTES = 4000
+GEMINI_MODELS = ("gemini-2.5-flash-tts", "gemini-2.5-pro-tts")
+GEMINI_PROMPT = (
+    "Read this mathematics explanation in clear US English at a natural, brisk "
+    "conversational pace, about 175 words per minute. Use ordinary sentence rhythm "
+    "and short natural pauses. Speak only the supplied text. "
+    "Use an even, matter-of-fact tone throughout."
+)
 
 
 @dataclass(frozen=True)
@@ -21,39 +29,26 @@ class Voice:
     language_code: str = "en-US"
     sample_rate: int = 44100
     speaking_rate: float = 1.0
+    model_name: str = ""
 
     def __post_init__(self):
         if not math.isfinite(self.speaking_rate) or not 0.25 <= self.speaking_rate <= 2:
             raise ValueError("Speaking rate must be between 0.25 and 2.0.")
         if self.sample_rate <= 0:
             raise ValueError("Sample rate must be positive.")
+        if self.model_name:
+            if self.model_name not in GEMINI_MODELS:
+                raise ValueError(f"Unsupported expressive model: {self.model_name}")
+            if self.name != "Achird":
+                raise ValueError("Gemini narration uses the short voice name Achird.")
+            if self.speaking_rate != 1:
+                raise ValueError("Gemini pacing is set by the shared narration prompt.")
 
 
 @dataclass(frozen=True)
 class AudioClip:
     path: Path
     duration: float
-
-
-def split_text(text, limit=MAX_REQUEST_BYTES):
-    remaining = text.strip()
-    if not remaining:
-        raise ValueError("Narration text is empty.")
-    chunks = []
-    while len(remaining.encode("utf-8")) > limit:
-        prefix = remaining.encode("utf-8")[:limit].decode("utf-8", errors="ignore")
-        boundaries = (
-            list(re.finditer(r"\n\s*\n", prefix))
-            or list(re.finditer(r"(?<=[.!?])\s+", prefix))
-            or list(re.finditer(r"\s+", prefix))
-        )
-        if not boundaries:
-            raise ValueError(f"A narration word exceeds the {limit}-byte limit.")
-        end = boundaries[-1].start()
-        chunks.append(remaining[:end].strip())
-        remaining = remaining[end:].lstrip()
-    chunks.append(remaining)
-    return chunks
 
 
 @contextmanager
@@ -90,23 +85,77 @@ def read_pcm(data, sample_rate):
 
 class Narrator:
     def __init__(
-        self, *, cache_dir=DEFAULT_CACHE, voice=Voice(), project=None, offline=False
+        self,
+        *,
+        cache_dir=DEFAULT_CACHE,
+        voice=Voice(),
+        project=None,
+        offline=False,
+        ssml=False,
     ):
+        if ssml and voice.model_name:
+            raise ValueError("SSML input requires a Chirp voice.")
         self.cache_dir = Path(cache_dir)
         self.voice = voice
         self.project = project or os.environ.get("GOOGLE_CLOUD_PROJECT")
         self.offline = offline
+        self.ssml = ssml
         self._client = None
 
+    def validate_text(self, text):
+        text = text.strip()
+        if not text:
+            raise ValueError("Narration text is empty.")
+        limit = GEMINI_REQUEST_BYTES if self.voice.model_name else MAX_REQUEST_BYTES
+        if len(text.encode("utf-8")) > limit:
+            raise ValueError(
+                f"Narration must fit in one {limit}-byte request. "
+                "Shorten the script or make separate videos."
+            )
+        if self.ssml:
+            try:
+                root = ET.fromstring(text)
+            except ET.ParseError as error:
+                raise ValueError("Narration SSML must be well-formed XML.") from error
+            if root.tag.rsplit("}", 1)[-1] != "speak":
+                raise ValueError("Narration SSML requires a <speak> root.")
+            if not "".join(root.itertext()).strip():
+                raise ValueError("Narration SSML contains no spoken text.")
+            if any(
+                element.tag.rsplit("}", 1)[-1] == "voice" for element in root.iter()
+            ):
+                raise ValueError(
+                    "Narration SSML must keep the selected voice throughout."
+                )
+        if (
+            self.voice.model_name
+            and len(GEMINI_PROMPT.encode("utf-8")) > GEMINI_REQUEST_BYTES
+        ):
+            raise ValueError("Gemini delivery prompt exceeds the 4000-byte limit.")
+        return text
+
     def cache_path(self, text):
-        settings = {"version": 1, "text": text.strip(), "voice": asdict(self.voice)}
+        text = self.validate_text(text)
+        voice = asdict(self.voice)
+        if not self.voice.model_name:
+            # Preserve the approved Chirp recording's existing cache identity.
+            voice.pop("model_name")
+        settings = {"version": 1, "text": text, "voice": voice}
+        if self.voice.model_name or self.ssml:
+            settings.update(
+                version=2,
+                provider="google-cloud-tts",
+                input_kind="ssml" if self.ssml else "text",
+            )
+        if self.voice.model_name:
+            settings["prompt"] = GEMINI_PROMPT
         digest = hashlib.sha256(
             json.dumps(settings, sort_keys=True).encode()
         ).hexdigest()
         return self.cache_dir / f"{digest}.wav"
 
     def import_audio(self, text, source):
-        split_text(text)
+        self.validate_text(text)
         return self._store_audio(text, Path(source).read_bytes())
 
     def _store_audio(self, text, data):
@@ -117,7 +166,7 @@ class Narrator:
         return AudioClip(target, len(frames) / (2 * self.voice.sample_rate))
 
     def audio(self, text):
-        chunks = split_text(text)
+        text = self.validate_text(text)
         target = self.cache_path(text)
         if target.is_file():
             frames = read_pcm(target.read_bytes(), self.voice.sample_rate)
@@ -127,21 +176,7 @@ class Narrator:
                 "This narration is not cached. Generate it once with Google "
                 "credentials, then use offline previews."
             )
-        if len(chunks) == 1:
-            data = self._synthesize(chunks[0])
-            return self._store_audio(text, data)
-        parts = [self.audio(chunk) for chunk in chunks]
-        with (
-            atomic_output(target) as temporary,
-            wave.open(str(temporary), "wb") as output,
-        ):
-            output.setnchannels(1)
-            output.setsampwidth(2)
-            output.setframerate(self.voice.sample_rate)
-            for part in parts:
-                frames = read_pcm(part.path.read_bytes(), self.voice.sample_rate)
-                output.writeframesraw(frames)
-        return AudioClip(target, sum(part.duration for part in parts))
+        return self._store_audio(text, self._synthesize(text))
 
     def _synthesize(self, text):
         try:
@@ -156,16 +191,22 @@ class Narrator:
             if self._client is None:
                 options = {"quota_project_id": self.project} if self.project else None
                 self._client = texttospeech.TextToSpeechClient(client_options=options)
+            voice = {"name": self.voice.name, "language_code": self.voice.language_code}
+            audio_config = {
+                "audio_encoding": texttospeech.AudioEncoding.LINEAR16,
+                "sample_rate_hertz": self.voice.sample_rate,
+            }
+            if self.voice.model_name:
+                voice["model_name"] = self.voice.model_name
+            else:
+                audio_config["speaking_rate"] = self.voice.speaking_rate
+            synthesis_input = {"ssml" if self.ssml else "text": text}
+            if self.voice.model_name:
+                synthesis_input["prompt"] = GEMINI_PROMPT
             response = self._client.synthesize_speech(
-                input=texttospeech.SynthesisInput(text=text),
-                voice=texttospeech.VoiceSelectionParams(
-                    name=self.voice.name, language_code=self.voice.language_code
-                ),
-                audio_config=texttospeech.AudioConfig(
-                    audio_encoding=texttospeech.AudioEncoding.LINEAR16,
-                    sample_rate_hertz=self.voice.sample_rate,
-                    speaking_rate=self.voice.speaking_rate,
-                ),
+                input=texttospeech.SynthesisInput(**synthesis_input),
+                voice=texttospeech.VoiceSelectionParams(**voice),
+                audio_config=texttospeech.AudioConfig(**audio_config),
                 retry=None,
                 timeout=120,
             )

@@ -1,10 +1,12 @@
 # ManimGL videos with Achird narration
 
-Scenes inherit from [NarratedScene](narrated_scene.py), which generates Google
-Cloud Achird audio, caches it, and adds it to the ManimGL timeline. Each
-narration block waits for its audio to finish before the next block starts.
-The shared voice is `en-US-Chirp3-HD-Achird`, at the auditioned default pace
-and 44,100 Hz. Its settings live in [speech.py](../narration/speech.py).
+Each scene uses one continuous recording of its complete script. Generate the
+take first, then time the animations to it. Keep delivery natural and neutral,
+with sparse emphasis on the main insight. Agent guidance is in [AGENTS.md](AGENTS.md).
+
+The shared default is `en-US-Chirp3-HD-Achird` at normal pace and 44,100 Hz.
+The demo uses the approved Chirp SSML take, with a break before the zero result.
+Settings and caching live in [speech.py](../narration/speech.py).
 
 ## Install and preview
 
@@ -14,36 +16,38 @@ and a TeX installation with `latex` and `dvisvgm` are needed:
 ```sh
 brew install ffmpeg pango pkgconf
 uv sync --locked --group narration --group video
+make -C videos seed
 make -C videos preview
 ```
 
-The preview imports the [approved Achird recording](../narration/achird-math-sample.wav)
-into the cache and renders [AchirdDemo](achird_demo.py) offline. It makes no
-Google API calls. The output is `videos/build/rendered/AchirdDemo.mp4`.
+`seed` imports the [approved recording](../narration/achird-demo.wav) for
+[the full SSML script](../narration/achird-demo.ssml), writing
+`narration/build/achird-demo-ssml.wav`. `preview` seeds the cache automatically
+and renders offline to `videos/build/rendered/AchirdDemo.mp4`. This demo needs
+no Google credentials or new synthesis; its accepted recording is versioned.
+Keep the versioned WAV paired with the SSML that produced it.
 
 The project uses **3Blue1Brown's ManimGL**, pinned to an upstream commit in
-`pyproject.toml` and `uv.lock`. PyAV is an explicit dependency because that
-revision imports it without declaring it. The unchanged upstream
-[animation guide and license](reference/README.md) are included locally.
-Project conventions are in [AGENTS.md](AGENTS.md).
+`pyproject.toml` and `uv.lock`. PyAV is explicit because that revision imports it
+without declaring it. The unchanged upstream [animation guide and license](reference/README.md)
+are included locally. The [original Chirp recording](../narration/achird-math-sample.wav)
+and its [script](../narration/achird-math-sample.txt) remain the voice baseline.
 
 ## Authenticate once for new narration
 
-Cloud Text-to-Speech is already enabled in the selected Google project.
-Install the [Google Cloud CLI](https://docs.cloud.google.com/sdk/docs/install-sdk)
-if it is unavailable, then authenticate from the repository root:
+Cloud Text-to-Speech is already enabled in the selected Google project. Install
+the [Google Cloud CLI](https://docs.cloud.google.com/sdk/docs/install-sdk), then:
 
 ```sh
 gcloud auth application-default login
 gcloud auth application-default set-quota-project YOUR_PROJECT_ID
 ```
 
-Google stores these application credentials in your user configuration, outside
-the repository. The SDK uses them automatically; an API key or service-account
-JSON file is unnecessary for this local workflow. You can set
-`GOOGLE_CLOUD_PROJECT` to choose a different quota project.
+Credentials stay in your Google configuration, outside this repository. Set
+`GOOGLE_CLOUD_PROJECT` to select another quota project. Gemini also requires
+`aiplatform.endpoints.predict`, normally through `roles/aiplatform.user`.
 
-## Write a narrated scene
+## Write and time a scene
 
 ```python
 from manimlib import Tex, Write
@@ -53,47 +57,83 @@ from videos.narrated_scene import NarratedScene
 
 class Orthogonality(NarratedScene):
     def construct(self):
-        equation = Tex(r"H H^{\mathsf{T}} = n I_n")
-        with self.narrate(
-            "H times H transpose equals n times the identity matrix."
-        ) as audio:
-            self.play(Write(equation), run_time=min(3, audio.duration))
+        script = (
+            "The rows are orthogonal. H times H transpose equals n times "
+            "the identity matrix."
+        )
+        with self.narrate(script):
+            self.play(Write(Tex(r"H H^{\mathsf{T}} = n I_n")), run_time=1)
+            self.wait_until_narration(4.2)
 ```
 
-Write spoken mathematics in the narration, and LaTeX in `Tex` objects. Use
-separate narration blocks to synchronize different parts of an explanation.
-Audio starts at the block's entry; any remaining narration plays before the
-block exits. Animations that last longer keep their full duration.
+Use exactly one `narrate(full_script)` block per scene. A second or nested call
+raises an error before synthesis. Audio starts at block entry; the block waits
+for remaining speech, and longer animations retain their duration.
+`wait_until_narration(seconds)` waits until an offset from that same audio start.
+It schedules visuals while the recording continues. Measure cue times from the
+finished take, as in [AchirdDemo](achird_demo.py).
 
-Render a new scene from the repository root:
+To opt into Gemini, set the scene's voice once:
+
+```python
+from narration.speech import Voice
+
+narration_voice = Voice(name="Achird", model_name="gemini-2.5-pro-tts")
+```
+
+The complete script must fit one synthesis request: 4,500 UTF-8 bytes for Chirp,
+4,000 for Gemini. Oversized scripts fail before an API call; shorten the scene
+or make separate videos. Speech is never automatically split and stitched.
+Gemini uses one style prompt for the whole take, documented by the
+[Google TTS guide](https://docs.cloud.google.com/text-to-speech/docs/gemini-tts).
+Listen for clear wording and a consistent voice; automatic transcripts are only
+supporting evidence.
+
+## Render and check
 
 ```sh
 make -C videos render SOURCE=videos/orthogonality.py SCENE=Orthogonality
-```
-
-`render` writes 1080p at 30 fps; `render-4k` writes 4K at 30 fps. The Make
-commands invoke `python -m manimlib`, ManimGL's module entry point, so project
-imports resolve consistently. [custom_config.yml](../custom_config.yml)
-controls the black background, fonts, output directory, and ManimGL caches.
-
-Unchanged text and voice settings reuse cached WAVs. Set `NARRATION_OFFLINE=1`
-when iterating on visuals to require cached audio. Google receives text only
-when the cache lacks the requested narration. Longer text is split at paragraph,
-sentence, or word boundaries below Google's per-request byte limit; completed
-chunks survive a failed request. [Google's usage pricing](https://cloud.google.com/text-to-speech/pricing)
-applies to new synthesis requests.
-
-You can also generate audio independently:
-
-```sh
-uv run --locked --group narration python -m narration narration/achird-math-sample.txt --dry-run
-uv run --locked --group narration python -m narration narration/achird-math-sample.txt --output narration/build/sample.wav
 make -C videos check
 ```
 
-Keep render output under `videos/build/`. Once a full node video is approved,
-copy it to `website/media/<node-id>.mp4` and set that node's `video.src` and
-actual `duration` in `website/nodes/<node-id>.md`. Parent previews use timed
-cuts of the parent's video; measure those bounds from the finished render.
-The audition scene is an example, and the website's unfinished video slots
-remain available for the team's completed material.
+`render` writes 1080p at 30 fps; `render-4k` writes 4K at 30 fps. Commands use
+`python -m manimlib` from the repository root so imports resolve consistently.
+[custom_config.yml](../custom_config.yml) controls appearance and build directories.
+
+Set `NARRATION_OFFLINE=1` when iterating on visuals. Cached takes are identified
+by their complete script, voice, model, and style prompt; animation cue edits
+reuse the same recording. Google receives the script and style prompt only when
+that take is absent. [Google's usage pricing](https://cloud.google.com/text-to-speech/pricing)
+applies to new synthesis.
+
+The speech CLI also accepts full scripts:
+
+```sh
+uv run --locked --group narration python -m narration narration/achird-demo.ssml --ssml --dry-run
+uv run --locked --group narration python -m narration narration/achird-demo.ssml --ssml --output narration/build/demo.wav
+```
+
+## Chirp SSML pauses
+
+[achird-demo.ssml](../narration/achird-demo.ssml) uses the default Chirp Achird
+voice and requests an 800 ms break before the zero result, in one continuous take.
+To synthesize a new SSML recording when needed:
+
+```sh
+uv run --locked --group narration python -m narration narration/achird-demo.ssml --ssml --output narration/build/achird-demo-ssml.wav
+```
+
+`--ssml` sends the complete XML through `input.ssml`. SSML and plain text have
+separate cache identities; changing a break duration generates a new take.
+Malformed XML, empty scripts, and SSML voice changes fail before a request.
+SSML is available for Chirp, and is rejected with `--model` Gemini options.
+Google documents synchronous Chirp SSML as
+[Preview](https://docs.cloud.google.com/text-to-speech/docs/chirp3-hd#chirp_3_hd_ssml_support).
+Listen to changed narration before retiming the video. A scene using SSML
+sets `narration_ssml = True` and passes the complete `<speak>` document to its
+single `narrate()` block.
+
+Keep generated video under `videos/build/`. After a full node video is approved,
+copy it to `website/media/<node-id>.mp4` and set its `video.src` and actual
+`duration` in `website/nodes/<node-id>.md`. Parent previews use measured cuts of
+that finished video. The demo does not replace unfinished website video slots.

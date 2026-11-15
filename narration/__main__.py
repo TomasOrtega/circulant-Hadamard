@@ -2,10 +2,16 @@ import argparse
 import sys
 from pathlib import Path
 
-from narration.speech import DEFAULT_CACHE, Narrator, Voice, atomic_output, split_text
+from narration.speech import (
+    DEFAULT_CACHE,
+    GEMINI_MODELS,
+    Narrator,
+    Voice,
+    atomic_output,
+)
 
 
-def main():
+def main(argv=None):
     parser = argparse.ArgumentParser(
         description="Generate cached Google Achird narration."
     )
@@ -14,6 +20,10 @@ def main():
     parser.add_argument("--project", help="Google Cloud quota/billing project ID")
     parser.add_argument("--cache-dir", type=Path, default=DEFAULT_CACHE)
     parser.add_argument("--rate", type=float, default=1.0)
+    parser.add_argument("--model", choices=GEMINI_MODELS, help="Opt into Gemini Achird")
+    parser.add_argument(
+        "--ssml", action="store_true", help="Read the script as Chirp SSML"
+    )
     parser.add_argument(
         "--offline", action="store_true", help="Use existing audio only"
     )
@@ -25,25 +35,28 @@ def main():
         type=Path,
         help="Cache a WAV already generated with these settings",
     )
-    args = parser.parse_args()
+    args = parser.parse_args(argv)
     try:
         text = args.script.read_text().strip()
-        chunks = split_text(text)
         narrator = Narrator(
-            voice=Voice(speaking_rate=args.rate),
+            voice=Voice(
+                name="Achird" if args.model else "en-US-Chirp3-HD-Achird",
+                model_name=args.model or "",
+                speaking_rate=args.rate,
+            ),
             project=args.project,
             cache_dir=args.cache_dir,
             offline=args.offline,
+            ssml=args.ssml,
         )
+        narrator.validate_text(text)
         if args.output and args.output.resolve() == args.script.resolve():
             raise ValueError("Audio output must differ from the script path.")
         if args.output and args.output.suffix.lower() != ".wav":
             raise ValueError("Audio output must use the .wav extension.")
         if args.dry_run:
             pending = (
-                0
-                if narrator.cache_path(text).is_file()
-                else sum(not narrator.cache_path(chunk).is_file() for chunk in chunks)
+                0 if args.import_audio else int(not narrator.cache_path(text).is_file())
             )
             print(
                 f"{narrator.voice.name}: {len(text)} characters, "

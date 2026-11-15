@@ -6,7 +6,7 @@ export MPLCONFIGDIR := $(abspath .cache/matplotlib)
 .PHONY: seed preview render render-4k check
 
 seed:
-	cd .. && $(UV) python -m narration narration/achird-math-sample.txt --import-audio narration/achird-math-sample.wav
+	cd .. && $(UV) python -m narration.demo
 
 preview: seed
 	cd .. && NARRATION_OFFLINE=1 $(UV) python -m manimlib $(SOURCE) $(SCENE) -w -l --fps 15

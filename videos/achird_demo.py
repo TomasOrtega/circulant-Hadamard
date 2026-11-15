@@ -1,5 +1,3 @@
-from pathlib import Path
-
 from manimlib import (
     BLUE_C,
     DOWN,
@@ -21,12 +19,19 @@ from manimlib import (
     Write,
 )
 
+from narration.demo import DEMO_TEXT, DEMO_VOICE
 from videos.narrated_scene import NarratedScene
 
-SAMPLE_SCRIPT = (
-    Path(__file__).resolve().parents[1] / "narration" / "achird-math-sample.txt"
-)
 FIRST_ROW = (-1, 1, 1, 1)
+# Offsets measured from the continuous recording.
+DEMO_CUES = {
+    "entries": 2.5,
+    "products": 5.25,
+    "orthogonal": 10.1,
+    "shifts": 14.05,
+    "identity": 16.95,
+    "correlations": 21.1,
+}
 
 
 def circulant_rows(first_row):
@@ -34,6 +39,9 @@ def circulant_rows(first_row):
 
 
 class AchirdDemo(NarratedScene):
+    narration_voice = DEMO_VOICE
+    narration_ssml = True
+
     def construct(self):
         title = Text("The circulant Hadamard conjecture", font_size=38).to_edge(UP)
         rows = circulant_rows(FIRST_ROW)
@@ -58,7 +66,8 @@ class AchirdDemo(NarratedScene):
             SurroundingRectangle(matrix.get_rows()[0], color=YELLOW, buff=0.12),
             SurroundingRectangle(matrix.get_rows()[1], color=YELLOW, buff=0.12),
         )
-        dot_product = Tex(r"(-1)(1)+(1)(-1)+(1)(1)+(1)(1)", "=0")
+        products = r"(-1)(1)+(1)(-1)+(1)(1)+(1)(1)"
+        dot_product = Tex(products, "=0")
         dot_product.scale(0.54).move_to(RIGHT * 3.1 + UP * 0.6)
         dot_label = Text("Different rows are orthogonal", font_size=22)
         dot_label.next_to(dot_product, UP, buff=0.35)
@@ -71,22 +80,32 @@ class AchirdDemo(NarratedScene):
         correlation_label = Text("One row. All cyclic correlations.", font_size=27)
         correlation_label.to_edge(DOWN, buff=0.55)
 
-        with self.narrate(SAMPLE_SCRIPT.read_text()):
-            self.play(FadeIn(title), run_time=1.2)
-            self.wait(1.8)
-            self.play(FadeIn(matrix), Write(matrix_label), run_time=2.5)
-            self.play(Write(sign_label), run_time=1.2)
+        with self.narrate(DEMO_TEXT):
+            self.play(FadeIn(title), run_time=1)
+
+            self.wait_until_narration(DEMO_CUES["entries"])
+            self.play(FadeIn(matrix), Write(matrix_label), run_time=1.3)
+            self.play(Write(sign_label), run_time=0.5)
+
+            self.wait_until_narration(DEMO_CUES["products"])
             self.play(
                 FadeIn(row_highlights),
-                FadeIn(dot_label),
-                Write(dot_product),
-                run_time=1.8,
+                Write(dot_product.get_part_by_tex(products)),
+                run_time=1,
             )
-            self.wait(2)
+
+            self.wait_until_narration(DEMO_CUES["orthogonal"])
             self.play(
-                FadeOut(VGroup(row_highlights, dot_label, dot_product)), run_time=0.5
+                Write(dot_product.get_part_by_tex("=0")),
+                FadeIn(dot_label),
+                run_time=0.6,
             )
-            self.play(FadeIn(shift_label), run_time=0.5)
+
+            self.wait_until_narration(DEMO_CUES["shifts"])
+            self.play(
+                FadeOut(VGroup(row_highlights, dot_label, dot_product)), run_time=0.4
+            )
+            self.play(FadeIn(shift_label), run_time=0.3)
             for index in range(1, 4):
                 previous = matrix.get_rows()[index - 1].copy().set_color(YELLOW)
                 target = matrix.get_rows()[index].copy().set_color(YELLOW)
@@ -99,9 +118,20 @@ class AchirdDemo(NarratedScene):
                         )
                         for column in range(4)
                     ),
-                    run_time=0.75,
+                    run_time=0.4,
                 )
                 self.remove(target)
-            self.play(FlashAround(matrix.get_rows()[0], color=YELLOW), run_time=1.25)
-            self.play(Write(identity), FadeIn(example_label), run_time=3)
-            self.play(FadeIn(correlation_label), run_time=2)
+
+            self.wait_until_narration(DEMO_CUES["identity"])
+            self.play(
+                FlashAround(matrix.get_rows()[0], color=YELLOW),
+                run_time=0.4,
+            )
+            self.play(
+                Write(identity),
+                FadeIn(example_label),
+                run_time=1.4,
+            )
+
+            self.wait_until_narration(DEMO_CUES["correlations"])
+            self.play(FadeIn(correlation_label), run_time=0.8)

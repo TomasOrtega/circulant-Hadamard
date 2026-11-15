@@ -1,0 +1,10 @@
+<speak>
+  Let's look at a circulant Hadamard matrix.
+  Its entries are plus one or minus one.
+  Multiply matching entries in these two rows, then add.
+  <break time="800ms"/>
+  The sum is zero. Distinct rows are orthogonal.
+  Each row is a cyclic shift of the previous one.
+  H times H transpose equals four times the identity matrix.
+  So we can study the whole matrix through the cyclic correlations of one row.
+</speak>

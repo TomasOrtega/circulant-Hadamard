@@ -14,6 +14,7 @@ with patch.object(sys, "argv", ["manimgl"]):
 class SceneTimeline:
     def __init__(self):
         self.time = 3.0
+        self._narration_started = None
         self.sounds = []
         self.waits = []
         self.narrator = Mock()
@@ -43,6 +44,45 @@ class NarratedSceneTests(unittest.TestCase):
             scene.time += 12
         self.assertEqual(scene.waits, [])
         self.assertEqual(scene.time, 15)
+
+    def test_second_narration_is_rejected_before_synthesis(self):
+        scene = SceneTimeline()
+        with NarratedScene.narrate(scene, "The whole script."):
+            pass
+        with self.assertRaisesRegex(RuntimeError, "one continuous"):
+            with NarratedScene.narrate(scene, "Another fragment."):
+                pass
+        scene.narrator.audio.assert_called_once()
+
+    def test_nested_narration_is_rejected_before_synthesis(self):
+        scene = SceneTimeline()
+        with NarratedScene.narrate(scene, "The whole script."):
+            with self.assertRaisesRegex(RuntimeError, "one continuous"):
+                with NarratedScene.narrate(scene, "A nested fragment."):
+                    pass
+        scene.narrator.audio.assert_called_once()
+
+    def test_cues_follow_the_single_recording_without_restarting_audio(self):
+        scene = SceneTimeline()
+        with NarratedScene.narrate(scene, "The whole script."):
+            scene.time += 2
+            NarratedScene.wait_until_narration(scene, 5)
+            self.assertEqual(scene.time, 8)
+            scene.time += 2
+            NarratedScene.wait_until_narration(scene, 6)
+            self.assertEqual(scene.time, 10)
+        self.assertEqual(scene.waits, [3, 3])
+        self.assertEqual(scene.sounds, [(3.0, "voice.wav")])
+        scene.narrator.audio.assert_called_once_with("The whole script.")
+
+    def test_cues_require_narration_and_valid_offsets(self):
+        scene = SceneTimeline()
+        with self.assertRaises(RuntimeError):
+            NarratedScene.wait_until_narration(scene, 1)
+        with NarratedScene.narrate(scene, "The whole script."):
+            for offset in (-1, float("nan"), float("inf")):
+                with self.subTest(offset=offset), self.assertRaises(ValueError):
+                    NarratedScene.wait_until_narration(scene, offset)
 
     def test_example_is_circulant_and_satisfies_the_displayed_hadamard_identity(self):
         rows = circulant_rows(FIRST_ROW)
