@@ -3,6 +3,7 @@ id: theorem
 title: Only orders 1 and 4
 shortTitle: Theorem
 summary: The general contradiction excludes odd u greater than one; explicit examples supply the two remaining orders.
+number: "8.5"
 draft: true
 video: null
 mapPosition: [240, 620]
@@ -21,13 +22,13 @@ $$
 n=4u^2\qquad\text{with }u\text{ a positive odd integer}.
 $$
 
-The general contradiction in Node 8 excludes every $u>1$.
+The general contradiction in Node 8.4 excludes every $u>1$.
 Thus $u=1$, giving $n=4$. The order $n=1$ is the remaining case
 outside that restriction.
 
-This conclusion uses the earlier proof chain, including the order restriction
-accepted as an input in Node 2 and the Δ-theorem developed in Node 4 from its
-stated inputs. The nine-position example illustrates the
+This conclusion uses the earlier proof chain, including the order
+restriction developed in Node 2 and the Δ-theorem developed in Node 4
+with its stated inputs. The nine-position example illustrates the
 mechanism; the general argument is what excludes every other order.
 
 ## Verify the two examples

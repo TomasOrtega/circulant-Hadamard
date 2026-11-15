@@ -25,9 +25,7 @@ describe("recursive node navigation", () => {
       "products-to-sums", "final-contradiction",
     ]);
     expect(collectNodes(rootNode).some(({ node }) => ["proof-by-example", "general-proof"].includes(node.id))).toBe(false);
-    expect(entries.filter(({ node }) => node.supplemental).map(({ node }) => node.id)).toEqual([
-      "proof-by-example", "general-proof",
-    ]);
+    expect(entries.filter(({ node }) => node.supplemental)).toHaveLength(0);
     for (const entry of entries.filter(({ ancestors }) => ancestors.length)) {
       expect(entry.ancestors[0], entry.node.id).toBe(entries[0]);
       const html = readFileSync(join(output, pagePath(entry)), "utf8");
@@ -131,7 +129,8 @@ describe("recursive node navigation", () => {
         entry.node.video?.src ? players : 0,
       );
       expect([...html.matchAll(/<script\b/g)]).toHaveLength(
-        entry.node.video?.src && cuts.length ? 1 : 0,
+        (entry.node.video?.src && cuts.length ? 1 : 0)
+          + (children.some(({ node }) => ["odd-order-rigidity", "exact-comparison-identities", "products-to-sums", "vanishing-alternating-sum"].includes(node.id)) ? 1 : 0),
       );
       for (const [, source] of html.matchAll(/<(?:source|track)\b[^>]*\bsrc="([^"]+)"/g)) {
         if (/^https?:/.test(source)) continue;
@@ -141,10 +140,25 @@ describe("recursive node navigation", () => {
     }
   });
 
+  test("each deeper button follows its section heading before the full-width explanation", () => {
+    for (const entry of entries) {
+      const html = readFileSync(join(output, pagePath(entry)), "utf8");
+      for (const child of entry.node.children) {
+        const section = html.match(new RegExp(`<section id="${nodeAnchor(child.node)}"[\\s\\S]*?</section>`))[0];
+        const button = section.indexOf('aria-label="Dig in deeper:');
+        const explanation = section.indexOf(renderMarkdown(child.script.join("\n\n")).html);
+        expect(button, child.node.id).toBeGreaterThan(section.indexOf("</h2>"));
+        expect(explanation, child.node.id).toBeGreaterThan(button);
+        expect(section.includes("<aside"), child.node.id).toBe(false);
+      }
+    }
+  });
+
   test.each(entries)("$node.id keeps its graph in a collapsed dropdown", (entry) => {
     const html = readFileSync(join(output, pagePath(entry)), "utf8");
     const graphs = html.match(/<nav aria-label="Node dependency graph"[\s\S]*?<\/nav>/g) ?? [];
-    const dropdowns = html.match(/<details\b[^>]*>[\s\S]*?<\/details>/g) ?? [];
+    const dropdowns = (html.match(/<details\b[^>]*>[\s\S]*?<\/details>/g) ?? [])
+      .filter(markup => markup.includes('aria-label="Node dependency graph"'));
     expect(dropdowns).toHaveLength(graphs.length);
     for (const graph of graphs) {
       const dropdown = dropdowns.find((markup) => markup.includes(graph));

@@ -3,6 +3,7 @@
 @source "./index.html";
 @source "./node.jsx";
 @source "./dependency-graph.jsx";
+@source "./phase-explorer.jsx";
 
 @font-face {
   font-family: "Figtree Variable";

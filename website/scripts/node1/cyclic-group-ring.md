@@ -4,7 +4,7 @@ Goal: define $\mathbb Z[C_n]$ and prove every element has a unique representativ
 
 ## Why we need a new kind of polynomial
 
-We want to describe a row whose positions form a cycle. If a sign moves right past the last position, it should come back to the first.
+We want to describe our matrix by a single row where the next row is obtained by cyclically shifting them. If a sign moves right past the last position, it should come back to the first.
 
 Ordinary polynomials don't do that automatically. If we multiply a polynomial by $X$, its highest power just gets larger. So let's change the rules to match our circle.
 

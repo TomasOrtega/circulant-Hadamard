@@ -1,9 +1,5 @@
 # Video 1 — Group-Ring Encoding
 
-## From the matrix to a polynomial
-
-Example-first script. The main proof graph stops at the dictionary lemma.
-
 ## Opening: one row determines everything
 
 Recall our original four-by-four circulant Hadamard matrix:
@@ -17,9 +13,7 @@ H=\begin{pmatrix}
 \end{pmatrix}.
 $$
 
-The first row determines every row: each row is obtained by shifting the preceding row one position to the right.
-
-Throughout this series, we will keep the original first row
+Its rows are not independent: each row is obtained by shifting the preceding row one position to the right. Thus, the entire matrix is determined by the first row
 
 $$
 (-1,1,1,1).
@@ -37,15 +31,11 @@ $$
 h(X)=-1+X+X^2+X^3.
 $$
 
-We will work with polynomials where $X^4=1$. So after a power reaches four, it wraps around.
-
-More generally, in dimension $n$ we use the ring
+If we multiply by $X$, we see that this shifts the coordinates down by $1$, but there is no longer a constant term. Thus, if we mod out by the relation $X^4=1$, multiplication by $X$ then encodes our cyclic shift. This is the concept of the group ring. It is the algebraic object that will keep track of the cyclic shift algebraically through multiplication.  In general for the cyclic group $C_n$, we have that
 
 $$
 \mathbb Z[C_n]\cong\mathbb Z[X]/(X^n-1).
 $$
-
-The group ring is just a way to keep track of cyclic positions algebraically.
 
 *[Animation: Pull the original row $(-1,1,1,1)$ into the coefficients of $-1+X+X^2+X^3$. Draw four slots labeled $1,X,X^2,X^3$ around a circle; place $X^4=1$ in the middle.]*
 
@@ -59,17 +49,13 @@ $$
 
 The four coefficients changed from $(-1,1,1,1)$ to $(1,-1,1,1)$. That's exactly a cyclic shift one position to the right!
 
-Multiply by $X$ again, and we get the next row. Keep going, and we get all the rows of the matrix. In fact, the $j$-th row corresponds to $X^{j-1}h(X)$, and after the $n$-th row, multiplying by $X$ takes us right back to the beginning.
+Multiply by $X$ again, and we get the next row. Keep going, and we get all the rows of the matrix. In fact, the $j$-th row corresponds to $X^{j-1}h(X)$.
 
 *[Animation: Move the rightmost coefficient into the leftmost slot every time an $X$ appears. Stack successive coefficient rows into a matrix, and close the loop at $X^nh(X)=h(X)$.]*
 
-So we can describe every row just by multiplying our original polynomial by powers of $X$.
-
 ## Reversing the circle
 
-But a Hadamard matrix isn't just about shifts. It's about dot products between shifts. How do we encode those?
-
-Introduce a new operation, called star. We replace $X$ by $X^{-1}$:
+But a Hadamard matrix isn't just about shifts. It's about dot products between shifts. We encode this via looking at inverses. We introduce a new operation, called star. We replace $X$ by $X^{-1}$:
 
 $$
 h^*(X)=h(X^{-1}).
@@ -111,7 +97,7 @@ $$
 
 Exactly the same cancellation happens for the two-step and three-step shifts.
 
-*[Animation: Show four labeled slots $1,X,X^2,X^3$. For each slot, turn it into a dot-product calculation. Keep the constant result $4$ and dim the three zeros. Do not show the double sum yet.]*
+*[Animation: Show four labeled slots $1,X,X^2,X^3$. For each slot, turn it into a dot-product calculation. Keep the constant result $4$ and dim the three zeros. Do not show the double sum yet. MAYBE MAKE IT A 4x4 Table showing the product in the group ring and how it is the dot product]*
 
 So the whole product collapses to
 
@@ -125,9 +111,9 @@ One equation has encoded every orthogonality condition for our four-by-four exam
 
 What we've seen is not peculiar to dimension four. The same construction works for any circulant sign matrix.
 
-Start with the first row $(h_0,\ldots,h_{n-1})$, where every entry is $+1$ or $-1$. Turn it into the polynomial $h(X)=\sum_{j=0}^{n-1}h_jX^j$, and define $h^*(X)=h(X^{-1})$.
+Start with the first row $(h_0,\ldots,h_{n-1})$. Turn it into the polynomial $h(X)=\sum_jh_jX^j$, and define $h^*(X)=h(X^{-1})$.
 
-For this circulant matrix with entries $\pm1$, the Hadamard condition becomes
+Then the matrix is Hadamard if and only if
 
 $$
 HH^{\mathsf T}=nI\quad\Longleftrightarrow\quad h(X)h^*(X)=n.
@@ -135,9 +121,7 @@ $$
 
 The right-hand equation is an equality in $\mathbb Z[X]/(X^n-1)$. We multiply the two polynomials, reduce powers using $X^n=1$, and obtain the constant polynomial $n$.
 
-The converse matters too. Start with a polynomial whose $n$ coefficients, in positions $1,X,\ldots,X^{n-1}$, are all $+1$ or $-1$, and suppose $h(X)h^*(X)=n$. The product's nonconstant coefficients vanish, so the first row is orthogonal to every nontrivial cyclic shift. Any two distinct cyclic rows have the same dot product as the first row and one such shift, so they are mutually orthogonal. Since all their entries are already $\pm1$, these rows form a circulant Hadamard matrix.
-
-That sign condition is part of the dictionary: the polynomial equation gives orthogonality, but it does not by itself force the coefficients to be $\pm1$.
+The "if" direction matters too: if the product $h(X)h^*(X)$ equals $n$, then all nonconstant dot products vanish, so the cyclic rows are mutually orthogonal, and hence the corresponding row determines a circulant Hadamard matrix.
 
 *[Animation: Place the matrix equation and the group-ring equation on opposite sides of the screen. Animate a double arrow. Beneath it, reveal a small "Open proof" symbol pointing to subnodes 1.1–1.5.]*
 

@@ -22,8 +22,8 @@ g(P)&=\frac{h(i,P)}2.
 \end{aligned}
 $$
 
-The parity step shows that $c,d\in\mathbb Z[P]/(P^{u^2}-1)$ and
-$g\in\mathbb Z[i][P]/(P^{u^2}-1)$.
+The parity step shows that $c(P),d(P)\in\mathbb Z[P]/(P^{u^2}-1)$ and
+$g(P)\in\mathbb Z[i][P]/(P^{u^2}-1)$.
 
 Evaluation preserves the norm identity, and star fixes the real scalar $2$.
 Thus, for example,
@@ -41,7 +41,7 @@ $$
 c(P)c^*(P)=d(P)d^*(P)=g(P)g^*(P)=u^2.
 $$
 
-For $g$, star includes conjugation of its Gaussian-integer coefficients.
+For $g(P)$, star includes conjugation of its Gaussian-integer coefficients.
 
 ## The order-36 conclusion
 

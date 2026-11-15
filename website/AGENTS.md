@@ -28,7 +28,11 @@ Use Bun for dependency installation and scripts, with the pinned version in
 [package.json](package.json) and the committed `bun.lock`. Keep application code
 compatible with Node.js 24+ as a fallback. Use React to pre-render node views
 into static pages. Keep graph, breadcrumb, and parent navigation as ordinary
-links. Limit client JavaScript to playback bounds for native video cuts.
+links. Limit client JavaScript to playback bounds for native video cuts and
+small, self-contained mathematical illustrations requested for a node.
+Keep a useful static diagram and explanation when JavaScript is unavailable;
+use native keyboard-accessible controls and keep arithmetic congruences
+distinct from complex-plane geometry.
 
 Use the vocabulary in [GLOSSARY.md](../GLOSSARY.md): nodes at every depth.
 Keep one Markdown file per node in [nodes/](nodes/), starting at
@@ -36,13 +40,19 @@ Keep one Markdown file per node in [nodes/](nodes/), starting at
 LaTeX in the body. Child IDs replace code imports; cut scripts use YAML literal
 blocks (`script: |`) and support Markdown and math. The homepage owns the
 eight main proof nodes in one hierarchy. Main overviews use order 36 as a
-guiding example, while deeper nodes develop the general argument. Every view
+guiding example, while deeper nodes develop the general argument. Do not split
+the overview into example and general reading routes. Keep the source guides in
+`reading-routes/` as reference material outside the build; their former URLs
+redirect to the homepage. Keep the order-four and order-16 examples where
+they clarify a lemma. Every view
 has its own full overview video and written explanations. Retain redirects
 when published node paths change.
 Show a dependency graph when the view or its parent has proof children.
 After the video and graph, an expanded proof node puts its exposition in
-the individual child sections, each with a link to go deeper. Its Markdown
-body states the goal proved by that node and appears in its parent's section,
+the individual child sections, each with a link to go deeper.
+Place the “Dig in deeper” button immediately below each child heading, with
+the exposition spanning the section width instead of sharing a sidebar.
+Its Markdown body states the goal proved by that node and appears in its parent's section,
 rather than as a separate block on its own page. A parent's explicit child
 `script` overrides that goal statement; a terminal child's fallback is its
 short summary. Put each step's explanation in the parent's child `script: |`.
@@ -59,6 +69,10 @@ Render inline `$...$` and display `$$...$$` math at build time with MathJax SVG.
 Refer directly to the group ring $\mathbb Z[X]/(X^n-1)$ or $\mathbb Z[C_n]$;
 avoid introducing an additional symbol for it. Use “this group ring” in prose
 once the context is clear.
+Write $c(P),d(P),g(P),E(P),J(P)$ when referring to formal polynomials,
+and use the actual argument for evaluations, such as $c(1)$ or $E(\omega)$.
+Keep established functional notation such as $\Delta(c)$ and explicitly
+defined scalar abbreviations distinct from polynomial notation.
 Keep generated math styles in the shared `math.css`; content needs no client
 math renderer. Preserve node paths and parent context when editing the loader.
 Every non-root view must have a visible link back to its direct parent.

@@ -10,51 +10,150 @@ mapPosition:
   - 40
   - 500
 mapSummary: '$E(P)$ reduces to all ones'
+graphLayout: proof-map
+graphTitle: Inside Node 5 · Signs Become All Ones
+children:
+  - node: form-sign-combination
+    dependsOn: []
+    segment: null
+    script: |
+      The three polynomials $c(P),d(P),g(P)$ came from the same four
+      sign polynomials $H_0(P),\ldots,H_3(P)$. Define
+
+      $$
+      E(P)=\frac{d(P)-c(P)}2+\frac{g(P)-c(P)}{1+i}.
+      $$
+
+      Both quotients have Gaussian-integer coefficients. To see why,
+      substitute the definitions from Node 3:
+
+      $$
+      \frac{d(P)-c(P)}2=-\frac{H_1(P)+H_3(P)}2,
+      $$
+
+      $$
+      \begin{aligned}
+      \frac{g(P)-c(P)}{1+i}
+      &=-\frac{H_2(P)+H_3(P)}2\\
+      &\quad+i\frac{H_1(P)+H_2(P)}2.
+      \end{aligned}
+      $$
+
+      Each half-sum has integer coefficients because the sum of two signs
+      is even. Adding these expressions gives the useful identity
+
+      $$
+      E(P)=-H_3(P)+(i-1)\frac{H_1(P)+H_2(P)}2.
+      $$
+
+      We form these exact quotients first, before reducing any coefficients.
+  - node: gaussian-parity
+    dependsOn: []
+    segment: null
+    script: |
+      Two Gaussian integers are congruent modulo $1+i$ when their difference
+      is a Gaussian-integer multiple of $1+i$. For example,
+
+      $$
+      2=(1+i)(1-i),\qquad i-1=i(1+i).
+      $$
+
+      Thus $2\equiv0$ and $i\equiv1$. In particular, both $+1$ and $-1$
+      have residue $1$. Reducing a polynomial means applying this rule
+      separately to each coefficient.
+
+      Congruence does not mean equality: $i\equiv1\pmod{1+i}$,
+      even though $i\ne1$.
+  - node: all-ones-congruence
+    dependsOn:
+      - form-sign-combination
+      - gaussian-parity
+    segment: null
+    script: |
+      In the exact expression
+
+      $$
+      E(P)=-H_3(P)+(i-1)\frac{H_1(P)+H_2(P)}2,
+      $$
+
+      the second term vanishes modulo $1+i$. Every coefficient of $-H_3(P)$
+      is a sign, so every coefficient has residue $1$. In our nine-position
+      example, this gives
+
+      $$
+      E(P)\equiv1+P+\cdots+P^8\pmod{1+i}.
+      $$
+
+      In general there are $u^2$ positions. Write
+
+      $$
+      J(P):=1+P+\cdots+P^{u^2-1}.
+      $$
+
+      Then $E(P)\equiv J(P)\pmod{1+i}$ in
+      $\mathbb Z[i][P]/(P^{u^2}-1)$, with coefficients reduced modulo $1+i$.
+      The symbol $J(P)$ is just shorthand for this all-ones polynomial.
+
+      This calculation uses the common sign array. It also gives the
+      divisibilities needed in Node 6: $d(P)-c(P)$ is divisible by $2$,
+      and $g(P)-c(P)$ is divisible by $1+i$.
 ---
 
-## Guiding example: $u=3$, $n=36$
-
-The same 36 signs produced all three polynomials. Form
-
-$$
-E(P)=\frac{d(P)-c(P)}2+\frac{g(P)-c(P)}{1+i}.
-$$
-
-Coefficientwise divisibility makes this a Gaussian-integer polynomial. For $u=3$,
+We now build a polynomial $E(P)$ from the differences $d(P)-c(P)$ and
+$g(P)-c(P)$, so that later comparisons among $c(P),d(P),g(P)$ also give
+information about $E(P)$. We choose the combination so that, modulo $1+i$,
+it becomes the all-ones polynomial
 
 $$
-E(P)\equiv J(P)=1+P+\cdots+P^8\pmod{1+i}.
+J(P):=1+P+\cdots+P^{u^2-1}.
 $$
 
-In particular, $E(1)\equiv9\equiv1$, whereas $E(\omega)\equiv3(1+\omega+\omega^2)=0$. These are congruences: they do not assert the complex equality $E(\omega)=0$.
+> **Lemma (Signs become all ones).** *Let $u$ be a positive odd integer,
+> and let $c(P),d(P),g(P)$ be the normalized evaluations from the same four
+> sign polynomials $H_0(P),\ldots,H_3(P)$ in Node 3. Then*
+>
+> $$
+> E(P):=\frac{d(P)-c(P)}2+\frac{g(P)-c(P)}{1+i}
+> $$
+>
+> *has Gaussian-integer coefficients, belongs to
+> $\mathbb Z[i][P]/(P^{u^2}-1)$, and satisfies*
+>
+> $$
+> E(P)\equiv J(P)\pmod{1+i}.
+> $$
 
-## General statement
+Substituting the definitions of $c(P),d(P),g(P)$ gives the exact identity
 
-**Input:** The three objects $c,d,g$ came from one common array of signs.
-
-**Define just one auxiliary polynomial:**
-$$
-E(P)=\frac{d(P)-c(P)}2+\frac{g(P)-c(P)}{1+i}.
-$$
-
-**Statement:** Using the four expressions $H_j$,
 $$
 E(P)=-H_3(P)+(i-1)\frac{H_1(P)+H_2(P)}2.
 $$
-All the displayed quotients have Gaussian-integer coefficients. Because every coefficient of $H_3$ is $\pm1$,
+
+Every coefficient of $H_1(P)+H_2(P)$ is a sum of two signs, so the half-sum
+has integer coefficients. This proves that $E(P)$ has Gaussian-integer
+coefficients. Since $i-1=i(1+i)$, the second term vanishes modulo $1+i$.
+The remaining coefficients of $-H_3(P)$ are all $+1$ or $-1$, and both
+reduce to $1$ because
+
 $$
-E(P)\equiv J(P):=1+P+\dots+P^{u^2-1}\pmod{1+i}.
+2=(1+i)(1-i).
 $$
-Also $d-c$ is divisible by $2$, while $g-c$ is divisible by $1+i$.
 
-**Intuition:** A specially chosen combination of three substitutions becomes the uniform all-ones signal after reduction, independent of the original signs.
+Thus every coefficient becomes one. In our guiding case $u=3$, this says
 
-**Output:** The key sign congruence and divisibility for Node 6.
+$$
+\begin{aligned}
+E(P)&\equiv J(P)\pmod{1+i},\\
+J(P)&=1+P+\cdots+P^8.
+\end{aligned}
+$$
 
-## Where the congruences live
+Finally, evaluating at $P=1$ gives $J(1)=u^2$. Since $u$ is odd, so is
+$u^2$, and therefore
 
-For the example, all reductions take place in $\mathbb Z[i,\omega,1/3]/(1+i)$. The denominator values are units because their squared absolute values are $9$. Form divisions by $2$ and $1+i$ in characteristic zero before reducing.
-
-## Source and status
-
-Exposition draft based on [OpenAI, *The circulant Hadamard conjecture*, Sections 2–4 (September 23, 2026)](https://github.com/openai/math/blob/main/preprints/The-circulant-Hadamard-conjecture-September-23-2026/paper.pdf). Video scripts and deeper proof graphs will be added later.
+$$
+\boxed{\begin{aligned}
+E(1)&\equiv J(1)=u^2\\
+&\equiv1\pmod{1+i}.
+\end{aligned}}
+$$

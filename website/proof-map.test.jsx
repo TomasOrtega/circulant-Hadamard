@@ -10,7 +10,6 @@ const root = loadNodes();
 const entries = collectNodes(root);
 const children = root.children;
 const html = renderToStaticMarkup(<NodePage entry={entries[0]} entries={entries} />);
-const overviewHtml = renderToStaticMarkup(<NodePage entry={entries[0]} entries={entries} />);
 
 describe("supplied eight-node proof map", () => {
   test("all logical arrows and the independent notation branch match the handoff", () => {
@@ -30,7 +29,7 @@ describe("supplied eight-node proof map", () => {
     expect(html.match(/<rect\b[^>]*class="([^"]+)"/)[1]).toContain("stroke-theme/40");
   });
 
-  test("one hierarchy retains eight main statements and the published refinements", () => {
+  test("one hierarchy retains eight main statements and all local refinements", () => {
     expect(children.filter(({ node }) => node.number).map(({ node }) => node.title)).toEqual([
       "Group-Ring Encoding", "Restriction on the Order", "The Three Evaluations", "The Δ-Theorem",
       "Signs Become All Ones", "Odd-Order Rigidity", "From Products to Sums", "The Final Contradiction",
@@ -38,10 +37,15 @@ describe("supplied eight-node proof map", () => {
     expect(entries.some(({ node }) => ["proof-by-example", "general-proof"].includes(node.id))).toBe(false);
     expect(html).toContain("Accepted black box · Proposition 2.2");
     expect(html).not.toContain("Accepted black box · Proposition 3.4");
-    const counts = { "group-ring-encoding": 5, "three-evaluations": 5, "delta-theorem": 6, "final-contradiction": 1 };
+    const counts = {
+      "group-ring-encoding": 5, "restriction-on-the-order": 6, "three-evaluations": 5,
+      "delta-theorem": 6, "signs-become-all-ones": 3, "odd-order-rigidity": 5,
+      "products-to-sums": 4, "final-contradiction": 5,
+    };
     for (const { node } of children) expect(node.children.length).toBe(counts[node.id] ?? 0);
     const theorem = entries.find(({ node }) => node.id === "theorem");
     expect(theorem.ancestors.at(-1).node.id).toBe("final-contradiction");
+    expect(theorem.node.number).toBe("8.5");
   });
 
   test("map summaries use the article's typeset math inside each node link", () => {
@@ -73,13 +77,12 @@ describe("supplied eight-node proof map", () => {
     expect(page).not.toContain("<pre");
   });
 
-  test("reading-route start buttons appear only on the homepage", () => {
+  test("the proof map and its deeper views do not split into example and general routes", () => {
     for (const entry of entries) {
       const page = renderToStaticMarkup(<NodePage entry={entry} entries={entries} />);
-      const homepage = entry.ancestors.length === 0;
-      expect(page.includes('aria-label="Reading routes"'), entry.node.id).toBe(homepage);
-      expect(page.includes("Start here · "), entry.node.id).toBe(homepage);
-      expect(page.includes("Then · "), entry.node.id).toBe(homepage);
+      expect(page.includes('aria-label="Reading routes"'), entry.node.id).toBe(false);
+      expect(page.includes("Start here · "), entry.node.id).toBe(false);
+      expect(page.includes("Then · "), entry.node.id).toBe(false);
     }
   });
 
@@ -96,8 +99,15 @@ describe("supplied eight-node proof map", () => {
       const d = (h0 - h1 + h2 - h3) / 2;
       const real = (h0 - h2) / 2;
       const imaginary = (h1 - h3) / 2;
-      const eReal = (d - c) / 2 + (real - c + imaginary) / 2;
-      const eImaginary = (imaginary - real + c) / 2;
+      const firstQuotient = (d - c) / 2;
+      const secondReal = (real - c + imaginary) / 2;
+      const secondImaginary = (imaginary - real + c) / 2;
+      expect([firstQuotient, secondReal, secondImaginary].every(Number.isInteger)).toBe(true);
+      expect(firstQuotient).toBe((-h1 - h3) / 2);
+      expect(secondReal).toBe((-h2 - h3) / 2);
+      expect(secondImaginary).toBe((h1 + h2) / 2);
+      const eReal = firstQuotient + secondReal;
+      const eImaginary = secondImaginary;
       expect(eReal).toBe(-h3 - (h1 + h2) / 2);
       expect(eImaginary).toBe((h1 + h2) / 2);
       expect(Number.isInteger(eReal) && Number.isInteger(eImaginary)).toBe(true);

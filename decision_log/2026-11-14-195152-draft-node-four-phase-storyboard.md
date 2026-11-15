@@ -46,7 +46,7 @@ out, conditional on those accepted inputs. This is an exposition outline,
 not a claim that the full technical local lemma has been developed here.
 Update the website and script indexes, following the
 [Node 3](2026-11-14-183958-draft-node-three-evaluations-and-keep-u.md) and
-Node 5 (`2026-11-14-193748-draft-node-five-all-ones-congruence.md`, local history) workflow.
+[Node 5](2026-11-14-193748-draft-node-five-all-ones-congruence.md) workflow.
 
 ## Rationale
 
