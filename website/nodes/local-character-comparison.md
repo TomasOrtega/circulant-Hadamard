@@ -5,7 +5,10 @@ shortTitle: Local Comparison
 summary: At each prime dividing u, comparing two neighboring character values gives a local unit with residue one.
 number: "4.3"
 draft: true
-video: null
+video:
+  src: media/local-character-comparison.mp4
+  captions: media/local-character-comparison.vtt
+  duration: 279.166667
 mapPosition: [440, 200]
 mapSummary: 'Comparison ratios have residue $1$'
 ---

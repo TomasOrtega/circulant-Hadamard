@@ -1,0 +1,263 @@
+{
+  "source": "website/scripts/node4/local-character-comparison.md",
+  "source_sha256": "409bc427b30253ca34d5222c8a6d63fe79204c8ee27cda5b385ca994edb09472",
+  "scene": "LocalCharacterComparison",
+  "scene_file": "videos/local_character_comparison.py",
+  "voice": "en-US-Chirp3-HD-Achird",
+  "work_started_at": "2026-11-15T05:55:02-08:00",
+  "cues": {
+    "local_ring": 0,
+    "goal": 25.17,
+    "base_case": 57.25,
+    "choose_factor": 93.35,
+    "remainder_input": 113.47,
+    "project_divide": 153.17,
+    "ratios": 184.73,
+    "induction": 202.65,
+    "application": 220.63,
+    "subset_ratio": 254.67
+  },
+  "alignment_match_ratio": 0.9151,
+  "narration_duration": 279.1402267573696,
+  "detail_cues": {
+    "ring_localize": 8.72,
+    "ring_input": 14.04,
+    "ring_valuation": 17.82,
+    "goal_ratios": 38.44,
+    "goal_denominators": 45.52,
+    "goal_unsafe": 49.38,
+    "base_integer": 68.48,
+    "base_unit": 75.14,
+    "base_safe": 77.72,
+    "base_product": 80.18,
+    "base_inverse": 88.32,
+    "choose_sum": 99.04,
+    "choose_fractional": 106.06,
+    "choose_relabel": 109.52,
+    "remainder_evaluate": 130.06,
+    "remainder_basis": 135.9,
+    "remainder_divisible": 144.06,
+    "remainder_arithmetic": 148.42,
+    "project_terms": 158.92,
+    "project_divisible": 163.56,
+    "project_define": 167.4,
+    "project_product": 173.62,
+    "project_exact": 177.7,
+    "ratios_projection": 188.98,
+    "ratios_cancel": 191.4,
+    "ratios_k": 199.82,
+    "induction_descend": 206.26,
+    "induction_either": 209.42,
+    "induction_stop": 213.04,
+    "induction_conclude": 215.34,
+    "application_component": 227.08,
+    "application_others": 235.88,
+    "application_unit": 242.8,
+    "application_match": 247.72,
+    "subset_unit": 263.12,
+    "subset_inverse": 266.88,
+    "subset_only_ratio": 269.26,
+    "subset_next": 273.9
+  },
+  "detail_alignment": {
+    "ring_localize": {
+      "source_word_index": 25,
+      "phrase": "localized at one prime above p: denominators",
+      "time": 8.72
+    },
+    "ring_input": {
+      "source_word_index": 37,
+      "phrase": "We use the cyclotomic facts supplied by",
+      "time": 14.04
+    },
+    "ring_valuation": {
+      "source_word_index": 48,
+      "phrase": "The coefficient ring is unramified at p,",
+      "time": 17.82
+    },
+    "goal_ratios": {
+      "source_word_index": 100,
+      "phrase": "our targets are the ratios F of",
+      "time": 38.44
+    },
+    "goal_denominators": {
+      "source_word_index": 120,
+      "phrase": "Both denominators are nonzero, but may have",
+      "time": 45.52
+    },
+    "goal_unsafe": {
+      "source_word_index": 129,
+      "phrase": "Although rho reduces to one, dividing two",
+      "time": 49.38
+    },
+    "base_integer": {
+      "source_word_index": 171,
+      "phrase": "The nonnegative integer valuations of F of",
+      "time": 68.48
+    },
+    "base_unit": {
+      "source_word_index": 191,
+      "phrase": "suppose F of one is a unit.",
+      "time": 75.14
+    },
+    "base_safe": {
+      "source_word_index": 198,
+      "phrase": "Its ratio safely reduces to one. The",
+      "time": 77.72
+    },
+    "base_product": {
+      "source_word_index": 204,
+      "phrase": "The two ratios multiply to one, since",
+      "time": 80.18
+    },
+    "base_inverse": {
+      "source_word_index": 223,
+      "phrase": "The other ratio is the inverse, also",
+      "time": 88.32
+    },
+    "choose_sum": {
+      "source_word_index": 250,
+      "phrase": "The valuations of F of xi and",
+      "time": 99.04
+    },
+    "choose_fractional": {
+      "source_word_index": 266,
+      "phrase": "They may be fractional, but one must",
+      "time": 106.06
+    },
+    "choose_relabel": {
+      "source_word_index": 277,
+      "phrase": "Relabel the factors so that it is",
+      "time": 109.52
+    },
+    "remainder_evaluate": {
+      "source_word_index": 326,
+      "phrase": "At xi, Phi vanishes, so R of",
+      "time": 130.06
+    },
+    "remainder_basis": {
+      "source_word_index": 339,
+      "phrase": "The first D powers of xi form",
+      "time": 135.9
+    },
+    "remainder_divisible": {
+      "source_word_index": 359,
+      "phrase": "The supplied input makes every remainder coefficient",
+      "time": 144.06
+    },
+    "remainder_arithmetic": {
+      "source_word_index": 369,
+      "phrase": "This is an arithmetic basis fact, not",
+      "time": 148.42
+    },
+    "project_terms": {
+      "source_word_index": 395,
+      "phrase": "Each of the p terms of Phi",
+      "time": 158.92
+    },
+    "project_divisible": {
+      "source_word_index": 410,
+      "phrase": "Both parts of q of F are",
+      "time": 163.56
+    },
+    "project_define": {
+      "source_word_index": 420,
+      "phrase": "Define F prime as q of F",
+      "time": 167.4
+    },
+    "project_product": {
+      "source_word_index": 437,
+      "phrase": "Their product is p to the e",
+      "time": 173.62
+    },
+    "project_exact": {
+      "source_word_index": 448,
+      "phrase": "Cancelling p is valid in the free",
+      "time": 177.7
+    },
+    "ratios_projection": {
+      "source_word_index": 474,
+      "phrase": "Projection changes neither evaluation. Dividing F by",
+      "time": 188.98
+    },
+    "ratios_cancel": {
+      "source_word_index": 478,
+      "phrase": "Dividing F by p cancels from numerator",
+      "time": 191.4
+    },
+    "ratios_k": {
+      "source_word_index": 505,
+      "phrase": "The ratio for K is unchanged too.",
+      "time": 199.82
+    },
+    "induction_descend": {
+      "source_word_index": 521,
+      "phrase": "decrease together, while both ratios remain unchanged.",
+      "time": 206.26
+    },
+    "induction_either": {
+      "source_word_index": 528,
+      "phrase": "We may divide different factors at different",
+      "time": 209.42
+    },
+    "induction_stop": {
+      "source_word_index": 536,
+      "phrase": "Stop when the exponent reaches one. The",
+      "time": 213.04
+    },
+    "induction_conclude": {
+      "source_word_index": 542,
+      "phrase": "The base case then proves that both",
+      "time": 215.34
+    },
+    "application_component": {
+      "source_word_index": 573,
+      "phrase": "Fix p dividing u. Its cycle component",
+      "time": 227.08
+    },
+    "application_others": {
+      "source_word_index": 597,
+      "phrase": "Evaluate the other prime components first and",
+      "time": 235.88
+    },
+    "application_unit": {
+      "source_word_index": 615,
+      "phrase": "Write b as u squared divided by",
+      "time": 242.8
+    },
+    "application_match": {
+      "source_word_index": 631,
+      "phrase": "The remaining product is p to the",
+      "time": 247.72
+    },
+    "subset_unit": {
+      "source_word_index": 673,
+      "phrase": "unit of residue one at every prime",
+      "time": 263.12
+    },
+    "subset_inverse": {
+      "source_word_index": 682,
+      "phrase": "Its inverse has the same property. This",
+      "time": 266.88
+    },
+    "subset_only_ratio": {
+      "source_word_index": 688,
+      "phrase": "This conclusion belongs to the ratios, not",
+      "time": 269.26
+    },
+    "subset_next": {
+      "source_word_index": 699,
+      "phrase": "These comparisons will control the denominators in",
+      "time": 273.9
+    }
+  },
+  "duration": 279.166667,
+  "narration_sha256": "8e0ed8d0a9500ca8070c2f4ba5cf9c1814a7db23d86a5426b9007a5122f6bb99",
+  "video_sha256": "0ff5afd882e4d770c7d0c8d966ee1872482d0ea63cdace2ead1a98a094635b1a",
+  "subtitle_safe_fraction": 0.2,
+  "subtitle_band_max_luma": 16.0,
+  "subtitle_frames_checked": 8375,
+  "production_status": "final",
+  "scene_sha256": "6f37b2f1cb12e8be34b51f91b1680669f1394020d0754918f0b472620b78efb5",
+  "layout_sha256": "af65a79e6ee3c1e4c50be87eaf23e651674da7cae9a65dd5fa0a5b94e9c219f2"
+}
