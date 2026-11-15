@@ -239,8 +239,9 @@ YouTube cuts use its start/end parameters. Native file cuts use media fragments
 and a small controller that stops at the end, bounds seeking, and restarts the
 cut on replay. Full overviews keep ordinary controls. Videos never autoplay.
 
-Bottom-right page controls share the current URL and jump to the top after
-scrolling. Sharing uses the native share sheet or falls back to copying the link.
+Bottom-right page controls share the current URL, jump to the top after scrolling,
+and link to GitHub issues for feedback. Sharing uses the native share sheet or
+falls back to copying the link.
 
 The shared renderer is [node.jsx](node.jsx), with the pinned
 [3Blue1Brown styling](vendor/README.md). Parsing and math rendering are in

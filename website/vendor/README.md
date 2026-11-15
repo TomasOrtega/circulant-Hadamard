@@ -19,8 +19,9 @@ reading columns, and shared button colors and sizes. The React components are
 adapted for this project's static recursive nodes.
 
 The fixed page controls adapt the same revision's `ViewCorner.tsx`, `Jump.tsx`,
-`Share.tsx`, and `util/url.ts`: jump to top after scrolling and native sharing
-with a copy-link fallback. The static implementation uses inline SVG icons
+`Share.tsx`, `Feedback.tsx`, and `util/url.ts`: jump to top after scrolling,
+native sharing with a copy-link fallback, and feedback linking to GitHub issues.
+The static implementation uses inline SVG icons
 and no client React runtime.
 
 The upstream repository has no license file at this revision; this copy does

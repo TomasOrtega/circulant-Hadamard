@@ -326,17 +326,24 @@ export function NodePage({ entry, entries }) {
             <circle cx="18" cy="4" r="3" />
             <circle cx="18" cy="20" r="3" />
           </>],
-        ].map(([id, label, icon]) => (
-          <div key={id} className="group flex items-center gap-2">
-            <span className="pointer-events-none font-sans opacity-0 transition group-hover:opacity-100 group-focus-within:opacity-100">{label}</span>
-            <button id={id} type="button" aria-label={label}
-              className={`${buttonBase} text-current hocus:bg-white/15`}>
-              <svg viewBox="0 0 24 24" className="size-6" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-                {icon}
-              </svg>
-            </button>
-          </div>
-        ))}
+          ["feedback", "Website feedback", <>
+            <path d="M21 11a9 9 0 1 0-9 9h9Z" />
+            <path d="M8 11h.01M12 11h.01M16 11h.01" strokeLinecap="round" />
+          </>, "https://github.com/TomasOrtega/circulant-Hadamard/issues"],
+        ].map(([id, label, icon, href]) => {
+          const Control = href ? "a" : "button";
+          return (
+            <div key={id} className="group flex items-center gap-2">
+              <span className="pointer-events-none font-sans opacity-0 transition group-hover:opacity-100 group-focus-within:opacity-100">{label}</span>
+              <Control id={id} href={href} type={href ? undefined : "button"} aria-label={label}
+                className={`${buttonBase} text-current hocus:bg-white/15`}>
+                <svg viewBox="0 0 24 24" className="size-6" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                  {icon}
+                </svg>
+              </Control>
+            </div>
+          );
+        })}
       </aside>
       <script src={`${base}page-controls.js`} defer />
       {node.video?.src && children.some((child) => child.segment) && (
