@@ -5,7 +5,7 @@ from manimlib import (
     RIGHT,
     UP,
     YELLOW,
-    FlashAround,
+    Line,
     SurroundingRectangle,
     Transform,
     TransformFromCopy,
@@ -97,28 +97,95 @@ class GroupRingEncoding(NodeScene):
         )
 
         self.section("correlations", "1.4 · One product records every dot product")
-        rows = [r"(-1,1,1,1)", r"(1,-1,1,1)", r"(1,1,-1,1)", r"(1,1,1,-1)"]
-        equations = (
-            VGroup(
-                *(
-                    formula(
-                        r"[X^{"
-                        + str(i)
-                        + r"}](hh^*)=(-1,1,1,1)\cdot"
-                        + row
-                        + "="
-                        + str(4 if i == 0 else 0),
-                        size=33,
-                    )
-                    for i, row in enumerate(rows)
-                )
-            )
-            .arrange(DOWN, buff=0.65)
-            .move_to(DOWN * 0.2)
+        self.show(
+            formula(r"\text{entry }(a,j)=h_jh_{j-a}", size=37).move_to(UP * 2.1),
+            words("Indices wrap modulo 4", size=24).move_to(RIGHT * 4.8 + UP * 2.1),
         )
-        for equation in equations:
-            self.show(equation)
-            self.play(FlashAround(equation, color=YELLOW), run_time=0.6)
+        columns = [-4.55, -2.85, -1.15, 0.55]
+        row_heights = [0.375, -0.475, -1.325, -2.175]
+        entries = [
+            [1, 1, 1, 1],
+            [-1, -1, 1, 1],
+            [-1, 1, -1, 1],
+            [-1, 1, 1, -1],
+        ]
+        headings = VGroup(
+            formula("a", size=35).move_to(LEFT * 6.4 + UP * 1.25),
+            *(
+                formula(rf"j={j}", size=30).move_to(RIGHT * x + UP * 1.25)
+                for j, x in enumerate(columns)
+            ),
+            formula(r"\text{row sum }=[X^a](hh^*)", size=29).move_to(
+                RIGHT * 4.6 + UP * 1.25
+            ),
+        )
+        grid = VGroup(
+            *(Line([x, 0.8, 0], [x, -2.6, 0]) for x in [-5.4, -3.7, -2.0, -0.3, 1.4]),
+            *(Line([-5.4, y, 0], [1.4, y, 0]) for y in [0.8, -0.05, -0.9, -1.75, -2.6]),
+        ).set_stroke(BLUE_C, width=1.2, opacity=0.55)
+        rows = VGroup(
+            *(
+                VGroup(
+                    formula(str(a), size=35, color=BLUE_C).move_to(LEFT * 6.4 + UP * y),
+                    *(
+                        formula(str(value), size=42, color=BLUE_C)
+                        .move_to(RIGHT * x + UP * y)
+                        .set_opacity(0.15)
+                        for x, value in zip(columns, values, strict=True)
+                    ),
+                )
+                for a, (y, values) in enumerate(zip(row_heights, entries, strict=True))
+            )
+        )
+        results = VGroup(
+            *(
+                formula(rf"[X^{a}](hh^*)={sum(values)}", size=36).move_to(
+                    RIGHT * 4.6 + UP * y
+                )
+                for a, (y, values) in enumerate(zip(row_heights, entries, strict=True))
+            )
+        )
+        self.show(headings, grid, rows)
+        self.wait_until_narration(109.46)
+        focus = SurroundingRectangle(rows[0], buff=0.15).set_color(YELLOW)
+        self.show(focus, run_time=0.5)
+        self.play(rows[0].animate.set_opacity(1).set_color(YELLOW), run_time=0.5)
+        self.wait_until_narration(112.4)
+        self.show(results[0].set_color(YELLOW), run_time=0.7)
+
+        self.wait_until_narration(114.54)
+        self.play(
+            rows[0].animate.set_color(BLUE_C),
+            results[0].animate.set_color(BLUE_C),
+            Transform(
+                focus, SurroundingRectangle(rows[1], buff=0.15).set_color(YELLOW)
+            ),
+            run_time=0.5,
+        )
+        for entry, cue in zip(rows[1][1:], [115.3, 116.38, 117.4, 118.52], strict=True):
+            self.wait_until_narration(cue)
+            self.play(entry.animate.set_opacity(1).set_color(YELLOW), run_time=0.25)
+        self.wait_until_narration(119.1)
+        self.show(results[1].set_color(YELLOW), run_time=0.5)
+
+        for a, cue in [(2, 120.66), (3, 122.0)]:
+            self.wait_until_narration(cue)
+            self.play(
+                rows[a - 1].animate.set_color(BLUE_C),
+                results[a - 1].animate.set_color(BLUE_C).set_opacity(0.5),
+                Transform(
+                    focus, SurroundingRectangle(rows[a], buff=0.15).set_color(YELLOW)
+                ),
+                rows[a].animate.set_opacity(1).set_color(YELLOW),
+                run_time=0.5,
+            )
+            self.show(results[a].set_color(YELLOW), run_time=0.3)
+        self.play(
+            rows[3].animate.set_color(BLUE_C),
+            results[3].animate.set_color(BLUE_C).set_opacity(0.5),
+            focus.animate.set_opacity(0),
+            run_time=0.4,
+        )
 
         self.section("product", "The example collapses to one equation")
         self.show(
