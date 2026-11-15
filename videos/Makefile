@@ -18,5 +18,5 @@ render-4k:
 	cd .. && $(UV) python -m manimlib $(SOURCE) $(SCENE) -w --uhd --fps 30
 
 check:
-	cd .. && $(UV) python -m unittest discover -s narration -p 'test_*.py'
-	cd .. && $(UV) python -m unittest discover -s videos -p 'test_*.py'
+	cd .. && $(UV) python -m unittest discover -s narration/tests -t .
+	cd .. && $(UV) python -m unittest discover -s videos/tests -t .

@@ -21,7 +21,7 @@ jobs:
       - name: Run prek
         run: uv run --locked prek -a --quiet
       - name: Check narration
-        run: uv run --locked --group narration python -m unittest discover -s narration -p 'test_*.py'
+        run: uv run --locked --group narration python -m unittest discover -s narration/tests -t .
 
   tex:
     runs-on: ubuntu-latest
@@ -29,7 +29,7 @@ jobs:
       - uses: actions/checkout@v7
       - name: Check published PDFs
         run: |
-          python3 -m unittest discover -s tex -p 'test_*.py'
+          python3 -m unittest discover -s tex/tests -t .
           make -C tex check-pdfs
       - name: Check and build TeX
         uses: xu-cheng/latex-action@v4

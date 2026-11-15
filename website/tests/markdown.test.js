@@ -2,9 +2,9 @@ import { afterAll, describe, expect, test } from "bun:test";
 import { mkdtempSync, writeFileSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { parseNode, loadNodes } from "./load-nodes.js";
-import { collectNodes } from "./node-tree.js";
-import { renderMarkdown, mathStyles } from "./markdown.js";
+import { parseNode, loadNodes } from "../load-nodes.js";
+import { collectNodes } from "../node-tree.js";
+import { renderMarkdown, mathStyles } from "../markdown.js";
 
 const directories = [];
 const fixture = (files) => {

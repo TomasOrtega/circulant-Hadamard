@@ -1,9 +1,9 @@
 import { describe, expect, test } from "bun:test";
 import { renderToStaticMarkup } from "react-dom/server";
-import { loadNodes } from "./load-nodes.js";
-import { collectNodes, hrefFor } from "./node-tree.js";
-import { dependencyGraph } from "./dependencies.js";
-import { NodePage } from "./node.jsx";
+import { loadNodes } from "../load-nodes.js";
+import { collectNodes, hrefFor } from "../node-tree.js";
+import { dependencyGraph } from "../dependencies.js";
+import { NodePage } from "../node.jsx";
 
 describe("Node 2 order-restriction refinement", () => {
   test("the two elementary steps and independent divisibility input feed the descent", () => {

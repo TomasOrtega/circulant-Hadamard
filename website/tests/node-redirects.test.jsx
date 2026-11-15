@@ -2,7 +2,7 @@ import { afterEach, describe, expect, test } from "bun:test";
 import { existsSync, mkdtempSync, readFileSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
-import { buildNodes } from "./build-nodes.jsx";
+import { buildNodes } from "../build-nodes.jsx";
 
 const directories = [];
 afterEach(() => {

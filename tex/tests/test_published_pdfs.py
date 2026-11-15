@@ -5,7 +5,7 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 
-import published_pdfs
+from tex import published_pdfs
 
 
 class PublishedPdfTests(unittest.TestCase):

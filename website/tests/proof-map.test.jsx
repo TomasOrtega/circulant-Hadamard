@@ -1,10 +1,10 @@
 import { describe, expect, test } from "bun:test";
 import { renderToStaticMarkup } from "react-dom/server";
-import { loadNodes } from "./load-nodes.js";
-import { collectNodes } from "./node-tree.js";
-import { dependencyGraph } from "./dependencies.js";
-import { NodePage } from "./node.jsx";
-import { renderMarkdown } from "./markdown.js";
+import { loadNodes } from "../load-nodes.js";
+import { collectNodes } from "../node-tree.js";
+import { dependencyGraph } from "../dependencies.js";
+import { NodePage } from "../node.jsx";
+import { renderMarkdown } from "../markdown.js";
 
 const root = loadNodes();
 const entries = collectNodes(root);

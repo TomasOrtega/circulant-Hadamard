@@ -4,11 +4,11 @@ import { tmpdir } from "node:os";
 import { join, resolve } from "node:path";
 import { pathToFileURL } from "node:url";
 import { renderToStaticMarkup } from "react-dom/server";
-import { buildNodes } from "./build-nodes.jsx";
-import { collectNodes, hrefFor, pagePath, nodeAnchor } from "./node-tree.js";
-import { NodePage } from "./node.jsx";
-import { loadNodes } from "./load-nodes.js";
-import { renderMarkdown } from "./markdown.js";
+import { buildNodes } from "../build-nodes.jsx";
+import { collectNodes, hrefFor, pagePath, nodeAnchor } from "../node-tree.js";
+import { NodePage } from "../node.jsx";
+import { loadNodes } from "../load-nodes.js";
+import { renderMarkdown } from "../markdown.js";
 
 const rootNode = loadNodes();
 

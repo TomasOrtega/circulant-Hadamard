@@ -14,7 +14,7 @@ from narration.speech import Narrator
 with patch.object(sys, "argv", ["manimgl"]):
     from videos.achird_demo import DEMO_CUES
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 VIDEO = ROOT / "videos" / "build" / "rendered" / "AchirdDemo.mp4"
 
 

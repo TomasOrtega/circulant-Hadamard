@@ -1,11 +1,11 @@
 import { describe, expect, test } from "bun:test";
 import { readFileSync } from "node:fs";
 import { renderToStaticMarkup } from "react-dom/server";
-import { loadNodes } from "./load-nodes.js";
-import { collectNodes, hrefFor } from "./node-tree.js";
-import { dependencyGraph } from "./dependencies.js";
-import { renderMarkdown } from "./markdown.js";
-import { NodePage } from "./node.jsx";
+import { loadNodes } from "../load-nodes.js";
+import { collectNodes, hrefFor } from "../node-tree.js";
+import { dependencyGraph } from "../dependencies.js";
+import { renderMarkdown } from "../markdown.js";
+import { NodePage } from "../node.jsx";
 
 describe("Node 8 final contradiction and theorem", () => {
   test("the main map ends at Node 8 and its two evaluations meet before the conclusion", () => {

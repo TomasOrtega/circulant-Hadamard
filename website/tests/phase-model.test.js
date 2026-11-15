@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { CIRCLE_RADIUS, PHASES, POINTS, phasePoint, phaseScene } from "./phase-model.js";
+import { CIRCLE_RADIUS, PHASES, POINTS, phasePoint, phaseScene } from "../phase-model.js";
 
 function expectPoint(actual, expected) {
   expect(actual.re).toBeCloseTo(expected.re, 12);

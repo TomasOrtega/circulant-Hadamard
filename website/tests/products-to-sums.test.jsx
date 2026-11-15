@@ -1,11 +1,11 @@
 import { describe, expect, test } from "bun:test";
 import { readFileSync } from "node:fs";
 import { renderToStaticMarkup } from "react-dom/server";
-import { loadNodes } from "./load-nodes.js";
-import { collectNodes, hrefFor } from "./node-tree.js";
-import { dependencyGraph } from "./dependencies.js";
-import { renderMarkdown } from "./markdown.js";
-import { NodePage } from "./node.jsx";
+import { loadNodes } from "../load-nodes.js";
+import { collectNodes, hrefFor } from "../node-tree.js";
+import { dependencyGraph } from "../dependencies.js";
+import { renderMarkdown } from "../markdown.js";
+import { NodePage } from "../node.jsx";
 
 describe("Node 7 products-to-sums refinement", () => {
   test("exact products and integral expansions meet before cancellation and addition", () => {

@@ -3,9 +3,9 @@ import { existsSync, mkdtempSync, readFileSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { pathToFileURL } from "node:url";
-import { buildNodes } from "./build-nodes.jsx";
-import { loadNodes } from "./load-nodes.js";
-import { collectNodes, pagePath } from "./node-tree.js";
+import { buildNodes } from "../build-nodes.jsx";
+import { loadNodes } from "../load-nodes.js";
+import { collectNodes, pagePath } from "../node-tree.js";
 
 const directory = mkdtempSync(join(tmpdir(), "circulant-reading-routes-"));
 buildNodes({ outDir: directory });

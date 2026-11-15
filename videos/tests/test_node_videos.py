@@ -8,7 +8,7 @@ from unittest.mock import Mock, patch
 
 from narration.speech import AudioClip, Narrator
 from videos.captions import spoken_paragraphs
-from videos.test_captions import parse_vtt
+from videos.tests.test_captions import parse_vtt
 
 with patch.object(sys, "argv", ["manimgl"]):
     from manimlib import BLUE_C, YELLOW, Tex
@@ -17,7 +17,7 @@ with patch.object(sys, "argv", ["manimgl"]):
     from videos.node_scene import formula, words
     from videos.overview import Overview
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 
 
 class NodeVideoTests(unittest.TestCase):

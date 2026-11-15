@@ -1,7 +1,7 @@
 import { describe, expect, test } from "bun:test";
 import { readFileSync } from "node:fs";
-import { loadNodes } from "./load-nodes.js";
-import { renderMarkdown } from "./markdown.js";
+import { loadNodes } from "../load-nodes.js";
+import { renderMarkdown } from "../markdown.js";
 
 const parents = loadNodes().children.filter(({ node }) =>
   Number(node.number) >= 2 && Number(node.number) <= 8);

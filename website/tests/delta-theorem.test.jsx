@@ -1,11 +1,11 @@
 import { describe, expect, test } from "bun:test";
 import { readFileSync } from "node:fs";
 import { renderToStaticMarkup } from "react-dom/server";
-import { loadNodes } from "./load-nodes.js";
-import { collectNodes, hrefFor } from "./node-tree.js";
-import { dependencyGraph } from "./dependencies.js";
-import { renderMarkdown } from "./markdown.js";
-import { NodePage } from "./node.jsx";
+import { loadNodes } from "../load-nodes.js";
+import { collectNodes, hrefFor } from "../node-tree.js";
+import { dependencyGraph } from "../dependencies.js";
+import { renderMarkdown } from "../markdown.js";
+import { NodePage } from "../node.jsx";
 
 describe("Node 4 circle-to-roots refinement", () => {
   test("the graph separates complex magnitude, integrality, and odd order", () => {

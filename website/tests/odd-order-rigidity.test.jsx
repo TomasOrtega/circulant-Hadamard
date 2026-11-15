@@ -1,12 +1,12 @@
 import { describe, expect, test } from "bun:test";
 import { readFileSync } from "node:fs";
 import { renderToStaticMarkup } from "react-dom/server";
-import { loadNodes } from "./load-nodes.js";
-import { assetRoot, collectNodes, hrefFor } from "./node-tree.js";
-import { dependencyGraph } from "./dependencies.js";
-import { renderMarkdown } from "./markdown.js";
-import { NodePage } from "./node.jsx";
-import { PhaseExplorer } from "./phase-explorer.jsx";
+import { loadNodes } from "../load-nodes.js";
+import { assetRoot, collectNodes, hrefFor } from "../node-tree.js";
+import { dependencyGraph } from "../dependencies.js";
+import { renderMarkdown } from "../markdown.js";
+import { NodePage } from "../node.jsx";
+import { PhaseExplorer } from "../phase-explorer.jsx";
 
 describe("Node 6 odd-order rigidity refinement", () => {
   test("the normalization diagram uses compiled evaluation labels without repeating the proof", () => {

@@ -1,8 +1,8 @@
 import { describe, expect, test } from "bun:test";
 import { renderToStaticMarkup } from "react-dom/server";
-import { DependencyGraph } from "./dependency-graph.jsx";
-import { collectNodes, hrefFor } from "./node-tree.js";
-import { mathStyles } from "./markdown.js";
+import { DependencyGraph } from "../dependency-graph.jsx";
+import { collectNodes, hrefFor } from "../node-tree.js";
+import { mathStyles } from "../markdown.js";
 
 const fixture = (graphLayout = "proof-map") => ({
   id: "overview", title: "Overview", shortTitle: "Overview", summary: "A map.",

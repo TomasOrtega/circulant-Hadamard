@@ -1,13 +1,13 @@
 import { describe, expect, test } from "bun:test";
 import { readdirSync } from "node:fs";
 import { renderToStaticMarkup } from "react-dom/server";
-import { loadNodes } from "./load-nodes.js";
-import { dependencyGraph } from "./dependencies.js";
-import { collectNodes, hrefFor } from "./node-tree.js";
-import { NodePage } from "./node.jsx";
+import { loadNodes } from "../load-nodes.js";
+import { dependencyGraph } from "../dependencies.js";
+import { collectNodes, hrefFor } from "../node-tree.js";
+import { NodePage } from "../node.jsx";
 
 const rootNode = loadNodes();
-import { cutVideo } from "./node-video.js";
+import { cutVideo } from "../node-video.js";
 
 const leaf = (id) => ({
   id,

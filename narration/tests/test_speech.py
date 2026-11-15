@@ -192,7 +192,9 @@ class SpeechTests(unittest.TestCase):
         factory.assert_not_called()
 
     def test_existing_chirp_recording_keeps_its_cache_key(self):
-        text = (Path(__file__).with_name("achird-math-sample.txt")).read_text()
+        text = (
+            Path(__file__).resolve().parents[1] / "achird-math-sample.txt"
+        ).read_text()
         self.assertEqual(
             self.narrator.cache_path(text).name,
             "bcd5f76980e159be0b34728ec4358022a8b4bf19baccd01685e808c0c9096593.wav",

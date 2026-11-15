@@ -28,6 +28,7 @@ scenes, narration timing, or video rendering.
 
 ## Working conventions
 
+- Keep each component's tests in its `tests/` subfolder.
 - Use `python3` for scripts needing only the standard library; use `uv run` in a
   Python package. `uv run --python VERSION` selects a Python version.
 - Use `prek -a --quiet` for linting, through `uv run` when using this project's

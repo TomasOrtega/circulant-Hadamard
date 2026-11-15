@@ -1,5 +1,5 @@
 import { describe, expect, test } from "bun:test";
-import { bindVideoCut } from "./video-player.js";
+import { bindVideoCut } from "../video-player.js";
 
 class Video extends EventTarget {
   dataset = { cutStart: "10", cutEnd: "30" };
