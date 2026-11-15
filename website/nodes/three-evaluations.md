@@ -116,8 +116,8 @@ children:
       \end{aligned}
       $$
 
-      The coefficient check gives integer coefficients for $c,d$ and
-      Gaussian-integer coefficients for $g$. Dividing a polynomial and
+      The coefficient check gives integer coefficients for $c(P),d(P)$ and
+      Gaussian-integer coefficients for $g(P)$. Dividing a polynomial and
       its star by $2$ divides their product by $4$. Therefore
 
       $$
@@ -178,8 +178,8 @@ the lemma normalizes them by dividing by $2$.
 > \end{aligned}
 > $$
 >
-> *Then $c,d$ have integer coefficients, $g$ has Gaussian-integer coefficients,
-> and*
+> *Then $c(P),d(P)$ have integer coefficients, $g(P)$ has Gaussian-integer
+> coefficients, and*
 >
 > $$
 > c(P)c^*(P)=d(P)d^*(P)=g(P)g^*(P)=u^2.
@@ -198,8 +198,8 @@ Each evaluated polynomial still has product with its star equal to $36$.
 Dividing the polynomial by $2$ also divides its star by $2$, so the product
 is divided by $4$: **$36$ becomes $9$**. The coefficients remain integral
 because sums of four signs and differences of two signs are even. Thus
-$c,d$ have integer coefficients and $g$ has Gaussian-integer coefficients,
-with
+$c(P),d(P)$ have integer coefficients and $g(P)$ has Gaussian-integer
+coefficients, with
 
 $$
 c(P)c^*(P)=d(P)d^*(P)=g(P)g^*(P)=9.

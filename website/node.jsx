@@ -2,6 +2,14 @@ import { assetRoot, nodeAnchor, hrefFor, findChildEntry } from "./node-tree.js";
 import { DependencyGraph } from "./dependency-graph.jsx";
 import { cutVideo, mediaUrl, formatTime } from "./node-video.js";
 import { renderMarkdown } from "./markdown.js";
+import { PhaseExplorer } from "./phase-explorer.jsx";
+
+const phaseExplorerStages = {
+  "odd-order-rigidity": "rotation",
+  "exact-comparison-identities": "rotation",
+  "products-to-sums": "normalization",
+  "vanishing-alternating-sum": "normalization",
+};
 
 const buttonBase =
   "inline-flex max-w-full items-center justify-center gap-2 rounded-md font-sans text-balance no-underline min-h-12 min-w-12 p-3 text-lg";
@@ -128,20 +136,6 @@ function Breadcrumbs({ entry }) {
   );
 }
 
-function ReadingRoutes({ entry }) {
-  if (entry.ancestors.length || entry.node.graphLayout !== "proof-map") return null;
-  return (
-    <nav aria-label="Reading routes" className="flex flex-wrap justify-center gap-4 font-sans">
-      <NodeButton href="nodes/proof-by-example/index.html" id="node-proof-by-example" primary>
-        Start here · Proof by Example: n = 36
-      </NodeButton>
-      <NodeButton href="nodes/general-proof/index.html" id="node-general-proof">
-        Then · The General Odd-u Proof
-      </NodeButton>
-    </nav>
-  );
-}
-
 function Heading({ id, children }) {
   return (
     <h2 id={id}>
@@ -172,36 +166,38 @@ function ChildNode({ child, entry, entries }) {
       <Heading>
         {node.number ? `${node.number}. ` : ""}{node.title}
       </Heading>
-      <div className="grid grid-cols-[minmax(0,1fr)_14rem] items-start gap-12 max-md:grid-cols-1 max-md:gap-8">
-        <div className="flex min-w-0 flex-col gap-8">
-          <Markdown script={child.script} />
-          <div className="w-full max-w-125 self-center">
-            <Media
-              video={cutVideo(entry.node, child)}
-              title={node.title}
-              excerpt
-              base={assetRoot(entry)}
-            />
-          </div>
-        </div>
-        <aside className="flex flex-col items-start gap-4 max-md:items-center">
-          <NodeButton
-            href={hrefFor(target, entry)}
-            primary
-            aria-label={`Dig in deeper: ${node.title}`}
-          >
-            Dig in deeper <span aria-hidden="true">→</span>
-          </NodeButton>
-          <p className="font-sans text-sm text-dark-gray">
-            {node.blackBox
-              ? `Accepted black box · ${node.blackBox}`
-              : node.foundation
-              ? "Undergraduate foundation"
-              : count
-                ? `${count} child nodes`
-                : "Statement ready · video script pending"}
-          </p>
-        </aside>
+      <div className="flex flex-wrap items-center gap-4">
+        <NodeButton
+          href={hrefFor(target, entry)}
+          primary
+          aria-label={`Dig in deeper: ${node.title}`}
+        >
+          Dig in deeper <span aria-hidden="true">→</span>
+        </NodeButton>
+        <p className="font-sans text-sm text-dark-gray">
+          {node.blackBox
+            ? `Accepted black box · ${node.blackBox}`
+            : node.foundation
+            ? "Undergraduate foundation"
+            : count
+              ? `${count} child nodes`
+              : "Statement ready · video script pending"}
+        </p>
+      </div>
+      <Markdown script={child.script} />
+      {phaseExplorerStages[node.id] && <PhaseExplorer
+        id={`phase-${node.id}`}
+        stage={phaseExplorerStages[node.id]}
+        nextHref={entries[0].node.children?.some(({ node }) => node.id === "products-to-sums")
+          ? `${hrefFor(entries[0], entry)}#node-products-to-sums` : undefined}
+      />}
+      <div className="w-full max-w-125 self-center">
+        <Media
+          video={cutVideo(entry.node, child)}
+          title={node.title}
+          excerpt
+          base={assetRoot(entry)}
+        />
       </div>
     </section>
   );
@@ -269,7 +265,6 @@ export function NodePage({ entry, entries }) {
           <hgroup className="flex flex-col items-center gap-4 font-sans">
             <h1>{node.title}</h1>
           </hgroup>
-          <ReadingRoutes entry={entry} />
           <div className="w-full max-w-200">
             <Media video={node.video} title={node.title} base={base} />
           </div>
@@ -320,6 +315,9 @@ export function NodePage({ entry, entries }) {
       </footer>
       {node.video?.src && children.some((child) => child.segment) && (
         <script src={`${base}video-player.js`} defer />
+      )}
+      {children.some(child => phaseExplorerStages[child.node.id]) && (
+        <script src={`${base}phase-explorer.js`} defer />
       )}
     </>
   );

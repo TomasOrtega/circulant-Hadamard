@@ -7,22 +7,53 @@ without a client router. Native video cuts use a small playback controller.
 
 ## One Markdown file per node
 
-The homepage owns the eight high-level proof nodes in one recursive map.
-Main overviews use order 36 as a guiding example; deeper nodes explain the
-general argument. Propositions 2.2 and 3.4 remain accepted inputs at this level.
-[Group-Ring Encoding](nodes/group-ring-encoding.md) and
-[The Three Evaluations](nodes/three-evaluations.md) each expand into five
-subnodes. The theorem concludes Node 8. Other detailed graphs remain in
-preparation.
+The active outline contains eight high-level proof nodes, with the theorem
+concluding Node 8, in one recursive proof journey. The main overviews use $n=36$ as
+the guiding example to explain the ideas. Opening a node develops its general
+statement and proof through smaller steps. The known order-four matrix and
+the order-16 obstruction remain useful supporting examples. Proposition 2.2
+remains an accepted input at the main level. [Group-Ring Encoding](nodes/group-ring-encoding.md)
+expands into five subnodes (1.1–1.5), each with a written proof and a separate
+video script. [Restriction on the Order](nodes/restriction-on-the-order.md)
+now has a six-node proof outline (2.1–2.6), with short statements and examples
+ahead of its detailed scripts. [The Three Evaluations](nodes/three-evaluations.md)
+has a five-node refinement (3.1–3.5) and a six-slide order-36 overview script.
+[The Δ-Theorem](nodes/delta-theorem.md) has six steps (4.1–4.6), from circle
+evaluations through integrality to odd-order roots of unity. Its overview
+script includes a phase-circle storyboard. The deeper proof outline explicitly
+accepts the technical character-comparison lemma and Kronecker's theorem.
+[Signs Become All Ones](nodes/signs-become-all-ones.md) has three smaller
+nodes (5.1–5.3): form the integral combination, explain Gaussian parity,
+and combine them to obtain the all-ones congruence. Its overview uses nine
+coefficients; the inner explanations use general $u$.
+[Odd-Order Rigidity](nodes/odd-order-rigidity.md) has five steps (6.1–6.5),
+separating odd order, invertible evaluations, sign congruences, rigidity,
+and the resulting exact comparisons. Its six-scene overview draft uses
+two circles to show the shared rotation in the nine-position example.
+[From Products to Sums](nodes/products-to-sums.md) has four steps (7.1–7.4):
+split the exact products, expand using coefficientwise divisibility,
+cancel before reduction, and combine into the vanishing alternating sum.
+Its five-scene overview and storyboard show how dividing by $c$ cancels
+the common rotation for $u=3$. The current proof-map exposition then uses
+the all-ones evaluations to complete the contradiction for this example.
+[The Final Contradiction](nodes/final-contradiction.md) has five steps (8.1–8.5):
+evaluate the all-ones polynomial at nontrivial roots and at one, identify
+the surviving odd term, contradict Node 7, and conclude the theorem.
+The proof-map exposition uses this step to finish the argument for general
+odd $u>1$, after the example is settled in Node 7.
+Its four-scene script and storyboard show three groups of cube roots
+canceling and nine ones leaving one after reduction. The theorem is now
+inside Node 8; the former `/nodes/theorem/` URL redirects to its new location.
 
-The homepage's reading-route buttons open the supplementary
-[order-36 proof](reading-routes/proof-by-example.md) and
-[general odd-u proof](reading-routes/general-proof.md). These readable guides
-use the same eight-node hierarchy; they do not duplicate its proof nodes.
-They retain their published URLs at `nodes/proof-by-example/` and
-`nodes/general-proof/`. Old general-proof-prefixed deeper URLs still redirect
-to the corresponding current nodes, including their published videos.
-The earlier route files remain in [the archive](archive/reading-routes/README.md).
+The homepage presents one proof map: the overviews use order 36 to introduce
+the ideas, and following a node develops the general argument. The former
+[order-36](reading-routes/proof-by-example.md) and
+[general odd-u](reading-routes/general-proof.md) guides remain as source
+references outside the active build, alongside the earlier
+[archived outlines](archive/reading-routes/README.md).
+Their published URLs at `nodes/proof-by-example/` and `nodes/general-proof/`
+redirect to the homepage. Old general-proof-prefixed deeper URLs still
+redirect to the corresponding current nodes, including their published videos.
 
 The former background outline is retained in [archive/nodes/](archive/nodes/)
 and is not built. Active nodes have new descriptive URLs.
@@ -30,8 +61,11 @@ and is not built. Active nodes have new descriptive URLs.
 Draft video narration and animation directions in [scripts/](scripts/README.md).
 Keep the introduction in [scripts/overview.md](scripts/overview.md), and group
 each main node's script and subnode scripts in a numbered folder: Node 1 uses
-[scripts/node1/](scripts/node1/). Create the other numbered folders as their
-scripts are added.
+[scripts/node1/](scripts/node1/), Node 2 uses [scripts/node2/](scripts/node2/),
+Node 3 uses [scripts/node3/](scripts/node3/), Node 4 uses
+[scripts/node4/](scripts/node4/), Node 5 uses [scripts/node5/](scripts/node5/),
+Node 6 uses [scripts/node6/](scripts/node6/), and Node 7 uses
+[scripts/node7/](scripts/node7/). Node 8 uses [scripts/node8/](scripts/node8/).
 Retain descriptive filenames such as `group-ring-encoding.md` inside those
 folders. These production drafts are not automatically published by the website build.
 
@@ -108,8 +142,9 @@ view's own breadcrumbs, back button, and graph links.
 
 Mark undergraduate prerequisites with `foundation: true` and no children. The
 build rejects deeper expansion of a foundation. Keep unfinished proof nodes
-marked `draft: true`. The supplied narration outlines are drafts, and the proof
-argument and videos still await the team's material.
+marked `draft: true`. The supplied narration outlines remain editable drafts.
+Published videos cover the overview, Node 1 and its five children, and Nodes 2–3;
+other video slots remain unset until recordings are available.
 
 ## Dependency graph
 
@@ -182,3 +217,18 @@ cut on replay. Full overviews keep ordinary controls. Videos never autoplay.
 The shared renderer is [node.jsx](node.jsx), with the pinned
 [3Blue1Brown styling](vendor/README.md). Parsing and math rendering are in
 [load-nodes.js](load-nodes.js) and [markdown.js](markdown.js).
+
+The [phase explorer](phase-explorer.jsx) has two stages. Node 6 derives equality
+of the normalized evaluations from the definition of $E(P)$. Its diagram shows
+the common rotation of the values of $c(P),d(P),g(P),E(P)$ and previews the
+incompatible residue requirements. Node 7 and its final sum section add the
+division control, with the algebraic contradiction in the exposition above
+the diagram. The two widgets operate independently. Their labels show the
+actual evaluation arguments and use build-time MathJax, including the normalized
+fractions. Only the values of $c(P),d(P),g(P)$ must lie on the radius-three
+circle; the values of $E(P)$ can lie outside it. The diagram is
+pre-rendered; a small [controller](phase-explorer.js) enables native controls.
+Its [model](phase-model.js) keeps circle geometry separate from the later
+arithmetic requirements. The chosen points are schematic, not values from an
+order-36 circulant Hadamard matrix. The explanation and initial diagram remain available
+without JavaScript; there is no automatic animation or network request.

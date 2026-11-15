@@ -82,14 +82,16 @@ describe("node files and dependency navigation", () => {
     );
   });
 
-  test("statement views keep the high-level graph for navigation", () => {
+  test("terminal statement views keep their parent graph for navigation", () => {
     const entries = collectNodes(rootNode);
-    const entry = entries.find(({ node }) => node.id === "signs-become-all-ones");
+    const entry = entries.find(({ node, ancestors }) => ancestors.length && !node.children.length);
+    const parent = entry.ancestors.at(-1);
+    const sibling = parent.node.children.find(({ node }) => node !== entry.node).node;
     const html = renderToStaticMarkup(
       <NodePage entry={entry} entries={entries} />,
     );
     expect(html).toContain('aria-label="Node dependency graph"');
-    expect(html).toContain("Explore node: Odd-Order Rigidity");
+    expect(html).toContain(renderToStaticMarkup(<>{`Explore node: ${sibling.title}`}</>));
     expect(html).toContain('aria-current="page"');
   });
 
