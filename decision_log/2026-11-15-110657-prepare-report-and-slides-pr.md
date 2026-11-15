@@ -29,3 +29,11 @@ submission-hash placeholder; this PR does not submit competition materials.
 
 Records the user's approval and packaging of the event report and visual
 talk for review, with AI assistance. No new mathematical claims are added.
+
+## PR publication outcome
+
+At 2026-11-15T11:07:25-08:00, PR [#26](https://github.com/TomasOrtega/circulant-Hadamard/pull/26) is open
+from `steven/mathathon-report-slides` to `main`. GitHub reports
+`mergeable=True`, `mergeable_state=unstable`.
+The branch passes ChkTeX, repository lint, and PDF freshness checks.
+The PR has not been merged; remote CI may still be running.
