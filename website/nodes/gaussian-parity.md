@@ -5,7 +5,10 @@ shortTitle: Gaussian Parity
 summary: Modulo 1+i, a Gaussian integer is determined by the parity of its real part plus its imaginary part.
 number: "5.2"
 draft: true
-video: null
+video:
+  src: media/gaussian-parity.mp4
+  captions: media/gaussian-parity.vtt
+  duration: 165.366667
 foundation: true
 mapPosition: [440, 24]
 mapSummary: 'Both signs reduce to $1$'

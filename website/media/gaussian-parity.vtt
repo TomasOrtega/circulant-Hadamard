@@ -1,0 +1,139 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:04.720
+A Gaussian integer is a plus b
+i, where a and b are integers.
+
+00:00:05.420 --> 00:00:07.020
+Modulo one plus i,
+
+00:00:07.320 --> 00:00:11.940
+two numbers agree when their difference is
+a Gaussian integer multiple of one plus i.
+
+00:00:12.400 --> 00:00:18.340
+To test divisibility, multiply
+by one minus i over one minus i.
+
+00:00:18.640 --> 00:00:20.770
+The denominator becomes two.
+
+00:00:21.400 --> 00:00:26.850
+Collect real and imaginary parts:
+the quantity a plus b divided by two,
+
+00:00:26.920 --> 00:00:32.430
+plus i times the quantity
+b minus a divided by two.
+
+00:00:33.060 --> 00:00:37.180
+Both halves are integers exactly
+when a and b have the same parity.
+
+00:00:37.900 --> 00:00:41.220
+Two even integers work,
+and two odd integers work.
+
+00:00:41.440 --> 00:00:43.920
+Different parities give
+two noninteger halves.
+
+00:00:44.660 --> 00:00:49.800
+Thus one plus i divides a plus b
+i exactly when a plus b is even.
+
+00:00:51.280 --> 00:00:52.860
+There are only two residues.
+
+00:00:53.660 --> 00:00:57.555
+Send a plus b i to a plus b modulo two.
+
+00:00:57.810 --> 00:01:01.380
+For three plus i, the sum is
+four, giving residue zero.
+
+00:01:01.800 --> 00:01:06.460
+For three plus two i, the sum
+is five, giving residue one.
+
+00:01:07.040 --> 00:01:10.960
+The output records arithmetic
+parity, not a complex angle.
+
+00:01:11.820 --> 00:01:16.060
+This map preserves addition. It
+preserves multiplication too:
+
+00:01:16.780 --> 00:01:19.700
+the real part of a
+product is a c minus b d,
+
+00:01:19.900 --> 00:01:23.940
+and the imaginary part is
+a d plus b c. Modulo two,
+
+00:01:23.980 --> 00:01:29.260
+minus and plus agree, so their sum is
+the product of a plus b and c plus d.
+
+00:01:29.640 --> 00:01:31.660
+The map is onto the two-element field,
+
+00:01:31.660 --> 00:01:35.440
+and its kernel consists exactly
+of multiples of one plus i.
+
+00:01:36.480 --> 00:01:41.710
+In particular, one, negative one, i,
+and negative i all have residue one.
+
+00:01:42.200 --> 00:01:44.740
+The factor identities
+explain the key congruences:
+
+00:01:45.220 --> 00:01:49.900
+i minus one equals i times
+the quantity one plus i,
+
+00:01:50.100 --> 00:01:55.840
+and two equals the product of one plus i
+and one minus i. Both signs become one.
+
+00:01:56.440 --> 00:02:00.860
+For any positive integer u, apply the
+map to each polynomial coefficient.
+
+00:02:01.640 --> 00:02:06.180
+The powers of P and the relation P to
+the u squared equals one remain in place.
+
+00:02:07.020 --> 00:02:12.720
+Only the coefficients change. For
+example, i minus P reduces to one plus P.
+
+00:02:12.720 --> 00:02:18.890
+This equality also respects the
+cycle relation, even when u is one.
+
+00:02:19.660 --> 00:02:23.860
+Keep the order of operations
+clear. In defining E of P,
+
+00:02:24.080 --> 00:02:27.980
+first form the exact integral
+quotients supplied by the common signs.
+
+00:02:28.400 --> 00:02:30.160
+Only then reduce their coefficients.
+
+00:02:30.920 --> 00:02:34.700
+Both two and one plus i
+become zero in the quotient,
+
+00:02:34.900 --> 00:02:39.100
+so neither can be used as a denominator
+there. We carry forward two facts:
+
+00:02:39.720 --> 00:02:43.400
+multiples of i minus one disappear,
+and both signs have residue one.
