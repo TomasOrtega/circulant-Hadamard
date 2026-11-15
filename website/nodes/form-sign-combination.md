@@ -5,7 +5,10 @@ shortTitle: Form the Combination
 summary: The common sign array makes both quotients in E(P) integral and gives an exact formula for their sum.
 number: "5.1"
 draft: true
-video: null
+video:
+  src: media/form-sign-combination.mp4
+  captions: media/form-sign-combination.vtt
+  duration: 170.866667
 mapPosition: [40, 24]
 mapSummary: 'Define and simplify $E(P)$'
 ---
