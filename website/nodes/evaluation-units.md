@@ -5,7 +5,10 @@ shortTitle: Why We Can Divide
 summary: The odd norm makes every evaluated polynomial invertible before reduction.
 number: "6.2"
 draft: true
-video: null
+video:
+  src: media/evaluation-units.mp4
+  captions: media/evaluation-units.vtt
+  duration: 185.666667
 mapPosition: [440, 24]
 mapSummary: '$c_S^{-1}=\overline{c_S}/u^2$'
 ---
