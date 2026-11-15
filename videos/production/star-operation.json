@@ -1,0 +1,21 @@
+{
+  "source": "website/scripts/node1/star-operation.md",
+  "source_sha256": "51aa120ef5b7dd2d39b36cdec8e440a33d076436f8e0d153196607bc3e490eea",
+  "scene": "StarOperation",
+  "scene_file": "videos/star_operation.py",
+  "voice": "en-US-Chirp3-HD-Achird",
+  "work_started_at": "2026-11-14T22:31:15-08:00",
+  "cues": {
+    "definition": 0,
+    "generic": 20.31,
+    "example": 41.59,
+    "well_defined": 76.67,
+    "involution": 95.53,
+    "purpose": 118.55
+  },
+  "alignment_match_ratio": 0.9543,
+  "narration_duration": 137.32022675736962,
+  "duration": 137.333333,
+  "narration_sha256": "82cc075439e94ea7b484a868795d28fe21449d212f4012d0c7c5de27a651beca",
+  "video_sha256": "4a0ed34aee0f147480c8099d0d349291044c0ceb97a9e5172deb0b42917e7f4a"
+}

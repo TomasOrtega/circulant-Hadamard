@@ -6,7 +6,10 @@ summary: Replacing X by its inverse reverses cyclic positions while preserving
   the coefficients.
 number: "1.3"
 draft: true
-video: null
+video:
+  src: media/star-operation.mp4
+  captions: media/star-operation.vtt
+  duration: 137.333333
 mapPosition:
   - 460
   - 180

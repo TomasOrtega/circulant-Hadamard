@@ -1,0 +1,106 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:01.360
+We know how to shift a row.
+
+00:00:01.900 --> 00:00:04.720
+Now reverse the order in which the cyclic positions are read.
+
+00:00:05.600 --> 00:00:08.900
+If h of X has coefficients h zero through h n minus
+
+00:00:09.360 --> 00:00:13.120
+one, define h star by replacing X with X inverse.
+
+00:00:13.900 --> 00:00:17.780
+Since X inverse equals X to the n minus one, the result
+
+00:00:17.780 --> 00:00:19.340
+stays in the same group ring.
+
+00:00:20.460 --> 00:00:22.520
+The constant coefficient stays fixed.
+
+00:00:23.460 --> 00:00:25.980
+The remaining positions are read backward.
+
+00:00:26.880 --> 00:00:31.980
+Use four generic coefficients to see this clearly: a, b, c, d
+
+00:00:31.980 --> 00:00:35.540
+becomes a, d, c, b.
+
+00:00:36.420 --> 00:00:40.380
+The coefficients keep their values; only their cyclic positions reverse.
+
+00:00:41.740 --> 00:00:47.440
+Return to our original polynomial, negative one plus X plus X squared
+
+00:00:47.440 --> 00:00:49.440
+plus X cubed.
+
+00:00:49.880 --> 00:00:55.680
+Its star is negative one plus X inverse plus X to the
+
+00:00:55.680 --> 00:00:58.770
+negative two plus X to the negative three.
+
+00:00:59.320 --> 00:01:01.620
+Reduce exponents modulo four.
+
+00:01:02.100 --> 00:01:07.700
+The result is negative one plus X cubed plus X squared plus
+
+00:01:07.700 --> 00:01:10.240
+X, which is our original polynomial.
+
+00:01:10.900 --> 00:01:15.380
+This particular row is unchanged because its final three coefficients are equal.
+
+00:01:16.820 --> 00:01:18.520
+Why is star well defined?
+
+00:01:19.560 --> 00:01:23.100
+The rule defining our group ring is X to the n equals
+
+00:01:23.640 --> 00:01:23.740
+one.
+
+00:01:24.180 --> 00:01:27.280
+Its inverse also has nth power one.
+
+00:01:28.040 --> 00:01:32.660
+Replacing X by X inverse therefore respects that defining relation, so equal
+
+00:01:32.660 --> 00:01:34.560
+ring elements still have equal stars.
+
+00:01:35.680 --> 00:01:40.120
+Reverse twice, and every position returns to where it started.
+
+00:01:41.340 --> 00:01:43.100
+The star of h star is h.
+
+00:01:44.160 --> 00:01:47.160
+Replacing X by X inverse also respects multiplication.
+
+00:01:47.160 --> 00:01:52.320
+In this commutative group ring, the star of f times g is
+
+00:01:52.320 --> 00:01:54.420
+f star times g star.
+
+00:01:55.100 --> 00:01:57.380
+Thus star is an involution of the ring.
+
+00:01:58.700 --> 00:02:02.060
+Remember what star does: it reverses cyclic positions.
+
+00:02:03.060 --> 00:02:07.480
+It neither negates the coefficients nor takes the reciprocal of the polynomial.
+
+00:02:08.300 --> 00:02:12.940
+We introduced it because multiplying h by its reversal will encode every
+
+00:02:12.940 --> 00:02:16.020
+cyclic dot product in a single polynomial.
