@@ -14,18 +14,9 @@ const phaseExplorerStages = {
 const buttonBase =
   "inline-flex max-w-full items-center justify-center gap-2 rounded-md font-sans text-balance no-underline min-h-12 min-w-12 p-3 text-lg";
 
-function NodeButton({
-  href,
-  children,
-  primary = false,
-  className = "",
-  ...props
-}) {
-  const color = primary
-    ? "bg-theme text-white change-ring hocus:bg-black hocus:outline-black"
-    : "text-black hocus:bg-theme/15 hocus:text-theme";
+function NodeButton({ href, children, ...props }) {
   return (
-    <a href={href} className={`${buttonBase} ${color} ${className}`} {...props}>
+    <a href={href} className={`${buttonBase} text-black hocus:bg-theme/15 hocus:text-theme`} {...props}>
       {children}
     </a>
   );
@@ -168,15 +159,14 @@ function ChildNode({ child, entry, entries }) {
   const count = node.children?.length ?? 0;
   return (
     <section id={nodeAnchor(node)} className="width-lg">
-      <header className="flex flex-wrap items-center gap-4">
-        <h2 className="min-w-0 flex-1 basis-64">
+      <header className="flex flex-col items-start gap-4">
+        <h2>
           <hr />
           <span>{node.number ? `${node.number}. ` : ""}{node.title}</span>
           <hr />
         </h2>
         <NodeButton
           href={hrefFor(target, entry)}
-          primary
           aria-label={`Dig in deeper: ${node.title}`}
         >
           Dig in deeper <span aria-hidden="true">→</span>
