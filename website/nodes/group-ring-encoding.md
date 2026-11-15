@@ -6,7 +6,10 @@ summary: One polynomial records the first row; its product with its cyclic
   reversal records every dot product.
 number: 1
 draft: true
-video: null
+video:
+  src: media/group-ring-encoding.mp4
+  captions: media/group-ring-encoding.vtt
+  duration: 200.566667
 mapPosition:
   - 240
   - 24
@@ -16,7 +19,7 @@ graphTitle: Inside Node 1 · Group-Ring Encoding
 children:
   - node: cyclic-group-ring
     dependsOn: []
-    segment: null
+    segment: { start: 16.51, end: 45.89 }
     script: |
       Let $C_n=\langle X\mid X^n=1\rangle$. Its integer group ring is
 
@@ -44,7 +47,7 @@ children:
   - node: cyclic-shifts
     dependsOn:
       - cyclic-group-ring
-    segment: null
+    segment: { start: 45.89, end: 69.27 }
     script: |
       Multiplication by $X$ shifts the coefficient list one position to
       the right. Reducing $X^n$ to $1$ gives
@@ -68,7 +71,7 @@ children:
   - node: star-operation
     dependsOn:
       - cyclic-group-ring
-    segment: null
+    segment: { start: 69.27, end: 99.31 }
     script: |
       Define the star operation by
 
@@ -96,7 +99,7 @@ children:
       - star-operation
     contextFrom:
       - cyclic-group-ring
-    segment: null
+    segment: { start: 99.31, end: 135.35 }
     script: |
       Multiplying by the reversed polynomial records all the cyclic dot
       products at once. For $0\leq a<n$,
@@ -125,7 +128,7 @@ children:
     dependsOn:
       - cyclic-shifts
       - correlation-identity
-    segment: null
+    segment: { start: 135.35, end: 200.566667 }
     script: |
       > **Lemma (Circulant Hadamard Dictionary).** *Let $h(X)=\sum_{j=0}^{n-1}h_jX^j$
       > with every $h_j=\pm1$, and let $H$ be the circulant matrix whose first row is

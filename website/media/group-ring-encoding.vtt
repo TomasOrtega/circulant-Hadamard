@@ -1,0 +1,172 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:03.040
+Recall our original four by four circulant Hadamard matrix.
+
+00:00:03.760 --> 00:00:06.960
+Its first row is negative one, one, one, one.
+
+00:00:07.480 --> 00:00:09.800
+Each following row is a right cyclic shift.
+
+00:00:10.580 --> 00:00:14.300
+Our goal is to replace the matrix by one algebraic object that
+
+00:00:14.300 --> 00:00:15.300
+remembers all those shifts.
+
+00:00:16.660 --> 00:00:18.940
+Use the entries as polynomial coefficients.
+
+00:00:19.840 --> 00:00:25.060
+We get h of X equals negative one plus X plus X
+
+00:00:25.060 --> 00:00:27.240
+squared plus X cubed.
+
+00:00:27.240 --> 00:00:30.620
+Work with the rule X to the fourth equals one, so the
+
+00:00:30.620 --> 00:00:31.740
+powers wrap around.
+
+00:00:32.360 --> 00:00:35.560
+In dimension n, this is the integer group ring of the cyclic
+
+00:00:35.560 --> 00:00:39.720
+group: integer polynomials modulo X to the n minus one.
+
+00:00:40.340 --> 00:00:44.880
+Its unique representative of degree less than n records the row unambiguously.
+
+00:00:46.040 --> 00:00:48.060
+Now multiply h by X.
+
+00:00:48.820 --> 00:00:51.760
+The last term becomes X to the fourth, which is one.
+
+00:00:52.180 --> 00:00:54.925
+The coefficients become one, negative one, one, one.
+
+00:00:55.260 --> 00:00:57.380
+That is exactly a right cyclic shift.
+
+00:00:58.100 --> 00:01:00.560
+Multiply by X again for the next row.
+
+00:01:01.480 --> 00:01:05.080
+Row j corresponds to X to the j minus one times h.
+
+00:01:05.900 --> 00:01:08.220
+After n shifts, the cycle returns to h.
+
+00:01:09.420 --> 00:01:12.840
+To encode dot products we need another operation: star.
+
+00:01:14.100 --> 00:01:15.440
+Replace X by X inverse.
+
+00:01:16.280 --> 00:01:19.860
+This fixes the constant coefficient and reverses the other cyclic positions.
+
+00:01:20.540 --> 00:01:25.040
+With generic coefficients, a, b, c, d becomes a, d, c, b.
+
+00:01:25.780 --> 00:01:29.280
+Our actual row is unchanged because its final three entries agree.
+
+00:01:30.120 --> 00:01:33.620
+Thus, for this example, h star equals h.
+
+00:01:34.380 --> 00:01:37.660
+Star reverses positions; it does not negate the coefficients.
+
+00:01:39.460 --> 00:01:41.900
+Multiply h by h star in this group ring.
+
+00:01:42.860 --> 00:01:46.060
+The coefficient at each power X to the a is the dot
+
+00:01:46.060 --> 00:01:48.900
+product of the first row with its a step right shift.
+
+00:01:49.460 --> 00:01:52.760
+At the constant term we compare the row with itself: four squares
+
+00:01:52.760 --> 00:01:53.860
+of signs give four.
+
+00:01:54.540 --> 00:01:59.320
+At X we get negative one, negative one, one, one, whose sum
+
+00:01:59.320 --> 00:01:59.900
+is zero.
+
+00:02:00.660 --> 00:02:03.320
+The two step and three step dot products are also zero.
+
+00:02:04.560 --> 00:02:07.220
+So every nonconstant coefficient vanishes.
+
+00:02:08.040 --> 00:02:09.840
+The whole product is simply four.
+
+00:02:10.860 --> 00:02:14.700
+One equation has encoded every orthogonality condition of our example.
+
+00:02:15.500 --> 00:02:20.520
+The same dictionary works in every dimension, provided all n coefficients are
+
+00:02:20.520 --> 00:02:21.720
+positive or negative one.
+
+00:02:22.460 --> 00:02:26.760
+The matrix equation, H times H transpose equals n times the identity,
+
+00:02:26.760 --> 00:02:30.720
+is equivalent to h times h star equals n in the group
+
+00:02:30.720 --> 00:02:30.940
+ring.
+
+00:02:31.680 --> 00:02:36.600
+Forward, orthogonality makes the nonconstant coefficients zero, while the signs give constant
+
+00:02:36.600 --> 00:02:37.680
+coefficient n.
+
+00:02:38.620 --> 00:02:43.330
+Conversely, the polynomial identity makes the first row orthogonal to every nontrivial
+
+00:02:43.680 --> 00:02:43.920
+shift.
+
+00:02:43.920 --> 00:02:48.120
+Shift any pair of rows back together: their dot product becomes one
+
+00:02:48.120 --> 00:02:48.980
+of those same correlations.
+
+00:02:49.980 --> 00:02:52.080
+Every distinct pair is therefore orthogonal.
+
+00:02:53.340 --> 00:02:55.200
+The sign hypothesis is essential.
+
+00:02:55.860 --> 00:03:00.260
+In dimension four, the constant polynomial two also has product four with
+
+00:03:00.260 --> 00:03:05.320
+its star, but its coefficient row is two, zero, zero, zero.
+
+00:03:05.900 --> 00:03:08.980
+It gives twice the identity matrix, not a Hadamard matrix.
+
+00:03:09.640 --> 00:03:12.860
+With the sign hypothesis in place, the dictionary is exact.
+
+00:03:13.500 --> 00:03:15.660
+Explore the five smaller nodes for its ingredients.
+
+00:03:16.620 --> 00:03:19.280
+Next we use the identity to restrict the order n.
