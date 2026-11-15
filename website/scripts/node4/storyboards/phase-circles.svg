@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1380" height="660" viewBox="0 0 1380 660" role="img" aria-labelledby="title description">
+  <title id="title">From a radius-three circle to three possible relative phases</title>
+  <desc id="description">For the valid Gaussian group-ring example f(P)=3iP, the nine evaluations are equally spaced on the circle of radius three. The values f(1) and f(omega) have angles 90 and 210 degrees. Their ratio has angle minus 120 degrees, or 240 degrees, and equals omega squared. The Delta theorem restricts the ratio to the three cube roots of unity, rather than every point on the unit circle.</desc>
+  <defs>
+    <marker id="blue-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 Z" fill="#0086bd"/></marker>
+    <marker id="black-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 Z" fill="#222"/></marker>
+    <style>
+      text { font-family: Arial, Helvetica, sans-serif; fill: #222; }
+      .heading { font-size: 25px; font-weight: 600; }
+      .panel-title { font-size: 21px; font-weight: 600; }
+      .label { font-size: 18px; }
+      .note { font-size: 17px; fill: #555; }
+      .formula { font-size: 21px; }
+      .blue { fill: #0086bd; }
+      .axis { stroke: #b7b7b7; stroke-width: 1.2; }
+      .circle { fill: none; stroke: #969696; stroke-width: 1.5; }
+      .panel { fill: #fff; stroke: #b9dbea; stroke-width: 1.5; }
+    </style>
+  </defs>
+  <rect width="1380" height="660" fill="#f4f9fc"/>
+  <text x="690" y="40" text-anchor="middle" class="heading">Node 4 · From a circle to roots of unity</text>
+  <text x="690" y="70" text-anchor="middle" class="note">Exact illustration: f(P) = 3iP, with f(P)f*(P) = 9</text>
+
+  <rect x="14" y="94" width="436" height="550" rx="14" class="panel"/>
+  <rect x="472" y="94" width="436" height="550" rx="14" class="panel"/>
+  <rect x="930" y="94" width="436" height="550" rx="14" class="panel"/>
+  <text x="232" y="130" text-anchor="middle" class="panel-title">1. Evaluate on a circle</text>
+  <text x="690" y="130" text-anchor="middle" class="panel-title">2. Divide: subtract phases</text>
+  <text x="1148" y="130" text-anchor="middle" class="panel-title">3. Apply the arithmetic</text>
+
+  <g aria-label="Output evaluations on a circle of radius three">
+    <line x1="72" y1="300" x2="392" y2="300" class="axis"/>
+    <line x1="232" y1="145" x2="232" y2="448" class="axis"/>
+    <circle cx="232" cy="300" r="120" class="circle"/>
+    <text x="375" y="291" class="note">Re</text>
+    <text x="243" y="157" class="note">Im</text>
+    <text x="357" y="322" class="label">3</text>
+    <g fill="#777">
+      <circle cx="154.87" cy="208.07" r="4.5"/>
+      <circle cx="113.82" cy="279.16" r="4.5"/>
+      <circle cx="190.96" cy="412.76" r="4.5"/>
+      <circle cx="273.04" cy="412.76" r="4.5"/>
+      <circle cx="335.92" cy="360" r="4.5"/>
+      <circle cx="350.18" cy="279.16" r="4.5"/>
+      <circle cx="309.13" cy="208.07" r="4.5"/>
+    </g>
+    <path d="M 232 300 L 232 180" stroke="#0086bd" stroke-width="2.5" marker-end="url(#blue-arrow)"/>
+    <path d="M 232 300 L 128.08 360" stroke="#222" stroke-width="2.5" marker-end="url(#black-arrow)"/>
+    <circle cx="232" cy="180" r="5.5" fill="#0086bd"/>
+    <circle cx="128.08" cy="360" r="5.5" fill="#222"/>
+    <text x="252" y="199" class="label blue">f(1) = 3i</text>
+    <text x="49" y="391" class="label">f(ω) = 3iω</text>
+    <path d="M 157.52 343 A 86 86 0 0 1 232 214" fill="none" stroke="#0086bd" stroke-width="1.7" marker-end="url(#blue-arrow)"/>
+    <text x="154" y="249" text-anchor="middle" class="note blue">−120°</text>
+    <text x="232" y="483" text-anchor="middle" class="formula">|f(ζ)| = 3</text>
+    <text x="232" y="522" text-anchor="middle" class="note">Dots are output values f(ζ).</text>
+    <text x="232" y="548" text-anchor="middle" class="note">Equal spacing is specific to f(P) = 3iP.</text>
+    <text x="232" y="596" text-anchor="middle" class="note">Rotate from f(ω) to f(1).</text>
+  </g>
+
+  <g aria-label="The quotient on the unit circle at angle minus 120 degrees">
+    <line x1="530" y1="300" x2="850" y2="300" class="axis"/>
+    <line x1="690" y1="145" x2="690" y2="448" class="axis"/>
+    <circle cx="690" cy="300" r="120" class="circle"/>
+    <text x="833" y="291" class="note">Re</text>
+    <text x="701" y="157" class="note">Im</text>
+    <text x="814" y="323" class="label">1</text>
+    <line x1="690" y1="300" x2="810" y2="300" stroke="#777" stroke-width="2"/>
+    <path d="M 690 300 L 630 403.92" stroke="#0086bd" stroke-width="2.5" marker-end="url(#blue-arrow)"/>
+    <circle cx="630" cy="403.92" r="5.5" fill="#0086bd"/>
+    <path d="M 746 300 A 56 56 0 0 1 662 348.50" fill="none" stroke="#0086bd" stroke-width="1.7" marker-end="url(#blue-arrow)"/>
+    <text x="748" y="366" class="label blue">−120°</text>
+    <text x="573" y="432" class="label blue">Δ(f) = ω²</text>
+    <text x="690" y="483" text-anchor="middle" class="formula">Δ(f) = f(1) / f(ω)</text>
+    <text x="690" y="522" text-anchor="middle" class="note">90° − 210° = −120° = 240°</text>
+    <text x="690" y="548" text-anchor="middle" class="note">The lengths cancel: |Δ(f)| = 1.</text>
+    <text x="690" y="596" text-anchor="middle" class="note">The ratio records a relative rotation.</text>
+  </g>
+
+  <g aria-label="Three allowed relative phases, the cube roots of unity">
+    <line x1="988" y1="300" x2="1308" y2="300" class="axis"/>
+    <line x1="1148" y1="145" x2="1148" y2="448" class="axis"/>
+    <circle cx="1148" cy="300" r="120" class="circle"/>
+    <text x="1291" y="291" class="note">Re</text>
+    <text x="1159" y="157" class="note">Im</text>
+    <path d="M 1268 300 L 1148 300 L 1088 196.08" fill="none" stroke="#777" stroke-width="1.5"/>
+    <path d="M 1148 300 L 1088 403.92" stroke="#0086bd" stroke-width="2.5" marker-end="url(#blue-arrow)"/>
+    <circle cx="1268" cy="300" r="6" fill="#222"/>
+    <circle cx="1088" cy="196.08" r="6" fill="#222"/>
+    <circle cx="1088" cy="403.92" r="6" fill="#0086bd"/>
+    <text x="1279" y="327" class="label">1 · 0°</text>
+    <text x="1034" y="178" class="label">ω · 120°</text>
+    <text x="1025" y="433" class="label blue">ω² · 240°</text>
+    <text x="1148" y="483" text-anchor="middle" class="formula">Δ(f) ∈ {1, ω, ω²}</text>
+    <text x="1148" y="522" text-anchor="middle" class="note">Integrality + unit-modulus conjugates</text>
+    <text x="1148" y="548" text-anchor="middle" class="note">+ local congruences restrict the phase.</text>
+    <text x="1148" y="596" text-anchor="middle" class="note">The circle condition alone is insufficient.</text>
+  </g>
+</svg>
