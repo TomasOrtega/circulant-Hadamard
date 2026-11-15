@@ -28,6 +28,13 @@ changed, so application tests and video renders were unnecessary.
 A fresh fetch confirmed main matched origin/main before committing. The user
 explicitly authorized publication to this existing branch.
 
+Publication confirmed at 2026-11-14T16:08:46-08:00, after
+75 seconds of observed work. Created and pushed
+[3f907b1](https://github.com/TomasOrtega/circulant-Hadamard/commit/3f907b178d5a4d03dc9eeb1ae0ba70eddaad3a29),
+`docs: collapse README installation guide by default`, with
+`Assisted-by: Codex:GPT-6`. Git confirmed origin/main advanced from 3fd1a4f
+to 3f907b1. This outcome is included in a follow-up documentation commit.
+
 ## Report relevance
 
 This is a post-submission, AI-assisted documentation presentation change. It
