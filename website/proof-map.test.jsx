@@ -35,7 +35,7 @@ describe("supplied eight-node proof map", () => {
       "Signs Become All Ones", "Odd-Order Rigidity", "From Products to Sums", "The Final Contradiction",
     ]);
     expect(entries.some(({ node }) => ["proof-by-example", "general-proof"].includes(node.id))).toBe(false);
-    expect(html).toContain("Accepted black box · Proposition 2.2");
+    expect(html).not.toContain("Accepted black box · Proposition 2.2");
     expect(html).not.toContain("Accepted black box · Proposition 3.4");
     const counts = {
       "group-ring-encoding": 5, "restriction-on-the-order": 6, "three-evaluations": 5,

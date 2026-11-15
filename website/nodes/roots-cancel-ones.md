@@ -10,6 +10,18 @@ mapPosition: [40, 24]
 mapSummary: '$J(\zeta_S)=0\quad(S\ne\varnothing)$'
 ---
 
+> **Lemma (Vanishing away from one).** Let $u>1$ be odd,
+> $J(P)=1+P+\cdots+P^{u^2-1}$, and let
+> $\zeta_S=\prod_{p\in S}\zeta_p$ for a nonempty subset of the
+> distinct prime divisors of $u$. Each $\zeta_p$ is a primitive $p$th
+> root. Then
+>
+> $$
+> J(\zeta_S)=0.
+> $$
+>
+> This is an exact equality before any reduction modulo $1+i$.
+
 ## The all-ones polynomial
 
 Let $u>1$ be odd, let $I$ be its distinct prime divisors, and use the

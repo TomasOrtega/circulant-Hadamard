@@ -10,9 +10,22 @@ mapPosition: [40, 24]
 mapSummary: '$\prod_{\mathrm{even}}r_S=\prod_{\mathrm{odd}}r_S$'
 ---
 
+> **Lemma (Separate the two products).** Let $I$ be the distinct primes
+> dividing an odd integer $u>1$, and let $r_S,w_S$ be units in
+> $A=\mathbb Z[i,\{\zeta_p:p\in I\},1/u]$. If
+> $\prod_{S\subseteq I}r_S^{(-1)^{|S|}}=
+> \prod_{S\subseteq I}w_S^{(-1)^{|S|}}=1$, then
+>
+> $$
+> \prod_{|S|\text{ even}}r_S=\prod_{|S|\text{ odd}}r_S,
+> \qquad
+> \prod_{|S|\text{ even}}w_S=\prod_{|S|\text{ odd}}w_S.
+> $$
+
 ## The inputs from Node 6
 
-Let $I$ be the distinct primes dividing the odd integer $u>1$. For
+Let $I$ be the distinct primes dividing the odd integer $u>1$.
+Choose a primitive $p$th root $\zeta_p$ for each $p\in I$. For
 $S\subseteq I$, put $\zeta_S=\prod_{p\in S}\zeta_p$ and
 $\varepsilon_S=(-1)^{|S|}$. Write $c_S=c(\zeta_S)$, and similarly
 for $d_S,g_S$. We use the same characteristic-zero domain as Node 6:

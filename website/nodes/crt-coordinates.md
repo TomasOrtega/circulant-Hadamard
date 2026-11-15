@@ -11,33 +11,38 @@ mapPosition: [240, 24]
 mapSummary: '$4$-cycle $\times$ $u^2$-cycle'
 ---
 
-## Statement
+> **Lemma (Chinese remainder coordinates).** *For odd $u$, the map*
+>
+> $$
+> j\longmapsto(j\bmod4,\ j\bmod u^2)
+> $$
+>
+> *identifies $C_{4u^2}$ with $C_4\times C_{u^2}$. On group rings it
+> sends $X$ to $ZP$ and gives*
+>
+> $$
+> \mathbb Z[X]/(X^{4u^2}-1)
+> \cong\mathbb Z[Z,P]/(Z^4-1,P^{u^2}-1).
+> $$
 
-Since $u$ is odd, $\gcd(4,u^2)=1$. The Chinese remainder theorem gives
+Since $u$ is odd, $\gcd(4,u^2)=1$. If two positions have the same pair
+of residues, their difference is divisible by both $4$ and $u^2$, hence
+by $4u^2$. Thus the map is injective. Both sides have $4u^2$ elements,
+so it is bijective, and addition of positions is respected.
+
+Consequently the monomial $X^j$ becomes $Z^{j\bmod4}P^{j\bmod u^2}$.
+Every pair of exponents occurs exactly once, so coefficients are relabeled
+without being added or changed. Multiplication and inversion are preserved,
+and therefore so is star. In particular,
 
 $$
-C_{4u^2}\cong C_4\times C_{u^2}.
+h(Z,P)h^*(Z,P)=4u^2
 $$
 
-A position $j$ is sent to $(j\bmod4,j\bmod u^2)$. Every pair occurs exactly
-once, so this relabels the positions without changing their coefficients.
+is the image of the original norm identity.
 
-On group rings, the map sends $X$ to $ZP$. It identifies
-$\mathbb Z[X]/(X^{4u^2}-1)$ with
+For $u=3$, positions $1,4,9$ become $(1,1),(0,4),(1,0)$, respectively.
+The four groups are determined by residues; they are not four consecutive
+blocks cut from the original row.
 
-$$
-\mathbb Z[Z,P]/(Z^4-1,P^{u^2}-1).
-$$
-
-The two relations mean $Z^4=1$ and $P^{u^2}=1$. The map respects multiplication
-and inversion, so it preserves $h(X)h^*(X)=4u^2$.
-
-## The order-36 picture
-
-For $u=3$, label each of the 36 positions by its residues modulo $4$ and $9$.
-Position $1$ becomes $(1,1)$, position $4$ becomes $(0,4)$, and position $9$
-becomes $(1,0)$. Thus $C_{36}\cong C_4\times C_9$.
-
-**Output.** A two-variable polynomial $h(Z,P)$ encoding the same sign row.
-The four groups are determined by residues, not by cutting the original row
-into four consecutive blocks.
+Source: [the paper, Section 4, equations (4.1)–(4.2)](https://github.com/openai/math/blob/main/preprints/The-circulant-Hadamard-conjecture-September-23-2026/paper.pdf).

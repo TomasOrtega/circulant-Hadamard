@@ -10,6 +10,18 @@ mapPosition: [440, 24]
 mapSummary: '$J(1)=u^2,\quad c(1)=\pm u$'
 ---
 
+> **Lemma (The value at one).** Let $u>1$ be odd, let
+> $J(P)=1+P+\cdots+P^{u^2-1}$, and suppose
+> $c(P)\in\mathbb Z[P]/(P^{u^2}-1)$ satisfies
+> $c(P)c^*(P)=u^2$. Then
+>
+> $$
+> J(1)=u^2,\qquad c(1)=\pm u,\qquad
+> \frac{J(1)}{c(1)}=\pm u\equiv1\pmod{1+i}.
+> $$
+>
+> The congruence is in the common evaluation ring with $1/u$ adjoined.
+
 ## Every term becomes one
 
 For an odd integer $u>1$, the all-ones polynomial has $u^2$ terms:

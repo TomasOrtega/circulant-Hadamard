@@ -21,85 +21,78 @@ children:
     dependsOn: []
     segment: { start: 16.55, end: 40.81 }
     script: |
-      Since $u$ is odd, $4$ and $u^2$ are coprime. The Chinese remainder
-      theorem gives
+      Because $u$ is odd, $4$ and $u^2$ are coprime. Positions with
+      the same residues modulo both have difference divisible by
+      $4u^2$. The residue map is therefore injective, and equal finite
+      sizes make it a bijection:
 
       $$
       C_{4u^2}\cong C_4\times C_{u^2}.
       $$
 
-      For our guiding example, $C_{36}\cong C_4\times C_9$.
-      The position $j$ becomes the pair $(j\bmod4,j\bmod9)$.
-      We have relabeled the same $36$ signs.
-
-      In the group ring, this replaces $X$ by $ZP$, with $Z^4=1$ and
-      $P^9=1$. The polynomial identity becomes
-
-      $$
-      h(Z,P)h^*(Z,P)=36
-      \quad\text{in }\mathbb Z[Z,P]/(Z^4-1,P^9-1).
-      $$
+      On group rings, $X$ maps to $ZP$, with $Z^4=1$ and $P^{u^2}=1$.
+      This relabels every sign once and preserves multiplication and
+      star, so $h(Z,P)h^*(Z,P)=4u^2$. For $u=3$, position $j$ becomes
+      $(j\bmod4,j\bmod9)$.
   - node: four-sign-polynomials
     dependsOn:
       - crt-coordinates
     segment: { start: 40.81, end: 62.83 }
     script: |
-      Sort the terms by their power of $Z$:
+      Group the terms of $h(Z,P)$ by their $Z$-exponent:
 
       $$
-      h(Z,P)=H_0(P)+ZH_1(P)+Z^2H_2(P)+Z^3H_3(P).
+      \begin{aligned}
+      h(Z,P)&=H_0(P)+ZH_1(P)\\
+      &\quad+Z^2H_2(P)+Z^3H_3(P).
+      \end{aligned}
       $$
 
-      Each $H_a(P)$ has $u^2$ coefficients, all $\pm1$.
-      At order $36$, these are four polynomials with nine coefficients each.
-      For any fixed power of $P$, the four coefficients form a column of signs.
+      Here $H_a(P)=\sum_{b=0}^{u^2-1}h_{a,b}P^b$ has sign coefficients.
+      The group elements $Z^aP^b$ form a basis, so this decomposition
+      is unique. Grouping adds no coefficients together. For each fixed
+      power $P^b$, its four signs are the entries combined by evaluation
+      at $Z=1,-1,i$.
   - node: evaluate-four-cycle
     dependsOn:
       - four-sign-polynomials
     segment: { start: 62.83, end: 90.45 }
     script: |
-      We can substitute $Z=1,-1,i$, since each satisfies $Z^4=1$.
-      This leaves polynomials in $P$:
+      The choices $Z=1,-1,i$ satisfy $Z^4=1$, so they define ring maps.
+      They give
 
       $$
       \begin{aligned}
       h(1,P)&=H_0(P)+H_1(P)+H_2(P)+H_3(P),\\
       h(-1,P)&=H_0(P)-H_1(P)+H_2(P)-H_3(P),\\
-      h(i,P)&=H_0(P)-H_2(P)+i\bigl(H_1(P)-H_3(P)\bigr).
+      h(i,P)&=H_0(P)-H_2(P)\\
+      &\quad+i\bigl(H_1(P)-H_3(P)\bigr).
       \end{aligned}
       $$
 
-      Evaluation respects the product and star. For Gaussian coefficients,
-      star conjugates the coefficients and inverts $P$:
-
-      $$
-      f^*(P)=\overline{f(P^{-1})}.
-      $$
-
-      Each evaluated polynomial still has product with its star equal to
-      $4u^2$, or $36$ in our example. The value at $Z=-i$ is the
-      coefficientwise conjugate of the value at $Z=i$.
+      For Gaussian coefficients, star conjugates coefficients and
+      inverts $P$. Since $\epsilon^{-1}=\overline\epsilon$ for these
+      roots, evaluation commutes with star. Each evaluated polynomial
+      therefore retains norm $4u^2$. The value at $-i$ is determined
+      by coefficientwise conjugation of the value at $i$.
   - node: halve-sign-sums
     dependsOn:
       - four-sign-polynomials
     segment: { start: 115.07, end: 143.23 }
     script: |
-      For a column $(a_0,a_1,a_2,a_3)$ of signs, both
+      Fix the four signs $a_0,a_1,a_2,a_3$ belonging to one power of $P$.
+      The coefficients at $Z=1,-1$ are
 
       $$
-      a_0+a_1+a_2+a_3,\qquad a_0-a_1+a_2-a_3
+      a_0+a_1+a_2+a_3,\qquad a_0-a_1+a_2-a_3.
       $$
 
-      are even. The differences $a_0-a_2$ and $a_1-a_3$ are even too.
-      Thus the half-sums are integers, and
-
-      $$
-      \frac{a_0-a_2}{2}+i\,\frac{a_1-a_3}{2}
-      $$
-
-      is a Gaussian integer. This coefficient check is what lets us divide
-      all three evaluated polynomials by $2$ and keep the required
-      integer or Gaussian-integer coefficients.
+      Both are even. At $Z=i$, the coefficient is
+      $(a_0-a_2)+i(a_1-a_3)$, with both differences even. Thus halving
+      gives integers in the first two cases and a Gaussian integer in
+      the third. Applying this check at every power of $P$ proves
+      integrality of all three half-evaluations, independently of the
+      norm identity.
   - node: normalized-evaluation-norms
     dependsOn:
       - evaluate-four-cycle
@@ -110,22 +103,25 @@ children:
 
       $$
       \begin{aligned}
-      c(P)&=\frac{h(1,P)}2,\\
-      d(P)&=\frac{h(-1,P)}2,\\
-      g(P)&=\frac{h(i,P)}2.
+      c(P)&=h(1,P)/2,\\
+      d(P)&=h(-1,P)/2,\\
+      g(P)&=h(i,P)/2.
       \end{aligned}
       $$
 
-      The coefficient check gives integer coefficients for $c(P),d(P)$ and
-      Gaussian-integer coefficients for $g(P)$. Dividing a polynomial and
-      its star by $2$ divides their product by $4$. Therefore
+      Parity gives integer coefficients for $c(P),d(P)$ and
+      Gaussian-integer coefficients for $g(P)$. Star fixes $2$, so
+      halving each polynomial halves its star too and divides its norm
+      by four. Therefore
 
       $$
       c(P)c^*(P)=d(P)d^*(P)=g(P)g^*(P)=u^2.
       $$
 
-      At order $36$, the right-hand side is $9$: this is why we divide
-      by $2$. We now have the three polynomials needed in the next steps.
+      At every $u^2$th root of unity, star becomes conjugation and all
+      three values have absolute value $u$. For $u=3$, the norm changes
+      from $36$ to $9$, giving the radius-three circle.
+
 ---
 
 We first use the **Chinese remainder theorem** to separate the two factors

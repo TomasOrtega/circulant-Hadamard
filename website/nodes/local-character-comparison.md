@@ -6,42 +6,110 @@ summary: At each prime dividing u, comparing two neighboring character values gi
 number: "4.3"
 draft: true
 video: null
-blackBox: Lemma 3.1
 mapPosition: [440, 200]
 mapSummary: 'Comparison ratios have residue $1$'
 ---
 
-## The technical input
+## The comparison we need
 
-We accept the following character-comparison lemma here. Its local
-arithmetic proof will be expanded in a deeper node.
+Fix a prime $p$. We will compare evaluations at $1$ and at a primitive
+$p$th root $\rho$. Although $\rho$ reduces to $1$ above $p$, we cannot
+simply reduce a quotient: its numerator and denominator might both vanish.
+The point of the proof is to cancel the necessary powers of $p$ first.
 
-> Let $p$ be a prime, and let $\eta$ have finite order coprime to $p$.
+> **Lemma (Local comparison).** *Let $\eta$ have finite order coprime to $p$.
 > Let $A$ be $\mathbb Z[\eta]$ localized at a maximal ideal containing $p$;
-> this means that we allow denominators outside that ideal. Suppose
+> this means allowing denominators outside that ideal. Suppose*
 >
 > $$
-> F,K\in A[C_{p^e}],\qquad FK=p^e b,
+> F(X),K(X)\in A[X]/(X^{p^e}-1),\qquad F(X)K(X)=p^e b,
 > $$
 >
-> where $e\geq1$ and $b$ is a unit of $A$. For a primitive $p$th root $\rho$,
-> the lemma says that
+> *where $e\geq1$ and $b$ is invertible in $A$. Then*
 >
 > $$
 > \frac{F(\rho)}{F(1)},\qquad
 > \frac{K(\rho)}{K(1)}
 > $$
 >
-> are units in $A[\rho]$ with residue $1$ at its maximal ideal $(\rho-1)$.
+> *are units in $A[\rho]$ and both have residue $1$ modulo $\rho-1$.*
 
-The denominators are nonzero because the corresponding evaluated products
-are $p^e b$.
+Here a **unit** is an element with an inverse in the same ring. Both
+denominators are nonzero, since $F(1)K(1)=p^e b\ne0$.
 
-The matching exponent $e$ is essential: it occurs both in the cyclic
-group order and in the scalar product. The paper's proof projects from
-$C_{p^e}$ to $C_{p^{e-1}}$ and divides one projected factor by $p$;
-cyclotomic divisibility justifies that division, and both comparison
-ratios remain unchanged. Iterating reaches the elementary case $e=1$.
+## The cyclotomic fact used in the proof
+
+We use the standard local cyclotomic facts in the paper's Lemma 2.1.
+In $A$, every nonzero element is a power of $p$ times a unit. Its exponent
+is its valuation, written $v$, with $v(p)=1$. After adjoining a primitive
+$p^e$th root $\xi$, valuations may be fractional but still add under
+multiplication. Put $D=(p-1)p^{e-1}$. The powers
+$1,\xi,\ldots,\xi^{D-1}$ form an $A$-basis. The ring $A[\xi]$ is local
+with maximal ideal $(\xi-1)$, so an element with nonzero residue is a unit.
+Moreover, if $\deg R<D$ and $v(R(\xi))\geq1$, then every coefficient
+of $R(X)$ is divisible by $p$.
+
+These facts come from the cyclotomic polynomial
+$\Phi_{p^e}(X)=1+X^{p^{e-1}}+\cdots+X^{(p-1)p^{e-1}}$:
+after replacing $X$ by $1+Y$, it is Eisenstein at $p$.
+Thus adjoining $\xi$ gives the stated basis, and $p$ is a unit times
+$(\xi-1)^D$. Divisibility by $p$ can then be read coefficient by
+coefficient in that basis. This is the arithmetic input; the comparison
+itself follows by the descent below.
+
+## Base case: a cycle of length p
+
+When $e=1$, the integral valuations of $F(1)$ and $K(1)$ add to $1$.
+At least one value is a unit; suppose it is $F(1)$.
+Since $\rho\equiv1\pmod{\rho-1}$,
+$F(\rho)/F(1)\equiv1$ and this ratio is a unit. Moreover,
+
+$$
+\frac{F(\rho)}{F(1)}\frac{K(\rho)}{K(1)}
+=\frac{p b}{p b}=1.
+$$
+
+The second ratio is its inverse, so it is also a unit of residue $1$.
+
+## Shorten the cycle without changing either ratio
+
+Suppose $e\geq2$. At a primitive $p^e$th root $\xi$,
+
+$$
+v(F(\xi))+v(K(\xi))=e.
+$$
+
+Both valuations are nonnegative, so one is at least $1$. Relabel the
+two factors if necessary so that $v(F(\xi))\geq1$.
+Divide its polynomial representative by the monic cyclotomic polynomial:
+
+$$
+F(X)=Q(X)\Phi_{p^e}(X)+R(X),\qquad \deg R<D.
+$$
+
+The cyclotomic fact makes all coefficients of $R(X)$ divisible by $p$.
+Now project to the shorter cycle by imposing $X^{p^{e-1}}=1$; write $q$
+for this projection. Every term in $\Phi_{p^e}(X)$ becomes $1$, so
+$q(\Phi_{p^e})=p$. Hence $q(F)$ is coefficientwise divisible by $p$.
+Define
+
+$$
+F'(X)=q(F)/p,\qquad K'(X)=q(K).
+$$
+
+They have coefficients in $A$ and satisfy
+$F'(X)K'(X)=p^{e-1}b$. Cancelling $p$ is valid because the group ring
+is a free $A$-module. At both $X=1$ and $X=\rho$, projection changes
+neither evaluation. Division by $p$ cancels from the ratio, giving
+
+$$
+\frac{F'(\rho)}{F'(1)}=\frac{F(\rho)}{F(1)},\qquad
+\frac{K'(\rho)}{K'(1)}=\frac{K(\rho)}{K(1)}.
+$$
+
+The cycle exponent and scalar exponent have both fallen by one, while
+both ratios are unchanged. Induction reaches the base case and proves
+the lemma. The factor divided by $p$ may change from one step to the next.
 
 ## Apply it to the norm solution
 
@@ -65,6 +133,8 @@ $$
 as a unit in $B_{\mathfrak m}$. Here $\zeta_p$ reduces to $1$ in
 characteristic $p$. The inverse ratio has the same properties.
 
-**Output.** Local unit comparisons of residue $1$ in every prime direction.
+The matching exponent $e$ matters: it keeps the shortening process going
+until the unit argument at $e=1$ applies. We have therefore obtained a
+unit comparison of residue $1$ in every prime direction.
 
 Source: [the paper, Lemmas 2.1 and 3.1, Remark 3.2, and equation (3.4)](https://github.com/openai/math/blob/main/preprints/The-circulant-Hadamard-conjecture-September-23-2026/paper.pdf).

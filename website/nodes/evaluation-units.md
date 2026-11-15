@@ -10,6 +10,16 @@ mapPosition: [440, 24]
 mapSummary: '$c_S^{-1}=\overline{c_S}/u^2$'
 ---
 
+> **Lemma (Division survives reduction).** *Let $u>1$ be odd. In*
+>
+> $$
+> A=\mathbb Z[i,\{\zeta_p:p\mid u\},1/u],
+> $$
+>
+> *every subset-root evaluation of $c(P),d(P),g(P)$ is a unit.
+> The quotient $A/(1+i)A$ is nonzero of characteristic two, and these
+> evaluated values remain invertible in it.*
+
 ## A ring for all the evaluations
 
 Let $I$ be the distinct primes dividing the odd integer $u>1$, with
@@ -47,7 +57,9 @@ We reduce $A$ modulo the ideal $(1+i)A$. Since
 $2=(1+i)(1-i)$, the resulting ring has $2=0$. We must also know that
 it has $1\ne0$.
 
-The cyclotomic ring $B$ is a nonzero free abelian group of finite rank,
+Powers of the generating roots reduce to finitely many monomials, which
+span $B$ over $\mathbb Z$. Also $B\subset\mathbb C$ has no additive
+torsion. It is therefore a nonzero free abelian group of finite rank,
 so $B/2B\ne0$. Choose a maximal ideal $\mathfrak m$ of $B$ containing
 $2$. In its residue field, $(1+i)^2=2i=0$ forces $1+i=0$.
 Thus $1+i\in\mathfrak m$. The odd integer $u$ has residue $1$, so

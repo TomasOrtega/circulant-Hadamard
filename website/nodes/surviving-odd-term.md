@@ -10,6 +10,22 @@ mapPosition: [240, 220]
 mapSummary: '$\mathcal S\equiv\pm u\equiv1$'
 ---
 
+> **Lemma (Only the empty subset survives).** Let $u>1$ be odd,
+> let $I$ be its distinct prime divisors, and put
+> $\zeta_S=\prod_{p\in S}\zeta_p$, with empty product $1$.
+> Suppose $E(P)\equiv J(P)\pmod{1+i}$ coefficientwise, where
+> $J(P)=1+P+\cdots+P^{u^2-1}$. For the norm solution $c(P)$
+> from Node 3,
+>
+> $$
+> \mathcal S:=\sum_{S\subseteq I}(-1)^{|S|}
+> \frac{E(\zeta_S)}{c(\zeta_S)}
+> \equiv\frac{u^2}{c(1)}=\pm u\equiv1\pmod{1+i}.
+> $$
+>
+> All divisions use units of
+> $A=\mathbb Z[i,\{\zeta_p:p\in I\},1/u]$.
+
 ## Substitute the coefficient congruence
 
 Let $I$ be the distinct prime divisors of the odd integer $u>1$ and

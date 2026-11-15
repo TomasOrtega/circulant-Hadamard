@@ -10,36 +10,29 @@ mapPosition: [440, 360]
 mapSummary: Even sums and differences
 ---
 
-## A fact about four signs
+> **Lemma (Integral half-evaluations).** *If the coefficients of the four
+> polynomials $H_a(P)$ are signs, then $h(1,P)/2$ and $h(-1,P)/2$
+> have integer coefficients, while $h(i,P)/2$ has Gaussian-integer
+> coefficients.*
 
-Let $a_0,a_1,a_2,a_3\in\{-1,1\}$. Since each sign is odd, both
+Fix a power $P^b$ and call its four coefficients $a_0,a_1,a_2,a_3$.
+Every $a_j$ is congruent to $1$ modulo $2$. Hence both
+$a_0+a_1+a_2+a_3$ and $a_0-a_1+a_2-a_3$ are even. These are the
+coefficients in the first two evaluated polynomials.
+
+For the third evaluation, the coefficient is
 
 $$
-\begin{aligned}
-\frac{a_0+a_1+a_2+a_3}{2}&\in\mathbb Z,\\
-\frac{a_0-a_1+a_2-a_3}{2}&\in\mathbb Z.
-\end{aligned}
+(a_0-a_2)+i(a_1-a_3).
 $$
 
-The difference of two signs is also even. Therefore
+Both differences are even, so after division by two the real and
+imaginary parts are integers. Applying this argument separately at
+every power $P^b$ proves the claim.
 
-$$
-\frac{a_0-a_2}{2}+i\frac{a_1-a_3}{2}\in\mathbb Z[i].
-$$
+For the single sign column $(-1,1,1,-1)$, the three half-coefficients
+are $0,0,-1+i$. This illustrates coefficient parity, not a full
+Hadamard row or a norm solution. The proof uses the common signs alone;
+it does not need $h(Z,P)h^*(Z,P)=4u^2$.
 
-This is a coefficientwise parity argument. It does not need the norm identity
-or the evaluation lemma.
-
-## Apply it to each column
-
-Use the four coefficients of $P^b$ in $H_0(P),H_1(P),H_2(P),H_3(P)$ as the
-four signs above. The three combinations are exactly the coefficients obtained
-by dividing $h(1,P),h(-1,P),h(i,P)$ by $2$.
-
-For an individual column $(-1,1,1,1)$, the normalized coefficients are
-$1,-1,-1$, respectively. This illustrates the calculation for a column; it
-does not specify all nine columns of a hypothetical order-36 matrix.
-
-**Output.** The first two normalized polynomials have integer coefficients,
-and the third has Gaussian-integer coefficients. Division by $2$ introduces
-no fractional coefficients.
+Source: [the paper, Section 4, equations (4.1)–(4.2)](https://github.com/openai/math/blob/main/preprints/The-circulant-Hadamard-conjecture-September-23-2026/paper.pdf).

@@ -21,150 +21,124 @@ children:
     dependsOn: []
     segment: { start: 29.77, end: 55.63 }
     script: |
-      Node 3 gives three polynomial norm solutions, and the Δ-theorem gives
-      $\Delta(c),\Delta(d),\Delta(g)$ of odd order. Define
+      > **Lemma (Odd comparison products).** The quantities
+      >
+      > $$
+      > R=\frac{\Delta(d)}{\Delta(c)},\qquad
+      > W=\frac{\Delta(g)}{\Delta(c)}
+      > $$
+      >
+      > are roots of unity of odd order.
 
-      $$
-      \begin{aligned}
-      R&=\frac{\Delta(d)}{\Delta(c)},\\
-      W&=\frac{\Delta(g)}{\Delta(c)}.
-      \end{aligned}
-      $$
+      The Δ-theorem supplies odd order for each individual Δ-value.
+      If $\alpha^m=\beta^n=1$ with $m,n$ odd, then
+      $(\alpha/\beta)^{mn}=1$. The quotient therefore has odd order too.
 
-      A quotient of roots whose orders divide odd integers $a,b$ has order
-      dividing the odd integer $ab$. Thus $R,W$ also have odd order.
+      For $u=3$, the comparison is between the two inputs $1$ and $\omega$:
+      $R=(d(1)/c(1))/(d(\omega)/c(\omega))$, with the analogous expression
+      for $W$. Both belong to $\{1,\omega,\omega^2\}$. The sign branch
+      will provide their residue condition.
 
-      For $u=3$, each Δ-value compares the phases at $1$ and $\omega$.
-      The quantities $R,W$ compare those relative rotations with the one
-      belonging to $c(P)$. They are cube roots of unity in this example.
   - node: evaluation-units
     dependsOn: []
     segment: { start: 71.29, end: 91.99 }
     script: |
-      Before dividing congruences, we need invertible denominators. For
-      $x(P)\in\{c(P),d(P),g(P)\}$, every evaluation from Node 4 satisfies
+      > **Lemma (Unit evaluations).** For odd $u>1$, work in
+      >
+      > $$
+      > A=\mathbb Z[i,\{\zeta_p:p\mid u\},1/u].
+      > $$
+      >
+      > Every subset-root evaluation of $c(P),d(P),g(P)$ is a unit, and
+      > $A/(1+i)A$ is a nonzero ring of characteristic two.
+
+      For $x(P)\in\{c(P),d(P),g(P)\}$, the evaluated norm identity gives
 
       $$
-      x(\zeta_S)\overline{x(\zeta_S)}=u^2.
+      x(\zeta_S)^{-1}=\frac{\overline{x(\zeta_S)}}{u^2}\in A.
       $$
 
-      Work in the coefficient ring
+      These inverse identities survive reduction. To see that reduction is
+      nonzero, put $B=\mathbb Z[i,\{\zeta_p:p\mid u\}]$. The finite free
+      abelian group $B$ has $B/2B\ne0$. A maximal ideal above $2$ kills
+      $1+i$ but not odd $u$, so its nonzero residue field is still a quotient
+      after adjoining $1/u$. Thus $(1+i)A$ is proper. For $u=3$, the inverse
+      of an evaluation is its conjugate divided by $9$.
 
-      $$
-      \mathbb Z[i,\{\zeta_p:p\mid u\},1/u].
-      $$
-
-      Every such value is a unit there, with explicit inverse
-
-      $$
-      x(\zeta_S)^{-1}=\frac{\overline{x(\zeta_S)}}{u^2}.
-      $$
-
-      Its reduction modulo $1+i$ is a nonzero ring of characteristic two,
-      and these units remain invertible. For $u=3$, the inverse is the
-      conjugate divided by $9$; the odd denominator remains invertible
-      after reduction.
   - node: sign-ratio-congruences
     dependsOn:
       - evaluation-units
     segment: { start: 55.63, end: 110.29 }
     script: |
-      The common signs in Node 5 gave coefficientwise divisibilities:
+      > **Lemma (Residue-one comparisons).** Every evaluated ratio
+      > $d(\zeta_S)/c(\zeta_S)$ and $g(\zeta_S)/c(\zeta_S)$ has residue one.
+      > Consequently $R\equiv W\equiv1\pmod{1+i}$.
+
+      Node 5 gives exact identities
 
       $$
-      2\mid d(P)-c(P),\qquad 1+i\mid g(P)-c(P).
+      d(P)-c(P)=2a(P),\qquad g(P)-c(P)=(1+i)b(P),
       $$
 
-      Evaluate and divide by the unit $c(\zeta_S)$. Since $2=(1+i)(1-i)$,
-      both quotients have residue $1$:
+      with integral polynomial quotients. Evaluate and divide by the unit
+      $c(\zeta_S)$. Subtracting one from each ratio leaves a multiple of
+      $2$ or $1+i$, hence a multiple of $1+i$.
 
-      $$
-      \begin{aligned}
-      r_S&:=\frac{d(\zeta_S)}{c(\zeta_S)}\equiv1,\\
-      w_S&:=\frac{g(\zeta_S)}{c(\zeta_S)}\equiv1
-      \pmod{1+i}.
-      \end{aligned}
-      $$
+      Each factor in the alternating products defining $R,W$ therefore has
+      residue one. Inverses of these units also have residue one, so both
+      products do. All congruences use the single reduction ring from Node 6.2.
 
-      The comparison products are
-
-      $$
-      \begin{aligned}
-      R&=\prod_{S\subseteq I}r_S^{(-1)^{|S|}},\\
-      W&=\prod_{S\subseteq I}w_S^{(-1)^{|S|}},
-      \end{aligned}
-      $$
-
-      where $I$ is the set of distinct primes dividing $u$. Products and
-      inverses of units with residue $1$ still have residue $1$. Hence
-
-      $$
-      R\equiv W\equiv1\pmod{1+i}.
-      $$
-
-      This is an algebraic congruence, not a statement that either complex
-      number is close to $1$.
   - node: residue-one-rigidity
     dependsOn:
       - odd-comparison-products
       - sign-ratio-congruences
     segment: { start: 110.29, end: 145.03 }
     script: |
-      > **Odd-order rigidity.** A root of unity of odd order in our coefficient
-      > ring that reduces to $1$ in a nonzero ring of characteristic two must
-      > equal $1$.
+      > **Lemma (Odd-order rigidity).** A root of unity of odd order in a
+      > characteristic-zero domain that reduces to one in a nonzero ring
+      > of characteristic two must equal one.
 
-      To see this, suppose $\xi\ne1$ has odd order $r$. In the original
-      characteristic-zero domain,
-
-      $$
-      1+\xi+\cdots+\xi^{r-1}=0.
-      $$
-
-      If $\xi$ reduces to $1$, this becomes a sum of an odd number of
-      ones. In characteristic two that sum is $1$, contradicting $0$.
-
-      The two branches now meet: $R,W$ have odd order and residue $1$.
-      Therefore
+      Suppose instead that $\alpha\ne1$ has odd order $r$. Factor
+      $\alpha^r-1$ and cancel $\alpha-1$ in the original domain to get
 
       $$
-      R=W=1.
+      1+\alpha+\cdots+\alpha^{r-1}=0.
       $$
+
+      If $\alpha$ reduces to one, this becomes an odd number of ones,
+      which sums to one in characteristic two. That contradicts zero.
+      The cancellation happened before reduction; the quotient need not be
+      a domain. Applying the lemma to $R,W$ gives the exact equalities
+      $R=W=1$.
+
   - node: exact-comparison-identities
     dependsOn:
       - residue-one-rigidity
     segment: { start: 145.03, end: 218.59 }
     script: |
-      For general odd $u>1$, we have two exact alternating-product
-      identities. In the guiding case $u=3$, there are only two
-      evaluations, so they become
+      > **Proposition (Exact comparisons).** In general, $R=W=1$ equates
+      > the even- and odd-subset products. For $u=3$, it gives
+      >
+      > $$
+      > \frac{d(1)}{c(1)}=\frac{d(\omega)}{c(\omega)},\qquad
+      > \frac{g(1)}{c(1)}=\frac{g(\omega)}{c(\omega)}.
+      > $$
+
+      Put $\lambda=c(\omega)/c(1)$. Both values have magnitude three, so
+      $|\lambda|=1$. Rearranging shows that the same multiplier carries
+      $c(1),d(1),g(1)$ to their values at $\omega$. The relative positions
+      are preserved; the three points need not coincide.
+
+      The fixed linear combination defining $E(P)$ also acquires $\lambda$.
+      Dividing by the corresponding unit value of $c(P)$ gives
 
       $$
-      \begin{aligned}
-      \frac{d(1)}{c(1)}&=\frac{d(\omega)}{c(\omega)},\\
-      \frac{g(1)}{c(1)}&=\frac{g(\omega)}{c(\omega)}.
-      \end{aligned}
+      \frac{E(\omega)}{c(\omega)}=\frac{E(1)}{c(1)}.
       $$
 
-      Put $\lambda=c(\omega)/c(1)$. Both values have modulus $3$, so
-      $|\lambda|=1$, and
-
-      $$
-      \begin{aligned}
-      c(\omega)&=\lambda c(1),\\
-      d(\omega)&=\lambda d(1),\\
-      g(\omega)&=\lambda g(1).
-      \end{aligned}
-      $$
-
-      All three points on the radius-three circle undergo the same
-      rotation. Their relative positions stay fixed; the points need
-      not coincide. Here $\lambda=\Delta(c)^{-1}$ is itself a cube root.
-
-      With several distinct prime divisors, $R=W=1$ compares alternating
-      products over several evaluations. It does not assert that all
-      evaluations share one rotation. These exact product identities
-      are the input to Node 7.
+      With several distinct prime divisors, retain the exact alternating
+      product identities. They do not assert a common rotation between every
+      pair of inputs; Node 7 uses product expansion for that general case.
 ---
 
 The key idea is to combine the two branches of the proof. The Δ-theorem

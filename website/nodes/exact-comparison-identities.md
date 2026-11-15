@@ -10,6 +10,22 @@ mapPosition: [240, 560]
 mapSummary: '$R=W=1$; one rotation when $u=3$'
 ---
 
+> **Proposition (Exact comparisons).** *For the polynomials in Node 6,
+> $R=W=1$ gives exact alternating-product identities. When $u=3$, put
+> $\lambda=c(\omega)/c(1)$, where $\omega=e^{2\pi i/3}$. Then*
+>
+> $$
+> \begin{aligned}
+> c(\omega)&=\lambda c(1),\\
+> d(\omega)&=\lambda d(1),\\
+> g(\omega)&=\lambda g(1),\\
+> E(\omega)&=\lambda E(1),
+> \end{aligned}
+> \qquad |\lambda|=1.
+> $$
+>
+> *In particular, $E(\omega)/c(\omega)=E(1)/c(1)$.*
+
 ## The general output
 
 For any odd $u>1$, the conclusion $R=W=1$ is the pair of exact identities
@@ -58,6 +74,30 @@ All three points undergo the same rotation from the evaluation at $1$
 to the evaluation at $\omega$. Their relative positions remain fixed;
 the points need not coincide. Also $\lambda=\Delta(c)^{-1}$, so in this
 example $\lambda\in\{1,\omega,\omega^2\}$.
+
+## The same rotation for the sign combination
+
+Recall the polynomial defined by exact integral quotients in Node 5:
+
+$$
+E(P)=\frac{d(P)-c(P)}2+\frac{g(P)-c(P)}{1+i}.
+$$
+
+Substitute the three shared-rotation identities. Both differences acquire
+the same factor $\lambda$, giving $E(\omega)=\lambda E(1)$. Since
+$c(\omega)=\lambda c(1)$ and these values are units, division gives
+
+$$
+\frac{E(\omega)}{c(\omega)}
+=\frac{\lambda E(1)}{\lambda c(1)}
+=\frac{E(1)}{c(1)}.
+$$
+
+The divisions defining $E(P)$ were made before reduction. This conclusion
+does not divide by $E(1)$, so it also covers a zero value of $E(1)$.
+Nor does it assert $E(1)\equiv E(\omega)$: the multiplier $\lambda$ may
+have nontrivial residue. Node 7 compares the normalized equality with the
+additional all-ones congruence.
 
 ## Keep the example separate from the general conclusion
 

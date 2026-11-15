@@ -10,6 +10,19 @@ mapPosition: [40, 24]
 mapSummary: 'Define and simplify $E(P)$'
 ---
 
+> **Lemma (An integral sign combination).** *For the three normalized
+> polynomials from the same four sign polynomials, both quotients in*
+>
+> $$
+> E(P)=\frac{d(P)-c(P)}2+\frac{g(P)-c(P)}{1+i}
+> $$
+>
+> *have Gaussian-integer coefficients, and*
+>
+> $$
+> E(P)=-H_3(P)+(i-1)\frac{H_1(P)+H_2(P)}2.
+> $$
+
 ## Keep the common sign array
 
 Let $u$ be a positive odd integer. Work in

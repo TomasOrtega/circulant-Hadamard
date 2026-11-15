@@ -22,10 +22,10 @@ $$
 $$
 
 Each $\zeta_S$ is a $u^2$th root, so the evaluation from Node 4.1 is
-defined and nonzero. Write $f_S=f(\zeta_S)$ and define
+defined and nonzero. Define
 
 $$
-\Delta(f)=\prod_{S\subseteq I}f_S^{(-1)^{|S|}}.
+\Delta(f)=\prod_{S\subseteq I}f(\zeta_S)^{(-1)^{|S|}}.
 $$
 
 Even-sized subsets contribute to the numerator; odd-sized subsets
@@ -46,7 +46,18 @@ Under the Chinese remainder decomposition of the cycle, these are precisely
 the characters that turn each prime component on or off. Choose the
 component generators so that their product is the original generator $P$.
 
-## Every conjugate has magnitude one
+> **Lemma (Magnitude of the alternating product).** *If
+> $f(P)f^*(P)=u^2$, then $\Delta(f)$ and all its algebraic conjugates
+> have absolute value $1$.*
+
+## Pair even and odd subsets
+
+Fix one prime in $I$. Adding or removing that prime pairs each even-sized
+subset with an odd-sized subset. There are therefore equally many factors
+upstairs and downstairs. Every factor has magnitude $u$, so these magnitudes
+cancel and $|\Delta(f)|=1$.
+
+## The same argument works for every conjugate
 
 All values belong to the cyclotomic ring
 
@@ -54,21 +65,22 @@ $$
 B=\mathbb Z[i,\{\zeta_p:p\in I\}],
 $$
 
-so $\Delta(f)$ initially belongs to its fraction field. Every embedding
-of this field into $\mathbb C$ sends the root generators to roots of unity
-and commutes with complex conjugation. The norm equations therefore give
-$|\sigma(f_S)|=u$ for every $S$ and every such embedding $\sigma$.
+so $\Delta(f)$ is initially a quotient of elements of this ring. An algebraic
+conjugate is obtained by replacing the generating roots of unity by other
+roots in a way that respects their algebraic equations. Write $\sigma$ for
+such a replacement. Since conjugating a root of unity means inverting it,
+$\sigma$ commutes with complex conjugation. Applying it to
+$f(\zeta_S)\overline{f(\zeta_S)}=u^2$ gives
+$|\sigma(f(\zeta_S))|=u$.
 
-There are equally many even- and odd-sized subsets: toggling any fixed
-prime pairs them. Hence
+The same pairing of subsets therefore gives
 
 $$
 |\sigma(\Delta(f))|
 =u^{\sum_{S\subseteq I}(-1)^{|S|}}=1.
 $$
 
-**Output.** An algebraic number whose conjugates all lie on the unit circle.
-Its integrality still needs proof; being a ratio of algebraic integers
-does not supply that fact.
+All conjugates lie on the unit circle. We next need to prove that the
+quotient is an algebraic integer; a ratio of algebraic integers need not be one.
 
 Source: [the paper, Section 3, equations (3.1)–(3.3) and Proposition 3.4](https://github.com/openai/math/blob/main/preprints/The-circulant-Hadamard-conjecture-September-23-2026/paper.pdf).

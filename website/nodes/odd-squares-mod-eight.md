@@ -11,29 +11,35 @@ mapPosition: [240, 600]
 mapSummary: '$s=1$, so $n=4u^2$ with $u$ odd'
 ---
 
-## The final contradiction
+> **Lemma (No extra power of two).** *The descent endpoint for $s\geq2$
+> is impossible. Consequently a circulant Hadamard order $n>1$ has
+> $n=4u^2$ with $u$ odd.*
 
-Assume $s\geq2$. After the folding step, the constant coefficient of the
-polynomial norm identity gives
+Suppose $s\geq2$. Node 2.5 produces
+$T_{s-1}(X)=\sum_{j=0}^{2^{s+1}-1}b_jX^j$, with all $b_j$ odd, and
+$T_{s-1}(X)T_{s-1}^*(X)=4w^2$. The constant coefficient of this product
+is the sum of the coefficient squares:
 
 $$
-\sum_{j=0}^{2^{s+1}-1}b_j^2=4w^2,
-\qquad b_j\text{ odd},\quad w\text{ odd}.
+\sum_{j=0}^{2^{s+1}-1}b_j^2=4w^2.
 $$
 
-Every odd square is $1$ modulo $8$. There are $2^{s+1}$ terms, a multiple
-of $8$, so the left side is $0$ modulo $8$. The right side is $4$ modulo $8$.
-This is impossible.
+Indeed, $X^jX^{-\ell}$ contributes to the identity position precisely
+when $j=\ell$ among these representatives.
 
-## The smallest instance
+For any odd integer $b=2r+1$,
 
-At $n=16$, we have $u=2$, so $s=2$ and $w=1$. One fold would leave eight odd
-coefficients whose squared values sum to $4$. Their sum of squares is
-$0$ modulo $8$, contradicting $4$.
+$$
+b^2=4r(r+1)+1\equiv1\pmod8,
+$$
 
-**Output.** The assumption $s\geq2$ fails. Since $s\geq1$, we get $s=1$.
-Thus $u=2^{s-1}w=w$ is odd, and $n=4u^2$. This leaves candidate orders
-$4,36,100,196,\ldots$; the later main nodes address the candidates beyond $4$.
+because one of the consecutive integers $r,r+1$ is even. There are
+$2^{s+1}$ such squares, a multiple of eight, so their sum is $0$ modulo
+$8$. But $w$ is odd, and $4w^2\equiv4\pmod8$. This is a contradiction.
 
-This conclusion uses the folding construction and its cyclotomic input.
-Their detailed proofs remain to be expanded in the preceding nodes.
+Therefore $s\geq2$ is impossible. We already know $s\geq1$, so $s=1$.
+Our original parameter is $u=2^{s-1}w=w$, hence odd, and $n=4u^2$.
+For the smallest excluded case $s=2,w=1$, one fold would require eight
+odd squares to sum to $4$; the same residue mismatch is already visible.
+
+Source: [the paper, Section 2](https://github.com/openai/math/blob/main/preprints/The-circulant-Hadamard-conjecture-September-23-2026/paper.pdf).

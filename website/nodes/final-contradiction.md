@@ -21,124 +21,91 @@ children:
     dependsOn: []
     segment: { start: 17.47, end: 49.59 }
     script: |
-      Recall the all-ones polynomial from Node 5:
+      > **Lemma (Vanishing away from one).** For
+      > $J(P)=1+P+\cdots+P^{u^2-1}$ and every nonempty subset $S$ of the
+      > distinct prime divisors of $u$,
+      >
+      > $$
+      > J(\zeta_S)=0,\qquad \zeta_S=\prod_{p\in S}\zeta_p.
+      > $$
 
-      $$
-      J(P)=1+P+\cdots+P^{u^2-1}.
-      $$
-
-      For $u=3$, substituting the primitive cube root $\omega$ groups
-      its nine terms into three copies of $1+\omega+\omega^2=0$.
-      Therefore $J(\omega)=0$ exactly.
-
-      In general, let $I$ be the distinct primes dividing $u$ and
-      $\zeta_S=\prod_{p\in S}\zeta_p$. For a nonempty subset $S$,
-      this root has order $\prod_{p\in S}p>1$, which divides $u^2$.
-      The geometric sum gives
-
-      $$
-      (\zeta_S-1)J(\zeta_S)=\zeta_S^{u^2}-1=0.
-      $$
-
-      Since $\zeta_S\ne1$, cancellation in the original
-      characteristic-zero domain yields
-
-      $$
-      J(\zeta_S)=0\qquad(S\ne\varnothing).
-      $$
-
-      This exact evaluation happens before reduction modulo $1+i$.
+      The product root has order $\prod_{p\in S}p>1$, which divides
+      $u^2$. Thus $(\zeta_S-1)J(\zeta_S)=\zeta_S^{u^2}-1=0$.
+      Cancel the nonzero factor $\zeta_S-1$ in characteristic zero.
+      For $u=3$, the nine terms make three copies of
+      $1+\omega+\omega^2=0$. These evaluations vanish exactly before
+      any modular reduction.
   - node: odd-ones-at-one
     dependsOn: []
     segment: { start: 76.37, end: 97.43 }
     script: |
-      At $P=1$, every term contributes one:
+      > **Lemma (The value at one).** The remaining evaluation satisfies
+      >
+      > $$
+      > J(1)=u^2,\qquad c(1)=\pm u,\qquad
+      > \frac{J(1)}{c(1)}=\pm u\equiv1\pmod{1+i}.
+      > $$
 
-      $$
-      J(1)=u^2.
-      $$
-
-      There are nine ones in the guiding example. After reduction modulo
-      $1+i$, each pair adds to zero because $2=(1+i)(1-i)$. Nine ones
-      leave one; so does every odd number $u^2$ of ones.
-
-      We must also account for the denominator. The polynomial $c(P)$
-      has real integer coefficients, so its norm identity at $P=1$ gives
-
-      $$
-      c(1)^2=u^2,\qquad c(1)=\pm u.
-      $$
-
-      Hence $J(1)/c(1)=\pm u$, which also has residue $1$ for odd $u$.
-      When $u=3$, the surviving value is $9/(\pm3)=\pm3$.
+      Each of the $u^2$ terms of $J(P)$ becomes one. Because $c(P)$ has
+      real integer coefficients, the norm identity gives $c(1)^2=u^2$.
+      This accounts for the denominator as well as the numerator. The
+      integer $u$ is odd, and minus equals plus in characteristic two,
+      so either sign of $u$ has residue $1$. For $u=3$, the quotient is
+      $9/(\pm3)=\pm3$.
   - node: surviving-odd-term
     dependsOn:
       - roots-cancel-ones
       - odd-ones-at-one
     segment: { start: 49.59, end: 97.43 }
     script: |
-      Node 5 gives $E(P)\equiv J(P)\pmod{1+i}$ coefficient by
-      coefficient. Evaluate and divide by the units $c(\zeta_S)$
-      established in Node 6. In the ring
-      $\mathbb Z[i,\{\zeta_p:p\mid u\},1/u]$, this gives
+      > **Lemma (One surviving term).** The coefficient congruence
+      > $E(P)\equiv J(P)\pmod{1+i}$ gives
+      >
+      > $$
+      > \mathcal S\equiv\sum_{S\subseteq I}(-1)^{|S|}
+      > \frac{J(\zeta_S)}{c(\zeta_S)}
+      > =\frac{u^2}{c(1)}\equiv1\pmod{1+i}.
+      > $$
 
-      $$
-      \begin{aligned}
-      \mathcal S
-      &\equiv\sum_{S\subseteq I}(-1)^{|S|}
-      \frac{J(\zeta_S)}{c(\zeta_S)}\\
-      &=\frac{u^2}{c(1)}=\pm u\equiv1\pmod{1+i}.
-      \end{aligned}
-      $$
-
-      All nonempty-subset terms vanish. The empty subset has sign $+1$
-      and gives the single surviving contribution. For $u=3$, this is
-
-      $$
-      \frac9{c(1)}-\frac0{c(\omega)}=\pm3\equiv1\pmod{1+i}.
-      $$
-
-      The denominators are units in this coefficient ring and remain
-      units after reduction; nonzero complex values alone would not
-      justify dividing congruences.
+      Evaluation preserves coefficient congruences. Multiplication by the
+      units $c(\zeta_S)^{-1}=\overline{c(\zeta_S)}/u^2$ then preserves
+      them in the same evaluation ring used in Node 7. Every nonempty-subset
+      numerator is zero. The empty subset has sign $+1$, evaluates at $1$,
+      and contributes $\pm u$, whose residue is one.
   - node: incompatible-residues
     dependsOn:
       - surviving-odd-term
     segment: { start: 97.43, end: 115.83 }
     script: |
-      Node 7 and the all-ones calculation give two incompatible residues
-      for the same element:
+      > **Proposition (The contradiction).** No circulant Hadamard matrix
+      > has order $4u^2$ with $u>1$ odd: its polynomials would satisfy
+      >
+      > $$
+      > \mathcal S\equiv0\pmod{1+i},\qquad
+      > \mathcal S\equiv1\pmod{1+i}.
+      > $$
 
-      $$
-      \mathcal S\equiv0\pmod{1+i},\qquad
-      \mathcal S\equiv1\pmod{1+i}.
-      $$
-
-      The reduction ring is nonzero and has characteristic two, as
-      established in Node 6. Its zero and one are distinct, so this
-      would force the contradiction $0=1$.
-
-      The argument assumed an odd $u>1$. It rules out every such $u$,
-      including the guiding case $u=3$, and therefore order $36$.
+      Node 7 gives the first residue, and the all-ones evaluation gives
+      the second. Both are in the same quotient of
+      $\mathbb Z[i,\{\zeta_p:p\mid u\},1/u]$. Node 6 proves that this
+      quotient is nonzero, so $0\ne1$. The contradiction excludes every
+      odd $u>1$. The earlier Δ-theorem requires $u>1$, so this argument
+      does not exclude $u=1$.
   - node: theorem
     dependsOn:
       - incompatible-residues
     segment: { start: 115.83, end: 162.333333 }
     script: |
-      > **Theorem.** A real circulant Hadamard matrix exists exactly at
-      > orders $1$ and $4$.
+      > **Theorem (Circulant Hadamard).** A real circulant Hadamard matrix
+      > exists if and only if its order is $1$ or $4$.
 
-      For an order $n>1$, Node 2 gives $n=4u^2$ with $u$ a positive
-      odd integer. The contradiction excludes $u>1$, leaving $u=1$
-      and $n=4$. Order $1$ is the separate trivial case.
-
-      Both orders occur: $(1)$ gives order $1$, and the original
-      circulant matrix with first row $(-1,1,1,1)$ gives order $4$.
-      Its distinct rows agree twice and disagree twice, so their dot
-      products are zero. The deeper statement below displays it again.
-
-      This finishes the eight-node argument. The theorem is the
-      conclusion of this node.
+      For $n>1$, the order restriction gives $n=4u^2$ with $u$ a positive
+      odd integer. The contradiction leaves $u=1$, hence $n=4$.
+      Order $1$ lies outside that restriction and has the example $(1)$.
+      At order $4$, use the circulant matrix with first row $(-1,1,1,1)$.
+      Any two distinct rows agree twice and disagree twice, so their inner
+      product is zero; each row has squared length $4$. The detailed
+      statement displays and verifies both examples.
 ---
 
 Node 7 completes the contradiction for $u=3$ and supplies its general

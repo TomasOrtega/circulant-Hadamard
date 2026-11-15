@@ -10,6 +10,12 @@ mapPosition: [240, 420]
 mapSummary: '$\mathcal S\equiv0,\quad\mathcal S\equiv1$'
 ---
 
+> **Proposition (The contradiction).** The preceding product identities
+> and coefficient congruence cannot hold for the polynomials from a
+> circulant Hadamard matrix of order $4u^2$ with $u>1$ odd. They would
+> force the same element $\mathcal S$ to have both residues $0$ and $1$
+> in the same nonzero quotient ring. Thus no such matrix exists.
+
 ## Two conclusions about the same sum
 
 Assume a circulant Hadamard matrix exists at order $4u^2$ with $u>1$
@@ -20,7 +26,9 @@ $$
 \frac{E(\zeta_S)}{c(\zeta_S)},
 $$
 
-where $I$ contains the distinct primes dividing $u$. All denominators
+where $I$ contains the distinct primes dividing $u$ and
+$\zeta_S=\prod_{p\in S}\zeta_p$, with $\zeta_\varnothing=1$.
+All denominators
 are units in $A=\mathbb Z[i,\{\zeta_p:p\in I\},1/u]$.
 
 Node 7's product-to-sum argument proves

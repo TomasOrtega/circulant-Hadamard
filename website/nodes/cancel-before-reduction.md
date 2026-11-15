@@ -10,8 +10,24 @@ mapPosition: [240, 220]
 mapSummary: '$tL+t^2Q=0\ \Longrightarrow\ L\equiv0$'
 ---
 
+> **Lemma (Cancel before reducing).** In
+> $A=\mathbb Z[i,\{\zeta_p:p\mid u\},1/u]\subseteq\mathbb C$,
+> let $t$ be either $2$ or $1+i$. If $L,Q\in A$ satisfy
+> $tL+t^2Q=0$, then
+>
+> $$
+> L=-tQ\equiv0\pmod{(1+i)A}.
+> $$
+>
+> Applied to the equal products from Node 7.1, this makes each of the
+> two alternating sums of divided differences vanish in the same
+> quotient ring.
+
 ## Combine the two inputs
 
+Let $I$ be the distinct prime divisors of $u$, put
+$\zeta_S=\prod_{p\in S}\zeta_p$, and abbreviate
+$c_S=c(\zeta_S)$, $d_S=d(\zeta_S)$, $g_S=g(\zeta_S)$.
 Node 7.1 gives equal products over even and odd subsets. Node 7.2
 expands each side exactly. For either family, subtracting the two sides
 cancels the constant terms and gives an equality of the form

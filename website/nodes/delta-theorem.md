@@ -22,6 +22,10 @@ children:
     dependsOn: []
     segment: { start: 15.81, end: 57.83 }
     script: |
+      > **Lemma (The evaluation circle).** *If
+      > $f(P)f^*(P)=u^2$ in $\mathbb Z[i][P]/(P^{u^2}-1)$, then
+      > $|f(\zeta)|=u$ for every $u^2$th root $\zeta$.*
+
       Let $u>1$ be odd. Work in $\mathbb Z[i][P]/(P^{u^2}-1)$ and suppose
 
       $$
@@ -58,6 +62,10 @@ children:
       \Delta(f)=\prod_{S\subseteq I}f(\zeta_S)^{(-1)^{|S|}}.
       $$
 
+      > **Lemma (Magnitude of the alternating product).** *If
+      > $f(P)f^*(P)=u^2$, then $\Delta(f)$ and all its algebraic
+      > conjugates have absolute value $1$.*
+
       Even-sized subsets contribute numerator factors; odd-sized subsets
       contribute denominator factors. All values have magnitude $u$, and
       there are equally many factors of each kind. Hence $|\Delta(f)|=1$.
@@ -76,7 +84,7 @@ children:
       - circle-evaluations
     segment: null
     script: |
-      > **Technical input: Lemma 3.1.** Fix a prime $p\mid u$. Compare two
+      > **Lemma (Local comparison).** Fix a prime $p\mid u$. Compare two
       > character evaluations that differ only in the $p$-component: one
       > substitutes $1$ there, and the other a primitive $p$th root.
       >
@@ -86,16 +94,23 @@ children:
       > of these two values is a local unit with residue $1$ at each prime
       > above $p$.
 
-      This is the arithmetic input that controls division. Simply reducing
-      the two original evaluations would not justify reducing their ratio:
-      both values might vanish in the residue field. The detailed proof
-      of the comparison lemma remains to be expanded inside this node.
+      The proof shortens the $p$-power cycle one step at a time. A
+      cyclotomic divisibility calculation makes one projected factor
+      divisible by $p$. Divide that factor by $p$: the cycle exponent and
+      scalar exponent both drop by one, while the comparison ratios stay
+      unchanged. At a cycle of length $p$, one value at $1$ is a unit,
+      and reducing the ratio is justified. This proves the comparison;
+      simply reducing two potentially vanishing values would not suffice.
   - node: integral-delta
     dependsOn:
       - alternating-phase-product
       - local-character-comparison
     segment: { start: 188.5, end: 193.76 }
     script: |
+      > **Lemma (Integrality).** *The alternating product $\Delta(f)$
+      > is an algebraic integer. Above each prime dividing $u$, it is
+      > a unit with residue $1$.*
+
       For each $p\in I$, pair the subset $S$ with $S\cup\{p\}$:
 
       $$
@@ -120,8 +135,8 @@ children:
       - integral-delta
     segment: { start: 168.05, end: 197.79 }
     script: |
-      > **Kronecker's theorem, taken as a black box:** an algebraic integer
-      > all of whose conjugates have absolute value $1$ is a root of unity.
+      > **Kronecker's theorem.** *An algebraic integer all of whose
+      > conjugates have absolute value $1$ is a root of unity.*
 
       We now have both hypotheses: the alternating product is an algebraic
       integer, and every conjugate lies on the unit circle. Therefore
@@ -132,13 +147,18 @@ children:
       $$
 
       Magnitude alone did not give finite order. The integrality step is
-      what makes Kronecker's theorem applicable.
+      what makes Kronecker's theorem applicable. Its proof bounds the
+      integer coefficients of the minimal polynomials of all powers.
+      Only finitely many such polynomials can occur, so two powers agree.
   - node: delta-odd-order
     dependsOn:
       - local-character-comparison
       - kronecker-step
     segment: { start: 197.79, end: 216.39 }
     script: |
+      > **Lemma (Odd order).** *The order of $\Delta(f)$ is a power
+      > of every prime dividing $u$. In particular it is odd.*
+
       The local comparison also gave $\Delta(f)$ residue $1$ in
       characteristic $p$, for every $p\mid u$. A root of unity with
       residue $1$ in characteristic $p$ must have $p$-power order.
