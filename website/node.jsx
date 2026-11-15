@@ -176,7 +176,7 @@ function ChildNode({ child, entry, entries }) {
         nextHref={entries[0].node.children?.some(({ node }) => node.id === "products-to-sums")
           ? `${hrefFor(entries[0], entry)}#node-products-to-sums` : undefined}
       />}
-      <div className="w-full max-w-125 self-center">
+      <div className="w-full max-w-175 self-center">
         <Media
           video={cutVideo(entry.node, child)}
           title={node.title}
