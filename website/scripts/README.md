@@ -27,11 +27,12 @@ removed from the product and the coefficient parity that permits division.
 The final slide puts evaluations on the radius-three circle and previews
 Node 6's common phase change from $1$ to $\omega$.
 
-[Video 4](node4/delta-theorem.md) develops Steven's circle-and-phase outline.
-Its [storyboard](node4/storyboards/phase-circles.svg) uses $f(P)=3iP$ to show
-the radius-three evaluation circle, the direction of the ratio, and the
-three permitted phases. The inner graph separates integrality, the accepted
-Kronecker criterion, and the local congruences that force odd order.
+[Video 4](node4/delta-theorem.md) introduces the Δ-theorem using Gaussian
+coefficients and the example $f(P)=3iP$. Its
+[phase-circle storyboard](node4/storyboards/phase-circles.svg) distinguishes
+evaluation values from their relative rotation. The script then states the
+general alternating product and explains the role of Kronecker's theorem. The inner graph separates integrality,
+Kronecker's criterion, and the local congruences that force odd order.
 
 [Video 5](node5/signs-become-all-ones.md) uses five slides to motivate $E(P)$
 and expand it directly in the sign polynomials $H_a(P)$. The nine-position
@@ -139,7 +140,7 @@ scripts/
 | 1.5 — Hadamard Dictionary | [node1/hadamard-dictionary.md](node1/hadamard-dictionary.md) | [Hadamard Dictionary](../nodes/hadamard-dictionary.md) |
 | 2 — Restriction on the Order | [node2/restriction-on-the-order.md](node2/restriction-on-the-order.md) (slide narration and animation directions) | [Restriction on the Order](../nodes/restriction-on-the-order.md) |
 | 3 — The Three Evaluations | [node3/three-evaluations.md](node3/three-evaluations.md) (slide narration and animation directions) | [The Three Evaluations](../nodes/three-evaluations.md) |
-| 4 — The Δ-Theorem | [node4/delta-theorem.md](node4/delta-theorem.md) (draft, storyboard, and proof outline) | [The Δ-Theorem](../nodes/delta-theorem.md) |
+| 4 — The Δ-Theorem | [node4/delta-theorem.md](node4/delta-theorem.md) (narration and animation directions) | [The Δ-Theorem](../nodes/delta-theorem.md) |
 | 5 — Signs Become All Ones | [node5/signs-become-all-ones.md](node5/signs-become-all-ones.md) (draft and proof outline) | [Signs Become All Ones](../nodes/signs-become-all-ones.md) |
 | 6 — Odd-Order Rigidity | [node6/odd-order-rigidity.md](node6/odd-order-rigidity.md) (slide narration and animation directions) | [Odd-Order Rigidity](../nodes/odd-order-rigidity.md) |
 | 7 — From Products to Sums | [node7/products-to-sums.md](node7/products-to-sums.md) (slide narration and animation directions) | [From Products to Sums](../nodes/products-to-sums.md) |
@@ -163,8 +164,8 @@ body states the result shown in its parent's card. A terminal node keeps its
 full explanation in its body. Use `$...$` and `$$...$$` for the website's math
 renderer.
 
-For an excerpt from the overview, put the corresponding reader-facing passage
-in that child's `script: |` field in [../nodes/overview.md](../nodes/overview.md).
+For an excerpt introducing a main proof step, put the reader-facing passage in
+that child's `script: |` field in [../nodes/overview.md](../nodes/overview.md).
 A child node's own video has its own full script in this directory. Animation
 directions stay with the production draft.
 

@@ -1,0 +1,213 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:04.360
+The delta theorem is the independent
+arithmetic branch of our proof. We allow
+
+00:00:04.360 --> 00:00:09.400
+Gaussian integer coefficients because Node
+three's polynomial g already has them.
+
+00:00:09.920 --> 00:00:13.260
+The result applies to any polynomial
+with the required norm identity,
+
+00:00:13.680 --> 00:00:17.720
+beyond the Hadamard construction.
+Begin with nine cyclic positions
+
+00:00:17.720 --> 00:00:22.190
+and a Gaussian integer polynomial f
+whose product with its star is nine.
+
+00:00:22.600 --> 00:00:26.580
+Substitute any ninth root of unity.
+Star becomes complex conjugation,
+
+00:00:26.860 --> 00:00:30.820
+so the squared absolute value of the
+output is nine. Every output lies
+
+00:00:30.820 --> 00:00:35.220
+on a circle of radius three. These output
+values are different from the input roots.
+
+00:00:36.120 --> 00:00:40.560
+For a concrete example, take
+f of P equal to three i P.
+
+00:00:40.780 --> 00:00:44.970
+Its star is negative three i P
+inverse, and their product is nine.
+
+00:00:45.460 --> 00:00:48.910
+Each input rotates ninety
+degrees and scales by three.
+
+00:00:49.300 --> 00:00:52.220
+The nine outputs are equally
+spaced for this particular example.
+
+00:00:52.220 --> 00:00:57.020
+It is a Gaussian group ring
+polynomial, not a Hadamard sign row.
+
+00:00:57.980 --> 00:01:02.480
+Compare the outputs at one and omega,
+a primitive cube root of unity.
+
+00:01:03.080 --> 00:01:08.940
+Define delta of f as f of one divided
+by f of omega. Their magnitudes cancel.
+
+00:01:09.700 --> 00:01:13.600
+The quotient records the numerator's
+phase minus the denominator's phase:
+
+00:01:13.980 --> 00:01:17.610
+the rotation from f of omega to f of one.
+
+00:01:18.060 --> 00:01:22.640
+For our example, those angles are
+ninety and two hundred ten degrees.
+
+00:01:23.240 --> 00:01:25.740
+Their difference is negative
+one hundred twenty degrees.
+
+00:01:26.220 --> 00:01:29.580
+Thus delta is one over
+omega, or omega squared.
+
+00:01:30.300 --> 00:01:33.240
+Turn clockwise from the
+denominator to the numerator.
+
+00:01:33.960 --> 00:01:38.440
+Copy that same rotation onto the positive
+real direction of a separate unit circle.
+
+00:01:39.100 --> 00:01:42.400
+The quotient sits there, not at
+either original output point.
+
+00:01:43.280 --> 00:01:48.540
+For general odd u greater than one,
+let I be its distinct prime divisors.
+
+00:01:48.700 --> 00:01:51.720
+Choose a primitive pth
+root for each prime p.
+
+00:01:52.240 --> 00:01:56.500
+For a subset S, multiply its
+chosen roots to obtain zeta sub S;
+
+00:01:57.060 --> 00:02:02.320
+the empty subset gives one. Every such
+input raised to u squared equals one.
+
+00:02:02.920 --> 00:02:06.380
+Assume f has Gaussian integer
+coefficients and product with
+
+00:02:06.380 --> 00:02:10.010
+its star equal to u squared.
+Every evaluation is nonzero.
+
+00:02:10.160 --> 00:02:13.940
+Define delta by multiplying
+evaluations from even sized
+
+00:02:13.960 --> 00:02:17.860
+subsets and dividing by
+those from odd sized subsets.
+
+00:02:18.360 --> 00:02:21.660
+The empty subset supplies
+f of one in the numerator.
+
+00:02:22.500 --> 00:02:25.440
+With u equal to three, this
+is our original quotient.
+
+00:02:26.140 --> 00:02:28.440
+With two distinct primes p and q,
+
+00:02:28.840 --> 00:02:32.520
+the numerator is f of one times
+f at the product of their roots.
+
+00:02:33.200 --> 00:02:37.820
+The denominator is f at the pth
+root times f at the qth root.
+
+00:02:37.820 --> 00:02:42.420
+This is a ratio of ratios:
+phases add and subtract.
+
+00:02:43.140 --> 00:02:46.680
+Repeated powers of one prime
+create no new subset direction.
+
+00:02:48.200 --> 00:02:50.520
+Why does this product have finite order?
+
+00:02:51.110 --> 00:02:55.320
+Kronecker's theorem says that an
+algebraic integer whose algebraic
+
+00:02:55.320 --> 00:02:59.000
+conjugates all have absolute
+value one is a root of unity.
+
+00:02:59.720 --> 00:03:03.430
+The norm identity gives every
+conjugate of delta absolute value one:
+
+00:03:03.560 --> 00:03:07.980
+equal counts of numerator and denominator
+factors cancel their magnitudes.
+
+00:03:08.620 --> 00:03:12.960
+An arithmetic comparison of the
+evaluations supplies algebraic
+
+00:03:12.960 --> 00:03:17.060
+integrality. Together, these two
+inputs allow Kronecker's theorem.
+
+00:03:17.940 --> 00:03:22.360
+A separate congruence argument at
+the odd primes shows that this root
+
+00:03:22.360 --> 00:03:27.160
+of unity has odd order. Kronecker alone
+does not supply that extra conclusion.
+
+00:03:27.160 --> 00:03:31.500
+For the nine position case, the
+full argument leaves just one,
+
+00:03:31.760 --> 00:03:35.240
+omega, or omega squared as
+the possible values of delta.
+
+00:03:36.540 --> 00:03:42.100
+Return to c, d, and g. Each has product
+with its star equal to u squared,
+
+00:03:42.680 --> 00:03:47.040
+so the theorem makes all three delta
+values roots of unity of odd order.
+
+00:03:47.520 --> 00:03:50.120
+Carry this arithmetic input to Node six.
+
+00:03:50.600 --> 00:03:54.120
+The other branch brings congruences
+inherited from their common signs.
+
+00:03:54.460 --> 00:03:57.480
+Those are different ingredients,
+which we will combine next.
