@@ -8,6 +8,7 @@ number: "2.2"
 draft: false
 video:
   src: media/order-is-even.mp4
+  poster: media/thumbnails/order-is-even.jpg
   captions: media/order-is-even.vtt
   duration: 128.666667
 foundation: true

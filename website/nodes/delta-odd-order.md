@@ -7,6 +7,7 @@ number: "4.6"
 draft: false
 video:
   src: media/delta-odd-order.mp4
+  poster: media/thumbnails/delta-odd-order.jpg
   captions: media/delta-odd-order.vtt
   duration: 179.433333
 mapPosition: [440, 560]

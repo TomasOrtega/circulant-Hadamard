@@ -208,6 +208,7 @@ The optional `duration` gives the full length in seconds. A local example:
 video:
   src: media/overview.mp4
   captions: media/overview.vtt
+  poster: media/thumbnails/overview.jpg
   duration: 1200
 ```
 
@@ -216,6 +217,15 @@ paths work at every depth. `segment.start` and `segment.end` are seconds from
 the start of the parent's full video. YouTube IDs have 11 characters and its
 cut times use whole seconds. File videos allow fractional seconds. A cut must
 have `0 <= start < end`, within the duration when supplied.
+
+For native file videos, `poster` supplies the thumbnail shown before playback.
+Keep each video's image in `media/thumbnails/<node-id>.jpg`, selected from a
+representative frame of that video to preserve its mathematical typography and
+visual style. Each timed excerpt can set `segment.poster` to an image selected
+from that part of the parent's video, under
+`media/thumbnails/excerpts/<child-id>.jpg`. Without it, the excerpt inherits the
+parent's poster. Opening a child shows the child's own full video and thumbnail.
+The build copies these images and refreshes them when a thumbnail changes.
 
 Leave `video` or `segment` as `null` until the source or timing is known. An
 unset cut stays an empty slot even if its parent's full video is available.

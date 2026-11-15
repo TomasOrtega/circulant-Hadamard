@@ -7,6 +7,7 @@ number: "4.5"
 draft: false
 video:
   src: media/kronecker-step.mp4
+  poster: media/thumbnails/kronecker-step.jpg
   captions: media/kronecker-step.vtt
   duration: 183.933333
 mapPosition: [40, 560]

@@ -7,6 +7,7 @@ number: 5
 draft: false
 video:
   src: media/signs-become-all-ones.mp4
+  poster: media/thumbnails/signs-become-all-ones.jpg
   captions: media/signs-become-all-ones.vtt
   duration: 224.466667
 mapPosition:
@@ -18,7 +19,7 @@ graphTitle: Inside Node 5 · Signs Become All Ones
 children:
   - node: form-sign-combination
     dependsOn: []
-    segment: { start: 29.47, end: 126.37 }
+    segment: { start: 29.47, end: 126.37, poster: media/thumbnails/excerpts/form-sign-combination.jpg }
     script: |
       > **Lemma (Integral combination).** The common sign polynomials make
       > both quotients defining $E(P)$ integral, and
@@ -48,7 +49,7 @@ children:
 
   - node: gaussian-parity
     dependsOn: []
-    segment: { start: 126.37, end: 157.77 }
+    segment: { start: 126.37, end: 157.77, poster: media/thumbnails/excerpts/gaussian-parity.jpg }
     script: |
       > **Lemma (Gaussian parity).** Reduction modulo $1+i$ sends $a+bi$ to
       > $a+b$ modulo $2$. In particular, $i\equiv-1\equiv1\pmod{1+i}$.
@@ -69,7 +70,7 @@ children:
     dependsOn:
       - form-sign-combination
       - gaussian-parity
-    segment: { start: 157.77, end: 224.466667 }
+    segment: { start: 157.77, end: 224.466667, poster: media/thumbnails/excerpts/all-ones-congruence.jpg }
     script: |
       > **Lemma (All-ones congruence).** The integral combination satisfies
       >

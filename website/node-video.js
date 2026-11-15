@@ -38,7 +38,11 @@ export function validateSegment(segment, video, title) {
 
 export const cutVideo = (node, child) =>
   node.video && child.segment
-    ? { ...node.video, segment: child.segment }
+    ? {
+      ...node.video,
+      segment: child.segment,
+      poster: child.segment.poster ?? node.video.poster,
+    }
     : null;
 
 export const mediaUrl = (source, base) =>

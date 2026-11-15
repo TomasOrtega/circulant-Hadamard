@@ -8,6 +8,7 @@ number: "2.1"
 draft: false
 video:
   src: media/order-is-square.mp4
+  poster: media/thumbnails/order-is-square.jpg
   captions: media/order-is-square.vtt
   duration: 96.933333
 foundation: true

@@ -7,6 +7,7 @@ number: "3.2"
 draft: false
 video:
   src: media/four-sign-polynomials.mp4
+  poster: media/thumbnails/four-sign-polynomials.jpg
   captions: media/four-sign-polynomials.vtt
   duration: 150.9
 foundation: true

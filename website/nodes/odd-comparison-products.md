@@ -8,6 +8,7 @@ number: "6.1"
 draft: false
 video:
   src: media/odd-comparison-products.mp4
+  poster: media/thumbnails/odd-comparison-products.jpg
   captions: media/odd-comparison-products.vtt
   duration: 182.6
 mapPosition: [40, 24]

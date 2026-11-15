@@ -61,6 +61,7 @@ function Media({ video, title, excerpt = false, base }) {
         controls
         preload="none"
         playsInline
+        poster={video.poster ? mediaUrl(video.poster, base) : undefined}
         aria-label={`${label}: ${title}`}
         data-cut-start={segment?.start}
         data-cut-end={segment?.end}

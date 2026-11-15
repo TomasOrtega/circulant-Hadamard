@@ -7,6 +7,7 @@ number: "6.5"
 draft: false
 video:
   src: media/exact-comparison-identities.mp4
+  poster: media/thumbnails/exact-comparison-identities.jpg
   captions: media/exact-comparison-identities.vtt
   duration: 209.133333
 mapPosition: [240, 560]

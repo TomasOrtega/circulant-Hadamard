@@ -1,0 +1,542 @@
+{
+  "videos": {
+    "all-ones-congruence": {
+      "seconds": 65.89,
+      "reason": "The coefficient congruence E(P) = J(P) modulo 1+i and the all-ones sum.",
+      "video_sha256": "98c8af626b08f97973badb07992fbdd1428dc32af32ed626d846b32559adaea8"
+    },
+    "alternating-phase-product": {
+      "seconds": 86.59,
+      "reason": "Four subset boxes make the even-numerator and odd-denominator product visible.",
+      "video_sha256": "7118f46c1d6803867d57ad3f23145cbba899f6dcc8d2da83bb80a31eb96c186d"
+    },
+    "cancel-before-reduction": {
+      "seconds": 190.01,
+      "reason": "The completed four-step diagram emphasizes expansion, subtraction, cancellation, then reduction.",
+      "video_sha256": "0fc912a80780839fe4fc614ec2e87c9ced9d8c5306c49ea26a08d4f0417eac4e"
+    },
+    "circle-evaluations": {
+      "seconds": 95.69,
+      "reason": "Input and output circles show that the norm fixes the output radius.",
+      "video_sha256": "ad93d8417145303d14e5bae55675f1a4b087773e6b301801913dd2605a3755f7"
+    },
+    "correlation-identity": {
+      "seconds": 32.53,
+      "reason": "Completed coefficient-product grid with matching powers highlighted; shows how correlations are collected.",
+      "video_sha256": "5e958339b341b3876ea12aad5bdde1d8fc3ecde28eee48294b90816442c13386"
+    },
+    "crt-coordinates": {
+      "seconds": 29.13,
+      "reason": "One cyclic position splits into two residue-circle coordinates, making the CRT construction visual.",
+      "video_sha256": "efc37235ef6797ad4f01197e95f08c1dcf8ea1b5729783444bb4950e7fe9ea51"
+    },
+    "cyclic-group-ring": {
+      "seconds": 67.49,
+      "reason": "Four-position cycle with the wraparound relation and inverse power; a concrete view of the group ring.",
+      "video_sha256": "af731ceb72517ca3fe48e96d1e0b678b9f41489ad673779e6fa1513b0b0d4701"
+    },
+    "cyclic-shifts": {
+      "seconds": 74.17,
+      "reason": "Circulant matrix rows labeled by successive powers of X, showing the shift dictionary.",
+      "video_sha256": "e7f096a3a4dff9366feb7a03bc2b67a73406f0cf5de6acf4ab72ac0a9a439722"
+    },
+    "cyclotomic-divisibility": {
+      "seconds": 20.57,
+      "reason": "Opposite coefficients on a cycle together with the divisibility target; avoids the dense valuation derivation.",
+      "video_sha256": "c539a06d528a6fec2db8ea0f528e6beb0eb326dc3e5ed52b314db496373937de"
+    },
+    "delta-odd-order": {
+      "seconds": 176.93,
+      "reason": "The three allowed directions on a circle illustrate the odd-order conclusion.",
+      "video_sha256": "a96b67aff087382753725b8a1aa42f153e8c8416e8985a916d0ed4bbb30916af"
+    },
+    "delta-theorem": {
+      "seconds": 100.63,
+      "reason": "Two completed phase circles show the evaluation ratio and its unit-circle rotation.",
+      "video_sha256": "bc5cfd1cee6bd5da46b1ba6b595f00fdb9eaa9e407e6ac09134e8f643f4e27d4"
+    },
+    "evaluate-four-cycle": {
+      "seconds": 21.53,
+      "reason": "The four roots on a circle identify the allowed Z evaluations while P remains unchanged.",
+      "video_sha256": "657fe8a2348e6a8997223c40b736f7e56f2d9ae5672de74bb265050cacead401"
+    },
+    "evaluation-units": {
+      "seconds": 59.83,
+      "reason": "The norm identity gives an explicitly boxed inverse in the arithmetic ring.",
+      "video_sha256": "2c1bdb1eb8449733396efc142d2cc141a92a01c1215e7ce9539db0dcd2f8067d"
+    },
+    "exact-comparison-identities": {
+      "seconds": 164.15,
+      "reason": "Normalized evaluations agree, illustrated by one arrow on the complex plane.",
+      "video_sha256": "3c71d97af2dcce7d2852656bcccbd0b49fce83f9143f02b300a4d3b988720225"
+    },
+    "expand-integral-products": {
+      "seconds": 108.87,
+      "reason": "A multiplication grid displays the exact two-factor expansion.",
+      "video_sha256": "a98f51f071c0c4447dd67970002a5636bb19b520f18ca1f14933cea8997faba1"
+    },
+    "final-contradiction": {
+      "seconds": 113.33,
+      "reason": "Two arrows bring the incompatible residues together in the final contradiction.",
+      "video_sha256": "82bc63151b0abb211a93cd5f45e4eb416cbea6fcd8557764d5e75b871a08f6a5"
+    },
+    "fold-and-divide": {
+      "seconds": 61.51,
+      "reason": "Side-by-side cycles show opposite positions becoming a shorter cycle after averaging.",
+      "video_sha256": "b82093d06ac2ab05f3ca469e914e40b5ed604450800da65f95879553a6c7b654"
+    },
+    "form-sign-combination": {
+      "seconds": 168.37,
+      "reason": "The collected H-polynomial expression for E(P), boxed in yellow.",
+      "video_sha256": "1b116c5ae4b929816fd3c482ff9ec7ba5d331faebbdaf10de9d2a2897b59a57b"
+    },
+    "four-sign-polynomials": {
+      "seconds": 72.59,
+      "reason": "Four labeled H-polynomials and the completed grouped expression display the main construction.",
+      "video_sha256": "77a376b10a65dac253fab099dc342a80ecdf950feb2065b864f2a38bcab74b4a"
+    },
+    "gaussian-parity": {
+      "seconds": 69.17,
+      "reason": "Two Gaussian-integer examples map to the two parity residues.",
+      "video_sha256": "a3f84bdcbc5fe327f76c3a1f2a6b81ef21d0871ef6a9bd1407b3465044ca3ad9"
+    },
+    "group-ring-encoding": {
+      "seconds": 14.01,
+      "reason": "The circulant matrix beside its first row introduces the data being encoded.",
+      "video_sha256": "48c094fa07913b799494d54def72395c59076699c1b6a6ce7ad19ae53a8744ed"
+    },
+    "hadamard-dictionary": {
+      "seconds": 21.39,
+      "reason": "The two Hadamard formulations are joined by forward and reverse arrows with the sign hypothesis visible.",
+      "video_sha256": "66e99b1ba5c9445384a9f317caa3656e839b5633036c6cd4ab2a07516fdec39a"
+    },
+    "halve-sign-sums": {
+      "seconds": 31.23,
+      "reason": "A highlighted common coefficient position across four H-polynomials explains the parity check.",
+      "video_sha256": "ddbdcebd845923651681ac4dae38c27dfb92fcafa2364b176f6f97a956aab140"
+    },
+    "incompatible-residues": {
+      "seconds": 49.55,
+      "reason": "Two proof branches point to the same element with incompatible residue claims.",
+      "video_sha256": "77eaf4ef5b905ccf7bbed1ed7c09e35a8d62d84fe10d3b7c8f88b6a32be89b43"
+    },
+    "integral-delta": {
+      "seconds": 79.27,
+      "reason": "The regrouped four-factor product visibly pairs evaluations for the local comparison.",
+      "video_sha256": "ac7daa7e4a631a123d96df31507e8e1e246c7a4bbf87f2a74cb03cc6225a7fdf"
+    },
+    "kronecker-step": {
+      "seconds": 72.01,
+      "reason": "Three roots on the unit circle accompany the bounded-coefficient example.",
+      "video_sha256": "2aebba76795021c50c6fa7df8f88a790dc76153ddcf2da437454fa5dcc1dc2e3"
+    },
+    "local-character-comparison": {
+      "seconds": 54.75,
+      "reason": "The norm product and two evaluation ratios state the comparison problem cleanly.",
+      "video_sha256": "0ff5afd882e4d770c7d0c8d966ee1872482d0ea63cdace2ead1a98a094635b1a"
+    },
+    "normalized-evaluation-norms": {
+      "seconds": 136.07,
+      "reason": "Input roots lead through c, d, and g to the radius-three circle; schematic status remains visible.",
+      "video_sha256": "578002a9bc5f19e204be3919b1011fb0edcb9b9d39e3064a1fe7da601d89b944"
+    },
+    "odd-comparison-products": {
+      "seconds": 152.39,
+      "reason": "The three possible odd-order phase values on the unit circle.",
+      "video_sha256": "8817acc4d4479c34b04ef229743d9ec9dc07c88f5525986ed57c9bf05462263f"
+    },
+    "odd-ones-at-one": {
+      "seconds": 17.8,
+      "reason": "The completed nine-one sum and J(1)=9 display the core counting idea.",
+      "video_sha256": "6939d18061263601092af971a37980e8ec4fb65118e6ecb5d54d2409d6928a80"
+    },
+    "odd-order-rigidity": {
+      "seconds": 173.07,
+      "reason": "Two circles show the same rotation of three distinct evaluation arrows.",
+      "video_sha256": "501c74f0b470aa59de98dfe524b56b9bf6a49074bf745b522e3c29b238304d33"
+    },
+    "odd-squares-mod-eight": {
+      "seconds": 95.63,
+      "reason": "The completed odd-square calculation ends with its highlighted residue-one conclusion.",
+      "video_sha256": "2347336f2e196759d98fca7cf1244370a19ad9205f4b0328419a191c859ef565"
+    },
+    "order-is-even": {
+      "seconds": 73.35,
+      "reason": "Equal positive and negative product counts lead directly to n = 2a.",
+      "video_sha256": "23145b924355e28d212ecd175c29f1ecfe377eaf09359471b01921305070a889"
+    },
+    "order-is-square": {
+      "seconds": 60.15,
+      "reason": "A clear boxed n = h(1)^2 expresses the complete square restriction.",
+      "video_sha256": "a7e586b94037329ac610e7da335e70ec613022a16063b1cff32601bab43a6be5"
+    },
+    "overview": {
+      "seconds": 27.59,
+      "reason": "The order-four sign matrix with two orthogonal rows highlighted.",
+      "video_sha256": "c4205c63b00c55047ed2f8adf9b03569f2af769d066abd2233052c2c3759aca3"
+    },
+    "power-of-two-cycle": {
+      "seconds": 154.0,
+      "reason": "An eight-position schematic cycle illustrates the projected odd coefficients and the descent goal.",
+      "video_sha256": "d5c411d52faef53ded480ac3c8ede102fe60094adb20bd935512d7156a65b376"
+    },
+    "products-to-sums": {
+      "seconds": 152.1,
+      "reason": "Four subset columns assemble into the vanishing alternating sum.",
+      "video_sha256": "3bea2bdb3163a3d4c764a0cc952501d42deaaecb1eb1ca6b402d45fcaf1b0b97"
+    },
+    "residue-one-rigidity": {
+      "seconds": 160.03,
+      "reason": "Odd order and residue one converge to exact equality R = W = 1.",
+      "video_sha256": "d9e4054d26b11c58b5ccf555011d5943c7164bcc35c59e6c08c0b430bd7da814"
+    },
+    "restriction-on-the-order": {
+      "seconds": 13.87,
+      "reason": "Three restrictions culminate in the boxed order statement n = 4u^2 with u odd.",
+      "video_sha256": "059316cb24f7ff7cd274c607944a3e7c5bf2d7df9c6988b8396976627ed5f9d3"
+    },
+    "roots-cancel-ones": {
+      "seconds": 173.0,
+      "reason": "Three fully closed vector triangles show the nine roots cancelling, before the triangles fade.",
+      "video_sha256": "d474dae36cea09284461106d292b2afe680100c0f730f9b346d4837db644ea51"
+    },
+    "sign-ratio-congruences": {
+      "seconds": 197.27,
+      "reason": "The two comparison products have residue one, boxed below their definitions.",
+      "video_sha256": "51a7cc6d9a0d1ac4f282fdc1bbd4c29558dec77a1741204436c4a926e564ee84"
+    },
+    "signs-become-all-ones": {
+      "seconds": 175.73,
+      "reason": "The completed nine-term all-ones congruence with its coefficients visible.",
+      "video_sha256": "3ed8746b3289b698dc0d5aa4c78abcb2a6c8e6913b88dd0b223f0b1754bed8ec"
+    },
+    "split-exact-products": {
+      "seconds": 124.47,
+      "reason": "A two-prime four-box example separates the equal even and odd products.",
+      "video_sha256": "ebd161420d916ca6e5df6c91f46917689ee810b6d93c7154ad51f38ec39fcb82"
+    },
+    "star-operation": {
+      "seconds": 39.09,
+      "reason": "A labeled four-position circle and reversed coefficient row show what star does geometrically.",
+      "video_sha256": "16cd7ca7cf6cff1fbb6d29e885994f3aaa6217951b4a4874652e99aaf0f8ee16"
+    },
+    "surviving-odd-term": {
+      "seconds": 143.93,
+      "reason": "The empty-subset quotient is simplified to an odd value and boxed residue one.",
+      "video_sha256": "565239c6e451f0cf1c7b1ca79397edd410b280f58195883d5606edd919bf731e"
+    },
+    "theorem": {
+      "seconds": 99.5,
+      "reason": "The order-four matrix and its diagonal Gram matrix verify the surviving construction.",
+      "video_sha256": "ce44f844f7e9b4bd9a3b9fface899a0f9786ecc3b53c5898d0d0336b5a6d4b41"
+    },
+    "three-evaluations": {
+      "seconds": 163.91,
+      "reason": "The three normalized values lie on one circle with a highlighted modulus-three equation and schematic qualifier.",
+      "video_sha256": "caaacde635a8afaa8e7929913d5e3afa074ce69dfab7e2d69bcc16393361c16f"
+    },
+    "vanishing-alternating-sum": {
+      "seconds": 133.29,
+      "reason": "The assembled alternating sum and boxed zero residue state the output.",
+      "video_sha256": "549a0bee58511d861f96cd3ab54d6009575f0c4d6b95091c3ebf0a7b31bd601f"
+    }
+  },
+  "excerpts": {
+    "all-ones-congruence": {
+      "parent": "signs-become-all-ones",
+      "seconds": 175.73,
+      "reason": "Completed topic illustration inside the published parent-video excerpt.",
+      "start": 157.77,
+      "end": 224.466667,
+      "video_sha256": "3ed8746b3289b698dc0d5aa4c78abcb2a6c8e6913b88dd0b223f0b1754bed8ec"
+    },
+    "alternating-phase-product": {
+      "parent": "delta-theorem",
+      "seconds": 165.55,
+      "reason": "The parent shows the one-prime quotient and the two-prime ratio of ratios.",
+      "start": 103.13,
+      "end": 168.05,
+      "video_sha256": "bc5cfd1cee6bd5da46b1ba6b595f00fdb9eaa9e407e6ac09134e8f643f4e27d4"
+    },
+    "circle-evaluations": {
+      "parent": "delta-theorem",
+      "seconds": 33.47,
+      "reason": "The parent explanation shows the fixed-radius output circle.",
+      "start": 15.81,
+      "end": 57.83,
+      "video_sha256": "bc5cfd1cee6bd5da46b1ba6b595f00fdb9eaa9e407e6ac09134e8f643f4e27d4"
+    },
+    "correlation-identity": {
+      "parent": "group-ring-encoding",
+      "seconds": 121.91,
+      "reason": "A highlighted row of the product grid connects the coefficient with its row sum.",
+      "start": 99.31,
+      "end": 135.35,
+      "video_sha256": "48c094fa07913b799494d54def72395c59076699c1b6a6ce7ad19ae53a8744ed"
+    },
+    "crt-coordinates": {
+      "parent": "three-evaluations",
+      "seconds": 38.31,
+      "reason": "A cyclic position is reindexed into a four-by-nine table under CRT.",
+      "start": 16.55,
+      "end": 40.81,
+      "video_sha256": "caaacde635a8afaa8e7929913d5e3afa074ce69dfab7e2d69bcc16393361c16f"
+    },
+    "cyclic-group-ring": {
+      "parent": "group-ring-encoding",
+      "seconds": 43.39,
+      "reason": "The first row becomes h(X), with X^4=1 and the group-ring identification visible.",
+      "start": 16.51,
+      "end": 45.89,
+      "video_sha256": "48c094fa07913b799494d54def72395c59076699c1b6a6ce7ad19ae53a8744ed"
+    },
+    "cyclic-shifts": {
+      "parent": "group-ring-encoding",
+      "seconds": 66.77,
+      "reason": "The completed multiplication by X shows the cyclic shift and the general row correspondence.",
+      "start": 45.89,
+      "end": 69.27,
+      "video_sha256": "48c094fa07913b799494d54def72395c59076699c1b6a6ce7ad19ae53a8744ed"
+    },
+    "delta-odd-order": {
+      "parent": "delta-theorem",
+      "seconds": 213.89,
+      "reason": "The parent illustrates the three possible odd-order directions.",
+      "start": 197.79,
+      "end": 216.39,
+      "video_sha256": "bc5cfd1cee6bd5da46b1ba6b595f00fdb9eaa9e407e6ac09134e8f643f4e27d4"
+    },
+    "delta-theorem": {
+      "parent": "overview",
+      "seconds": 142.95,
+      "reason": "Completed topic illustration inside the published parent-video excerpt.",
+      "start": 131.85,
+      "end": 145.45,
+      "video_sha256": "c4205c63b00c55047ed2f8adf9b03569f2af769d066abd2233052c2c3759aca3"
+    },
+    "evaluate-four-cycle": {
+      "parent": "three-evaluations",
+      "seconds": 87.95,
+      "reason": "The three completed substitution formulas exhibit the 1, -1, and i evaluations.",
+      "start": 62.83,
+      "end": 90.45,
+      "video_sha256": "caaacde635a8afaa8e7929913d5e3afa074ce69dfab7e2d69bcc16393361c16f"
+    },
+    "evaluation-units": {
+      "parent": "odd-order-rigidity",
+      "seconds": 89.49,
+      "reason": "Completed topic illustration inside the published parent-video excerpt.",
+      "start": 71.29,
+      "end": 91.99,
+      "video_sha256": "501c74f0b470aa59de98dfe524b56b9bf6a49074bf745b522e3c29b238304d33"
+    },
+    "exact-comparison-identities": {
+      "parent": "odd-order-rigidity",
+      "seconds": 216.09,
+      "reason": "Completed topic illustration inside the published parent-video excerpt.",
+      "start": 145.03,
+      "end": 218.59,
+      "video_sha256": "501c74f0b470aa59de98dfe524b56b9bf6a49074bf745b522e3c29b238304d33"
+    },
+    "final-contradiction": {
+      "parent": "overview",
+      "seconds": 192.89,
+      "reason": "Completed topic illustration inside the published parent-video excerpt.",
+      "start": 181.41,
+      "end": 214.933333,
+      "video_sha256": "c4205c63b00c55047ed2f8adf9b03569f2af769d066abd2233052c2c3759aca3"
+    },
+    "form-sign-combination": {
+      "parent": "signs-become-all-ones",
+      "seconds": 123.87,
+      "reason": "Completed topic illustration inside the published parent-video excerpt.",
+      "start": 29.47,
+      "end": 126.37,
+      "video_sha256": "3ed8746b3289b698dc0d5aa4c78abcb2a6c8e6913b88dd0b223f0b1754bed8ec"
+    },
+    "four-sign-polynomials": {
+      "parent": "three-evaluations",
+      "seconds": 60.33,
+      "reason": "The coefficient table is grouped into four H-polynomials, with the decomposition shown below.",
+      "start": 40.81,
+      "end": 62.83,
+      "video_sha256": "caaacde635a8afaa8e7929913d5e3afa074ce69dfab7e2d69bcc16393361c16f"
+    },
+    "gaussian-parity": {
+      "parent": "signs-become-all-ones",
+      "seconds": 155.27,
+      "reason": "Completed topic illustration inside the published parent-video excerpt.",
+      "start": 126.37,
+      "end": 157.77,
+      "video_sha256": "3ed8746b3289b698dc0d5aa4c78abcb2a6c8e6913b88dd0b223f0b1754bed8ec"
+    },
+    "group-ring-encoding": {
+      "parent": "overview",
+      "seconds": 103.41,
+      "reason": "Completed topic illustration inside the published parent-video excerpt.",
+      "start": 94.95,
+      "end": 105.91,
+      "video_sha256": "c4205c63b00c55047ed2f8adf9b03569f2af769d066abd2233052c2c3759aca3"
+    },
+    "hadamard-dictionary": {
+      "parent": "group-ring-encoding",
+      "seconds": 170.69,
+      "reason": "The general dictionary equates matrix orthogonality and the group-ring norm, including sign coefficients.",
+      "start": 135.35,
+      "end": 200.566667,
+      "video_sha256": "48c094fa07913b799494d54def72395c59076699c1b6a6ce7ad19ae53a8744ed"
+    },
+    "halve-sign-sums": {
+      "parent": "three-evaluations",
+      "seconds": 140.73,
+      "reason": "The coefficient formulas demonstrate integral halving of four-sign sums and two-sign differences.",
+      "start": 115.07,
+      "end": 143.23,
+      "video_sha256": "caaacde635a8afaa8e7929913d5e3afa074ce69dfab7e2d69bcc16393361c16f"
+    },
+    "incompatible-residues": {
+      "parent": "final-contradiction",
+      "seconds": 113.33,
+      "reason": "The parent brings the two residue claims to the contradiction.",
+      "start": 97.43,
+      "end": 115.83,
+      "video_sha256": "82bc63151b0abb211a93cd5f45e4eb416cbea6fcd8557764d5e75b871a08f6a5"
+    },
+    "integral-delta": {
+      "parent": "delta-theorem",
+      "seconds": 192.8,
+      "reason": "The short integrality cut displays the algebraic-integer hypothesis before Kronecker is applied.",
+      "start": 188.5,
+      "end": 193.76,
+      "video_sha256": "bc5cfd1cee6bd5da46b1ba6b595f00fdb9eaa9e407e6ac09134e8f643f4e27d4"
+    },
+    "kronecker-step": {
+      "parent": "delta-theorem",
+      "seconds": 195.29,
+      "reason": "Both hypotheses lead to the root-of-unity conclusion in the parent explanation.",
+      "start": 168.05,
+      "end": 197.79,
+      "video_sha256": "bc5cfd1cee6bd5da46b1ba6b595f00fdb9eaa9e407e6ac09134e8f643f4e27d4"
+    },
+    "normalized-evaluation-norms": {
+      "parent": "three-evaluations",
+      "seconds": 112.57,
+      "reason": "The definitions of c, d, and g sit above their common norm-nine identity.",
+      "start": 90.45,
+      "end": 115.07,
+      "video_sha256": "caaacde635a8afaa8e7929913d5e3afa074ce69dfab7e2d69bcc16393361c16f"
+    },
+    "odd-comparison-products": {
+      "parent": "odd-order-rigidity",
+      "seconds": 53.13,
+      "reason": "Completed topic illustration inside the published parent-video excerpt.",
+      "start": 29.77,
+      "end": 55.63,
+      "video_sha256": "501c74f0b470aa59de98dfe524b56b9bf6a49074bf745b522e3c29b238304d33"
+    },
+    "odd-ones-at-one": {
+      "parent": "final-contradiction",
+      "seconds": 94.93,
+      "reason": "The parent shows the odd contribution reducing to one.",
+      "start": 76.37,
+      "end": 97.43,
+      "video_sha256": "82bc63151b0abb211a93cd5f45e4eb416cbea6fcd8557764d5e75b871a08f6a5"
+    },
+    "odd-order-rigidity": {
+      "parent": "overview",
+      "seconds": 167.53,
+      "reason": "Completed topic illustration inside the published parent-video excerpt.",
+      "start": 156.81,
+      "end": 170.03,
+      "video_sha256": "c4205c63b00c55047ed2f8adf9b03569f2af769d066abd2233052c2c3759aca3"
+    },
+    "products-to-sums": {
+      "parent": "overview",
+      "seconds": 178.91,
+      "reason": "Completed topic illustration inside the published parent-video excerpt.",
+      "start": 170.03,
+      "end": 181.41,
+      "video_sha256": "c4205c63b00c55047ed2f8adf9b03569f2af769d066abd2233052c2c3759aca3"
+    },
+    "residue-one-rigidity": {
+      "parent": "odd-order-rigidity",
+      "seconds": 142.53,
+      "reason": "Completed topic illustration inside the published parent-video excerpt.",
+      "start": 110.29,
+      "end": 145.03,
+      "video_sha256": "501c74f0b470aa59de98dfe524b56b9bf6a49074bf745b522e3c29b238304d33"
+    },
+    "restriction-on-the-order": {
+      "parent": "overview",
+      "seconds": 113.95,
+      "reason": "Completed topic illustration inside the published parent-video excerpt.",
+      "start": 105.91,
+      "end": 116.45,
+      "video_sha256": "c4205c63b00c55047ed2f8adf9b03569f2af769d066abd2233052c2c3759aca3"
+    },
+    "roots-cancel-ones": {
+      "parent": "final-contradiction",
+      "seconds": 47.09,
+      "reason": "The parent uses a closed polygon to explain nonempty-subset cancellation.",
+      "start": 17.47,
+      "end": 49.59,
+      "video_sha256": "82bc63151b0abb211a93cd5f45e4eb416cbea6fcd8557764d5e75b871a08f6a5"
+    },
+    "sign-ratio-congruences": {
+      "parent": "odd-order-rigidity",
+      "seconds": 107.79,
+      "reason": "Completed topic illustration inside the published parent-video excerpt.",
+      "start": 55.63,
+      "end": 110.29,
+      "video_sha256": "501c74f0b470aa59de98dfe524b56b9bf6a49074bf745b522e3c29b238304d33"
+    },
+    "signs-become-all-ones": {
+      "parent": "overview",
+      "seconds": 154.31,
+      "reason": "Completed topic illustration inside the published parent-video excerpt.",
+      "start": 145.45,
+      "end": 156.81,
+      "video_sha256": "c4205c63b00c55047ed2f8adf9b03569f2af769d066abd2233052c2c3759aca3"
+    },
+    "star-operation": {
+      "parent": "group-ring-encoding",
+      "seconds": 96.81,
+      "reason": "The reversed coefficient order and star substitution define the excerpt topic.",
+      "start": 69.27,
+      "end": 99.31,
+      "video_sha256": "48c094fa07913b799494d54def72395c59076699c1b6a6ce7ad19ae53a8744ed"
+    },
+    "surviving-odd-term": {
+      "parent": "final-contradiction",
+      "seconds": 73.87,
+      "reason": "The parent retains the unit denominator and isolates the sole empty-subset contribution.",
+      "start": 49.59,
+      "end": 97.43,
+      "video_sha256": "82bc63151b0abb211a93cd5f45e4eb416cbea6fcd8557764d5e75b871a08f6a5"
+    },
+    "theorem": {
+      "parent": "final-contradiction",
+      "seconds": 159.83,
+      "reason": "The parent ends with the surviving orders and their explicit matrices.",
+      "start": 115.83,
+      "end": 162.333333,
+      "video_sha256": "82bc63151b0abb211a93cd5f45e4eb416cbea6fcd8557764d5e75b871a08f6a5"
+    },
+    "three-evaluations": {
+      "parent": "overview",
+      "seconds": 129.35,
+      "reason": "Completed topic illustration inside the published parent-video excerpt.",
+      "start": 116.45,
+      "end": 131.85,
+      "video_sha256": "c4205c63b00c55047ed2f8adf9b03569f2af769d066abd2233052c2c3759aca3"
+    },
+    "vanishing-alternating-sum": {
+      "parent": "products-to-sums",
+      "seconds": 152.1,
+      "reason": "The parent organizes the subset columns into a zero alternating sum.",
+      "start": 117.15,
+      "end": 154.6,
+      "video_sha256": "3bea2bdb3163a3d4c764a0cc952501d42deaaecb1eb1ca6b402d45fcaf1b0b97"
+    }
+  }
+}

@@ -7,6 +7,7 @@ number: "4.1"
 draft: false
 video:
   src: media/circle-evaluations.mp4
+  poster: media/thumbnails/circle-evaluations.jpg
   captions: media/circle-evaluations.vtt
   duration: 164.066667
 foundation: true

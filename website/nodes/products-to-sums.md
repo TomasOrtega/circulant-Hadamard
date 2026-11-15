@@ -8,6 +8,7 @@ number: 7
 draft: false
 video:
   src: media/products-to-sums.mp4
+  poster: media/thumbnails/products-to-sums.jpg
   captions: media/products-to-sums.vtt
   duration: 154.6
 mapPosition:
@@ -84,6 +85,7 @@ children:
     dependsOn:
       - cancel-before-reduction
     segment:
+      poster: media/thumbnails/excerpts/vanishing-alternating-sum.jpg
       start: 117.15
       end: 154.6
     script: |

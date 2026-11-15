@@ -7,6 +7,7 @@ number: "3.3"
 draft: false
 video:
   src: media/evaluate-four-cycle.mp4
+  poster: media/thumbnails/evaluate-four-cycle.jpg
   captions: media/evaluate-four-cycle.vtt
   duration: 215.966667
 mapPosition: [40, 360]

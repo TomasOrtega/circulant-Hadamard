@@ -7,6 +7,7 @@ number: "8.4"
 draft: false
 video:
   src: media/incompatible-residues.mp4
+  poster: media/thumbnails/incompatible-residues.jpg
   captions: media/incompatible-residues.vtt
   duration: 129.4
 mapPosition: [240, 420]

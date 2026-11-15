@@ -8,6 +8,7 @@ number: "1.4"
 draft: false
 video:
   src: media/correlation-identity.mp4
+  poster: media/thumbnails/correlation-identity.jpg
   captions: media/correlation-identity.vtt
   duration: 122.9
 mapPosition:

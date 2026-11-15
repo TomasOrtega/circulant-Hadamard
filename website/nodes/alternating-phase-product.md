@@ -7,6 +7,7 @@ number: "4.2"
 draft: false
 video:
   src: media/alternating-phase-product.mp4
+  poster: media/thumbnails/alternating-phase-product.jpg
   captions: media/alternating-phase-product.vtt
   duration: 196.866667
 mapPosition: [40, 200]

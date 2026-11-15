@@ -7,6 +7,7 @@ number: "8.3"
 draft: false
 video:
   src: media/surviving-odd-term.mp4
+  poster: media/thumbnails/surviving-odd-term.jpg
   captions: media/surviving-odd-term.vtt
   duration: 190.966667
 mapPosition: [240, 220]

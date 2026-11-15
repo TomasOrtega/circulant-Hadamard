@@ -7,6 +7,7 @@ summary: A high-level overview of the proof. Explore the graph to follow each
 draft: false
 video:
   src: media/overview.mp4
+  poster: media/thumbnails/overview.jpg
   captions: media/overview.vtt
   duration: 214.933333
 graphLayout: proof-map
@@ -14,40 +15,40 @@ graphTitle: The proof at a glance
 children:
   - node: group-ring-encoding
     dependsOn: []
-    segment: { start: 94.95, end: 105.91 }
+    segment: { start: 94.95, end: 105.91, poster: media/thumbnails/excerpts/group-ring-encoding.jpg }
   - node: restriction-on-the-order
     dependsOn:
       - group-ring-encoding
-    segment: { start: 105.91, end: 116.45 }
+    segment: { start: 105.91, end: 116.45, poster: media/thumbnails/excerpts/restriction-on-the-order.jpg }
   - node: three-evaluations
     dependsOn:
       - restriction-on-the-order
-    segment: { start: 116.45, end: 131.85 }
+    segment: { start: 116.45, end: 131.85, poster: media/thumbnails/excerpts/three-evaluations.jpg }
   - node: delta-theorem
     dependsOn: []
-    segment: { start: 131.85, end: 145.45 }
+    segment: { start: 131.85, end: 145.45, poster: media/thumbnails/excerpts/delta-theorem.jpg }
     contextFrom:
       - group-ring-encoding
   - node: signs-become-all-ones
     dependsOn:
       - three-evaluations
-    segment: { start: 145.45, end: 156.81 }
+    segment: { start: 145.45, end: 156.81, poster: media/thumbnails/excerpts/signs-become-all-ones.jpg }
   - node: odd-order-rigidity
     dependsOn:
       - three-evaluations
       - delta-theorem
       - signs-become-all-ones
-    segment: { start: 156.81, end: 170.03 }
+    segment: { start: 156.81, end: 170.03, poster: media/thumbnails/excerpts/odd-order-rigidity.jpg }
   - node: products-to-sums
     dependsOn:
       - signs-become-all-ones
       - odd-order-rigidity
-    segment: { start: 170.03, end: 181.41 }
+    segment: { start: 170.03, end: 181.41, poster: media/thumbnails/excerpts/products-to-sums.jpg }
   - node: final-contradiction
     dependsOn:
       - signs-become-all-ones
       - products-to-sums
-    segment: { start: 181.41, end: 214.933333 }
+    segment: { start: 181.41, end: 214.933333, poster: media/thumbnails/excerpts/final-contradiction.jpg }
 ---
 
 ## Definitions and main theorem

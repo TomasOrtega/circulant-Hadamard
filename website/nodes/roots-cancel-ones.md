@@ -7,6 +7,7 @@ number: "8.1"
 draft: false
 video:
   src: media/roots-cancel-ones.mp4
+  poster: media/thumbnails/roots-cancel-ones.jpg
   captions: media/roots-cancel-ones.vtt
   duration: 189.333333
 mapPosition: [40, 24]

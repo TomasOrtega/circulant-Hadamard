@@ -7,6 +7,7 @@ number: "5.1"
 draft: false
 video:
   src: media/form-sign-combination.mp4
+  poster: media/thumbnails/form-sign-combination.jpg
   captions: media/form-sign-combination.vtt
   duration: 170.866667
 mapPosition: [40, 24]

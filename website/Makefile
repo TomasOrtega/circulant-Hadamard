@@ -12,7 +12,7 @@ node_modules/.installed: package.json bun.lock
 	$(BUN) install --frozen-lockfile --ignore-scripts
 	touch $@
 
-dist/index.html: index.html $(NODE_SOURCES) load-nodes.js markdown.js node-tree.js node.jsx dependencies.js dependency-graph.jsx phase-explorer.jsx phase-model.js node-video.js build-nodes.jsx node_modules/.installed $(wildcard media/*)
+dist/index.html: index.html $(NODE_SOURCES) load-nodes.js markdown.js node-tree.js node.jsx dependencies.js dependency-graph.jsx phase-explorer.jsx phase-model.js node-video.js build-nodes.jsx node_modules/.installed $(wildcard media/* media/thumbnails/* media/thumbnails/excerpts/*)
 	$(BUN) run --bun build:nodes
 
 dist/math.css: dist/index.html
