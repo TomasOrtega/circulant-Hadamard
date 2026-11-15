@@ -105,8 +105,8 @@ CLOSING — BOTH SPEAKERS
     Return to the event contribution: recursive exposition, 48 narrated
     videos, and the interactive comparison. State human and Codex roles,
     source review and implementation checks. The report has the full proof
-    and explicit prerequisites. No Lean verification or measured educational
-    benefit is claimed. Invite the audience to choose a node for questions.
+    and explicit prerequisites. No Lean verification is claimed.
+    Invite the audience to choose a node for questions.
 
 BACKUPS — USE ONLY AS NEEDED
 

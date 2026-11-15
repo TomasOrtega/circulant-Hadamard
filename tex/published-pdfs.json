@@ -1,13 +1,13 @@
 {
   "pdfs": {
-    "report.pdf": "f0a783e0427eddbef5e78d7552491069eeb862bae4f1a22a42a0adc03d7033a4",
-    "slides.pdf": "4eccc2df0ad5667d5a846f83478d431f718396e8ee2f9833c28b478988da127c"
+    "report.pdf": "5b32743db26d603044124056d25e107157e6c42f1babe1d84dfd1605a0c2d948",
+    "slides.pdf": "aca09077db4b3c30eb0ae1a9e03d371c14923a7da0542b0e927942b4b4403f1b"
   },
   "sources": {
     "Makefile": "8d52c97c1f4b4080b4dd32604b8ad45fa51ca5abfb80dcf87fa4fa076057c6ff",
     "assets/diagrams/report-common-rotation.tex": "fd2433dc4f6f726318b5fb904c161d73681edd3d89012732932fe4c1789de3a7",
     "assets/diagrams/report-delta-detail.tex": "1c02f1508da6fc76d101a6dff82b9097696f553c161af9f281b3d344bf63efa6",
-    "assets/diagrams/slides-main-map.tex": "de566bd128b402330401f18e10b4e205f7331490123ee665647aee0c0951f4c5",
+    "assets/diagrams/slides-main-map.tex": "698f0a976f16989a7f55bd4651043593ae07d74a8b736fa452e7bd168b4faed4",
     "assets/diagrams/workflow.tex": "9e772081f101069a846276a0453c52b254b1b6326b0a9eeeb8aead90bcfc4bbf",
     "assets/images/sair.jpg": "bf715eae620d15451cb159898f85e57fe3e3e3c9bfe281b81d7cecb55e099aaf",
     "assets/images/slides-delta-map.png": "689d5cb0c2c6526947b94f8dd7d89349d5a4c3e682ef421c961da5f3235c7d49",
@@ -18,8 +18,8 @@
     "metadata.tex": "73683ba8063397fa82e59788045801f77b278f44f2f0508ba1a66099110c93af",
     "preamble.tex": "eb9c723c64911643970f1201025f3565f7e410d638c7f2359726150f1eacdbf8",
     "published_pdfs.py": "11bdfd268d08769a51d29346ef9fc5fd38692433783cbc9d8c6423aa3ca7d6cc",
-    "references.bib": "53e584a6c6b6fb982a6c1edb2aca2b126758087b4843eed3337b9d2f25390ce1",
-    "report.tex": "c853cbd35f5fabcfefb372c5476e58846a135c1052fee301a83b1363edc5c36a",
-    "slides.tex": "d4a0ffaa24509d2dd734a350b4a29ecc5bff6b96d70cf61f7f312f5936c1f143"
+    "references.bib": "5dfc38c1fde6b7486bf837a60d6756f661bdd9f0dd6947484dbdfdbe60b01985",
+    "report.tex": "4976388e9d0de20395f5518da8d0a5f16b6b698c6340322b3ad9e060f047ad50",
+    "slides.tex": "c9f94a55084cb2755eb3c7f30c5067a44292a1313b682cb1c323312a064652b5"
   }
 }

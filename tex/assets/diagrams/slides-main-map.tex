@@ -3,14 +3,14 @@
     text width=2.5cm,minimum height=0.85cm,align=center,font=\small},
   mapflow/.style={-{Stealth},semithick,draw=black!65}
 ]
-  \node[mapnode] (encoding) at (0,0) {1. Group-ring\\encoding};
-  \node[mapnode] (order) at (3.3,0) {2. Restrict\\the order};
-  \node[mapnode] (evaluations) at (6.6,0) {3. Three\\evaluations};
-  \node[mapnode] (signs) at (9.9,0) {5. Signs become\\all ones};
-  \node[mapnode] (delta) at (3.3,-2.0) {4. The\\$\Delta$-theorem};
-  \node[mapnode] (rigidity) at (6.6,-2.0) {6. Odd-order\\rigidity};
-  \node[mapnode] (sum) at (9.9,-2.0) {7. Products\\to sums};
-  \node[mapnode] (contradiction) at (9.9,-4.0) {8. The final\\contradiction};
+  \node[mapnode] (encoding) at (0,0) {\href{\WebsiteURL nodes/group-ring-encoding/}{\parbox{2.5cm}{\centering 1. Group-ring\\encoding}}};
+  \node[mapnode] (order) at (3.3,0) {\href{\WebsiteURL nodes/restriction-on-the-order/}{\parbox{2.5cm}{\centering 2. Restrict\\the order}}};
+  \node[mapnode] (evaluations) at (6.6,0) {\href{\WebsiteURL nodes/three-evaluations/}{\parbox{2.5cm}{\centering 3. Three\\evaluations}}};
+  \node[mapnode] (signs) at (9.9,0) {\href{\WebsiteURL nodes/signs-become-all-ones/}{\parbox{2.5cm}{\centering 5. Signs become\\all ones}}};
+  \node[mapnode] (delta) at (3.3,-2.0) {\href{\WebsiteURL nodes/delta-theorem/}{\parbox{2.5cm}{\centering 4. The\\$\Delta$-theorem}}};
+  \node[mapnode] (rigidity) at (6.6,-2.0) {\href{\WebsiteURL nodes/odd-order-rigidity/}{\parbox{2.5cm}{\centering 6. Odd-order\\rigidity}}};
+  \node[mapnode] (sum) at (9.9,-2.0) {\href{\WebsiteURL nodes/products-to-sums/}{\parbox{2.5cm}{\centering 7. Products\\to sums}}};
+  \node[mapnode] (contradiction) at (9.9,-4.0) {\href{\WebsiteURL nodes/final-contradiction/}{\parbox{2.5cm}{\centering 8. The final\\contradiction}}};
   \draw[mapflow] (encoding) -- (order);
   \draw[mapflow] (order) -- (evaluations);
   \draw[mapflow] (evaluations) -- (signs);
