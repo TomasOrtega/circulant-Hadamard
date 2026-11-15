@@ -12,6 +12,12 @@ math restored as LaTeX. See [source and production conventions](node1/reference/
 for the original PDF, page mapping, and the fixed order-four example.
 Their polynomial notation now explicitly uses $h(X)h^*(X)$ at Steven's request.
 
+[Video 2](node2/restriction-on-the-order.md) presents the order restriction
+in six slides, each with narration and animation directions. It proves the
+square and parity restrictions, leaves the oddness of $u$ to the deeper
+proof, and sets up the contradiction for odd $u>1$ with $u=3$ as the
+guiding example.
+
 ## Naming and editing
 
 Group each main node's script and its subnode scripts in a numbered folder,
@@ -21,14 +27,16 @@ such as `node1/` or `node2/`. Keep the descriptive filenames matching
 ```text
 scripts/
 ├── overview.md
-└── node1/
-    ├── group-ring-encoding.md
-    ├── cyclic-group-ring.md
-    ├── cyclic-shifts.md
-    ├── star-operation.md
-    ├── correlation-identity.md
-    ├── hadamard-dictionary.md
-    └── reference/
+├── node1/
+│   ├── group-ring-encoding.md
+│   ├── cyclic-group-ring.md
+│   ├── cyclic-shifts.md
+│   ├── star-operation.md
+│   ├── correlation-identity.md
+│   ├── hadamard-dictionary.md
+│   └── reference/
+└── node2/
+    └── restriction-on-the-order.md
 ```
 
 | Video | Script file | Website node |
@@ -40,7 +48,7 @@ scripts/
 | 1.3 — Star Operation | [node1/star-operation.md](node1/star-operation.md) | [Star Operation](../nodes/star-operation.md) |
 | 1.4 — Correlation Identity | [node1/correlation-identity.md](node1/correlation-identity.md) | [Correlation Identity](../nodes/correlation-identity.md) |
 | 1.5 — Hadamard Dictionary | [node1/hadamard-dictionary.md](node1/hadamard-dictionary.md) | [Hadamard Dictionary](../nodes/hadamard-dictionary.md) |
-| 2 — Restriction on the Order | `node2/restriction-on-the-order.md` (future addition) | [Restriction on the Order](../nodes/restriction-on-the-order.md) |
+| 2 — Restriction on the Order | [node2/restriction-on-the-order.md](node2/restriction-on-the-order.md) (slide narration and animation directions) | [Restriction on the Order](../nodes/restriction-on-the-order.md) |
 
 Create a numbered folder when a main node gets its first script, and keep its
 supporting sources in that folder's `reference/` directory. Put the video
