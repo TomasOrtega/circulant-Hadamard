@@ -38,3 +38,8 @@ Browser harnesses are temporary; no project dependency is added.
 
 Records a user-directed navigation refinement and failed-first browser checks.
 Mathematical content and media are unchanged.
+
+Publication check at 2026-11-15T11:33:25-08:00: all 48 focused browser assertions
+also pass on the live site; its controller matches the tested build byte for
+byte. The [CI run](https://github.com/TomasOrtega/circulant-Hadamard/actions/runs/43752811176)
+passes its website, lint and deployment jobs.
