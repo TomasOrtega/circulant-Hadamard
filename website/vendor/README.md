@@ -25,7 +25,7 @@ The static implementation uses inline SVG icons
 and no client React runtime.
 
 The contents panel and masthead appearance switch follow `TableOfContents.tsx`,
-`DarkMode.tsx`, and `Nav.tsx` at the same revision. The static panel keeps heading
+`DarkMode.tsx`, and `Nav.tsx` at the same revision. The static panel keeps section
 navigation open, reserves reading space on desktop, and uses a drawer on smaller
 screens. Its slide and toggle fade use upstream Tailwind transition timing;
 desktop reading space moves with the panel. Reduced motion disables transitions.

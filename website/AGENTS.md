@@ -30,9 +30,10 @@ compatible with Node.js 24+ as a fallback. Use React to pre-render node views
 into static pages. Keep graph, breadcrumb, and parent navigation as ordinary
 links. Limit client JavaScript to page controls, playback bounds for native video cuts, and
 small, self-contained mathematical illustrations requested for a node.
-Keep the top-left contents panel open across heading links and reserve its
-reading space on desktop. Put the persistent dark-mode switch at the masthead's
-top right. Hide these controls and clear the reserved space in print.
+Keep the top-left contents panel open across section links; its title link
+closes it. Reserve its reading space on desktop. Put the persistent dark-mode
+switch at the masthead's top right. Hide these controls and clear the reserved
+space in print.
 Keep a useful static diagram and explanation when JavaScript is unavailable;
 use native keyboard-accessible controls and keep arithmetic congruences
 distinct from complex-plane geometry.

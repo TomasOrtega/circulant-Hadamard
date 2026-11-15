@@ -240,8 +240,9 @@ Bottom-right page controls share the current URL, jump to the top after scrollin
 and link to GitHub issues for feedback. Sharing uses the native share sheet or
 falls back to copying the link.
 
-After the masthead scrolls away, the top-left contents button opens links to
-the current page's headings. The panel stays open when following those links.
+After the page title scrolls away, the top-left contents button opens links to
+the current page's headings. Section links keep the panel open; its first item
+returns to the title and closes it.
 Desktop pages reserve a reading lane beside it; smaller screens use a drawer
 that closes with its close button, Escape, or a click outside. The masthead's
 top-right dark-mode switch remembers the appearance choice across pages.

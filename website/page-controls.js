@@ -38,12 +38,13 @@ if (headings.length > 1) {
     link.innerHTML = heading.innerHTML;
     link.querySelectorAll("hr").forEach(rule => rule.remove());
     link.querySelectorAll("[id]").forEach(label => label.removeAttribute("id"));
+    if (index === 0) link.addEventListener("click", () => setTocOpen(false));
     return link;
   }));
 }
 const updateScrollControls = () => {
   topButton.hidden = window.scrollY <= 500;
-  tocButton.inert = headings.length < 2 || !toc.inert || masthead.getBoundingClientRect().bottom > 0;
+  tocButton.inert = headings.length < 2 || !toc.inert || headings[0].getBoundingClientRect().bottom > 0;
 };
 window.addEventListener("scroll", updateScrollControls, { passive: true });
 window.addEventListener("resize", updateScrollControls);
