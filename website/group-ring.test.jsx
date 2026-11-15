@@ -59,9 +59,9 @@ describe("Node 1 supplied refinement", () => {
       expect(section).toContain(`aria-label="Dig in deeper: ${child.node.title}"`);
       expect(section).toContain('jax="SVG"');
     }
-    const general = entries.find(({ node }) => node.id === "general-proof");
-    const generalPage = renderToStaticMarkup(<NodePage entry={general} entries={entries} />);
-    const card = generalPage.split('<section id="node-group-ring-encoding"')[1].split("</section>")[0];
+    const overview = entries[0];
+    const overviewPage = renderToStaticMarkup(<NodePage entry={overview} entries={entries} />);
+    const card = overviewPage.split('<section id="node-group-ring-encoding"')[1].split("</section>")[0];
     expect(card).toContain(renderMarkdown(parent.node.script.join("\n\n")).html);
     expect(card).toContain("Circulant Hadamard Dictionary");
   });

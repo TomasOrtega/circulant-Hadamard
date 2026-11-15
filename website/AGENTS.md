@@ -34,9 +34,11 @@ Use the vocabulary in [GLOSSARY.md](../GLOSSARY.md): nodes at every depth.
 Keep one Markdown file per node in [nodes/](nodes/), starting at
 [overview.md](nodes/overview.md). Put metadata in YAML frontmatter and prose and
 LaTeX in the body. Child IDs replace code imports; cut scripts use YAML literal
-blocks (`script: |`) and support Markdown and math. The root links to the
-example and general proof routes; all proof nodes descend from the general
-proof. Every view has its own full overview video and written explanations.
+blocks (`script: |`) and support Markdown and math. The homepage owns the
+eight main proof nodes in one hierarchy. Main overviews use order 36 as a
+guiding example, while deeper nodes develop the general argument. Every view
+has its own full overview video and written explanations. Retain redirects
+when published node paths change.
 Show a dependency graph when the view or its parent has proof children.
 After the video and graph, an expanded proof node puts its exposition in
 the individual child sections, each with a link to go deeper. Its Markdown
@@ -44,9 +46,8 @@ body states the goal proved by that node and appears in its parent's section,
 rather than as a separate block on its own page. A parent's explicit child
 `script` overrides that goal statement; a terminal child's fallback is its
 short summary. Put each step's explanation in the parent's child `script: |`.
-The main overview retains its definitions, example, and theorem. The general
-proof retains its full route explanation after its graph and before its child
-sections. Terminal proof views retain their full Markdown body after the
+The main overview retains its definitions, example, and theorem after its
+graph. Terminal proof views retain their full Markdown body after the
 parent-map disclosure. Each preview is a timed cut of the parent's video
 alongside the reader-facing explanation of that step; a child's own video is its separate,
 deeper overview. Keep production narration in `scripts/`: `overview.md` at the
@@ -63,10 +64,16 @@ math renderer. Preserve node paths and parent context when editing the loader.
 Every non-root view must have a visible link back to its direct parent.
 Stop expanding at standard undergraduate prerequisites: `foundation: true`
 nodes must have no children. Record unfinished proof status with `draft: true`
-in metadata; page headings show only node titles. Show reading-route buttons
-only on the root proof map. Leave unavailable videos as empty slots.
+in metadata; page headings show only node titles. Leave unavailable videos
+as empty slots.
 
 Run `make -C website check` and `make -C website` after changes. Preview `website/dist/`: the source
 `styles.css` requires compilation. The build installs locked dependencies when
 needed and emits node pages, CSS, the cut player, local fonts, and licenses.
 See [README.md](README.md) for node and video authoring.
+
+Put formal theorem, lemma, and proposition statements in Markdown blockquotes
+with bold labels. The shared renderer gives them a blue border, subtle background,
+and padding; keep proofs outside the box. Graph `mapTitle` and `mapSummary`
+support inline math with the shared renderer. Retain plain navigation titles,
+and avoid links, images, and block Markdown inside graph labels.

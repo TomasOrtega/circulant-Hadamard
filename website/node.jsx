@@ -140,7 +140,11 @@ function Heading({ id, children }) {
 
 function Markdown({ script }) {
   return (
-    <div className="flex min-w-0 flex-col gap-8 overflow-x-auto"
+    <div className="flex min-w-0 flex-col gap-8 overflow-x-auto
+      [&_blockquote]:flex [&_blockquote]:min-w-0 [&_blockquote]:flex-col
+      [&_blockquote]:gap-4 [&_blockquote]:overflow-x-auto [&_blockquote]:rounded-md
+      [&_blockquote]:border [&_blockquote]:border-theme/50 [&_blockquote]:bg-theme/5
+      [&_blockquote]:p-6 max-md:[&_blockquote]:p-4"
       dangerouslySetInnerHTML={{ __html: renderMarkdown(script.join("\n\n")).html }} />
   );
 }
@@ -155,7 +159,7 @@ function ChildNode({ child, entry, entries }) {
         {node.number ? `${node.number}. ` : ""}{node.title}
       </Heading>
       <div className="grid grid-cols-[minmax(0,1fr)_14rem] items-start gap-12 max-md:grid-cols-1 max-md:gap-8">
-        <div className="flex min-w-0 flex-col gap-8 [&_blockquote]:border-y [&_blockquote]:border-theme/25 [&_blockquote]:py-6">
+        <div className="flex min-w-0 flex-col gap-8">
           <Markdown script={child.script} />
           <div className="w-full max-w-125 self-center">
             <Media
@@ -189,25 +193,9 @@ function ChildNode({ child, entry, entries }) {
   );
 }
 
-function ReadingRoutes({ entry, entries }) {
-  if (entry.ancestors.length) return null;
-  const routes = entries.filter(({ node, ancestors }) => node.supplemental && ancestors.length === 1);
-  if (!routes.length) return null;
-  return (
-    <nav aria-label="Reading routes" className="flex flex-wrap justify-center gap-4 font-sans">
-      {routes.map((route, index) => (
-        <NodeButton key={route.node.id} href={hrefFor(route, entry)} primary={index === 0}
-          id={nodeAnchor(route.node)}>
-          {index === 0 ? "Start here · " : "Then · "}{route.node.title}
-        </NodeButton>
-      ))}
-    </nav>
-  );
-}
-
 function NodeDependencies({ entry, entries }) {
   const owner = entry.ancestors.at(-1);
-  if (!owner || entry.node.supplemental) return null;
+  if (!owner) return null;
   const siblings = owner.node.children;
   const current = siblings.find(({ node }) => node === entry.node);
   const incoming = current.dependsOn ?? [];
@@ -232,10 +220,10 @@ function NodeDependencies({ entry, entries }) {
 export function NodePage({ entry, entries }) {
   const { node } = entry;
   const root = entries[0];
-  const children = (node.children ?? []).filter(({ node: child }) => !child.supplemental);
+  const children = node.children ?? [];
   const base = assetRoot(entry);
   const hasOwnProofMap = node.graphLayout === "proof-map";
-  const showOwnExplanation = !entry.ancestors.length || node.supplemental || !children.length;
+  const showOwnExplanation = !entry.ancestors.length || !children.length;
   return (
     <>
       <a
@@ -266,13 +254,12 @@ export function NodePage({ entry, entries }) {
           <hgroup className="flex flex-col items-center gap-4 font-sans">
             <h1>{node.title}</h1>
           </hgroup>
-          <ReadingRoutes entry={entry} entries={entries} />
           <div className="w-full max-w-200">
             <Media video={node.video} title={node.title} base={base} />
           </div>
           <DependencyGraph entry={entry} entries={entries} />
           {showOwnExplanation && hasOwnProofMap && (
-            <div className="w-full max-w-200 rounded-md bg-white p-8 text-left max-md:p-6 [&_blockquote]:border-y [&_blockquote]:border-theme/25 [&_blockquote]:py-6">
+            <div className="w-full max-w-200 rounded-md bg-white p-8 text-left max-md:p-6">
               <Markdown script={node.script} />
             </div>
           )}

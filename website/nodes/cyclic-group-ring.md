@@ -29,11 +29,11 @@ The symbol $X$ marks one step around the cycle. An element is an integer linear 
 
 ## Unique polynomial representatives
 
-**Proposition.** Every element of this group ring has a unique expression
-
-$$
-a_0+a_1X+\cdots+a_{n-1}X^{n-1},\qquad a_j\in\mathbb Z.
-$$
+> **Proposition.** Every element of this group ring has a unique expression
+>
+> $$
+> a_0+a_1X+\cdots+a_{n-1}X^{n-1},\qquad a_j\in\mathbb Z.
+> $$
 
 **Proof.** The relation $X^n=1$ reduces every nonnegative exponent modulo $n$, giving a representative of degree less than $n$. If two such representatives agree in this group ring, their difference is divisible by $X^n-1$. A nonzero multiple of this monic degree-$n$ polynomial has degree at least $n$, so the difference must be zero. Thus the coefficients are uniquely determined.
 

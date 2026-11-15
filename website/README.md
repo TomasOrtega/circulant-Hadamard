@@ -7,17 +7,18 @@ without a client router. Native video cuts use a small playback controller.
 
 ## One Markdown file per node
 
-The active outline contains the eight high-level proof nodes, a theorem
-conclusion, and two reading routes. Start with
-[proof-by-example.md](nodes/proof-by-example.md) for the order-36 case; the
-general route is [general-proof.md](nodes/general-proof.md), which owns the
-proof map, all eight steps, and the theorem conclusion. Only these two routes
-are direct children of the homepage; deeper proof pages inherit the general
-route in their breadcrumbs and URLs. Each statement
-page puts the example before the general notation. Propositions 2.2 and 3.4
-are explicitly accepted black boxes. [Group-Ring Encoding](nodes/group-ring-encoding.md)
-now expands into five subnodes (1.1–1.5); the other main nodes remain at the
-high level. Each new subnode has a written proof and a separate video script.
+The homepage owns the eight high-level proof nodes in one recursive map.
+Main overviews use order 36 as a guiding example; deeper nodes explain the
+general argument. Propositions 2.2 and 3.4 remain accepted inputs at this level.
+[Group-Ring Encoding](nodes/group-ring-encoding.md) and
+[The Three Evaluations](nodes/three-evaluations.md) each expand into five
+subnodes. The theorem concludes Node 8. Other detailed graphs remain in
+preparation.
+
+The former separate reading routes are retained in
+[archive/reading-routes/](archive/reading-routes/README.md). Their published
+URLs redirect to the main map; old general-proof-prefixed node URLs redirect
+to the corresponding current node, including Node 1's published videos.
 
 The former background outline is retained in [archive/nodes/](archive/nodes/)
 and is not built. Active nodes have new descriptive URLs.
@@ -94,7 +95,7 @@ Hadamard Dictionary sections beneath its graph.
 
 The body of a non-root node with children states the main result it establishes.
 When its parent omits a child `script`, that body becomes the text in the
-parent's corresponding section. Thus the general proof's Group-Ring Encoding
+parent's corresponding section. Thus the homepage's Group-Ring Encoding
 section states the dictionary lemma. An explicit child `script` takes precedence;
 for a terminal child, an omitted `script` falls back to its short summary.
 Terminal nodes display their complete Markdown explanation on their own pages.
@@ -110,14 +111,12 @@ argument and videos still await the team's material.
 
 Every view starts with its video. Views with proof children, or with proof
 siblings, follow it with a collapsed “Show the proof map” dropdown. All graphs
-use the same native disclosure. The homepage and example route
-have no proof children or siblings, so they show no empty graph. Expanded
-proof nodes present the written exposition in the child sections, with a
-deeper link for each step. The general route retains its full proof explanation
-between its graph and child sections.
+use the same native disclosure. Expanded proof nodes present the written
+exposition in the child sections, with a deeper link for each step.
 On the main overview, the Markdown body gives the definitions, example, and
-theorem. Use a Markdown blockquote with a bold theorem label and an italic
-statement for the theorem environment. Terminal proof views put their full
+theorem. Use Markdown blockquotes with bold labels and italic statements for
+boxed theorems, lemmas, and propositions. The shared renderer supplies the
+blue border, subtle background, and padding; keep proofs outside the box. Terminal proof views put their full
 explanation after the parent-map disclosure. The graph links to the child nodes. An arrow
 points from a prerequisite to a node that uses it. Set `dependsOn` to the IDs
 of other children in this view; an empty array means no prerequisite here.
@@ -127,19 +126,18 @@ Unknown references, duplicate IDs, and dependency cycles fail the build.
 Use `contextFrom` for shared-notation links. These are validated but are not
 logical prerequisites; in particular the Δ-theorem does not depend on the
 Hadamard signs. All connections use the same solid arrow styling; the statement
-pages explain their inputs in words. The general proof's `graphLayout: proof-map`
+pages explain their inputs in words. The overview's `graphLayout: proof-map`
 uses each node's `mapPosition: [x, y]` and `mapSummary` to match the supplied diagram. Map summaries
-support Markdown and `$...$` math, rendered at build time like the article. Use
+support inline Markdown and `$...$` math, rendered at build time like the article.
+Use optional `mapTitle` for a mathematical graph title while retaining a plain
+`shortTitle` for navigation. Keep links, images, and block Markdown out of labels. Use
 `graphTitle` to label a refined map; its height follows the node positions. `number`
 keeps the eight node numbers stable. Maps use the website's ruled headings,
 white nodes with subtle blue outlines, blue numbers, and serif math summaries.
 The current node and hovered or keyboard-focused links receive a blue tint and
 stronger outline. Elbow connections use curved bends.
 
-Reading-route nodes use `supplemental: true`: they have their own pages and
-entry buttons on the homepage only, and do not appear as extra nodes or
-video cuts in the map. The main overview emphasizes the example as the starting
-point. Page headings show only the node title.
+Page headings show only the node title.
 Terminal statement pages list their incoming and outgoing links. No disclosure
 contains an invented internal proof.
 

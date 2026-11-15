@@ -139,7 +139,7 @@ describe("node files and dependency navigation", () => {
         <NodePage entry={entry} entries={entries} />,
       );
       const owner = entry.node.children.length ? entry : entry.ancestors.at(-1);
-      const children = owner.node.children.filter(({ node }) => !node.supplemental);
+      const children = owner.node.children;
       const graphStart = html.indexOf('aria-label="Node dependency graph"');
       if (children.length) expect(graphStart).toBeGreaterThan(html.indexOf("Full overview ·"));
       else expect(graphStart).toBe(-1);
@@ -149,7 +149,7 @@ describe("node files and dependency navigation", () => {
       for (const { node } of children) {
         const target = entries.find((candidate) => candidate.node === node);
         expect(html).toContain(`href="${hrefFor(target, entry)}"`);
-        expect(html).toContain(`Explore node: ${node.title}`);
+        expect(html).toContain(renderToStaticMarkup(<>{`Explore node: ${node.title}`}</>));
       }
     }
   });

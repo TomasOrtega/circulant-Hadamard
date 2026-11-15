@@ -13,7 +13,7 @@ video:
 mapPosition:
   - 40
   - 180
-mapSummary: 'Row $j\leftrightarrow X^{j-1}h$'
+mapSummary: 'Row $j$ $\leftrightarrow$ $X^{j-1}h(X)$'
 foundation: true
 ---
 
@@ -35,7 +35,7 @@ The coefficient list changes from $(h_0,\ldots,h_{n-1})$ to $(h_{n-1},h_0,\ldots
 
 ## Any number of shifts
 
-**Proposition.** For any integer $r$, the coefficient of $X^j$ in $X^rh$ is $h_{j-r}$, with all subscripts reduced modulo $n$.
+> **Proposition.** For any integer $r$, the coefficient of $X^j$ in $X^rh$ is $h_{j-r}$, with all subscripts reduced modulo $n$.
 
 **Proof.** A term $h_kX^{k+r}$ contributes to position $j$ precisely when $k+r\equiv j\pmod n$, or $k\equiv j-r\pmod n$. This selects exactly one coefficient.
 
