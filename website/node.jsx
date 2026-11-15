@@ -317,7 +317,6 @@ export function NodePage({ entry, entries }) {
         ))}
         {!!entry.ancestors.length && (
           <section className="items-center bg-theme/10 text-center">
-            <p>Return to the bigger picture.</p>
             <ParentButton entry={entry} />
           </section>
         )}
