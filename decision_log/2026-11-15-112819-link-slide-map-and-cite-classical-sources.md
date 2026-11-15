@@ -48,3 +48,9 @@ OpenAI's Proposition 2.2. No mathematical deduction changes.
 
 Improves credit for prior mathematical work and makes the visual proof map
 an entry point to the detailed exposition. Adds no new theorem claim.
+
+## Publication outcome
+
+At 2026-11-15T11:28:35-08:00, opened [PR #27](https://github.com/TomasOrtega/circulant-Hadamard/pull/27)
+from `steven/slides-links-historical-citations` to `main`. The PR includes
+the rebuilt PDFs and this decision record; it has not been merged.
