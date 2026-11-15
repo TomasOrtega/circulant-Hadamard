@@ -51,8 +51,8 @@ when published node paths change.
 Show a dependency graph when the view or its parent has proof children.
 After the video and graph, an expanded proof node puts its exposition in
 the individual child sections, each with a link to go deeper.
-Place the “Dig in deeper” button immediately below each child heading, with
-the exposition spanning the section width instead of sharing a sidebar.
+Place the “Dig in deeper” button beside each child heading when space permits,
+wrapping below on narrow screens. Keep the exposition at full section width.
 Its Markdown body states the goal proved by that node and appears in its parent's section,
 rather than as a separate block on its own page. A parent's explicit child
 `script` overrides that goal statement; a terminal child's fallback is its

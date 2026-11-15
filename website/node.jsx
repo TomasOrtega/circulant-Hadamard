@@ -151,16 +151,6 @@ function ReadingRoutes({ entry }) {
   );
 }
 
-function Heading({ id, children }) {
-  return (
-    <h2 id={id}>
-      <hr />
-      <span>{children}</span>
-      <hr />
-    </h2>
-  );
-}
-
 function Markdown({ script }) {
   return (
     <div className="flex min-w-0 flex-col gap-8 overflow-x-auto
@@ -178,10 +168,12 @@ function ChildNode({ child, entry, entries }) {
   const count = node.children?.length ?? 0;
   return (
     <section id={nodeAnchor(node)} className="width-lg">
-      <Heading>
-        {node.number ? `${node.number}. ` : ""}{node.title}
-      </Heading>
-      <div className="flex flex-wrap items-center gap-4">
+      <header className="flex flex-wrap items-center gap-4">
+        <h2 className="min-w-0 flex-1 basis-64">
+          <hr />
+          <span>{node.number ? `${node.number}. ` : ""}{node.title}</span>
+          <hr />
+        </h2>
         <NodeButton
           href={hrefFor(target, entry)}
           primary
@@ -189,16 +181,16 @@ function ChildNode({ child, entry, entries }) {
         >
           Dig in deeper <span aria-hidden="true">→</span>
         </NodeButton>
-        <p className="font-sans text-sm text-dark-gray">
-          {node.blackBox
-            ? `Accepted black box · ${node.blackBox}`
-            : node.foundation
-            ? "Undergraduate foundation"
-            : count
-              ? `${count} child nodes`
-              : "Statement ready · video script pending"}
-        </p>
-      </div>
+      </header>
+      <p className="font-sans text-sm text-dark-gray">
+        {node.blackBox
+          ? `Accepted black box · ${node.blackBox}`
+          : node.foundation
+          ? "Undergraduate foundation"
+          : count
+            ? `${count} child nodes`
+            : "Statement ready · video script pending"}
+      </p>
       <Markdown script={child.script} />
       {phaseExplorerStages[node.id] && <PhaseExplorer
         id={`phase-${node.id}`}
@@ -226,19 +218,15 @@ function NodeDependencies({ entry, entries }) {
   if (!current) return null;
   const incoming = current.dependsOn ?? [];
   const context = current.contextFrom ?? [];
-  const outgoing = siblings.filter(({ dependsOn = [] }) => dependsOn.includes(entry.node.id));
-  const notationFor = siblings.filter(({ contextFrom = [] }) => contextFrom.includes(entry.node.id));
   const links = (ids) => ids.map((id, index) => {
     const node = siblings.find(({ node }) => node.id === id).node;
     const target = findChildEntry(node, owner, entries);
     return <span key={id}>{index ? ", " : ""}<a href={hrefFor(target, entry)}>{node.title}</a></span>;
   });
   return (
-    <nav aria-label="Incoming and outgoing dependencies" className="w-full rounded-md bg-light-gray p-6 font-sans text-sm">
+    <nav aria-label="Prerequisites and notation" className="w-full rounded-md bg-light-gray p-6 font-sans text-sm">
       <p><strong>Uses: </strong>{incoming.length ? links(incoming) : "No earlier proof node."}</p>
       {!!context.length && <p><strong>Shared notation only: </strong>{links(context)}</p>}
-      <p><strong>Used by: </strong>{outgoing.length ? links(outgoing.map(({ node }) => node.id)) : "Conclusion of the proof map."}</p>
-      {!!notationFor.length && <p><strong>Supplies notation to: </strong>{links(notationFor.map(({ node }) => node.id))}</p>}
     </nav>
   );
 }

@@ -193,17 +193,27 @@ describe("recursive node navigation", () => {
     }
   });
 
-  test("each deeper button follows its section heading before the full-width explanation", () => {
+  test("each deeper button shares a header with its heading before the explanation", () => {
     for (const entry of entries) {
       const html = readFileSync(join(output, pagePath(entry)), "utf8");
       for (const child of entry.node.children) {
         const section = html.match(new RegExp(`<section id="${nodeAnchor(child.node)}"[\\s\\S]*?</section>`))[0];
         const button = section.indexOf('aria-label="Dig in deeper:');
         const explanation = section.indexOf(renderMarkdown(child.script.join("\n\n")).html);
+        const header = section.match(/<header\b[\s\S]*?<\/header>/)?.[0] ?? "";
+        expect(header, child.node.id).toContain("<h2");
+        expect(header, child.node.id).toContain('aria-label="Dig in deeper:');
         expect(button, child.node.id).toBeGreaterThan(section.indexOf("</h2>"));
         expect(explanation, child.node.id).toBeGreaterThan(button);
         expect(section.includes("<aside"), child.node.id).toBe(false);
       }
+    }
+  });
+
+  test("dependency navigation omits the redundant Used by row", () => {
+    for (const entry of entries) {
+      const html = readFileSync(join(output, pagePath(entry)), "utf8");
+      expect(html.includes("Used by:"), entry.node.id).toBe(false);
     }
   });
 
