@@ -53,3 +53,19 @@ include Python 3. This CI-only design supersedes the canceled local-build design
 Implements submission provenance in downloadable CI documents; it changes no
 mathematics or authored report content. Submit the report source and PDF from
 the artifact for the repository commit being judged.
+
+## Remote verification
+
+Verified at 2026-11-15T11:29:47-08:00. Overall observed work interval:
+2026-11-15T11:24:57-08:00/2026-11-15T11:29:47-08:00
+(290 seconds, including CI wait).
+
+Published implementation commit `5ac60bdc9190246a09d5a061b6bcde70b76e193d`.
+[CI run 43752491670](https://github.com/TomasOrtega/circulant-Hadamard/actions/runs/43752491670)
+passed all jobs; TeX completed in 1 minute 46 seconds. Downloaded
+`tex-documents` artifact `14177285215` and verified that the generated source
+definition and PDF title both contain the exact full commit hash above.
+The self-contained source contains no remaining `\input` commands, and
+`slides.pdf` is present. Visually inspected the actual downloaded PDF title
+page: the full hash fits without clipping. The pre-existing local report PDF
+modification and unrelated estimate records remain untouched.
