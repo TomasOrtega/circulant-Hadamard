@@ -40,7 +40,8 @@ jobs:
         with:
           texlive_version: 2026
           working_directory: tex
-          pre_compile: make check
+          pre_compile: |
+            make check && python3 stamp_artifact.py "$GITHUB_SHA"
           root_file: |
             build/report.tex
             slides.tex

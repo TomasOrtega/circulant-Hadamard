@@ -32,6 +32,11 @@ Build files are in `tex/build/` and `website/dist/`.
 After changing TeX inputs, run `make -C tex publish` to refresh the checked-in
 PDFs. CI checks their recorded source and file hashes.
 
+For submission, download the `tex-documents` artifact from the CI run for your
+commit. Its `report.tex` and `report.pdf` include that commit's full hash in the
+title block. CI stamps only the generated report; committed TeX and PDFs and
+local builds keep their original metadata.
+
 </details>
 
 We submitted `report.tex`, [report.pdf](tex/report.pdf), and [slides.pdf](tex/slides.pdf).
