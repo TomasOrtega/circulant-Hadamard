@@ -46,14 +46,8 @@ $p^e$th root $\xi$, valuations may be fractional but still add under
 multiplication. Put $D=(p-1)p^{e-1}$. The powers
 $1,\xi,\ldots,\xi^{D-1}$ form an $A$-basis. The ring $A[\xi]$ is local
 with maximal ideal $(\xi-1)$, so an element with nonzero residue is a unit.
-Moreover,
-
-$$
-v(R(\xi))\geq1
-\quad\Longrightarrow\quad
-\text{every coefficient of }R(X)\text{ is divisible by }p
-\quad(\deg R<D).
-$$
+Moreover, if $\deg R<D$ and $v(R(\xi))\geq1$, then every coefficient
+of $R(X)$ is divisible by $p$.
 
 These facts come from the cyclotomic polynomial
 $\Phi_{p^e}(X)=1+X^{p^{e-1}}+\cdots+X^{(p-1)p^{e-1}}$:

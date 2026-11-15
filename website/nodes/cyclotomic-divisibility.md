@@ -26,13 +26,13 @@ following standard cyclotomic fact, the $p=2$, $L=1$ case of Lemma 2.1.
 Write $\mathbb Z_{(2)}$ for rational numbers with odd denominators.
 The ring $\mathbb Z_{(2)}[\xi]$ has basis $1,\xi,\ldots,\xi^{D-1}$.
 Its powers of $\xi-1$ give an additive valuation $v$, normalized by
-$v(2)=1$, such that for integers $b_j$ and $\ell\geq0$,
+$v(2)=1$. For integers $b_j$ and $\ell\geq0$, the condition
 
 $$
 v\!\left(\sum_{j=0}^{D-1}b_j\xi^j\right)\geq\ell
-\quad\Longleftrightarrow\quad
-2^\ell\mid b_j\text{ for every }j.
 $$
+
+holds exactly when $2^\ell$ divides every coefficient $b_j$.
 
 This is the needed passage from divisibility of a root evaluation to
 ordinary integer divisibility of its basis coefficients. Its cyclotomic
