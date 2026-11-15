@@ -8,6 +8,7 @@ from manimlib import (
     FlashAround,
     SurroundingRectangle,
     Transform,
+    TransformFromCopy,
     VGroup,
 )
 
@@ -38,7 +39,8 @@ class GroupRingEncoding(NodeScene):
         coefficients.move_to(UP * 1.4)
         polynomial = formula(r"h(X)=-1+X+X^2+X^3").move_to(UP * 0.2)
         self.show(coefficients)
-        self.show(polynomial)
+        self.body.add(polynomial)
+        self.play(TransformFromCopy(coefficients, polynomial), run_time=1.6)
         self.show(
             formula(r"X^4=1", color=YELLOW).move_to(DOWN * 1),
             formula(r"\mathbb Z[C_n]\cong\mathbb Z[X]/(X^n-1)", size=40).move_to(
@@ -128,21 +130,31 @@ class GroupRingEncoding(NodeScene):
         )
 
         self.section("dictionary", "1.5 · The general dictionary")
+        signs = formula(r"h_j\in\{-1,1\}\quad(0\le j<n)", color=BLUE_C)
+        signs.move_to(UP * 1.6)
+        equivalence = formula(
+            r"HH^{\mathsf T}=nI_n\quad\Longleftrightarrow\quad hh^*=n",
+            size=47,
+            color=YELLOW,
+        ).move_to(UP * 0.5)
+        self.show(signs, equivalence)
+        self.wait_until_narration(self.cues["dictionary"] + 15)
+        calculation = formula(
+            r"[X^0](hh^*)=n,\qquad[X^a](hh^*)=0\ (a\ne0)",
+            size=39,
+        ).move_to(DOWN * 0.9)
+        self.show(calculation)
+        self.wait_until_narration(self.cues["dictionary"] + 24)
+        reindexed = formula(
+            r"\langle\mathrm{row}_r,\mathrm{row}_s\rangle"
+            r"=\sum_k h_kh_{k-(s-r)}=[X^{s-r}](hh^*)",
+            size=36,
+        ).move_to(calculation)
+        self.play(Transform(calculation, reindexed), run_time=1.6)
         self.show(
-            self.stack(
-                formula(r"h_j\in\{-1,1\}\quad(0\le j<n)", color=BLUE_C),
-                formula(
-                    r"HH^{\mathsf T}=nI_n\quad\Longleftrightarrow\quad hh^*=n",
-                    size=47,
-                    color=YELLOW,
-                ),
-                formula(
-                    r"\langle\mathrm{row}_r,\mathrm{row}_s\rangle"
-                    r"=\sum_k h_kh_{k-(s-r)}=[X^{s-r}](hh^*)",
-                    size=36,
-                ),
-                words("All subscripts and exponents are read modulo n.", size=25),
-            )
+            words(
+                "Shift both rows together; their relative offset stays s − r.", size=24
+            ).move_to(DOWN * 2)
         )
 
         self.section("signs", "The sign hypothesis is part of the lemma")

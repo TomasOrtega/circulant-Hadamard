@@ -19,7 +19,7 @@
   "narration_duration": 200.5602267573696,
   "duration": 200.566667,
   "narration_sha256": "40fa5c03b945062016189e410dea757f7c8617512997cefcdbbc90a2cf01d191",
-  "video_sha256": "f62e2e12722e0fe3a9148574df2be44d4f7d2e8ee9ed858c79132758d17db0a3",
+  "video_sha256": "d13e580855934f7695fa0c7bff5af9b5b22942eae355374c4ad0d09013087e12",
   "child_segments": {
     "cyclic-group-ring": {
       "start": 16.51,
@@ -41,5 +41,11 @@
       "start": 135.35,
       "end": 200.566667
     }
-  }
+  },
+  "subtitle_safe_fraction": 0.2,
+  "subtitle_band_max_luma": 16.0,
+  "subtitle_frames_checked": 6017,
+  "production_status": "final",
+  "scene_sha256": "02030d518534587af5d2dcf5ea2c4c8f0dd7d0d8b14abce5b27c6a4bca24a48e",
+  "layout_sha256": "af65a79e6ee3c1e4c50be87eaf23e651674da7cae9a65dd5fa0a5b94e9c219f2"
 }
