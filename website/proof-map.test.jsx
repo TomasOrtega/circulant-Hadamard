@@ -77,12 +77,13 @@ describe("supplied eight-node proof map", () => {
     expect(page).not.toContain("<pre");
   });
 
-  test("the proof map and its deeper views do not split into example and general routes", () => {
+  test("reading-route start buttons appear only on the homepage", () => {
     for (const entry of entries) {
       const page = renderToStaticMarkup(<NodePage entry={entry} entries={entries} />);
-      expect(page.includes('aria-label="Reading routes"'), entry.node.id).toBe(false);
-      expect(page.includes("Start here · "), entry.node.id).toBe(false);
-      expect(page.includes("Then · "), entry.node.id).toBe(false);
+      const homepage = entry.ancestors.length === 0;
+      expect(page.includes('aria-label="Reading routes"'), entry.node.id).toBe(homepage);
+      expect(page.includes("Start here · "), entry.node.id).toBe(homepage);
+      expect(page.includes("Then · "), entry.node.id).toBe(homepage);
     }
   });
 

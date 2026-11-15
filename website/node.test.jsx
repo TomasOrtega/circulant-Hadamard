@@ -25,7 +25,9 @@ describe("recursive node navigation", () => {
       "products-to-sums", "final-contradiction",
     ]);
     expect(collectNodes(rootNode).some(({ node }) => ["proof-by-example", "general-proof"].includes(node.id))).toBe(false);
-    expect(entries.filter(({ node }) => node.supplemental)).toHaveLength(0);
+    expect(entries.filter(({ node }) => node.supplemental).map(({ node }) => node.id)).toEqual([
+      "proof-by-example", "general-proof",
+    ]);
     for (const entry of entries.filter(({ ancestors }) => ancestors.length)) {
       expect(entry.ancestors[0], entry.node.id).toBe(entries[0]);
       const html = readFileSync(join(output, pagePath(entry)), "utf8");
