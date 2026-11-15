@@ -44,3 +44,12 @@ framework, dependency or custom stylesheet rule; keep vendored CSS unchanged.
 
 Records a user-directed presentation refinement and checked accessibility
 behavior. Mathematical content and video production are unchanged.
+
+Publication check recorded at 2026-11-15T11:24:43-08:00: the
+[CI run](https://github.com/TomasOrtega/circulant-Hadamard/actions/runs/43752052361)
+passes its website, lint and deployment jobs. All 176 browser assertions also
+pass on the public site; its stylesheet and page controller match the tested
+build byte for byte. One initial harness assertion missed a toggle transition
+after forcing the preceding animation to finish. Waiting two animation frames
+before the next interaction resolves that sampling failure; project code
+is unchanged by this harness correction.
