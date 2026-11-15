@@ -1,0 +1,8 @@
+<speak>
+<p>Let h of X encode the first row of a circulant Hadamard matrix of order n. Its coefficients are positive or negative one. The group ring identity says that h times h star equals n, with X to the n equal to one. We will turn this polynomial identity into an ordinary integer square by substituting X equal to one.<break time="800ms"/></p>
+<p>This substitution respects the cyclic relation, because one to the n is one. Every positive power of one is one. Every negative power is also one, so reversing the exponents makes no difference at this input.<break time="700ms"/></p>
+<p>Consequently, h of one is the sum of the row entries, and h star of one is exactly the same sum. Each entry is an integer, so this common row sum is an integer.<break time="700ms"/></p>
+<p>Evaluate the product identity. We obtain n equal to h of one times h star of one, which is h of one squared. Therefore the order is a perfect square. This conclusion comes from an equality of integers, not just a congruence.<break time="900ms"/></p>
+<p>For our original order four example, the first row is negative one, one, one, one. Its sum is two, and two squared is four. The polynomial calculation agrees with the size of the actual matrix.<break time="700ms"/></p>
+<p>For a hypothetical order thirty six matrix, the row sum would have to be positive six or negative six. This is a necessary condition, not a construction of such a matrix. We have proved that n is a square. For orders greater than one, the next step uses orthogonality to show that this square must also be even.<break time="1200ms"/></p>
+</speak>

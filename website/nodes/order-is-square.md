@@ -6,7 +6,10 @@ mapTitle: 'Evaluate at $1$'
 summary: Substituting 1 turns the polynomial identity into the square of the row sum.
 number: "2.1"
 draft: true
-video: null
+video:
+  src: media/order-is-square.mp4
+  captions: media/order-is-square.vtt
+  duration: 96.933333
 foundation: true
 mapPosition: [40, 24]
 mapSummary: '$n=h(1)^2$'

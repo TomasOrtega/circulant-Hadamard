@@ -69,7 +69,6 @@ describe("Node 6 odd-order rigidity refinement", () => {
     for (const id of ids) {
       const entry = entries.find(({ node }) => node.id === id);
       expect(html).toContain(`href="${hrefFor(entry, parent)}"`);
-      expect(entry.node.video).toBeNull();
     }
   });
 

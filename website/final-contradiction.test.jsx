@@ -25,7 +25,6 @@ describe("Node 8 final contradiction and theorem", () => {
     for (const id of ids) {
       const entry = entries.find(({ node }) => node.id === id);
       expect(html).toContain(`href="${hrefFor(entry, parent)}"`);
-      expect(entry.node.video).toBeNull();
     }
     const theorem = entries.find(({ node }) => node.id === "theorem");
     expect(theorem.ancestors.at(-1)).toBe(parent);

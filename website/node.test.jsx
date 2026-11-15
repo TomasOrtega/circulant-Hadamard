@@ -45,6 +45,22 @@ describe("recursive node navigation", () => {
     }
   });
 
+  test("published local overview players resolve their videos and captions", () => {
+    for (const entry of entries.filter(({ node }) => node.video?.src?.startsWith("media/"))) {
+      const html = readFileSync(join(output, pagePath(entry)), "utf8");
+      const player = html.match(/<video\b[^>]*aria-label="Overview video:[^"]*"[^>]*>([\s\S]*?)<\/video>/)?.[1];
+      expect(player, entry.node.id).toBeDefined();
+      const source = player.match(/<source\b[^>]*src="([^"]+)"/)?.[1];
+      const captions = player.match(/<track\b[^>]*kind="captions"[^>]*src="([^"]+)"/)?.[1];
+      expect(source?.endsWith(entry.node.video.src), entry.node.id).toBe(true);
+      expect(captions?.endsWith(entry.node.video.captions), entry.node.id).toBe(true);
+      const page = pathToFileURL(resolve(output, pagePath(entry)));
+      expect(existsSync(decodeURIComponent(new URL(source, page).pathname)), entry.node.id).toBe(true);
+      expect(readFileSync(decodeURIComponent(new URL(captions, page).pathname), "utf8").startsWith("WEBVTT\n"), entry.node.id).toBe(true);
+      expect(entry.node.video.duration, entry.node.id).toBeGreaterThan(0);
+    }
+  });
+
   test("every node has its own page, a deeper link, and a direct parent link", () => {
     expect(
       Math.max(...entries.map((entry) => entry.path.length)),

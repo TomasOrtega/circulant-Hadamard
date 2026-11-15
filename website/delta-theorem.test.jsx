@@ -22,7 +22,6 @@ describe("Node 4 circle-to-roots refinement", () => {
     for (const id of ids) {
       const entry = entries.find(({ node }) => node.id === id);
       expect(html).toContain(`href="${hrefFor(entry, parent)}"`);
-      expect(entry.node.video).toBeNull();
     }
     expect(parent.node.children[2].node.blackBox).toBeUndefined();
     expect(parent.node.children[4].node.blackBox).toBeUndefined();

@@ -26,7 +26,6 @@ describe("Node 2 order-restriction refinement", () => {
       const entry = entries.find(({ node }) => node.id === id);
       expect(html).toContain(`href="${hrefFor(entry, parent)}"`);
       expect(entry.node.children).toEqual([]);
-      expect(entry.node.video).toBeNull();
     }
   });
 });

@@ -23,7 +23,6 @@ describe("Node 5 all-ones refinement", () => {
     for (const id of ids) {
       const entry = entries.find(({ node }) => node.id === id);
       expect(html).toContain(`href="${hrefFor(entry, parent)}"`);
-      expect(entry.node.video).toBeNull();
     }
     expect(entries.find(({ node }) => node.id === "gaussian-parity").node.foundation).toBe(true);
   });

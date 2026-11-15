@@ -1,0 +1,87 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:04.340
+Let h of X encode the first row of a
+circulant Hadamard matrix of order n.
+
+00:00:04.840 --> 00:00:07.210
+Its coefficients are
+positive or negative one.
+
+00:00:07.600 --> 00:00:11.180
+The group ring identity says
+that h times h star equals n,
+
+00:00:11.440 --> 00:00:15.800
+with X to the n equal to one. We will
+turn this polynomial identity into an
+
+00:00:15.800 --> 00:00:19.890
+ordinary integer square by
+substituting X equal to one.
+
+00:00:20.440 --> 00:00:25.800
+This substitution respects the cyclic
+relation, because one to the n is one.
+
+00:00:26.120 --> 00:00:31.010
+Every positive power of one is one.
+Every negative power is also one,
+
+00:00:31.180 --> 00:00:34.540
+so reversing the exponents makes
+no difference at this input.
+
+00:00:35.500 --> 00:00:39.100
+Consequently, h of one is
+the sum of the row entries,
+
+00:00:39.660 --> 00:00:42.320
+and h star of one is exactly the same sum.
+
+00:00:42.740 --> 00:00:46.380
+Each entry is an integer, so this
+common row sum is an integer.
+
+00:00:47.460 --> 00:00:53.560
+Evaluate the product identity. We obtain
+n equal to h of one times h star of one,
+
+00:00:53.720 --> 00:00:57.520
+which is h of one squared. Therefore
+the order is a perfect square.
+
+00:00:57.760 --> 00:01:01.780
+This conclusion comes from an equality
+of integers, not just a congruence.
+
+00:01:02.800 --> 00:01:08.592
+For our original order four example, the
+first row is negative one, one, one, one.
+
+00:01:08.900 --> 00:01:12.580
+Its sum is two, and two squared is four.
+
+00:01:12.920 --> 00:01:16.420
+The polynomial calculation agrees
+with the size of the actual matrix.
+
+00:01:17.420 --> 00:01:20.040
+For a hypothetical
+order thirty six matrix,
+
+00:01:20.260 --> 00:01:23.200
+the row sum would have to be
+positive six or negative six.
+
+00:01:23.280 --> 00:01:27.120
+This is a necessary condition, not
+a construction of such a matrix.
+
+00:01:27.680 --> 00:01:31.100
+We have proved that n is a square.
+For orders greater than one,
+
+00:01:31.220 --> 00:01:35.420
+the next step uses orthogonality to
+show that this square must also be even.

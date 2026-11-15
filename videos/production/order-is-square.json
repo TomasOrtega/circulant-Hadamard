@@ -1,0 +1,37 @@
+{
+  "source": "website/scripts/node2/order-is-square.md",
+  "source_sha256": "f21baf377487ce5a43c93c871218c1253f099326a897ddde608644be28b27e32",
+  "scene": "OrderIsSquare",
+  "scene_file": "videos/order_is_square.py",
+  "voice": "en-US-Chirp3-HD-Achird",
+  "work_started_at": "2026-11-15T04:07:04-08:00",
+  "cues": {
+    "goal": 0,
+    "valid_input": 20.29,
+    "identical_sums": 35.35,
+    "square": 47.31,
+    "example": 62.65,
+    "candidate": 77.27
+  },
+  "alignment_match_ratio": 0.8998,
+  "narration_duration": 96.92022675736962,
+  "detail_cues": {
+    "norm_identity": 7.6,
+    "positive_powers": 26.12,
+    "negative_powers": 28.9,
+    "integer_sum": 42.74,
+    "becomes_square": 53.72,
+    "four_squared": 70.82,
+    "necessary": 83.28,
+    "next": 89.84
+  },
+  "duration": 96.933333,
+  "narration_sha256": "938fe10dfe65b888d5b88006945d418d09c7cc8a4347a664b7c8ae4f97b5b6ae",
+  "video_sha256": "a7e586b94037329ac610e7da335e70ec613022a16063b1cff32601bab43a6be5",
+  "subtitle_safe_fraction": 0.2,
+  "subtitle_band_max_luma": 16.0,
+  "subtitle_frames_checked": 2908,
+  "production_status": "final",
+  "scene_sha256": "a9a005bdfd935bc889728cdaf435ac0fd03f4c71230652b2f6d53a5d03d367ce",
+  "layout_sha256": "af65a79e6ee3c1e4c50be87eaf23e651674da7cae9a65dd5fa0a5b94e9c219f2"
+}
