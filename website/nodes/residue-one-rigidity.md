@@ -5,7 +5,10 @@ shortTitle: Odd Order Forces Equality
 summary: A nontrivial odd-order root of unity cannot reduce to one in characteristic two.
 number: "6.4"
 draft: true
-video: null
+video:
+  src: media/residue-one-rigidity.mp4
+  captions: media/residue-one-rigidity.vtt
+  duration: 162.533333
 foundation: true
 mapPosition: [240, 380]
 mapSummary: 'Odd order and residue $1$ force $1$'
