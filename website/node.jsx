@@ -23,6 +23,7 @@ function NodeButton({ href, children, ...props }) {
 }
 
 function Media({ video, title, excerpt = false, base }) {
+  if (!video) return null;
   const label = excerpt ? "Node excerpt" : "Overview video";
   const frameClass = "aspect-video w-full rounded-md bg-black";
   const segment = video?.segment;
@@ -73,17 +74,8 @@ function Media({ video, title, excerpt = false, base }) {
     );
   }
   return (
-    <figure className="flex w-full flex-col gap-3">
-      {player ?? (
-        <div
-          className="min-h-32 w-full rounded-md bg-black flex flex-col items-center justify-center gap-4 p-6 text-center font-sans text-white"
-        >
-          <span className="text-lg">{label}</span>
-          <span className="text-sm text-gray">
-            {excerpt ? "Excerpt not added yet" : "Video not added yet"}
-          </span>
-        </div>
-      )}
+    <figure className={`flex w-full flex-col gap-3 ${excerpt ? "max-w-175 self-center" : "max-w-200"}`}>
+      {player}
       <figcaption className="text-center font-sans text-sm text-dark-gray">
         {segment
           ? `Cut from the overview · ${formatTime(segment.start)}–${formatTime(segment.end)}`
@@ -185,15 +177,15 @@ function ChildNode({ child, entry, entries }) {
           >
             Dig in deeper <span aria-hidden="true">→</span>
           </NodeButton>
-          <p className="font-sans text-sm text-dark-gray">
-            {node.blackBox
-              ? `Accepted black box · ${node.blackBox}`
-              : node.foundation
-              ? "Undergraduate foundation"
-              : count
-                ? `${count} child nodes`
-                : "Statement ready · video script pending"}
-          </p>
+          {(node.blackBox || node.foundation || count > 0) && (
+            <p className="font-sans text-sm text-dark-gray">
+              {node.blackBox
+                ? `Accepted black box · ${node.blackBox}`
+                : node.foundation
+                  ? "Undergraduate foundation"
+                  : `${count} child nodes`}
+            </p>
+          )}
         </div>
       </header>
       <Markdown script={child.script} />
@@ -203,14 +195,12 @@ function ChildNode({ child, entry, entries }) {
         nextHref={entries[0].node.children?.some(({ node }) => node.id === "products-to-sums")
           ? `${hrefFor(entries[0], entry)}#node-products-to-sums` : undefined}
       />}
-      <div className="w-full max-w-175 self-center">
-        <Media
-          video={cutVideo(entry.node, child)}
-          title={node.title}
-          excerpt
-          base={assetRoot(entry)}
-        />
-      </div>
+      <Media
+        video={cutVideo(entry.node, child)}
+        title={node.title}
+        excerpt
+        base={assetRoot(entry)}
+      />
     </section>
   );
 }
@@ -256,9 +246,7 @@ export function NodePage({ entry, entries }) {
           {!entry.ancestors.length && (
             <p className="text-center font-sans text-lg">Steven Creech and Tomas Ortega</p>
           )}
-          <div className="w-full max-w-200">
-            <Media video={node.video} title={node.title} base={base} />
-          </div>
+          <Media video={node.video} title={node.title} base={base} />
           <DependencyGraph entry={entry} entries={entries} />
           {showOwnExplanation && hasOwnProofMap && (
             <div className="w-full max-w-200 rounded-md bg-white p-8 text-left max-md:p-6">

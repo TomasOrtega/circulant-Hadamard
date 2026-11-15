@@ -66,7 +66,7 @@ redirect to the corresponding current nodes, including their published videos.
 The former background outline is retained in [archive/nodes/](archive/nodes/)
 and is not built. Active nodes have new descriptive URLs.
 
-Draft video narration and animation directions in [scripts/](scripts/README.md).
+Keep video narration and animation directions in [scripts/](scripts/README.md).
 Every one of the 34 refined nodes under Nodes 2–8 has a numbered script
 with spoken narration and animation directions for each slide. The
 [script index](scripts/README.md#refined-node-scripts) links to all of them.
@@ -78,7 +78,8 @@ Node 3 uses [scripts/node3/](scripts/node3/), Node 4 uses
 Node 6 uses [scripts/node6/](scripts/node6/), and Node 7 uses
 [scripts/node7/](scripts/node7/). Node 8 uses [scripts/node8/](scripts/node8/).
 Retain descriptive filenames such as `group-ring-encoding.md` inside those
-folders. These production drafts are not automatically published by the website build.
+folders. These production sources are not automatically published by the
+website build.
 
 Adapt the narration into reader-facing explanations under each child's
 `script: |` entry in its parent file. A terminal node keeps its full explanation
@@ -127,7 +128,7 @@ $$
 
 `id` defaults to the filename and must match it when supplied. `shortTitle` and
 `summary` default to `title`; use plain text for those metadata fields. Omitted
-`video` and `children` default to an empty slot and an empty list. A new node
+`video` and `children` default to `null` and an empty list. A new node
 needs a title and a nonempty Markdown body.
 
 The body supports headings, emphasis, lists, links, tables, and LaTeX math.
@@ -153,13 +154,12 @@ view's own breadcrumbs, back button, and graph links.
 
 Mark undergraduate prerequisites with `foundation: true` and no children. The
 build rejects deeper expansion of a foundation. Keep unfinished proof nodes
-marked `draft: true`. The supplied narration outlines remain editable drafts.
-Published videos cover the overview, Node 1 and its five children, and Nodes 2–4;
-other video slots remain unset until recordings are available.
+marked `draft: true`. Publish a video with its production script. Keep unfinished
+scripts, recordings, and parent previews in [scripts/to-do/](scripts/to-do/README.md).
 
 ## Dependency graph
 
-Every view starts with its video. Views with proof children, or with proof
+A view's available video comes first. Views with proof children, or with proof
 siblings, follow it with a collapsed “Show the proof map” dropdown. All graphs
 use the same native disclosure. Expanded proof nodes present the written
 exposition across the full child-section width, with a neutral “Dig in deeper”
@@ -198,8 +198,8 @@ scroll horizontally on small screens. The initial dependency maps are drafts.
 
 ## One long video per node
 
-Every node owns a full overview video. Its children's preview players use cuts
-of that same source. Opening a child shows its own long, more detailed overview,
+A node's full overview video has its own script. Its children's preview players
+use cuts of that same source. Opening a child shows its own long, more detailed overview,
 with cuts for its children in turn.
 
 Use `youtubeId: YOUR_VIDEO_ID` for YouTube or `src` for a hosted/local file.
@@ -228,9 +228,9 @@ from that part of the parent's video, under
 parent's poster. Opening a child shows the child's own full video and thumbnail.
 The build copies these images and refreshes them when a thumbnail changes.
 
-Leave `video` or `segment` as `null` until the source or timing is known. An
-unset cut stays an empty slot even if its parent's full video is available.
-The current draft deliberately contains no invented timings.
+Leave `video` or `segment` as `null` until the source or timing is known.
+Unavailable videos and cuts are omitted from the page, with their written
+explanations retained.
 
 YouTube cuts use its start/end parameters. Native file cuts use media fragments
 and a small controller that stops at the end, bounds seeking, and restarts the

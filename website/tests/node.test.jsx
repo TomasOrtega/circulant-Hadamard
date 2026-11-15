@@ -154,6 +154,7 @@ describe("recursive node navigation", () => {
     for (const entry of entries) {
       const html = readFileSync(join(output, pagePath(entry)), "utf8");
       const children = entry.node.children ?? [];
+      const cuts = children.filter(({ segment }) => segment);
       expect(html).toContain("Overview video");
       const graph = html.indexOf('aria-label="Node dependency graph"');
       const script = entry.ancestors.length && children.length
@@ -166,12 +167,11 @@ describe("recursive node navigation", () => {
       else expect(graph).toBe(-1);
       expect(explanation).toBeGreaterThan(hasGraph ? graph : html.indexOf("Overview video"));
       expect([...html.matchAll(/(?:>Node excerpt<|aria-label="Node excerpt:)/g)]).toHaveLength(
-        children.length,
+        cuts.length,
       );
       expect([...html.matchAll(/aria-label="Dig in deeper:/g)]).toHaveLength(
         children.length,
       );
-      const cuts = children.filter(({ segment }) => segment);
       const players = 1 + cuts.length;
       expect([...html.matchAll(/<iframe\b/g)]).toHaveLength(
         entry.node.video?.youtubeId ? players : 0,
@@ -201,6 +201,7 @@ describe("recursive node navigation", () => {
         const header = section.match(/<header\b[\s\S]*?<\/header>/)?.[0] ?? "";
         expect(header, child.node.id).toContain("<h2");
         expect(header, child.node.id).toContain('aria-label="Dig in deeper:');
+        expect(header, child.node.id).not.toContain("video script pending");
         expect(button, child.node.id).toBeGreaterThan(section.indexOf("</h2>"));
         expect(explanation, child.node.id).toBeGreaterThan(button);
         expect(section.includes("<aside"), child.node.id).toBe(false);

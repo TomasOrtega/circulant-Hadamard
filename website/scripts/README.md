@@ -1,8 +1,9 @@
 # Video scripts
 
-Write and revise video production drafts here, including spoken narration,
-equations, animation directions, and recording notes. These are working
-production drafts.
+Keep video production sources here, including spoken narration, equations,
+animation directions, and recording notes. Track unfinished scripts, recordings,
+and parent previews in [to-do/](to-do/README.md). Completed sources retain the
+paths recorded in their production manifests.
 
 [overview.md](overview.md) contains Steven's supplied **Video 0 — Introduction
 and Proof Roadmap** script, preserving its wording and animation cues.
@@ -208,7 +209,7 @@ and explicit distinctions between equalities and congruences.
 ## Connecting a script to the website
 
 The website build reads `nodes/`; it does not automatically publish `scripts/`.
-These files are production drafts. For a node with children, adapt its narration
+These files are production sources. For a node with children, adapt its narration
 into the children's `script: |` sections beneath the graph. Its own Markdown
 body states the result shown in its parent's card. A terminal node keeps its
 full explanation in its body. Use `$...$` and `$$...$$` for the website's math
@@ -217,7 +218,7 @@ renderer.
 For an excerpt introducing a main proof step, put the reader-facing passage in
 that child's `script: |` field in [../nodes/overview.md](../nodes/overview.md).
 A child node's own video has its own full script in this directory. Animation
-directions stay with the production draft.
+directions stay with the production source.
 
 Once a recording exists, add its `video` source to the node and the real cut
 times to the parent-child entries. Leave sources and timings unset until then.

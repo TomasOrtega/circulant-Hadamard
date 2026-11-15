@@ -185,7 +185,14 @@ describe("one long video per node", () => {
     expect(detail).toContain("Narration for detail");
   });
 
-  test("an unconfigured cut never plays the full overview as a preview", () => {
+  test("an unconfigured overview keeps its explanation without a video slot", () => {
+    const { html } = render(leaf("statement"));
+    expect(html).toContain("Narration for statement");
+    expect(html).not.toContain("Overview video");
+    expect(html).not.toContain("Video not added yet");
+  });
+
+  test("an unconfigured cut keeps its explanation without a video slot", () => {
     const parent = {
       ...rootNode, graphLayout: null,
       video: { youtubeId: "abcdefghijk" },
@@ -194,7 +201,9 @@ describe("one long video per node", () => {
     const { html } = render(parent);
     expect(cutVideo(parent, parent.children[0])).toBeNull();
     expect([...html.matchAll(/<iframe/g)]).toHaveLength(1);
-    expect(html).toContain("Excerpt not added yet");
+    expect(html).toContain("Parent narration for detail");
+    expect(html).not.toContain("Node excerpt");
+    expect(html).not.toContain("Excerpt not added yet");
   });
 
   test("native cuts share the overview source and poster and include playback bounds", () => {
