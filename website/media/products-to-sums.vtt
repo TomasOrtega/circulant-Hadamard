@@ -1,0 +1,139 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:05.400
+For our guiding case, u equals three,
+Node six gave an exact identity:
+
+00:00:05.840 --> 00:00:11.460
+E of omega divided by c of omega
+equals E of one divided by c of one.
+
+00:00:11.700 --> 00:00:14.540
+Here omega is a primitive
+cube root of unity.
+
+00:00:14.960 --> 00:00:17.920
+Now use the all ones
+congruence from Node five.
+
+00:00:18.460 --> 00:00:22.840
+Modulo one plus i, E has the
+same coefficients as J. We will
+
+00:00:22.840 --> 00:00:26.700
+show that these two equal normalized
+quantities would have different residues.
+
+00:00:27.960 --> 00:00:31.840
+Recall J of P equals one plus
+P, through P to the eighth.
+
+00:00:32.380 --> 00:00:37.360
+At one, all nine terms become one,
+and their sum is nine. At omega,
+
+00:00:37.600 --> 00:00:42.220
+group the nine terms into three copies
+of one plus omega plus omega squared.
+
+00:00:42.760 --> 00:00:47.810
+Each copy has complex sum zero,
+so J of omega is exactly zero.
+
+00:00:48.820 --> 00:00:52.880
+Consequently, modulo one plus
+i, E of one has residue one,
+
+00:00:53.080 --> 00:00:56.900
+while E of omega has residue
+zero. The denominators remain
+
+00:00:56.900 --> 00:01:00.680
+invertible in the reduction
+ring, as established in Node six.
+
+00:01:01.120 --> 00:01:05.540
+In particular, c of one is positive or
+negative three, which has residue one.
+
+00:01:05.880 --> 00:01:08.990
+Thus E of one divided by
+c of one has residue one.
+
+00:01:09.400 --> 00:01:13.060
+E of omega divided by c
+of omega has residue zero.
+
+00:01:13.460 --> 00:01:15.800
+But these normalized quantities are equal.
+
+00:01:16.130 --> 00:01:20.060
+Zero and one are distinct in our
+reduction ring: this is a contradiction.
+
+00:01:20.060 --> 00:01:23.060
+It rules out u equal to three,
+
+00:01:23.260 --> 00:01:26.440
+so no circulant Hadamard matrix
+of order thirty six exists.
+
+00:01:27.920 --> 00:01:31.600
+When u has several distinct prime
+divisors, there are more evaluations.
+
+00:01:32.660 --> 00:01:37.340
+For general odd u greater than one, let I
+be the set of distinct primes dividing u.
+
+00:01:37.900 --> 00:01:41.420
+For each subset S, use
+zeta sub S, the product
+
+00:01:41.420 --> 00:01:45.380
+of the corresponding prime roots of
+unity. The empty subset gives one.
+
+00:01:45.800 --> 00:01:48.680
+Node six gives exact identities
+between alternating products.
+
+00:01:48.680 --> 00:01:52.420
+Expand those products, use
+the sign divisibilities,
+
+00:01:52.420 --> 00:01:56.940
+and cancel in characteristic zero
+before reducing modulo one plus i.
+
+00:01:57.300 --> 00:02:02.540
+This yields an alternating sum: sum
+over S of negative one to the size of S,
+
+00:02:02.540 --> 00:02:07.720
+times E of zeta sub S
+divided by c of zeta sub S.
+
+00:02:07.940 --> 00:02:12.250
+Call this sum script
+S. Its residue is zero.
+
+00:02:12.760 --> 00:02:16.620
+The smaller nodes give the exact
+expansions and cancellations.
+
+00:02:16.620 --> 00:02:21.880
+With several primes, these product
+identities replace the two input picture;
+
+00:02:22.480 --> 00:02:26.040
+we do not assume a common rotation
+between every pair of inputs.
+
+00:02:26.880 --> 00:02:29.820
+The final node combines this
+vanishing sum with the all
+
+00:02:29.820 --> 00:02:33.080
+ones congruence to rule out
+every odd u greater than one.

@@ -6,7 +6,10 @@ summary: Canceling the common rotation contradicts the all-ones residues for u=3
   exact product expansions supply the general vanishing sum.
 number: 7
 draft: true
-video: null
+video:
+  src: media/products-to-sums.mp4
+  captions: media/products-to-sums.vtt
+  duration: 154.6
 mapPosition:
   - 250
   - 660
@@ -105,7 +108,9 @@ children:
   - node: vanishing-alternating-sum
     dependsOn:
       - cancel-before-reduction
-    segment: null
+    segment:
+      start: 117.15
+      end: 154.6
     script: |
       Add the two congruences. At each evaluation, the definition
 

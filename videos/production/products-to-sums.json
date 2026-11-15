@@ -1,0 +1,142 @@
+{
+  "source": "website/scripts/node7/products-to-sums.md",
+  "source_sha256": "62ec17cfd454f00539565b39714f18515c24404a2bee71044bc85a0a946ab636",
+  "scene": "ProductsToSums",
+  "scene_file": "videos/products_to_sums.py",
+  "voice": "en-US-Chirp3-HD-Achird",
+  "work_started_at": "2026-11-15T02:56:04-08:00",
+  "cues": {
+    "equality": 0,
+    "example": 27.81,
+    "general": 87.77
+  },
+  "animation_cues": {
+    "all_ones_input": 14.81,
+    "nine_ones": 32.23,
+    "nine_sum": 34.61,
+    "root_groups": 37.09,
+    "zero_groups": 42.61,
+    "raw_residues": 49.29,
+    "units": 55.01,
+    "one_ratio": 65.73,
+    "omega_ratio": 69.25,
+    "conflict": 73.31,
+    "order_36": 79.91,
+    "subset_index": 92.51,
+    "products": 105.65,
+    "expand": 108.53,
+    "cancel": 112.65,
+    "alternating_sum": 117.15,
+    "sum_zero": 130.17,
+    "next_node": 146.73
+  },
+  "alignment_match_ratio": 0.9004,
+  "narration_duration": 154.58022675736962,
+  "animation_alignment": {
+    "all_ones_input": {
+      "phrase": "Now use the all ones congruence",
+      "time": 14.81,
+      "source_word_index": 39
+    },
+    "nine_ones": {
+      "phrase": "At one all nine terms become one",
+      "time": 32.23,
+      "source_word_index": 85
+    },
+    "nine_sum": {
+      "phrase": "and their sum is nine",
+      "time": 34.61,
+      "source_word_index": 92
+    },
+    "root_groups": {
+      "phrase": "At omega group the nine terms",
+      "time": 37.09,
+      "source_word_index": 97
+    },
+    "zero_groups": {
+      "phrase": "Each copy has complex sum zero",
+      "time": 42.61,
+      "source_word_index": 113
+    },
+    "raw_residues": {
+      "phrase": "modulo one plus i",
+      "time": 49.29,
+      "source_word_index": 127
+    },
+    "units": {
+      "phrase": "The denominators remain invertible",
+      "time": 55.01,
+      "source_word_index": 144
+    },
+    "one_ratio": {
+      "phrase": "Thus E of one divided by c of one",
+      "time": 65.73,
+      "source_word_index": 171
+    },
+    "omega_ratio": {
+      "phrase": "E of omega divided by c of omega",
+      "time": 69.25,
+      "source_word_index": 183
+    },
+    "conflict": {
+      "phrase": "But these normalized quantities are equal",
+      "time": 73.31,
+      "source_word_index": 194
+    },
+    "order_36": {
+      "phrase": "It rules out u equal to three",
+      "time": 79.91,
+      "source_word_index": 213
+    },
+    "subset_index": {
+      "phrase": "For general odd u greater than one",
+      "time": 92.51,
+      "source_word_index": 241
+    },
+    "products": {
+      "phrase": "Node six gives exact identities",
+      "time": 105.65,
+      "source_word_index": 280
+    },
+    "expand": {
+      "phrase": "Expand those products",
+      "time": 108.53,
+      "source_word_index": 288
+    },
+    "cancel": {
+      "phrase": "cancel in characteristic zero",
+      "time": 112.65,
+      "source_word_index": 296
+    },
+    "alternating_sum": {
+      "phrase": "This yields an alternating sum",
+      "time": 117.15,
+      "source_word_index": 306
+    },
+    "sum_zero": {
+      "phrase": "Its residue is",
+      "time": 130.17,
+      "source_word_index": 340
+    },
+    "next_node": {
+      "phrase": "The final node combines",
+      "time": 146.73,
+      "source_word_index": 376
+    }
+  },
+  "duration": 154.6,
+  "narration_sha256": "7099e46833bc65c48780624727ae01ac1a9eb2d92bcdf3db2061eebd47af7c73",
+  "video_sha256": "3bea2bdb3163a3d4c764a0cc952501d42deaaecb1eb1ca6b402d45fcaf1b0b97",
+  "subtitle_safe_fraction": 0.2,
+  "subtitle_band_max_luma": 16.0,
+  "subtitle_frames_checked": 4638,
+  "production_status": "final",
+  "scene_sha256": "cd096639432ab118d47e31cf82d7b706410dfec7061d7d627b3380d0c07f8153",
+  "layout_sha256": "af65a79e6ee3c1e4c50be87eaf23e651674da7cae9a65dd5fa0a5b94e9c219f2",
+  "child_segments": {
+    "vanishing-alternating-sum": {
+      "start": 117.15,
+      "end": 154.6
+    }
+  }
+}
