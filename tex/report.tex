@@ -2,61 +2,1054 @@
 \usepackage[margin=1in]{geometry}
 \input{preamble.tex}
 \input{metadata.tex}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
 
-\title{\ProjectTitle}
+\title{\ProjectTitle\\[0.3em]
+  \large A dependency graph, visual explanations, and a guided proof}
 \author{\TeamMembers{} \\ \TeamAffiliations{} \\
   \small Track: \CompetitionTrack{} \\
-  \small \url{\RepositoryURL} \\
-  \small Commit: \texttt{\SubmissionCommit}}
-\date{November 2026}
+  \small Companion website: \url{\WebsiteURL} \\
+  \small Repository: \url{\RepositoryURL} \\
+  \small Submission commit: \texttt{\SubmissionCommit}}
+\date{November 15, 2026}
 
 \begin{document}
 \maketitle
 
 \begin{abstract}
-  We give an improved exposition of the circulant Hadamard conjecture's proof, which was recently released as part of the OpenAI dump from October 6th, 2026.
-  This exposition clarifies the original proof's alternating product mechanism.
-  To do this, we provide a new web format for the exposition, which builds on 3Blue1Brown's popular libraries for visualizing mathematics.
-  This website has a hierarchical structure, where the top node has a high-level overview of the proof, a video explainer, and a text report, explaining each one of the high-level claims in the proof and their relationships to each other.
-  At each lower node, this format recursively explains the claims in more detail, until the lowest nodes contain the full proof of each claim at an undergraduate level of detail.
-  This allows the reader to explore the proof at their own pace, and to understand the proof in a way that is appropriate for their level of mathematical maturity.
+We present a guided exposition of the argument in OpenAI's September 23,
+2026 preprint on the circulant Hadamard conjecture. Our contribution is
+the organization and explanation of that argument: a companion website
+with a recursive proof dependency graph, a narrated animation for each
+node, and interactive illustrations of the phase comparison at the heart
+of the proof. The overview follows the hypothetical order-36 case;
+opening a node reveals the general argument and its smaller dependencies.
+This report explains that design and gives the mathematical exposition,
+including the passage from alternating products to a contradictory sum.
+We distinguish the cited cyclotomic input, proved deductions, and schematic
+visualizations. We also describe the human and AI editorial workflow,
+including the use of a continuous narration track to time the animations.
+We claim an exposition of the source proof, not a new resolution of the
+conjecture.
 \end{abstract}
 
-\section{Problem and motivation}
-We study the circulant Hadamard conjecture~\cite{mathathon}.
+\section{Problem and motivation}%
+\label{sec:problem}
 
-A circulant matrix is determined by its first row
-\(\bm{a}\coloneqq(a_0,\ldots,a_{n-1})\), with each later row shifted cyclically
-by one position. A matrix \(H\in\mathbb{R}^{n\times n}\) with entries in
-\(\{-1,1\}\) is Hadamard when
+A Hadamard matrix of order $n$ is an $n\times n$ matrix all of whose
+entries are $\pm1$ and whose distinct rows are orthogonal. Equivalently,
 \begin{equation}
-  H H^{\mathsf{T}} = n I_n.
-  \label{eq:hadamard}
+ HH^{\mathsf T}=nI_{n}.%
+ \label{eq:hadamard}
 \end{equation}
-The identity in \zcref{eq:hadamard} states that distinct rows are orthogonal.
+It is \emph{circulant} when each row is obtained by shifting the preceding
+row one place cyclically to the right. For example,
+\[
+ H=\begin{pmatrix}
+ -1&1&1&1\\
+ 1&-1&1&1\\
+ 1&1&-1&1\\
+ 1&1&1&-1
+ \end{pmatrix}
+\]
+is circulant, and any two distinct rows have two positive and two negative
+terms in their dot product. Thus it is Hadamard. The $1\times1$ matrix
+$(1)$ is another example.
 
-To do: Explain the motivation and prior work.
+The question is whether larger examples exist. This is the selected
+Mathathon problem~\cite{mathathon}, and the theorem of the source
+preprint~\cite{circulant-source} is the following.
 
-\section{Contribution and evidence}
-To do: Present the argument and label each claim as proved, computed, cited,
-Lean-verified, or conjectural. Describe every key figure in words.
+\begin{theorem}[Circulant Hadamard theorem, source Theorem 1.1]%
+\label{thm:main}
+A real circulant Hadamard matrix of order $n$ exists if and only if
+$n=1$ or $n=4$.
+\end{theorem}
 
-\begin{figure}[ht]
-  \centering
-  \input{assets/diagrams/workflow.tex}
-  \caption{Template diagram: start with the problem, develop an argument,
-    and provide evidence for the resulting claims.}
+The tension is already visible in the definition. A single row determines
+the entire matrix, but must be orthogonal to every nontrivial cyclic shift
+of itself. The problem connects sign sequences and periodic correlations
+to the arithmetic of roots of unity. Classical restrictions, attributed
+to Turyn in the source's historical discussion, force every nontrivial
+order to have the form $4u^{2}$ with $u$ odd, and exclude prime-power $u$.
+The source proof treats all odd $u>1$ through an alternating product of
+evaluations. Our example $u=3$ is therefore a teaching example of the
+mechanism, not a new nonexistence result.
+
+Our aim is to make that mechanism easier to follow without concealing its
+arithmetic prerequisites. A reader should be able to see what each lemma
+contributes before deciding how much of its proof to read.
+
+\section{A website organized around the reader's questions}%
+\label{sec:website}
+
+The companion website, linked in the title block, is the visual entry
+point. Its main proof map has eight nodes. Each node states the claim it
+establishes and links to a more detailed view with its own video, dependency
+graph, and explanations of the smaller steps. The hierarchy contains an
+overview, eight main nodes, and 39 refined nodes. The overview video runs
+approximately three minutes and 35 seconds. All 48 nodes have a dedicated
+narrated video; selected passages of parent videos also introduce child
+steps. Written statements and proofs remain available alongside the media.
+
+The design follows a familiar reading strategy: first understand the shape
+of an argument, perhaps through an example, then open the lemmas whose
+details matter. This is a design principle, not a claim that every reader
+learns in the same way. A reader with the relevant background can move
+directly to the unfamiliar arithmetic step. A reader who needs more
+preparation can follow the incoming dependencies and build the argument
+from smaller claims. Expanding a node keeps its parent context visible.
+
+There is one main reading path. The overview uses $u=3$, so the hypothetical
+matrix has order $36$ and the relevant cyclic factor has nine positions.
+The deeper nodes develop the argument for general odd $u$. These are two
+levels of the same explanation, rather than separate proofs that require
+the reader to choose a route before knowing the subject.
+
+\paragraph{A short route through the website.}
+Start with the overview video and the eight-node map. Nodes~1--3 turn a
+matrix into three polynomials whose root-of-unity evaluations have fixed
+absolute value. Node~4 controls their phase comparisons arithmetically;
+Node~5 extracts the common sign information. Node~6 combines those two
+inputs. The interactive circles in Nodes~6--7 illustrate the common
+rotation and its cancellation in the nine-position example. Nodes~7--8
+explain the alternating sum that gives the contradiction in general.
+Readers who want the technical step can open Node~4's local-comparison
+node directly. The report below contains the mathematical argument as
+text, so following these links is not required to assess it.
+
+\begin{figure}[htbp]
+ \centering
+ \begin{tikzpicture}[
+   proofnode/.style={draw,rounded corners,align=center,text width=3.5cm,
+     minimum height=0.8cm,font=\small},
+   flow/.style={-{Stealth},semithick}]
+  \node[proofnode] (one) at (0,0) {1. Group-ring\\encoding};
+  \node[proofnode] (two) at (-2.7,-1.2) {2. Restriction\\on the order};
+  \node[proofnode] (three) at (-2.7,-2.4) {3. Three evaluations};
+  \node[proofnode] (four) at (2.7,-2.4) {4. The $\Delta$-theorem};
+  \node[proofnode] (five) at (-2.7,-3.6) {5. Signs become\\all ones};
+  \node[proofnode] (six) at (0,-4.8) {6. Odd-order rigidity};
+  \node[proofnode] (seven) at (0,-6) {7. From products\\to sums};
+  \node[proofnode] (eight) at (0,-7.2) {8. The final contradiction};
+  \draw[flow] (one) -- (two);
+  \draw[flow] (one) -| (four);
+  \draw[flow] (two) -- (three);
+  \draw[flow] (three) -- (five);
+  \draw[flow] (three.east) -- (-0.5,-2.4) -- (six.north);
+  \draw[flow] (four) -- (six);
+  \draw[flow] (five) -- (six);
+  \draw[flow] (six) -- (seven);
+  \draw[flow] (seven) -- (eight);
+  \draw[flow] (five.west) -- (-4.8,-3.6) -- (-4.8,-7.2) -- (eight.west);
+ \end{tikzpicture}
+ \caption{The main proof structure. An arrow means that the later claim
+ uses the earlier one; prerequisite information continues along paths.
+ The norm argument in Node~4 and the sign calculation in Node~5 meet at
+ Node~6. The sign calculation is used again in the final contradiction.}%
+ \label{fig:map}
 \end{figure}
 
-\section{Event work and limitations}
-To do: Distinguish work done during the event from prior work. State limitations
-and next steps.
+Figure~\ref{fig:map} has two branches after the encoding. One restricts the
+order and constructs three evaluations, retaining the sign coefficients.
+The other proves a general statement about any Gaussian-integer polynomial
+with the required norm. Their meeting is the key idea: fixed magnitudes
+and arithmetic phase restrictions alone do not use the signs, while the
+sign calculation alone does not control the phases. Combining them forces
+an exact comparison, then a sum whose residue must be both zero and one.
 
-\section{AI use and acknowledgements}
-To do: Credit sources and help. Name AI tools used, their tasks, and how their
-outputs were checked.
+\begin{samepage}
+Opening Node~4 reveals the smaller graph in Figure~\ref{fig:delta-detail}.
+The circle calculation supplies the absolute values, while local arithmetic
+supplies integrality. Kronecker's theorem combines these two inputs to give
+a root of unity; the local comparison then restricts its order. A reader
+who already knows Kronecker's theorem can go directly to the local
+comparison, where the arithmetic work occurs. This is a concrete example
+of how the website lets the reader open one step without losing the larger
+argument.
+\par
+\end{samepage}
 
+\begin{figure}[htbp]
+ \centering
+ \input{assets/diagrams/report-delta-detail.tex}
+ \caption{Inside Node~4: the six smaller steps of the $\Delta$-theorem.
+ The arrows reproduce the website's dependencies. Absolute value one and
+ integrality meet at Kronecker's theorem; local arithmetic is also needed
+ to conclude that the order is odd.}%
+ \label{fig:delta-detail}
+\end{figure}
+
+\subsection{Animations and an interactive example}
+
+The videos use mathematical animations made with ManimGL in the style of
+3Blue1Brown~\cite{manimgl}. Each production script separates narration from
+directions for the animation: which equation appears, what changes under
+a substitution, and what should remain visible. For instance, substituting
+$X=1$ replaces each power of $X$ by one before the norm identity becomes
+a square. In the final geometric sum, nine arrows split into three groups
+of cube roots whose sums vanish; at one, nine equal contributions remain.
+
+The phase illustration compares the fixed inputs $P=1$ and $P=\omega$,
+where $\omega$ is a primitive cube root of unity. The reader can choose a
+common rotation of $0$, $120$, or $240$ degrees. The points representing
+$c(P),d(P),g(P)$ turn together on a circle of radius three. The point for
+their linear combination $E(P)$ turns by the same amount, although its
+radius need not be three. A second control divides the two configurations
+by $c(1)$ and $c(\omega)$, making the normalized points coincide.
+This makes the equality $E(1)/c(1)=E(\omega)/c(\omega)$ visible before
+its role in the contradiction is explained. Figure~\ref{fig:common-rotation}
+below gives a static version at the point where this equality is proved.
+
+The diagram is explicitly schematic: no order-36 circulant Hadamard matrix
+exists. A complex angle is not a residue modulo $1+i$. The arithmetic
+conflict is that a common \emph{invertible} multiplier cannot take a
+nonzero residue to zero, whereas the sign calculation demands precisely
+those two residues. For several prime divisors of $u$, the proof requires
+products over many evaluations; it does not assert a common rotation
+between every pair of inputs.
+
+\subsection{Audio first, then animation}
+
+We used Google's Chirp 3 HD text-to-speech system to produce the narration~\cite{google-chirp}. An important production choice was to synthesize a
+continuous take from the complete script, review its delivery, and then
+time the animation to that recording. Earlier experiments with separately
+synthesized passages produced perceived changes of delivery between
+segments. Code-driven animations can instead wait for timestamps in one
+accepted take. Speech alignment helps locate those timestamps, while the
+captions preserve the words of the narration script. This workflow made
+timing and later revisions manageable; we do not claim a measured learning
+advantage from synthetic narration.
+
+\section{Editorial choices in the mathematical exposition}%
+\label{sec:editorial}
+
+We write the central identity as $h(X)h^{*}(X)=n$, keeping the polynomial
+argument visible. We name the group ring explicitly rather than assigning
+it an additional abbreviation. We introduce evaluations at roots of unity
+before using the language of character values, and write $c(P)$ for a
+polynomial and $c(1)$ for its evaluation. These choices reduce the number
+of symbols a reader must hold in mind without changing the mathematics.
+We also write $1+i$ directly throughout the reduction argument.
+
+The order-36 example also makes the alternating product concrete:
+$\Delta(f)=f(1)/f(\omega)$. The case $u=15$ then shows how four
+evaluations form a comparison in each of two prime directions, before we
+introduce the general subset notation. Likewise, expanding
+$E(P)$ in the four sign polynomials explains why its seemingly special
+definition works. In the general proof, an exact finite multiplication
+replaces an abstract first-order product map.
+
+We retain distinctions that are essential to correctness. Absolute value
+one does not imply a root of unity without integrality and control of the
+conjugates. A denominator must be shown to be a unit before it can be used
+after reduction. Cancellation of $2$ or $1+i$ takes place before reducing
+modulo $1+i$. The following exposition proves these deductions and the
+contradiction, following Sections~2--4 of the source preprint. The standard
+cyclotomic basis and valuation facts are stated as cited inputs where used.
+
+\section{Encoding the matrix and preparing the three polynomials}%
+\label{sec:early}
+\subsection{From a circulant matrix to a polynomial}%
+\label{sec:proof-encoding}
+
+We first translate the matrix condition into an identity that records every
+cyclic dot product at once. These reductions follow the source argument~\cite[Sections~2 and~4]{circulant-source}; the details here also explain
+Nodes~1--3 of the website.
+
+Let the first row be $(h_{0},\ldots,h_{n-1})$, with every $h_{j}\in\{-1,1\}$,
+and number rows and columns from zero. Thus $H_{rj}=h_{j-r}$, where all
+subscripts are taken modulo $n$. Encode the row by
+\[
+  h(X)=\sum_{j=0}^{n-1}h_{j}X^{j}
+  \quad\text{in }\mathbb Z[X]/(X^{n}-1),
+  \qquad
+  h^{*}(X)=h(X^{-1}).
+\]
+Here $X^{-1}=X^{n-1}$ in the quotient ring. Multiplication by $X$ shifts
+the coefficient list one position to the right, while star reverses cyclic
+positions. Every element has a unique representative of degree less than
+$n$, so coefficient comparisons are well defined.
+
+\paragraph{The dictionary between matrices and polynomials.}
+For a polynomial with all $n$ coefficients equal to $\pm1$, its associated
+circulant matrix is Hadamard if and only if
+\begin{equation}
+  h(X)h^{*}(X)=n
+  \quad\text{in }\mathbb Z[X]/(X^{n}-1).%
+  \label{eq:early-group-ring-norm}
+\end{equation}
+The right side is the constant polynomial $n$.
+
+\begin{proof}
+For $0\leq a<n$, multiplication in the quotient gives
+\begin{equation}
+  [X^{a}]\bigl(h(X)h^{*}(X)\bigr)
+  =\sum_{j=0}^{n-1}h_{j}h_{j-a}.%
+  \label{eq:early-correlation}
+\end{equation}
+This is the dot product of the first row and its $a$-step shift. At $a=0$
+it equals $n$, since the coefficients are signs. Every other coefficient
+vanishes precisely when the first row is orthogonal to its nontrivial
+shifts. The dot product of rows $r$ and $s$ is the same sum with $a=s-r$,
+so this is equivalent to orthogonality of every pair of distinct rows.
+Conversely, the sign assumption also ensures that every entry of the
+resulting matrix is $\pm1$. The polynomial identity by itself does not
+imply that assumption.
+\end{proof}
+
+\subsection{Restricting the order}%
+\label{sec:proof-order}
+
+Suppose $n>1$. Substitution $X=1$ respects $X^{n}=1$, and reversal has no
+effect at this value. Consequently,
+\[
+  n=h(1)h^{*}(1)={h(1)}^{2}.
+\]
+The integer row sum therefore makes $n$ a square. On the other hand, the
+dot product of two distinct rows is a sum of $n$ signs equal to zero.
+There must be equally many positive and negative terms, so $n$ is even.
+Its positive square root is then even, and we can write $n=4u^{2}$ with
+$u$ a positive integer.
+
+The remaining restriction uses the arithmetic of a power-of-two cycle.
+We give the descent from~\cite[Proposition~2.2]{circulant-source}, which
+the source attributes to Turyn.
+\begin{quote}
+  \textbf{Order restriction~\cite[Proposition~2.2]{circulant-source}.}
+  If a real circulant Hadamard matrix has order $n>1$, then
+  $n=4u^{2}$ for an odd positive integer $u$.
+\end{quote}
+\begin{proof}
+Write the integer $u$ already obtained as $u=2^{s-1}w$, where $s\geq1$
+and $w$ is odd. Thus $n=2^{2s}w^{2}$; we must prove $s=1$.
+Project the original group ring onto the cycle of length $2^{2s}$.
+The image $T(X)$ has odd coefficients, each summing $w^{2}$ signs, and
+$T(X)T^{*}(X)=2^{2s}w^{2}$.
+
+The cyclotomic input is the $p=2$ case
+of~\cite[Lemma~2.1]{circulant-source}. For a primitive $2^{k}$th root
+$\xi$, put $D=2^{k-1}$. The ring $\mathbb Z_{(2)}[\xi]$, where
+$\mathbb Z_{(2)}$ consists of rationals with odd denominators, has basis
+$1,\xi,\ldots,\xi^{D-1}$ and a valuation $v$ with
+$v(2)=1$ and $v(\xi-1)=1/D$. For integers $b_{j}$ and $\ell\geq0$,
+\[
+  v\!\left(\sum_{j=0}^{D-1}b_{j}\xi^{j}\right)\geq\ell
+  \quad\Longleftrightarrow\quad
+  2^\ell\mid b_{j}\ \text{for every }j.
+\]
+This basis-and-divisibility fact is the cited arithmetic input; its
+general form is used again below. Conjugation preserves $v$, since it
+sends $\xi-1$ to its unit multiple $-\xi^{-1}(\xi-1)$.
+
+Now suppose $T(X)=\sum_{j=0}^{2^{k}-1}a_{j}X^{j}$ has odd coefficients and
+$T(X)T^{*}(X)=2^{2t}w^{2}$, with $t\geq2$. Evaluation at $\xi$ gives
+$2v(T(\xi))=2t$. Since $\xi^{D}=-1$, the basis criterion applied to
+\[
+  T(\xi)=\sum_{j=0}^{D-1}(a_{j}-a_{j+D})\xi^{j}
+\]
+shows that $2^{t}\mid a_{j}-a_{j+D}$. In particular, opposite coefficients
+are congruent modulo four, so their averages
+$b_{j}=(a_{j}+a_{j+D})/2$ are odd integers. Project onto the half-length
+cycle and divide by two to obtain $T_{1}(X)=\sum_{j=0}^{D-1}b_{j}X^{j}$.
+Projection preserves products and star, hence
+\[
+  T_{1}(X)T_{1}^{*}(X)=2^{2(t-1)}w^{2}
+  \quad\text{on the cycle of length }2^{k-1}.
+\]
+Here division by four in the projected norm identity is valid
+coefficientwise, since the integer group ring is a free abelian group.
+
+If $s\geq2$, start at $(k,t)=(2s,s)$ and perform $s-1$ such folds.
+Every step starts with $t\geq2$. The endpoint has $2^{s+1}$ odd
+coefficients $b_{j}$ and norm $4w^{2}$. Its constant coefficient therefore
+gives $\sum_{j}b_{j}^{2}=4w^{2}$. Every odd square is one modulo eight, so
+the left side is zero modulo eight, whereas the right side is four
+modulo eight. This contradiction forces $s=1$, making $u=w$ odd.
+\end{proof}
+
+The case $u=1$ is the known order-four case. For the remaining argument,
+assume for contradiction that such a matrix exists with $u>1$ odd.
+The case $u=3$, or $n=36$, will illustrate the constructions; the general
+argument must still treat every odd $u>1$.
+
+\subsection{Separating the four-cycle and taking three evaluations}%
+\label{sec:proof-three-evaluations}
+
+Since $\gcd(4,u^{2})=1$, the Chinese remainder theorem identifies a cyclic
+position $j$ with the pair $(j\bmod4,j\bmod u^{2})$. On group rings this gives
+\[
+  \mathbb Z[X]/(X^{4u^{2}}-1)
+  \ \cong\
+  \mathbb Z[Z,P]/(Z^{4}-1,P^{u^{2}}-1),
+  \qquad X\longmapsto ZP.
+\]
+Every pair of residues occurs once, so this map relabels coefficients
+without adding them together. For $u=3$, this is $C_{36}\cong C_4\times C_9$:
+the variables satisfy $Z^4=1$ and $P^9=1$. Each of the four polynomials
+below has nine sign coefficients. Write the image of $h(X)$ as
+\begin{equation}
+  h(Z,P)=H_{0}(P)+ZH_{1}(P)+Z^{2}H_{2}(P)+Z^{3}H_{3}(P),
+  \qquad
+  H_{a}(P)=\sum_{b=0}^{u^{2}-1}h_{a,b}P^{b},%
+  \label{eq:early-four-sign-polynomials}
+\end{equation}
+where $h_{a,b}\in\{-1,1\}$ is the coefficient at the unique position
+with residues $(a,b)$. These four polynomials group positions by their
+residues, rather than by consecutive blocks in the original row.
+The isomorphism preserves multiplication and inversion, hence
+\[
+  h(Z,P)h^{*}(Z,P)=4u^{2},
+  \qquad h^{*}(Z,P)=h(Z^{-1},P^{-1}).
+\]
+
+The substitutions $Z=1,-1,i$ are natural because each satisfies $Z^{4}=1$.
+Define the following polynomials modulo $P^{u^{2}}-1$:
+\begin{align}
+  c(P)&=\frac{h(1,P)}2
+       =\frac{H_{0}(P)+H_{1}(P)+H_{2}(P)+H_{3}(P)}2,\notag\\
+  d(P)&=\frac{h(-1,P)}2
+       =\frac{H_{0}(P)-H_{1}(P)+H_{2}(P)-H_{3}(P)}2,\notag\\
+  g(P)&=\frac{h(i,P)}2
+       =\frac{H_{0}(P)-H_{2}(P)}2
+          +i\frac{H_{1}(P)-H_{3}(P)}2.%
+  \label{eq:early-three-evaluations}
+\end{align}
+Every coefficient in the first two numerators is a sum of four signs and
+is therefore even. In the last expression, both differences have even
+coefficients. Thus $c(P),d(P)\in\mathbb Z[P]/(P^{u^{2}}-1)$ and
+$g(P)\in\mathbb Z[i][P]/(P^{u^{2}}-1)$: the divisions by two are exact
+coefficientwise.
+
+For Gaussian-integer coefficients, extend star by
+\[
+  {\left(\sum_{b} a_{b}P^{b}\right)}^{*}
+  =\sum_{b}\overline{a_{b}}P^{-b}.
+\]
+Evaluation at any of $1,-1,i$ commutes with star, since the inverse of
+each of these fourth roots is its complex conjugate. Each unnormalized
+evaluation therefore has product with its star equal to $4u^{2}$.
+Dividing the polynomial and its star by two gives
+\begin{equation}
+  c(P)c^{*}(P)=d(P)d^{*}(P)=g(P)g^{*}(P)=u^{2}
+  \quad\text{in }\mathbb Z[i][P]/(P^{u^{2}}-1).%
+  \label{eq:early-normalized-norms}
+\end{equation}
+This explains the normalization: halving each factor removes the factor
+four in the norm identity.
+
+For geometric intuition, let $\zeta^{u^{2}}=1$. Substitution $P=\zeta$ is
+then well defined on the quotient ring, and $f^{*}(\zeta)=\overline{f(\zeta)}$.
+Equation~\eqref{eq:early-normalized-norms} yields
+\[
+  |c(\zeta)|=|d(\zeta)|=|g(\zeta)|=u.
+\]
+For $u=3$, every allowed evaluation lies on the circle of radius three.
+In particular, both $P=1$ and $P=\omega=e^{2\pi i/3}$ are allowed because
+$\omega^{9}=1$. Their magnitudes are fixed; their relative phases are the
+subject of the next step. The circle statement applies to these roots
+of unity, not to arbitrary complex substitutions for $P$.
+\section{Alternating evaluation products: the arithmetic input}%
+\label{sec:late-delta}
+
+Assume from now on that $u>1$ is odd. The three polynomials constructed
+above satisfy
+\[
+ c(P)c^{*}(P)=d(P)d^{*}(P)=g(P)g^{*}(P)=u^{2}
+ \quad\text{in }\mathbb Z[i][P]/(P^{u^{2}}-1).
+\]
+We first establish a statement that applies to any polynomial $f(P)$
+with this norm identity. This part uses no sign coefficients.
+
+\paragraph{One prime: the guiding case.}
+For $u=3$, work in $\mathbb Z[i][P]/(P^9-1)$ and take
+$\omega=e^{2\pi i/3}$. The inputs $P=1$ and $P=\omega$ both respect
+the relation $P^9=1$. Substituting them into $f(P)f^*(P)=9$ gives
+\[
+ |f(1)|=|f(\omega)|=3,
+ \qquad \Delta(f)=\frac{f(1)}{f(\omega)}.
+\]
+The quotient removes the common magnitude and records the rotation from
+the direction of $f(\omega)$ to the direction of $f(1)$. Thus
+$|\Delta(f)|=1$. For example, $f(P)=3iP$ satisfies the norm identity
+and gives $\Delta(f)=1/\omega=\omega^2$.
+
+\paragraph{Two primes: the alternating pattern.}
+For $u=15$, the relation is $P^{225}=1$ and the norm is $225$.
+Choose primitive roots $\zeta_3=\omega$ and $\zeta_5=e^{2\pi i/5}$.
+We use four inputs, with orders $1,3,5,15$, respectively. Each order
+divides $225$, so every substitution is allowed:
+\[
+ \begin{array}{l@{\quad}cccc}
+ \text{primes selected} & \varnothing & \{3\} & \{5\} & \{3,5\} \\
+ P & 1 & \zeta_3 & \zeta_5 & \zeta_3\zeta_5 \\
+ \text{position in }\Delta & \text{numerator} & \text{denominator}
+   & \text{denominator} & \text{numerator}
+ \end{array}
+\]
+The resulting expression is
+\begin{equation}
+ \Delta(f)=\frac{f(1)f(\zeta_3\zeta_5)}{f(\zeta_3)f(\zeta_5)}.%
+ \label{eq:delta-fifteen}
+\end{equation}
+There are two factors of absolute value $15$ on each side, so their
+magnitudes cancel. More importantly, the same expression can be grouped
+in either prime direction:
+\begin{equation}
+ \Delta(f)
+ =\frac{f(1)/f(\zeta_3)}{f(\zeta_5)/f(\zeta_3\zeta_5)}
+ =\frac{f(1)/f(\zeta_5)}{f(\zeta_3)/f(\zeta_3\zeta_5)}.%
+ \label{eq:delta-fifteen-pairings}
+\end{equation}
+In the first pairing each ratio changes only the three-component;
+in the second each changes only the five-component. The local comparison
+below controls these ratios at the corresponding prime. Alternating the
+factors lets us use that arithmetic in every prime direction while
+keeping the same $\Delta(f)$.
+
+\paragraph{The general definition.}
+Let $I$ be the nonempty set of distinct primes dividing $u$. Choose a
+primitive $p$th root $\zeta_{p}$ for each $p\in I$, and set
+\[
+ \zeta_{S}=\prod_{p\in S}\zeta_{p}\quad(S\subseteq I),\qquad
+ \zeta_\varnothing=1,\qquad
+ B=\mathbb Z[i,\{\zeta_{p}:p\in I\}].
+\]
+Each $\zeta_{S}$ is a $u^{2}$th root, so evaluation is well defined in the
+cyclic group ring. The norm gives
+$f(\zeta_{S})\overline{f(\zeta_{S})}=u^{2}$; in particular, none of these
+values is zero. Define
+\begin{equation}
+ \Delta(f)=\prod_{S\subseteq I}{f(\zeta_{S})}^{{(-1)}^{|S|}}.%
+ \label{eq:late-delta}
+\end{equation}
+Thus even subsets contribute to the numerator and odd subsets to the
+denominator. Adding or removing one prime reverses that parity, just as
+in the four-entry table. This gives a pairing in each prime direction.
+
+\begin{proposition}[The $\Delta$-theorem]%
+\label{prop:late-delta}
+If $f(P)f^{*}(P)=u^{2}$ in $\mathbb Z[i][P]/(P^{u^{2}}-1)$, then
+$\Delta(f)\in B$ is a root of unity. Its order is a power of each
+prime dividing $u$. In particular its order is odd.
+\end{proposition}
+
+This is Proposition~3.4 of~\cite{circulant-source}. The essential issue
+is integrality: having absolute value one, even under every conjugate,
+does not by itself make a quotient of algebraic integers a root of unity.
+We give the local comparison and its application so that this arithmetic
+step is explicit.
+
+\subsection{Comparing evaluations in one prime direction}
+
+We use the following classical cyclotomic input, in the precise local
+form of~\cite[Lemma~2.1]{circulant-source}. Let $p$ be prime and let
+$\mathcal O$ be the localization of $\mathbb Z[\eta]$ at a maximal ideal
+above $p$, where the order of $\eta$ is coprime to $p$. Nonzero elements
+of $\mathcal O$ have nonnegative integral valuations, normalized by
+$v(p)=1$. If $\xi$ is primitive of order $p^{e}$, then
+$\mathcal O[\xi]$ is local, its maximal ideal is generated by
+$\xi-1$, and
+\[
+ 1,\xi,\ldots,\xi^{D-1}\quad\text{is an }\mathcal O\text{-basis},
+ \qquad D=(p-1)p^{e-1}.
+\]
+Extend $v$ to the fraction field of $\mathcal O[\xi]$ with
+$v(\xi-1)=1/D$; here $p$ is a unit times ${(\xi-1)}^{D}$.
+Consequently, when $\deg T<D$, the inequality $v(T(\xi))\geq1$
+implies that every coefficient of $T$ is divisible by $p$ in
+$\mathcal O$. These facts follow from the unramified coefficient ring
+and the Eisenstein polynomial $\Phi_{p^{e}}(1+Y)$; the source proves them.
+They are the cited arithmetic input to the descent below.
+
+\begin{lemma}[Local comparison]%
+\label{lem:late-comparison}
+Suppose $e\geq1$ and
+\[
+ F(X),K(X)\in\mathcal O[X]/(X^{p^{e}}-1),\qquad
+ F(X)K(X)=p^{e} b,\qquad b\in\mathcal O^\times.
+\]
+For a primitive $p$th root $\rho$, both $F(\rho)/F(1)$ and
+$K(\rho)/K(1)$ are units in $\mathcal O[\rho]$ with residue one.
+\end{lemma}
+
+\begin{proof}
+The denominators are nonzero because their product is $p^{e} b$.
+When $e=1$, the integral valuations of $F(1)$ and $K(1)$ add to one,
+so one of these values is a unit. For that factor, substitution of
+$\rho\equiv1\pmod{\rho-1}$ gives a unit ratio with residue one.
+The other ratio is its inverse, because the product of the ratios is one.
+
+For $e\geq2$, evaluate at a primitive $p^{e}$th root $\xi$. The two
+nonnegative valuations sum to $e$, so at least one is at least one;
+interchange the factors if necessary so that $v(F(\xi))\geq1$.
+Divide a representative of $F$ by the monic cyclotomic polynomial:
+\[
+ F=Q\Phi_{p^{e}}+T,\qquad \deg T<(p-1)p^{e-1}.
+\]
+The cited coefficient criterion makes $T$ coefficientwise divisible
+by $p$. Project onto the cycle of length $p^{e-1}$, writing $q$ for
+this projection. Since
+\[
+ \Phi_{p^{e}}(X)=1+X^{p^{e-1}}+\cdots+X^{(p-1)p^{e-1}},
+ \qquad q(\Phi_{p^{e}})=p,
+\]
+$q(F)$ is also divisible by $p$. Therefore
+\[
+ F'=q(F)/p,\qquad K'=q(K),\qquad F'K'=p^{e-1}b
+\]
+belong to the smaller group ring. Cancellation of the scalar $p$ is
+valid because this group ring is a free $\mathcal O$-module.
+Evaluations at $1$ and $\rho$ factor through $q$, and division by $p$
+cancels from their ratio. Both comparison ratios are unchanged.
+Induction reaches the base case. The factor divided by $p$ may differ
+at successive steps.
+\end{proof}
+
+The equality between the scalar valuation $e$ and the cycle exponent
+$e$ is essential. For example, for an odd prime $p$, on a cycle of order
+$p$ the element
+$F=p-2(1+X+\cdots+X^{p-1})$ has $FF^{*}=p^{2}$, but
+$F(\rho)/F(1)=-1$. The lemma is used only with its stated matching
+exponents~\cite[Remark~3.2]{circulant-source}.
+
+\subsection{Integrality, Kronecker, and odd order}
+
+\begin{proof}[Proof of Proposition~\ref{prop:late-delta}]
+Fix $p\mid u$ and a maximal ideal $\mathfrak m$ of $B$ above $p$.
+Put $B_{0}=\mathbb Z[i,\{\zeta_{q}:q\in I,\ q\ne p\}]$ and
+$\mathcal O={(B_{0})}_{\mathfrak m\cap B_{0}}$.
+The Chinese remainder theorem writes the cyclic generator $P$ as the
+product of generators of its prime-power components. Evaluating the
+component for $q$ at $\zeta_{q}$ when $q\in S$, and at one otherwise,
+is exactly evaluation at $P=\zeta_{S}$.
+For $S$ not containing $p$, partially evaluate the norm identity on
+all components except the one for $p$. The remaining component has order
+$p^{e}$, where $e=v_{p}(u^{2})$. The two resulting factors have product
+$p^{e}(u^{2}/p^{e})$, with the parenthesized factor a local unit. Their
+coefficient ring is generated by $i$ and roots whose orders are
+coprime to $p$, so Lemma~\ref{lem:late-comparison} applies.
+Moreover $\mathcal O[\zeta_{p}]$ maps into $B_{\mathfrak m}$, since
+every denominator inverted in $\mathcal O$ avoids $\mathfrak m$.
+It gives
+\begin{equation}
+ \frac{f(\zeta_{S\cup\{p\}})}{f(\zeta_{S})}
+ \in B_{\mathfrak m}^{\times},\qquad
+ \frac{f(\zeta_{S\cup\{p\}})}{f(\zeta_{S})}
+ \equiv1\pmod{\mathfrak mB_{\mathfrak m}}.%
+ \label{eq:late-local-ratio}
+\end{equation}
+Here the chosen $p$th root reduces to one in characteristic $p$.
+Pairing subsets in that prime direction rewrites the same element as
+\[
+ \Delta(f)=\prod_{\substack{S\subseteq I\\p\notin S}}
+ {\left(\frac{f(\zeta_{S})}{f(\zeta_{S\cup\{p\}})}\right)}^{{(-1)}^{|S|}}.
+\]
+It is therefore a local unit with residue one at every maximal ideal
+above a divisor of $u$.
+
+For $u=15$, this is exactly the two pairings
+in~\eqref{eq:delta-fifteen-pairings}. The decomposition
+$C_{225}\cong C_9\times C_{25}$ makes the local comparison concrete:
+fixing the $25$-cycle input at $1$ or $\zeta_5$ leaves a $9$-cycle with
+norm $225=3^2\cdot25$. At three, $25$ is a unit, and the cycle exponent
+and norm valuation are both two. Exchanging three and five gives the
+other direction. These unit statements, rather than a formal cancellation
+of symbols, control the possible denominators.
+
+At all other maximal ideals, $u^{2}$ is a unit and the norm identity
+makes every evaluation a unit, with inverse
+$\overline{f(\zeta_{S})}/u^{2}$. Thus $\Delta(f)$ belongs to every
+$B_{\mathfrak m}$ and hence to $B$. Indeed, if $z\notin B$, the
+proper ideal $\{b\in B:bz\in B\}$ is contained in some maximal
+ideal $\mathfrak m$; an expression $z=a/s$ with $s\notin\mathfrak m$
+would contradict that containment. Since $B$ is generated by roots of
+unity, membership in $B$ proves that $\Delta(f)$ is an algebraic integer.
+
+Every embedding of $\mathbb Q(B)$ into $\mathbb C$ commutes with
+complex conjugation: it sends each root of unity and its inverse to
+another such pair. Applying an embedding to the evaluated norm identity
+therefore gives $|\sigma(f(\zeta_{S}))|=u$. There are equally many even
+and odd subsets of the nonempty set $I$, so
+$|\sigma(\Delta(f))|=1$ for every embedding. Kronecker's theorem now
+implies that $\Delta(f)$ is a root of unity. One proof of the criterion
+is that the minimal polynomials of the powers of an algebraic integer
+with all conjugates on the unit circle have bounded degree and bounded
+integer coefficients. Only finitely many such polynomials, and hence
+finitely many values of these powers, occur; two positive powers coincide.
+
+Finally, a root of unity of residue one in a local domain of residue
+characteristic $p$ has $p$-power order. To see this, write its order as
+$p^{a} m$ with $p\nmid m$. If $m>1$, raising to the $p^{a}$th power gives
+$\eta\ne1$ of order $m$ and residue one. Cancellation in the domain gives
+\[
+ (\eta-1)(1+\eta+\cdots+\eta^{m-1})=0
+ \quad\Longrightarrow\quad
+ 1+\eta+\cdots+\eta^{m-1}=0.
+\]
+Reduction would say $m=0$ in characteristic $p$, a contradiction.
+Applying this at every prime divisor of $u$ proves the assertion.
+Such maximal ideals exist because $B$ is a nonzero free abelian group
+of finite rank, so $B/pB\ne0$.
+\end{proof}
+
+For $u=3$, the theorem gives
+$\Delta(f)\in\{1,\omega,\omega^{2}\}$: the field
+$\mathbb Q(i,\omega)$ has degree four, whereas a primitive ninth root
+has degree six and higher $3$-power roots have still larger degrees.
+Individual values need not be one; $f(P)=3iP$ gives
+$\Delta(f)=\omega^{2}$, as above. For $u=15$, the theorem is stronger:
+the order must be both a power of three and a power of five, so
+$\Delta(f)=1$. This is an equality of products of evaluations, not a
+claim that the four evaluations are equal. The signs will next force
+equality of the relevant \emph{comparisons} for general odd $u$ as well.
+
+\section{A sign combination with all coefficients equal to one}%
+\label{sec:late-signs}
+
+Return to the four sign polynomials $H_{0}(P),\ldots,H_{3}(P)$.
+Their normalized evaluations are $c(P)$, $d(P)$, and $g(P)$.
+Define
+\begin{equation}
+ E(P)=\frac{d(P)-c(P)}2+\frac{g(P)-c(P)}{1+i}.%
+ \label{eq:late-E}
+\end{equation}
+Both divisions are exact in the coefficient ring. In fact, substitution
+of the formulas for $c,d,g$ gives
+\begin{align*}
+ \frac{d(P)-c(P)}2&=-\frac{H_{1}(P)+H_{3}(P)}2,\\
+ \frac{g(P)-c(P)}{1+i}
+ &=-\frac{H_{2}(P)+H_{3}(P)}2
+     +i\frac{H_{1}(P)+H_{2}(P)}2.
+\end{align*}
+Every half-sum is integral because each coefficient adds two signs.
+Adding yields the useful identity
+\begin{equation}
+ E(P)=-H_{3}(P)+(i-1)\frac{H_{1}(P)+H_{2}(P)}2.%
+ \label{eq:late-E-signs}
+\end{equation}
+As $i-1=i(1+i)$ and $2=(1+i)(1-i)$, the second term vanishes modulo $1+i$
+and both signs become one. Consequently
+\begin{equation}
+ E(P)\equiv J(P):=1+P+\cdots+P^{u^{2}-1}\pmod{1+i}
+ \quad\text{coefficientwise}.%
+ \label{eq:late-all-ones}
+\end{equation}
+This explains the choice of $E$: its expression in $c,d,g$ connects it
+to the arithmetic comparison, while its expression in the $H_{a}$ exposes
+the residues of its coefficients. This is the sign calculation of~\cite[Section~4]{circulant-source}, written as a single polynomial identity.
+
+In the guiding case, the conclusion reads
+\[
+ E(P)\equiv1+P+\cdots+P^8\pmod{1+i},
+ \qquad E(1)\equiv9\equiv1\pmod{1+i}.
+\]
+Keep this nonzero value at one in mind when we compare it with the value
+at $\omega$.
+
+\section{Odd order and residue one force exact comparisons}%
+\label{sec:late-rigidity}
+
+We perform all the remaining reductions in one ring. Define
+\[
+ A=B[1/u]=\mathbb Z[i,\{\zeta_{p}:p\in I\},1/u]\subseteq\mathbb C,
+ \qquad \overline A=A/(1+i)A.
+\]
+Write $c_{S}=c(\zeta_{S})$, and similarly $d_{S},g_{S}$. Each is a unit in
+$A$, because its norm is $u^{2}$; for example
+\begin{equation}
+ c_{S}^{-1}=\overline{c_{S}}/u^{2}.%
+ \label{eq:late-unit-inverse}
+\end{equation}
+The bar on $c_{S}$ here denotes complex conjugation; $\overline A$ is
+the quotient ring.
+
+The quotient $\overline A$ has characteristic two and is nonzero.
+To verify the second assertion, choose a maximal ideal $\mathfrak m$
+of $B$ containing $2$, possible since $B/2B\ne0$. In its residue field,
+${(1+i)}^{2}=2i=0$ forces $1+i=0$. The odd integer $u$ has residue one,
+so adjoining $1/u$ preserves a proper ideal containing $(1+i)A$.
+Thus $1\ne0$ in $\overline A$. It need not be a field or a domain.
+The source uses a localization at one such maximal ideal; the present
+choice of $A$ keeps all evaluations in a common ring without further
+local notation.
+
+Set
+\[
+ r_{S}=\frac{d_{S}}{c_{S}},\qquad w_{S}=\frac{g_{S}}{c_{S}},\qquad
+ R=\frac{\Delta(d)}{\Delta(c)},\qquad W=\frac{\Delta(g)}{\Delta(c)}.
+\]
+The $\Delta$-theorem makes $R$ and $W$ roots of unity of odd order.
+The exact divisibilities in~\eqref{eq:late-E} make
+$r_{S}-1$ divisible by $2$ in $A$ and $w_{S}-1$ divisible by $1+i$.
+Since $2\in(1+i)A$, all $r_{S},w_{S}$ have residue one. They are units,
+so their inverses also have residue one; hence
+\[
+ R=\prod_{S\subseteq I}r_{S}^{{(-1)}^{|S|}}\equiv1\pmod{1+i},
+ \qquad
+ W=\prod_{S\subseteq I}w_{S}^{{(-1)}^{|S|}}\equiv1\pmod{1+i}.
+\]
+
+An odd-order root of unity $\xi\in A$ with residue one must equal one.
+If its order were an odd integer $m>1$, cancellation of $\xi-1$ in
+the original domain would give $1+\xi+\cdots+\xi^{m-1}=0$.
+Reduction to the nonzero characteristic-two ring would give $1=0$.
+Therefore
+\begin{equation}
+ R=W=1.%
+ \label{eq:late-rigidity}
+\end{equation}
+This is an exact identity, obtained by combining the independent norm
+and sign information~\cite[Eq.~(4.10)]{circulant-source}.
+
+\subsection{The guiding case: a common rotation at order 36}
+
+\begin{figure}[htbp]
+ \centering
+ \input{assets/diagrams/report-common-rotation.tex}
+ \caption{The common rotation and its cancellation for $u=3$.
+ The middle panel multiplies every point in the left panel by $\omega$.
+ Dividing each configuration by its own value of $c(P)$ gives the shared
+ configuration on the right. The triangle for $E(P)$ rotates with the
+ other points but need not lie on their circle. These are schematic
+ points satisfying the rotation relation, not values from an order-36
+ Hadamard matrix or a depiction of their residues.}%
+ \label{fig:common-rotation}
+\end{figure}
+
+There are only two subsets when $u=3$, so~\eqref{eq:late-rigidity} says
+\[
+ \frac{d(1)}{c(1)}=\frac{d(\omega)}{c(\omega)},\qquad
+ \frac{g(1)}{c(1)}=\frac{g(\omega)}{c(\omega)}.
+\]
+With $\lambda=c(\omega)/c(1)$, all three evaluations at $\omega$
+are $\lambda$ times their evaluations at one, and $|\lambda|=1$.
+The linear combination~\eqref{eq:late-E} consequently gives
+$E(\omega)=\lambda E(1)$ and
+\begin{equation}
+ \frac{E(1)}{c(1)}=\frac{E(\omega)}{c(\omega)}.%
+ \label{eq:late-example-equality}
+\end{equation}
+No division by $E(1)$ is involved. Nor does this assert that
+$E(\omega)$ and $E(1)$ have the same residue.
+
+Figure~\ref{fig:common-rotation} shows why dividing by $c(P)$ removes
+the common rotation, including for $E(P)$. The contradiction now comes
+from the coefficients, through $E(P)\equiv J(P)\pmod{1+i}$.
+Now $J(\omega)=3(1+\omega+\omega^{2})=0$, while $J(1)=9$.
+Because $c(P)$ has real integer coefficients, its norm at one gives
+${c(1)}^{2}=9$, so $c(1)=\pm3$. Reducing the two sides
+of~\eqref{eq:late-example-equality}, using~\eqref{eq:late-all-ones}
+and the unit denominators, would give
+\[
+ \underbrace{\frac{E(1)}{c(1)}}_{\displaystyle\equiv\,9/(\pm3)\,\equiv\,1}
+ =
+ \underbrace{\frac{E(\omega)}{c(\omega)}}_{\displaystyle\equiv\,0}
+ \qquad\pmod{1+i}.
+\]
+Equal normalized values cannot have these different residues. Equivalently,
+the common multiplier $\lambda=c(\omega)/c(1)$ remains invertible after
+reduction, so it cannot carry the required nonzero residue of $E(1)$ to
+the required zero residue of $E(\omega)$. This contradiction excludes
+order $36$. Changing a complex angle alone does not make a residue zero.
+With several prime divisors, the exact comparisons are
+products over many evaluations; a single common-rotation picture is
+no longer the conclusion. The next step supplies its algebraic replacement.
+
+\section{From products to a vanishing sum}%
+\label{sec:late-sum}
+
+Remove negative exponents from~\eqref{eq:late-rigidity} to obtain
+\begin{equation}
+ \prod_{|S|\,\mathrm{even}}r_{S}=\prod_{|S|\,\mathrm{odd}}r_{S},
+ \qquad
+ \prod_{|S|\,\mathrm{even}}w_{S}=\prod_{|S|\,\mathrm{odd}}w_{S}.%
+ \label{eq:late-products}
+\end{equation}
+Define the integral divided differences
+\[
+ a_{S}=\frac{d_{S}-c_{S}}{2c_{S}}\in A,
+ \qquad b_{S}=\frac{g_{S}-c_{S}}{(1+i)c_{S}}\in A.
+\]
+Their membership in $A$ follows by first taking the exact polynomial
+quotients in~\eqref{eq:late-E}, then evaluating, then multiplying by
+$c_{S}^{-1}$. We have not inverted $2$ or $1+i$.
+
+For any finite family $x_{j}\in A$, direct multiplication gives the
+exact identity
+\begin{equation}
+ \prod_{j}(1+t x_{j})=1+t\sum_{j}x_{j}+t^{2}Q,
+ \qquad Q\in A.%
+ \label{eq:late-expansion}
+\end{equation}
+The remainder collects all terms choosing $t x_{j}$ from at least two
+factors. Apply this to the even and odd sides
+of~\eqref{eq:late-products}, first with $r_{S}=1+2a_{S}$ and then with
+$w_{S}=1+(1+i)b_{S}$. Subtracting the two sides gives
+\[
+ 2\sum_{S\subseteq I}{(-1)}^{|S|}a_{S}+4Q_{r}=0,
+ \qquad
+ (1+i)\sum_{S\subseteq I}{(-1)}^{|S|}b_{S}+{(1+i)}^{2}Q_{w}=0
+\]
+for some $Q_{r},Q_{w}\in A$. Cancel $2$ and $1+i$, respectively,
+in the characteristic-zero domain $A$. Only then reduce modulo $1+i$:
+\[
+ \sum_{S\subseteq I}{(-1)}^{|S|}a_{S}\equiv0,
+ \qquad
+ \sum_{S\subseteq I}{(-1)}^{|S|}b_{S}\equiv0\pmod{1+i}.
+\]
+Reducing the product equalities first would make every factor one and
+lose this information. There is no cancellation by a zero residue.
+This finite expansion is the needed form of the first-order product
+map in~\cite[Lemma~4.1]{circulant-source}.
+
+By the definition of $E$, we have $a_{S}+b_{S}=E(\zeta_{S})/c(\zeta_{S})$.
+Adding the two congruences proves
+\begin{equation}
+ \mathcal S:=\sum_{S\subseteq I}{(-1)}^{|S|}
+       \frac{E(\zeta_{S})}{c(\zeta_{S})}
+ \equiv0\pmod{1+i}.%
+ \label{eq:late-zero-sum}
+\end{equation}
+For one prime, each product has just one factor and the remainders
+vanish, recovering the exact equality in the $u=3$ example. For $u=15$,
+each side has two factors: the quadratic terms disappear after cancellation
+and reduction. The resulting congruence is
+\[
+ \frac{E(1)}{c(1)}
+ -\frac{E(\zeta_3)}{c(\zeta_3)}
+ -\frac{E(\zeta_5)}{c(\zeta_5)}
+ +\frac{E(\zeta_3\zeta_5)}{c(\zeta_3\zeta_5)}
+ \equiv0\pmod{1+i}.
+\]
+The alternating pattern from the four evaluations has become an
+alternating sum. This replaces the single common rotation when several
+primes divide $u$.
+
+\section{The surviving odd term and the contradiction}%
+\label{sec:late-contradiction}
+
+Evaluate~\eqref{eq:late-all-ones} at every subset root and multiply by
+the unit denominators to get
+\[
+ \mathcal S\equiv\sum_{S\subseteq I}{(-1)}^{|S|}
+       \frac{J(\zeta_{S})}{c(\zeta_{S})}\pmod{1+i}.
+\]
+For a nonempty subset $S$, the order of $\zeta_{S}$ is
+$\prod_{p\in S}p>1$. Indeed, raising to the product of all the other
+primes leaves a nontrivial $p$th root, so each $p\in S$ divides that
+order. In particular, $\zeta_{S}\ne1$ and $\zeta_{S}^{u^{2}}=1$.
+The geometric-sum identity in characteristic zero gives
+\[
+ (\zeta_{S}-1)J(\zeta_{S})=\zeta_{S}^{u^{2}}-1=0,
+ \qquad J(\zeta_{S})=0\quad(S\ne\varnothing).
+\]
+The cancellation again occurs in the original domain; it does not
+assume that $\zeta_{S}-1$ is invertible after reduction.
+
+For $u=15$, this says
+$J(\zeta_3)=J(\zeta_5)=J(\zeta_3\zeta_5)=0$, while $J(1)=225$.
+Thus three of the four terms vanish and the remaining term is
+$225/c(1)=225/(\pm15)=\pm15\equiv1\pmod{1+i}$, just as the
+nine-position example left $9/(\pm3)$. The same reasoning works with
+any number of distinct prime divisors.
+
+Only $S=\varnothing$ remains. Its sign is positive, its input is one,
+and $J(1)=u^{2}$. The real coefficients of $c(P)$ give
+$c^{*}(1)=c(1)$, so the norm implies ${c(1)}^{2}=u^{2}$ and $c(1)=\pm u$.
+Consequently
+\begin{equation}
+ \mathcal S\equiv\frac{u^{2}}{c(1)}=\pm u\equiv1\pmod{1+i}.%
+ \label{eq:late-one-sum}
+\end{equation}
+Equations~\eqref{eq:late-zero-sum} and~\eqref{eq:late-one-sum}
+contradict $0\ne1$ in $A/(1+i)A$. Thus $u>1$ is impossible.
+Together with the order restriction, this leaves $n=1$ and $n=4$;
+the explicit matrices already given realize both orders.
+
+The assumption $u>1$ was used to make $I$ nonempty in the
+$\Delta$-theorem. At $u=1$ there is no odd-order conclusion, so the
+argument does not exclude the order-four example. This is the final
+mechanism of~\cite[Section~4, especially Eq.~(4.11)]{circulant-source}:
+the same alternating sum has residue zero from exact products and
+residue one from the common sign coefficients.
+\section{Event work, evidence, and limitations}%
+\label{sec:evidence}
+
+The mathematical argument above is an exposition of the cited preprint.
+The theorem, the local-comparison strategy, and the alternating-product
+contradiction are prior work. Our work during the November 13--15, 2026
+Mathathon was to organize and explain that argument: the recursive website,
+the order-36 overview and general refinements, the written node exposition,
+the animation scripts and narrated videos, and the interactive phase
+comparison. Existing software, including ManimGL and the 3Blue1Brown
+website's visual styles, supplied part of the presentation infrastructure.
+The repository's dated decision records document the work, revisions,
+sources, and checks.
+
+The mathematical support is the written argument in this report together
+with the explicitly cited cyclotomic facts. We compared the exposition
+against the primary paper and reviewed the sign hypotheses, exact
+divisions, local-comparison induction, and reductions independently across
+AI review passes. These checks do not constitute a formal verification.
+No claim here is Lean-verified, and finite computations are not used to
+deduce nonexistence at unbounded orders.
+
+The accompanying implementation has automated checks for valid dependency
+graphs, node and script coverage, links, displayed mathematics, and the
+phase illustration. A finite check of the $3^{3}=27$ possible assignments
+of cube-root multipliers to the three illustrative points identifies the
+three common rotations satisfying the two relative-phase comparisons.
+It checks that illustration, not the existence of a hypothetical matrix.
+Media checks cover the 48 node videos, narration manifests, captions, and
+selected rendered frames. Such checks detect missing assets, inconsistent
+timing, and layout failures; they do not certify mathematical correctness
+or the clarity of every spoken sentence.
+
+The website is intended to support several levels of reading, but we have
+not conducted a user study or measured comprehension gains. Its deepest
+arithmetic nodes still require the stated cyclotomic foundations. Useful
+next steps are to expand those prerequisites for readers with less number
+theory, obtain external mathematical and pedagogical feedback, and revise
+the animations in response. The presentation can therefore be evaluated
+as a concrete explanation and navigable artifact without attributing
+unmeasured educational outcomes to it.
+
+\section{AI use and acknowledgements}%
+\label{sec:ai}
+
+The team directed the proof structure and editorial choices, supplied and
+revised narration, checked mathematical explanations, and assessed sample
+voices and pacing. OpenAI Codex, using GPT-6, assisted with mathematical
+drafts, source comparison, script editing, website and ManimGL code,
+automated checks, and parallel reviews. Human revisions included making
+the sign hypothesis explicit in the converse from polynomials to matrices, removing
+unnecessary group-ring notation, and organizing the main videos around one
+example with general arguments deeper in the graph. AI-produced text and
+code were revised through this process rather than treated as evidence
+merely because they were generated.
+
+The published narration uses Google Chirp 3 HD's Achird voice. Earlier
+voice experiments also used Gemini text-to-speech; they should be
+distinguished from the production recordings. The faster-whisper tool~\cite{faster-whisper} assisted speech alignment. Its transcriptions can
+help locate phrases but cannot establish that speech was clearly audible,
+so they were not treated as a substitute for listening. This report was
+also prepared with Codex assistance, checked against the competition
+rules and source paper, and compiled from its \LaTeX{} source.
+
+We credit OpenAI for the mathematical source~\cite{circulant-source},
+the earlier literature cited there for the classical restrictions, and
+Grant Sanderson and the 3Blue1Brown contributors for ManimGL, animation
+authoring guidance, and website design resources~\cite{manimgl,threeblueonebrown-guidance,threeblueonebrown-site}. The visual style is
+an acknowledged influence; these materials are our exposition and are
+not an endorsed 3Blue1Brown production.
+
+\begingroup
+\raggedright{}
 \bibliographystyle{plain}
 \bibliography{references}
+\endgroup
 
 \end{document}
