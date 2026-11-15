@@ -130,9 +130,9 @@ The current node and hovered or keyboard-focused links receive a blue tint and
 stronger outline. Elbow connections use curved bends.
 
 Reading-route nodes use `supplemental: true`: they have their own pages and
-entry buttons but do not appear as extra nodes or video cuts in the proof map.
-Each route highlights its own page; shared proof nodes leave both routes
-unselected. The main overview emphasizes the example as the starting point.
+entry buttons on the root proof map only, and do not appear as extra nodes or
+video cuts in the map. The main overview emphasizes the example as the starting
+point. Page headings show only the node title.
 Terminal statement pages offer the parent map in a collapsed disclosure and
 list their incoming and outgoing links. No disclosure contains an invented
 internal proof.

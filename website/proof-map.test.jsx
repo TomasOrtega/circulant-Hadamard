@@ -72,27 +72,18 @@ describe("supplied eight-node proof map", () => {
     expect(page).not.toContain("<pre");
   });
 
-  test("the highlighted reading route matches the current page", () => {
-    for (const entry of entries.filter(({ node }) => node.supplemental)) {
+  test("reading routes appear only on the proof map page", () => {
+    const navigation = html.match(/<nav aria-label="Reading routes"[\s\S]*?<\/nav>/)[0];
+    const links = [...navigation.matchAll(/<a\b([^>]*)>([^<]*)<\/a>/g)];
+    expect(links.map(([, , label]) => label)).toEqual([
+      "Start here · Proof by Example: n = 36",
+      "Then · The General Odd-u Proof",
+    ]);
+    for (const entry of entries.filter(({ ancestors }) => ancestors.length)) {
       const page = renderToStaticMarkup(<NodePage entry={entry} entries={entries} />);
-      const navigation = page.match(/<nav aria-label="Reading routes"[\s\S]*?<\/nav>/)[0];
-      const links = [...navigation.matchAll(/<a\b([^>]*)>([^<]*)<\/a>/g)];
-      const highlighted = links.filter(([, attributes]) =>
-        attributes.match(/class="([^"]*)"/)[1].split(/\s+/).includes("bg-theme"));
-      expect(highlighted).toHaveLength(1);
-      expect(highlighted[0][1]).toContain('aria-current="page"');
-      expect(highlighted[0][2]).toEndWith(entry.node.title);
-      expect(links.filter(([, attributes]) => attributes.includes('aria-current="page"'))).toHaveLength(1);
-    }
-  });
-
-  test("shared proof nodes leave both reading routes unselected", () => {
-    for (const entry of entries.filter(({ node, ancestors }) => ancestors.length && !node.supplemental)) {
-      const page = renderToStaticMarkup(<NodePage entry={entry} entries={entries} />);
-      const navigation = page.match(/<nav aria-label="Reading routes"[\s\S]*?<\/nav>/)[0];
-      for (const [, classes] of navigation.matchAll(/<a\b[^>]*class="([^"]*)"/g))
-        expect(classes.split(/\s+/).includes("bg-theme"), entry.node.id).toBe(false);
-      expect(navigation).not.toContain('aria-current="page"');
+      expect(page.includes('aria-label="Reading routes"'), entry.node.id).toBe(false);
+      expect(page.includes("Start here · "), entry.node.id).toBe(false);
+      expect(page.includes("Then · "), entry.node.id).toBe(false);
     }
   });
 

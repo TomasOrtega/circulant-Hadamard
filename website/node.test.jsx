@@ -17,6 +17,14 @@ const entries = buildNodes({ outDir: output });
 afterAll(() => rmSync(output, { recursive: true, force: true }));
 
 describe("recursive node navigation", () => {
+  test("page headings contain only the node title", () => {
+    for (const entry of entries) {
+      const html = readFileSync(join(output, pagePath(entry)), "utf8");
+      const heading = html.match(/<hgroup\b[\s\S]*?<\/hgroup>/)[0];
+      expect(heading.replace(/<[^>]+>/g, ""), entry.node.id).toBe(entry.node.title);
+    }
+  });
+
   test("every node has its own page, a deeper link, and a direct parent link", () => {
     expect(
       Math.max(...entries.map((entry) => entry.path.length)),
