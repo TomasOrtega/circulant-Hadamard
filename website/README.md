@@ -5,6 +5,9 @@ Serve `website/dist/` with a static HTTP server to preview the site. React
 pre-renders every node; graph links, breadcrumbs, and parent buttons work
 without a client router. Native video cuts use a small playback controller.
 
+Successful pushes to `main` publish the built site to
+[GitHub Pages](https://tomasortega.net/circulant-Hadamard/) after all CI checks pass.
+
 ## One Markdown file per node
 
 The active outline contains eight high-level proof nodes, with the theorem
@@ -189,7 +192,7 @@ The current node and hovered or keyboard-focused links receive a blue tint and
 stronger outline. Elbow connections use curved bends.
 
 Page headings show only the node title.
-Terminal statement pages list their incoming and outgoing links. No disclosure
+Terminal statement pages list their prerequisites and shared notation. No disclosure
 contains an invented internal proof.
 
 At a terminal node, the graph shows its siblings and highlights the current
