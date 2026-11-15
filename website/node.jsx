@@ -215,27 +215,6 @@ function ChildNode({ child, entry, entries }) {
   );
 }
 
-function NodeDependencies({ entry, entries }) {
-  const owner = entry.ancestors.at(-1);
-  if (!owner) return null;
-  const siblings = owner.node.children;
-  const current = siblings.find(({ node }) => node === entry.node);
-  if (!current) return null;
-  const incoming = current.dependsOn ?? [];
-  const context = current.contextFrom ?? [];
-  const links = (ids) => ids.map((id, index) => {
-    const node = siblings.find(({ node }) => node.id === id).node;
-    const target = findChildEntry(node, owner, entries);
-    return <span key={id}>{index ? ", " : ""}<a href={hrefFor(target, entry)}>{node.title}</a></span>;
-  });
-  return (
-    <nav aria-label="Prerequisites and notation" className="w-full rounded-md bg-light-gray p-6 font-sans text-sm">
-      <p><strong>Uses: </strong>{incoming.length ? links(incoming) : "No earlier proof node."}</p>
-      {!!context.length && <p><strong>Shared notation only: </strong>{links(context)}</p>}
-    </nav>
-  );
-}
-
 export function NodePage({ entry, entries }) {
   const { node } = entry;
   const root = entries[0];
@@ -288,10 +267,9 @@ export function NodePage({ entry, entries }) {
           )}
           {showOwnExplanation && <p className="max-w-175 text-center text-lg">{node.summary}</p>}
         </section>
-        {(entry.ancestors.length > 0 || showOwnExplanation && !hasOwnProofMap) && (
+        {showOwnExplanation && !hasOwnProofMap && (
           <section>
-            <NodeDependencies entry={entry} entries={entries} />
-            {showOwnExplanation && !hasOwnProofMap && <Markdown script={node.script} />}
+            <Markdown script={node.script} />
           </section>
         )}
         {children.map((child) => (

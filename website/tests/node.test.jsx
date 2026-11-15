@@ -208,10 +208,13 @@ describe("recursive node navigation", () => {
     }
   });
 
-  test("dependency navigation omits the redundant Used by row", () => {
+  test("pages omit the redundant dependency panel", () => {
     for (const entry of entries) {
       const html = readFileSync(join(output, pagePath(entry)), "utf8");
+      expect(html.includes('aria-label="Prerequisites and notation"'), entry.node.id).toBe(false);
+      expect(html.includes("<strong>Uses:"), entry.node.id).toBe(false);
       expect(html.includes("Used by:"), entry.node.id).toBe(false);
+      expect(/<section\b[^>]*>\s*<\/section>/.test(html), entry.node.id).toBe(false);
     }
   });
 

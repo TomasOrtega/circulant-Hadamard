@@ -67,13 +67,9 @@ describe("supplied eight-node proof map", () => {
     }
   });
 
-  test("statement pages expose prerequisites without a source dropdown", () => {
+  test("statement pages omit the source dropdown", () => {
     const entry = entries.find(({ node }) => node.id === "odd-order-rigidity");
     const page = renderToStaticMarkup(<NodePage entry={entry} entries={entries} />);
-    const relations = page.match(/<nav aria-label="Prerequisites and notation"[\s\S]*?<\/nav>/)[0];
-    for (const slug of ["three-evaluations", "delta-theorem", "signs-become-all-ones"])
-      expect(relations).toContain(`../${slug}/index.html`);
-    expect(relations).not.toContain("../products-to-sums/index.html");
     expect(page).not.toContain("Copyable text and LaTeX");
     expect(page).not.toContain("<pre");
   });

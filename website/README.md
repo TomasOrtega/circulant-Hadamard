@@ -189,9 +189,8 @@ white nodes with subtle blue outlines, blue numbers, and serif math summaries.
 The current node and hovered or keyboard-focused links receive a blue tint and
 stronger outline. Elbow connections use curved bends.
 
-Page headings show only the node title.
-Terminal statement pages list their prerequisites and shared notation. No disclosure
-contains an invented internal proof.
+Page headings show only the node title. No disclosure contains an invented
+internal proof.
 
 At a terminal node, the graph shows its siblings and highlights the current
 node. Native SVG links support clicking and keyboard navigation. Wide graphs
