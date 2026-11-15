@@ -5,7 +5,10 @@ shortTitle: Power-of-Two Cycle
 summary: Group positions by their residue on a shorter cycle; each new coefficient is an odd sum of signs.
 number: "2.3"
 draft: true
-video: null
+video:
+  src: media/power-of-two-cycle.mp4
+  captions: media/power-of-two-cycle.vtt
+  duration: 156.5
 mapPosition: [40, 210]
 mapSummary: Odd coefficients; same norm
 ---

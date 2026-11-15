@@ -1,0 +1,140 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:02.120
+We know that the order is four u squared.
+
+00:00:02.720 --> 00:00:07.340
+Separate the power of two in u by
+writing u equals two to the s minus one,
+
+00:00:07.600 --> 00:00:11.540
+times w, where s is at
+least one and w is odd.
+
+00:00:12.280 --> 00:00:17.780
+Substituting this into the order gives n
+equals two to the two s, times w squared.
+
+00:00:18.320 --> 00:00:20.920
+We will keep the power
+of two as a cycle length,
+
+00:00:20.920 --> 00:00:23.600
+and collect the odd part
+into the coefficients.
+
+00:00:24.760 --> 00:00:28.267
+Reduce every exponent in h
+of X modulo two to the two s.
+
+00:00:28.300 --> 00:00:33.280
+To picture the grouping, consider the
+hypothetical order thirty-six case.
+
+00:00:34.060 --> 00:00:38.110
+Here u is three, s is one, and w is three.
+
+00:00:38.440 --> 00:00:42.144
+The shorter cycle has four
+positions. The positions zero,
+
+00:00:42.556 --> 00:00:46.940
+four, eight, and so on through
+thirty-two all arrive at residue zero.
+
+00:00:47.320 --> 00:00:50.280
+Each of the other three residues
+also collects nine positions.
+
+00:00:51.220 --> 00:00:53.700
+These are symbolic signs
+from a hypothetical row;
+
+00:00:54.200 --> 00:00:57.400
+we have not constructed an order
+thirty-six Hadamard matrix.
+
+00:00:58.340 --> 00:01:03.250
+In general, the coefficient a sub
+r is the sum of h sub r plus ell
+
+00:01:03.360 --> 00:01:09.150
+times two to the two s, as ell runs
+from zero to w squared minus one.
+
+00:01:09.500 --> 00:01:11.380
+Call the new polynomial T of X.
+
+00:01:11.720 --> 00:01:15.420
+Each new coefficient is a sum
+of exactly w squared signs.
+
+00:01:16.260 --> 00:01:21.620
+Modulo two, both signs are one. An odd
+number of them therefore has odd sum.
+
+00:01:22.140 --> 00:01:24.440
+So every a sub r is an odd integer,
+
+00:01:24.440 --> 00:01:27.880
+although it need not still
+be plus or minus one.
+
+00:01:28.400 --> 00:01:30.600
+Why does the product identity survive?
+
+00:01:31.440 --> 00:01:35.460
+The shorter cycle length divides
+n. Reducing exponents is therefore
+
+00:01:35.460 --> 00:01:38.740
+a ring map: it respects
+addition and multiplication.
+
+00:01:39.560 --> 00:01:43.740
+It also sends the inverse of X to the
+inverse of its image, so it respects star.
+
+00:01:44.360 --> 00:01:48.060
+Thus h maps to T, and
+h star maps to T star.
+
+00:01:48.880 --> 00:01:52.460
+Apply this same map to
+h times h star equals n.
+
+00:01:52.460 --> 00:01:57.447
+We obtain T times T star
+equals two to the two s,
+
+00:01:57.660 --> 00:02:02.460
+times w squared, in the integer group
+ring of the shorter cycle. The number
+
+00:02:02.460 --> 00:02:07.140
+of positions has decreased, but the scalar
+on the right has stayed exactly the same.
+
+00:02:07.860 --> 00:02:12.360
+We now carry two facts forward:
+two to the two s odd coefficients,
+
+00:02:13.040 --> 00:02:17.640
+and this unchanged scalar norm.
+If s is at least two, the next
+
+00:02:17.640 --> 00:02:21.360
+steps compare opposite coefficients
+and repeatedly fold the cycle.
+
+00:02:21.920 --> 00:02:25.280
+Their contradiction will
+force s to equal one.
+
+00:02:25.580 --> 00:02:30.380
+In the original notation, that
+will say u equals w and is odd.
+
+00:02:31.080 --> 00:02:35.280
+For now, we have prepared the shorter
+cycle on which that descent can work.
