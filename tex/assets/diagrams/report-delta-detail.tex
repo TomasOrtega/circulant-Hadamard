@@ -1,0 +1,29 @@
+\begin{tikzpicture}[
+  detailnode/.style={draw=blue!45!black,fill=blue!4,rounded corners=2pt,
+    align=center,text width=3.8cm,minimum height=1.15cm,inner sep=4pt,
+    font=\small},
+  detailflow/.style={-{Stealth},semithick,draw=black!65}
+]
+  \node[detailnode] (circle-evaluations) at (0,0)
+    {\textbf{4.1 Evaluation circle}\\$|f(\zeta)|=u$};
+  \node[detailnode] (alternating-phase-product) at (4.75,0)
+    {\textbf{4.2 Alternating}\\\textbf{product}\\All conjugates have\\modulus $1$};
+  \node[detailnode] (local-character-comparison) at (0,-2.5)
+    {\textbf{4.3 Local comparison}\\Comparison ratios\\have residue $1$};
+  \node[detailnode] (integral-delta) at (4.75,-2.5)
+    {\textbf{4.4 Integrality}\\$\Delta(f)$ is an\\algebraic integer};
+  \node[detailnode] (kronecker-step) at (9.5,0)
+    {\textbf{4.5 Kronecker's}\\\textbf{theorem}\\$\Delta(f)$ is a root of unity};
+  \node[detailnode] (delta-odd-order) at (9.5,-2.5)
+    {\textbf{4.6 Odd order}\\The order of\\$\Delta(f)$ is odd};
+
+  \draw[detailflow] (circle-evaluations) -- (alternating-phase-product);
+  \draw[detailflow] (circle-evaluations) -- (local-character-comparison);
+  \draw[detailflow] (alternating-phase-product) -- (integral-delta);
+  \draw[detailflow] (local-character-comparison) -- (integral-delta);
+  \draw[detailflow] (alternating-phase-product) -- (kronecker-step);
+  \draw[detailflow] (integral-delta) -- (kronecker-step);
+  \draw[detailflow,rounded corners=3pt] (local-character-comparison.south)
+    -- (0,-4) -- (9.5,-4) -- (delta-odd-order.south);
+  \draw[detailflow] (kronecker-step) -- (delta-odd-order);
+\end{tikzpicture}

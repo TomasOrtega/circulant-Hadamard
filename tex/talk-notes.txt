@@ -1,0 +1,123 @@
+CIRCULANT HADAMARD TALK — RUNNING ORDER
+
+Target: 18 minutes 25 seconds, including the full opening video.
+Rules allow 20 minutes for the presentation and up to 10 minutes for Q&A.
+Slides 1–14 are the main talk. Slides 15–18 are optional backups.
+
+The LLM panel reads the report, not the slides or presentation. Every
+substantive slide claim is covered in report.tex. Keep the visual deck light;
+the report contains the detailed arguments, source credit, and limitations.
+
+OPENING — BOTH SPEAKERS
+
+1. Website and overview video — 4:25 (elapsed 0:00–4:25)
+   The bottom-right QR code on every slide and the visible URL both open:
+   https://tomasortega.net/circulant-Hadamard/
+   Introduce the project as an exposition of the source proof. Open the site,
+   play its first video (3:35), and point briefly to a clickable node. Return
+   to the PDF and hand off to Tomas. The opening image is also a clickable link.
+   Local media fallback: website/media/overview.mp4.
+
+TOMAS — DESIGN PRINCIPLES
+
+2. See the argument before its details — 0:55 (4:25–5:20)
+   The map tells readers what each claim contributes. One overview opens
+   eight main nodes; their refinements contain the general arguments.
+   The diagram is redrawn for projection with the website's exact dependencies.
+
+3. Open the step whose justification you need — 1:00 (5:20–6:20)
+   Point to the real Node 4.1 page excerpt. A reader can watch the idea,
+   inspect dependencies, or read the written proof, retaining parent context.
+   Experts can go to unfamiliar steps; other readers can follow prerequisites.
+
+4. Audio first, animation second — 1:05 (6:20–7:25)
+   Scripts specify narration and visual changes. One continuous accepted
+   recording avoids the perceived delivery changes of separate generated
+   passages; code animations then follow timestamps in that take.
+   Chirp 3 HD supplies narration, ManimGL animation, and faster-whisper helps
+   alignment. Captions retain the narration script. Alignment is not an
+   audibility certificate; humans directed content and assessed sample voices.
+
+5. Explore a relationship, then prove it — 1:00 (7:25–8:25)
+   The website lets readers choose a common rotation and then normalize.
+   E(P) follows the same rotation, although it need not lie on the same circle.
+   Divide each configuration by its own c-value: the normalized points agree.
+   These are schematic points; a complex angle is not a modular residue.
+   Handoff: Steven will explain why the sign arithmetic makes this impossible.
+
+STEVEN — IDEAS OF THE PROOF
+
+6. Only orders 1 and 4 — 0:55 (8:25–9:20)
+   Define the matrices and show the working 4×4 example. Credit the theorem
+   and proof to OpenAI's September 23, 2026 preprint. Our contribution is the
+   exposition, website, and visual explanation. The guiding case is n=36.
+
+7. One polynomial records row comparisons — 1:05 (9:20–10:25)
+   Polynomial coefficients are signs; product coefficients are cyclic dot
+   products. Substituting X=1 makes n a square. For n>1, orthogonal distinct
+   rows make n even. The deeper power-of-two descent makes u odd in n=4u².
+   Proceed by contradiction with u>1; use u=3 as the illustration.
+
+8. Three evaluations, one circle — 1:15 (10:25–11:40)
+   CRT reindexes the positions into a four-cycle and nine-cycle. Group into
+   H_0 through H_3 and substitute fourth roots 1, −1, i for Z.
+   Sign sums make the halves integral; dividing each factor by two changes
+   the norm 36 to 9. For Gaussian coefficients, star conjugates coefficients
+   as well as reversing powers. Allowed root inputs put c,d,g on radius three.
+
+9. The Delta theorem — 1:10 (11:40–12:50)
+   Delta(f)=f(1)/f(omega) records a relative phase. Magnitudes cancel, but
+   magnitude alone is insufficient. Local arithmetic establishes integrality;
+   all conjugates have modulus one; Kronecker gives a root of unity; the local
+   residue argument makes its order odd. For this field, only 1, omega, omega²
+   remain. These values need not individually equal one.
+
+10. Cook up the all-ones polynomial — 1:00 (12:50–13:50)
+    E's expression in c,d,g connects it to the phase comparisons. Its expanded
+    H expression exposes the coefficients. Divide exactly before reduction;
+    i−1 is divisible by 1+i, and both signs reduce to one. At P=1, nine ones
+    give E(1) congruent to one.
+
+11. Common rotation — 1:15 (13:50–15:05)
+    Compare Delta(d), Delta(g) with Delta(c). The sign relations make these
+    comparison roots congruent to one. Odd order then forces R=W=1 exactly.
+    Thus all three evaluations, and their linear combination E, share the
+    same rotation from P=1 to P=omega. Normalize by c to remove it.
+    The needed denominators are units because their norm is the odd number 9.
+    The figure illustrates the rotation only; it is not a Hadamard construction.
+
+12. Equal normalized values, incompatible residues — 1:00 (15:05–16:05)
+    At one, J=9 and c=±3, leaving residue one. At omega, the three cube-root
+    sums cancel, leaving zero. Unit denominators preserve this zero/nonzero
+    distinction in a nonzero quotient ring. The equal normalized values
+    therefore give a contradiction. Rotation alone never turns a residue zero.
+
+13. General odd u — 1:20 (16:05–17:25)
+    Reset J to u² terms. Multiple primes give alternating products of
+    evaluations, not one common rotation. Expand the exact product identities,
+    cancel in the original domain, and then reduce modulo 1+i to obtain a
+    vanishing alternating sum. Nontrivial root inputs kill J; only input one
+    survives, leaving ±u congruent to one. Hence u>1 is impossible.
+
+CLOSING — BOTH SPEAKERS
+
+14. A navigable explanation — 1:00 (17:25–18:25)
+    Return to the event contribution: recursive exposition, 48 narrated
+    videos, and the interactive comparison. State human and Codex roles,
+    source review and implementation checks. The report has the full proof
+    and explicit prerequisites. No Lean verification or measured educational
+    benefit is claimed. Invite the audience to choose a node for questions.
+
+BACKUPS — USE ONLY AS NEEDED
+
+15. Inner Delta graph: where integrality, Kronecker, and order restrictions meet.
+16. u=15: four evaluations, two-factor expansion, three vanishing terms.
+17. Authentic website maps: show the interface without changing applications.
+18. Source paper, software and voice credits, and the report's role.
+
+SOURCE FILES
+
+Editable deck: tex/slides.tex. Published PDF: tex/slides.pdf.
+Speaker cues are also retained as comments beside the relevant TeX frames.
+After changing TeX or assets, run make -C tex publish to refresh both PDFs
+and their source fingerprint record, then make -C tex check check-pdfs.

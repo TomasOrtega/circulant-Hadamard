@@ -1,0 +1,25 @@
+\begin{tikzpicture}[
+  mapnode/.style={draw=blue!45!black,fill=blue!4,rounded corners=2pt,
+    text width=2.5cm,minimum height=0.85cm,align=center,font=\small},
+  mapflow/.style={-{Stealth},semithick,draw=black!65}
+]
+  \node[mapnode] (encoding) at (0,0) {1. Group-ring\\encoding};
+  \node[mapnode] (order) at (3.3,0) {2. Restrict\\the order};
+  \node[mapnode] (evaluations) at (6.6,0) {3. Three\\evaluations};
+  \node[mapnode] (signs) at (9.9,0) {5. Signs become\\all ones};
+  \node[mapnode] (delta) at (3.3,-2.0) {4. The\\$\Delta$-theorem};
+  \node[mapnode] (rigidity) at (6.6,-2.0) {6. Odd-order\\rigidity};
+  \node[mapnode] (sum) at (9.9,-2.0) {7. Products\\to sums};
+  \node[mapnode] (contradiction) at (9.9,-4.0) {8. The final\\contradiction};
+  \draw[mapflow] (encoding) -- (order);
+  \draw[mapflow] (order) -- (evaluations);
+  \draw[mapflow] (evaluations) -- (signs);
+  \draw[mapflow] (evaluations) -- (rigidity);
+  \draw[mapflow] (delta) -- (rigidity);
+  \draw[mapflow] (signs.south west) -- (rigidity.north east);
+  \draw[mapflow] (signs) -- (sum);
+  \draw[mapflow] (rigidity) -- (sum);
+  \draw[mapflow] (sum) -- (contradiction);
+  \draw[mapflow,rounded corners=3pt] (signs.east)
+    -- (11.7,0) -- (11.7,-4.0) -- (contradiction.east);
+\end{tikzpicture}

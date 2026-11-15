@@ -1,17 +1,25 @@
 {
   "pdfs": {
-    "report.pdf": "a9aeb1cff06b8d0aa18c47d82ecd82d7ddb96066171c1fdb00b32e31e1ff3689",
-    "slides.pdf": "7a63f02dff693aeedb13719e63e47af70109a9e80904f688ce8d962665a71d3a"
+    "report.pdf": "f0a783e0427eddbef5e78d7552491069eeb862bae4f1a22a42a0adc03d7033a4",
+    "slides.pdf": "4eccc2df0ad5667d5a846f83478d431f718396e8ee2f9833c28b478988da127c"
   },
   "sources": {
     "Makefile": "8d52c97c1f4b4080b4dd32604b8ad45fa51ca5abfb80dcf87fa4fa076057c6ff",
+    "assets/diagrams/report-common-rotation.tex": "fd2433dc4f6f726318b5fb904c161d73681edd3d89012732932fe4c1789de3a7",
+    "assets/diagrams/report-delta-detail.tex": "1c02f1508da6fc76d101a6dff82b9097696f553c161af9f281b3d344bf63efa6",
+    "assets/diagrams/slides-main-map.tex": "de566bd128b402330401f18e10b4e205f7331490123ee665647aee0c0951f4c5",
     "assets/diagrams/workflow.tex": "9e772081f101069a846276a0453c52b254b1b6326b0a9eeeb8aead90bcfc4bbf",
     "assets/images/sair.jpg": "bf715eae620d15451cb159898f85e57fe3e3e3c9bfe281b81d7cecb55e099aaf",
-    "metadata.tex": "a8d537e2d054a596f240e2280cea8d7a68fb70667c8736008aa22fc4fbea8106",
-    "preamble.tex": "d656157f9266addbd5bfb751be29264d781534a86f36761fe7d5ad4c3e23b87a",
+    "assets/images/slides-delta-map.png": "689d5cb0c2c6526947b94f8dd7d89349d5a4c3e682ef421c961da5f3235c7d49",
+    "assets/images/slides-node-detail.png": "e410e8bc536fad25ca9d25e9b536247f18eb1174ebc264c124435d48a0bb3c8b",
+    "assets/images/slides-overview.jpg": "8f62e9e54d01d9209f6a1cfafe7e4f29f98193f3cb8c1d77b4aa1679648b8c82",
+    "assets/images/slides-proof-map.png": "c65b6edb9c4943d1de9fe0c0c5b22c72bcd9784acb0c506ca813737bec68530a",
+    "assets/images/slides-website-qr.png": "8a4e7290f6bbaf4295c4a6e1d98815ed9ba96a13e80be88fe879a860cd97bff7",
+    "metadata.tex": "73683ba8063397fa82e59788045801f77b278f44f2f0508ba1a66099110c93af",
+    "preamble.tex": "eb9c723c64911643970f1201025f3565f7e410d638c7f2359726150f1eacdbf8",
     "published_pdfs.py": "11bdfd268d08769a51d29346ef9fc5fd38692433783cbc9d8c6423aa3ca7d6cc",
-    "references.bib": "01d557d0bdd2b2ed1604d630c98cc5995b36ed2324ebc3ba85cc30c029ec4cd4",
-    "report.tex": "c888f82efafd763683d4c5420cca90719249d23f40d21278783eb5cdbd8e0138",
-    "slides.tex": "535ad09cf0f4279b67e5c466d932d1512d10797b63b18547d6f454ee7192cbd8"
+    "references.bib": "53e584a6c6b6fb982a6c1edb2aca2b126758087b4843eed3337b9d2f25390ce1",
+    "report.tex": "c853cbd35f5fabcfefb372c5476e58846a135c1052fee301a83b1363edc5c36a",
+    "slides.tex": "d4a0ffaa24509d2dd734a350b4a29ecc5bff6b96d70cf61f7f312f5936c1f143"
   }
 }

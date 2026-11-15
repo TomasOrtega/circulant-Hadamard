@@ -1,0 +1,102 @@
+\begingroup
+\definecolor{phaseblue}{RGB}{21,119,167}
+\begin{tikzpicture}[
+  x=1cm,y=1cm,
+  font=\footnotesize,
+  phase-axis/.style={draw=black!25,thin,-{Stealth[length=1.2mm]}},
+  phase-ray/.style={draw=phaseblue!65,thin,-{Stealth[length=1.4mm]}},
+  phase-e-ray/.style={draw=phaseblue,semithick,-{Stealth[length=1.6mm]}},
+  phase-label/.style={inner sep=1.5pt,fill=white},
+  phase-title/.style={font=\small\bfseries,align=center},
+  phase-note/.style={font=\scriptsize,text=black!65,align=center}
+]
+  \path[use as bounding box] (-2.4,-3.0) rectangle (12.8,2.65);
+
+  \foreach \offset in {0,5.2,10.4} {
+    \begin{scope}[xshift=\offset cm]
+      \draw[phase-axis] (-1.65,0) -- (1.68,0);
+      \draw[phase-axis] (0,-1.70) -- (0,1.62);
+      \draw[phaseblue!45] (0,0) circle[radius=1.10];
+      \node[phase-note,anchor=west] at (1.68,-0.14) {Re};
+      \node[phase-note,anchor=west] at (0.08,1.59) {Im};
+      \node[phase-note,anchor=north west] at (0.03,-0.04) {$0$};
+    \end{scope}
+  }
+
+  \node[phase-title] at (0,2.40) {$P=1$};
+  \node[phase-note] at (0,2.04) {Reference values};
+  \coordinate (reference-c) at (1.10,0);
+  \coordinate (reference-d) at (-1.10,0);
+  \coordinate (reference-g) at (0,1.10);
+  \coordinate (reference-e) at (-1.10,1.10);
+
+  \node[phase-title] at (5.2,2.40) {$P=\omega$};
+  \node[phase-note] at (5.2,2.04) {Every point multiplied by $\omega$};
+  \begin{scope}[xshift=5.2cm]
+    \coordinate (rotated-c) at ({1.10*cos(120)},{1.10*sin(120)});
+    \coordinate (rotated-d) at ({-1.10*cos(120)},{-1.10*sin(120)});
+    \coordinate (rotated-g) at ({-1.10*sin(120)},{1.10*cos(120)});
+    \coordinate (rotated-e) at
+      ({-1.10*cos(120)-1.10*sin(120)},
+       {-1.10*sin(120)+1.10*cos(120)});
+  \end{scope}
+
+  \node[phase-title] at (10.4,2.40) {Both inputs after division};
+  \node[phase-note] at (10.4,2.04) {Divide by the corresponding $c(P)$};
+  \coordinate (normalized-c) at (11.50,0);
+  \coordinate (normalized-d) at (9.30,0);
+  \coordinate (normalized-g) at (10.40,1.10);
+  \coordinate (normalized-e) at (9.30,1.10);
+
+  \foreach \prefix/\offset in {reference/0,rotated/5.2,normalized/10.4} {
+    \foreach \point in {c,d,g} {
+      \draw[phase-ray] (\offset,0) -- (\prefix-\point);
+    }
+    \draw[phase-e-ray] (\offset,0) -- (\prefix-e);
+    \fill[phaseblue] (\prefix-c) circle[radius=1.7pt];
+    \begin{scope}[shift={(\prefix-d)}]
+      \fill[black!80] (0,0.075) -- (0.075,0) -- (0,-0.075)
+        -- (-0.075,0) -- cycle;
+    \end{scope}
+    \begin{scope}[shift={(\prefix-g)}]
+      \draw[phaseblue,fill=white,semithick]
+        (-0.060,-0.060) rectangle (0.060,0.060);
+    \end{scope}
+    \begin{scope}[shift={(\prefix-e)}]
+      \draw[phaseblue,fill=white,semithick]
+        (0,0.090) -- (0.080,-0.055) -- (-0.080,-0.055) -- cycle;
+    \end{scope}
+  }
+
+  \node[phase-label,anchor=west] at (1.20,0.12) {$c(1)$};
+  \node[phase-label,anchor=east] at (-1.20,-0.15) {$d(1)$};
+  \node[phase-label,anchor=west] at (0.13,1.18) {$g(1)$};
+  \node[phase-label,anchor=south] at (-1.10,1.25) {$E(1)$};
+
+  \begin{scope}[xshift=5.2cm]
+    \node[phase-label,anchor=south east] at (-0.61,1.04) {$c(\omega)$};
+    \node[phase-label,anchor=west] at (0.66,-0.94) {$d(\omega)$};
+    \node[phase-label,anchor=east] at (-1.07,-0.59) {$g(\omega)$};
+    \node[phase-label,anchor=north] at (-0.40,-1.65) {$E(\omega)$};
+  \end{scope}
+
+  \begin{scope}[xshift=10.4cm]
+    \node[phase-label,anchor=west] at (1.20,0.12) {$\frac{c(P)}{c(P)}$};
+    \node[phase-label,anchor=east] at (-1.20,-0.15) {$\frac{d(P)}{c(P)}$};
+    \node[phase-label,anchor=west] at (0.13,1.23) {$\frac{g(P)}{c(P)}$};
+    \node[phase-label,anchor=south] at (-1.10,1.25) {$\frac{E(P)}{c(P)}$};
+  \end{scope}
+
+  \draw[phase-e-ray] (2.05,0.63) -- (2.95,0.63);
+  \node[phase-note] at (2.50,0.92) {$\times\omega$};
+  \node[phase-note] at (2.50,0.35) {$120^\circ$};
+  \draw[phase-e-ray] (7.30,0.63) -- (8.15,0.63);
+  \node[phase-note] at (7.73,0.99) {$\div c(\omega)$};
+
+  \node[phase-note] at (0,-2.22) {Circle radius $3$};
+  \node[phase-note] at (5.2,-2.22) {Circle radius $3$};
+  \node[phase-note] at (10.4,-2.22) {Circle radius $1$; $P\in\{1,\omega\}$};
+  \node[phase-note] at (5.2,-2.76)
+    {Schematic values only; complex angles do not represent modular residues.};
+\end{tikzpicture}
+\endgroup

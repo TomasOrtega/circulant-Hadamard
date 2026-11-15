@@ -1,42 +1,608 @@
-\documentclass[aspectratio=169]{beamer}
+\documentclass[aspectratio=169,11pt]{beamer}
 \input{preamble.tex}
 \input{metadata.tex}
+\pdfstringdefDisableCommands{\def\translate#1{#1}}
+\definecolor{talkblue}{RGB}{21,119,167}
+\definecolor{talkink}{RGB}{25,30,35}
+\definecolor{talkmuted}{RGB}{85,99,108}
+\definecolor{talkpale}{RGB}{239,247,251}
 \setbeamertemplate{navigation symbols}{}
-
+\setbeamertemplate{itemize item}{\color{talkblue}\small$\bullet$}
+\setbeamercolor{normal text}{fg=talkink,bg=white}
+\setbeamercolor{structure}{fg=talkblue}
+\setbeamercolor{alerted text}{fg=talkblue}
+\setbeamercolor{frametitle}{fg=white,bg=talkink}
+\setbeamercolor{takeaway}{fg=talkink,bg=talkpale}
+\setbeamerfont{frametitle}{size=\large,series=\bfseries}
+\setbeamerfont{footline}{size=\tiny}
+\setbeamersize{text margin left=7mm,text margin right=7mm}
+\setbeamertemplate{frametitle}{%
+  \begin{beamercolorbox}[wd=\paperwidth,sep=2.5mm,leftskip=4mm]{frametitle}
+    \usebeamerfont{frametitle}\insertframetitle{}
+  \end{beamercolorbox}%
+}
+\setbeamertemplate{footline}{%
+  \hspace*{7mm}\color{talkmuted}\insertsectionhead{}
+  \hfill Circulant Hadamard \hspace*{4mm}%
+  \insertframenumber/\inserttotalframenumber\hspace*{20mm}
+  \vspace*{2mm}%
+}
+\addtobeamertemplate{background canvas}{}{%
+  \begin{tikzpicture}[remember picture,overlay]
+    \node[anchor=south east,inner sep=0pt,xshift=-1.5mm,yshift=1mm]
+      at (current page.south east) {\href{\WebsiteURL}{%
+        \includegraphics[width=1.05cm]{assets/images/slides-website-qr.png}%
+      }};
+  \end{tikzpicture}%
+}
+\newcommand{\takeaway}[1]{%
+  \par\smallskip
+  \begin{beamercolorbox}[wd=\dimexpr\linewidth-12mm\relax,sep=1.5mm]{takeaway}
+    \small\strut#1
+  \end{beamercolorbox}%
+}
+\newcommand{\sourcecredit}[1]{%
+  \par\smallskip{\scriptsize\color{talkmuted}%
+    \parbox[t]{\dimexpr\linewidth-12mm\relax}{#1}\par}%
+}
 \title{\ProjectTitle}
-\subtitle{Caltech x SAIR Mathathon}
+\subtitle{A proof you can explore}
 \author{\TeamMembers}
 \institute{\TeamAffiliations}
-\date{November 2026}
-\titlegraphic{\includegraphics[height=10mm]{sair.jpg}}
+\date{November 15, 2026}
 
 \begin{document}
 
+% Both speakers, about 4:25 including the full 3:35 video.
+% Open the website, play its first video, and briefly show a clickable node.
+% Return here and advance to Tomas's design section. Offline media fallback:
+% website/media/overview.mp4. The QR and visible URL both target the public site.
 \begin{frame}
-  \titlepage{}
-\end{frame}
-
-\begin{frame}{Problem and motivation}
-  The circulant Hadamard conjecture~\cite{mathathon}.
-
-  To do: Define the objects and explain the goal.
-\end{frame}
-
-\begin{frame}{Contribution and evidence}
+  \begin{columns}[c,onlytextwidth]
+    \begin{column}{0.55\textwidth}
+      {\LARGE\bfseries The circulant\\Hadamard conjecture\par}
+      \smallskip
+      {\large A proof you can explore\par}
+      \medskip
+      {\small Steven Creech \quad Tomas Ortega\par}
+      {\scriptsize Rutgers University \quad Princeton University\par}
+      \medskip
+      \par\href{\WebsiteURL}{\beamergotobutton{Open the website and overview video}}\par
+      \smallskip
+      {\small Overview video: 3:35\par}
+    \end{column}
+    \begin{column}{0.41\textwidth}
+      \centering
+      \href{\WebsiteURL}{%
+        \includegraphics[width=\linewidth]{assets/images/slides-overview.jpg}%
+      }
+    \end{column}
+  \end{columns}
+  \medskip
   \centering
-  \input{assets/diagrams/workflow.tex}
+  {\small\href{\WebsiteURL}{\nolinkurl{tomasortega.net/circulant-Hadamard/}}\par}
+  \smallskip
+  {\scriptsize Algebra/Number Theory \quad Caltech $\times$ SAIR Mathathon\par}
+  \sourcecredit{Exposition of OpenAI's September 23, 2026 proof.}
+\end{frame}
+
+\section{Tomas: design principles}
+
+% Design frames for Tomas, after the website opening and overview video.
+% Planned duration: 4 minutes. The closing frame follows Steven's proof.
+% Requires the deck's \takeaway and \sourcecredit commands.
+% All claims are covered in report Sections 2--3 and 10--11.
+
+% Tomas, 0:55. The audience has just watched the overview.
+% Ask what a reader should do when one step is unfamiliar. Point to the
+% main map, then explain that its eight claims each open into smaller steps.
+% The counts describe the artifact, not a measured educational outcome.
+\begin{frame}{See the argument before opening its details}
+  \begin{columns}[c,onlytextwidth]
+    \begin{column}{0.70\textwidth}
+      \centering
+      \resizebox{\linewidth}{!}{%
+        \input{assets/diagrams/slides-main-map.tex}%
+      }
+    \end{column}
+    \begin{column}{0.27\textwidth}
+      \large
+      Understand the role of each step.
+
+      \medskip
+      \alert{1} overview
+
+      \smallskip
+      \alert{8} main nodes
+
+      \smallskip
+      \alert{39} refined nodes
+    \end{column}
+  \end{columns}
+  \takeaway{See where a lemma fits before reading its proof.}
+  \sourcecredit{Website design resources adapted from 3Blue1Brown.}
+\end{frame}
+
+% Tomas, 1:00. Use the actual node page to show the repeated reading pattern.
+% A reader can watch the idea, inspect the incoming dependencies, or read
+% the written argument. Opening a step retains a route back to its parent.
+% The main journey uses u=3; the deeper arguments handle general odd u.
+% Mention that every one of the 48 nodes has a dedicated narrated video.
+\begin{frame}{Open the step whose justification you need}
+  \begin{columns}[c,onlytextwidth]
+    \begin{column}{0.70\textwidth}
+      \centering
+      \includegraphics[width=\linewidth,height=4.65cm,keepaspectratio]
+        {assets/images/slides-node-detail.png}
+    \end{column}
+    \begin{column}{0.27\textwidth}
+      \large
+      Watch the idea.
+
+      \medskip
+      Follow its dependencies.
+
+      \medskip
+      Read the argument.
+    \end{column}
+  \end{columns}
+  \takeaway{One example leads into the general proof, a step at a time.}
+\end{frame}
+
+% Tomas, 1:05. Explain the production choice, not a list of software features.
+% Scripts specify both narration and what changes on screen. Independent
+% sentence recordings produced perceived voice changes in early experiments.
+% We moved to one continuous take and timed the animations to it.
+% Speech alignment helps timing; it does not establish audible clarity.
+% Captions retain the spoken-source text. Human reviewers directed the
+% exposition and assessed sample voices; do not claim a full listening audit.
+\begin{frame}{Record the explanation, then time the animation}
+  \begin{columns}[c,onlytextwidth]
+    \begin{column}{0.54\textwidth}
+      \centering
+      \includegraphics[width=\linewidth,height=3.75cm,keepaspectratio]
+        {assets/images/slides-overview.jpg}
+
+      \smallskip
+      {\small Captions follow the narration script.}
+    \end{column}
+    \begin{column}{0.42\textwidth}
+      \large
+      Script + visual directions
+
+      \smallskip
+      \hspace*{1em}$\downarrow$
+
+      \smallskip
+      One continuous narration
+
+      \smallskip
+      \hspace*{1em}$\downarrow$
+
+      \smallskip
+      Animation timed to that take
+    \end{column}
+  \end{columns}
+  \takeaway{Keep the voice continuous as the mathematics changes.}
+  \sourcecredit{Google Chirp 3 HD Achird; ManimGL{}; faster-whisper alignment.}
+\end{frame}
+
+% Tomas, 1:00, then hand off to Steven.
+% The website lets readers choose the common rotation and then divide by
+% c(P). The three panels show one choice: lambda = omega. Point out that
+% E(P) follows the same rotation even though it is outside the circle.
+% Normalizing makes the configurations coincide. These are schematic values;
+% an angle is not a modular residue. Steven now explains why the arithmetic
+% demands incompatible residues for the equal normalized values.
+\begin{frame}{Explore a relationship, then prove it}
+  \centering
+  \resizebox{0.98\textwidth}{!}{%
+    \input{assets/diagrams/report-common-rotation.tex}%
+  }
+  \takeaway{The common rotation disappears after division by $c(P)$.}
+  \sourcecredit{Interactive on the website; schematic values, not an order-36 matrix.}
+\end{frame}
+
+
+\section{Steven: ideas of the proof}
+% Steven's proof segment: eight main frames, about nine minutes.
+% Root supplies \takeaway and \sourcecredit. Two optional backups follow.
+
+% 0:55. Define the objects; attribute the theorem before explaining our map.
+\begin{frame}{The goal: only orders 1 and 4}
+\begin{columns}[c]
+\begin{column}{0.49\textwidth}
+A Hadamard matrix is $n\times n$, with entries $\pm1$ and orthogonal distinct rows.
+
+\medskip
+A circulant matrix is determined by one row and its cyclic shifts.
+
+\medskip
+\textbf{Theorem}\quad A circulant Hadamard matrix has order
+\[\boxed{n=1\quad\text{or}\quad n=4.}\]
+\end{column}
+\begin{column}{0.46\textwidth}
+\centering
+\textcolor{blue!65!black}{A working order-four example}
+\[\begin{pmatrix}
+-1&1&1&1\\1&-1&1&1\\1&1&-1&1\\1&1&1&-1
+\end{pmatrix}\]
+\[HH^{\mathsf T}=4I.\]
+\end{column}
+\end{columns}
+\takeaway{The proof rules out every larger order. We follow $n=36$ first.}
+\sourcecredit{Theorem and proof: OpenAI, \emph{The circulant Hadamard conjecture} (2026).}
+\end{frame}
+
+% 1:05. Each product coefficient is a cyclic dot product. Odd u is the deeper
+% power-of-two descent, not a consequence of parity alone.
+\begin{frame}{One polynomial records every row comparison}
+\[(h_{0},\ldots,h_{n-1})\longleftrightarrow
+h(X)=\sum_{j=0}^{n-1}h_{j}X^{j},\qquad h_{j}=\pm1.\]
+\begin{center}
+\large Hadamard $\iff$ $\displaystyle h(X)h^{*}(X)=n$
+\quad in $\mathbb Z[X]/(X^{n}-1)$.
+
+\smallskip
+\normalsize $h^{*}(X)=h(X^{-1})$: reverse the cyclic positions.
+\end{center}
+\medskip
+For $n>1$:
+\begin{columns}[t]
+\begin{column}{0.30\textwidth}
+\centering\textcolor{blue!65!black}{Substitute $X=1$}
+\[n={h(1)}^{2}.\]
+The order is a square.
+\end{column}
+\begin{column}{0.30\textwidth}
+\centering\textcolor{blue!65!black}{Orthogonal rows}
+\[\underbrace{\pm1\pm\cdots\pm1}_{n\text{ terms}}=0.\]
+The order is even.
+\end{column}
+\begin{column}{0.30\textwidth}
+\centering\textcolor{blue!65!black}{Power-of-two descent}
+\[n=4u^{2},\quad u\text{ odd}.\]
+The deeper order lemma.
+\end{column}
+\end{columns}
+\takeaway{Assume $u>1$ and seek a contradiction. The guiding case is $u=3$.}
+\sourcecredit{Proof map Nodes 1--2; OpenAI (2026), Sections 2 and 4.}
+\end{frame}
+
+% 1:15. CRT reindexes coefficients, not consecutive blocks. Fourth roots
+% justify the substitutions; halving both factors removes the factor four.
+\begin{frame}{Three evaluations, one circle}
+\[\begin{gathered}
+C_{36}\cong C_{4}\times C_{9},\qquad Z^{4}=1,\quad P^{9}=1,\\
+h(Z,P)=H_{0}(P)+ZH_{1}(P)+Z^{2}H_{2}(P)+Z^{3}H_{3}(P).
+\end{gathered}\]
+\begin{columns}[c]
+\begin{column}{0.58\textwidth}
+{\small
+\[c(P)=\frac{h(1,P)}2,\; d(P)=\frac{h(-1,P)}2,\;
+ g(P)=\frac{h(i,P)}2.\]}
+Each $H_{a}(P)$ has sign coefficients; the halves are integral.
+\[c(P)c^{*}(P)=d(P)d^{*}(P)=g(P)g^{*}(P)=9.\]
+{\small Star reverses powers and conjugates coefficients.}
+\end{column}
+\begin{column}{0.37\textwidth}
+\centering
+\begin{tikzpicture}[font=\normalsize,scale=0.97]
+\draw[black!25,-{Stealth}] (-1.8,0)--(1.9,0);
+\draw[black!25,-{Stealth}] (0,-1.7)--(0,1.8);
+\draw[blue!55] (0,0) circle[radius=1.2];
+\foreach \angle/\label/\anchor in
+ {25/c(\zeta)/west,145/d(\zeta)/east,270/g(\zeta)/north} {
+ \draw[blue!55,-{Stealth}] (0,0)--(\angle:1.2);
+ \fill[blue!65!black] (\angle:1.2) circle[radius=2pt];
+ \node[anchor=\anchor] at (\angle:1.28) {$\label$};
+}
+\node[font=\small,fill=white] at (0.7,-0.3) {radius $3$};
+\node[font=\small] at (0,-1.9) {Allowed inputs: $\zeta^{9}=1$};
+\end{tikzpicture}
+\end{column}
+\end{columns}
+\takeaway{Halving both factors changes $36$ into $9$. The magnitudes are fixed at $3$.}
+\sourcecredit{Node 3; OpenAI (2026), Section 4. Circle positions are schematic.}
+\end{frame}
+
+% 1:10. Gaussian coefficients include g(P). Integrality is the arithmetic
+% work and must precede Kronecker; a unit-circle statement alone is weaker.
+\begin{frame}{The $\Delta$-theorem restricts the relative phase}
+Suppose $f(P)f^{*}(P)=9$ in $\mathbb Z[i][P]/(P^{9}-1)$:
+\begin{columns}[c]
+\begin{column}{0.57\textwidth}
+\[\omega=e^{2\pi i/3},\qquad\Delta(f)=\frac{f(1)}{f(\omega)}.\]
+\[|f(1)|=|f(\omega)|=3\quad\Longrightarrow\quad|\Delta(f)|=1.\]
+\textbf{Arithmetic input:} $\Delta(f)$ is an algebraic integer.
+Every conjugate also has modulus one.
+
+\medskip
+\textbf{Kronecker:} it is a root of unity.
+Further arithmetic makes its order odd.
+\end{column}
+\begin{column}{0.38\textwidth}
+\centering
+\begin{tikzpicture}[font=\large]
+\draw[black!25,-{Stealth}] (-1.7,0)--(1.85,0);
+\draw[black!25,-{Stealth}] (0,-1.7)--(0,1.7);
+\draw[blue!55] (0,0) circle[radius=1.15];
+\foreach \angle/\label/\anchor in
+ {0/1/west,120/\omega/south east,240/\omega^{2}/north east} {
+ \draw[blue!55,-{Stealth}] (0,0)--(\angle:1.15);
+ \fill[blue!65!black] (\angle:1.15) circle[radius=2.8pt];
+ \node[anchor=\anchor] at (\angle:1.24) {$\label$};
+}
+\node[font=\small] at (0,-1.95) {Only three possible rotations};
+\end{tikzpicture}
+\end{column}
+\end{columns}
+\takeaway{$\Delta(c),\Delta(d),\Delta(g)\in\{1,\omega,\omega^{2}\}$. The circle alone is not enough.}
+\sourcecredit{Node 4; OpenAI (2026), Proposition 3.4.}
+\end{frame}
+
+% 1:00. This combination connects phase comparisons to sign coefficients.
+% The H identity proves exact divisibility before any reduction.
+\begin{frame}{Cook up a polynomial whose signs become ones}
+\[\boxed{E(P)=\frac{d(P)-c(P)}2+\frac{g(P)-c(P)}{1+i}.}\]
+\begin{center}Substitute the definitions of $c(P),d(P),g(P)$:\end{center}
+\[E(P)=-H_{3}(P)+(i-1)\frac{H_{1}(P)+H_{2}(P)}2.\]
+\begin{columns}[t]
+\begin{column}{0.46\textwidth}
+\centering $\displaystyle\frac{H_{1}(P)+H_{2}(P)}2$ is integral.
+
+\smallskip Two signs always have an even sum.
+\end{column}
+\begin{column}{0.46\textwidth}
+\centering $i-1=i(1+i)$, and $-1\equiv1\pmod{1+i}$.
+
+\smallskip The second term vanishes; every sign becomes $1$.
+\end{column}
+\end{columns}
+\[\boxed{E(P)\equiv J(P)=1+P+\cdots+P^{8}\pmod{1+i}.}\]
+\takeaway{At $P=1$, nine ones remain: $E(1)\equiv9\equiv1\pmod{1+i}$.}
+\sourcecredit{Node 5; OpenAI (2026), Section 4. Quotients are taken exactly before reduction.}
+\end{frame}
+
+% 1:15. Units justify residues. Odd-order root plus residue one forces one.
+% E's triangle rotates with c,d,g by linearity. The illustrated lambda=omega
+% is schematic, not a valid sign construction or a picture of residues.
+\begin{frame}{The same rotation moves all four evaluations}
+\small
+Shared signs give $R\equiv W\equiv1\pmod{1+i}$; the $\Delta$-theorem gives odd order.
+These conditions force
+\[R=\frac{\Delta(d)}{\Delta(c)}=1,\qquad
+ W=\frac{\Delta(g)}{\Delta(c)}=1.\]
+\centering
+\begin{center}
+\begin{tikzpicture}[font=\normalsize,x=1cm,y=1cm,
+ ray/.style={blue!55,-{Stealth[length=1.5mm]}},
+ lab/.style={fill=white,inner sep=1pt}]
+\path[use as bounding box] (-2.1,-1.95) rectangle (8.4,1.9);
+\foreach \offset in {0,6.2} {
+ \begin{scope}[xshift=\offset cm]
+ \draw[black!20] (-1.7,0)--(1.7,0);
+ \draw[black!20] (0,-1.65)--(0,1.55);
+ \draw[blue!45] (0,0) circle[radius=1.05];
+ \end{scope}
+}
+\node at (0,1.75) {$P=1$};
+\node at (6.2,1.75) {$P=\omega$};
+\coordinate (a-c) at (1.05,0);
+\coordinate (a-d) at (-1.05,0);
+\coordinate (a-g) at (0,1.05);
+\coordinate (a-e) at (-1.05,1.05);
+\begin{scope}[xshift=6.2cm]
+ \coordinate (b-c) at (120:1.05);
+ \coordinate (b-d) at (300:1.05);
+ \coordinate (b-g) at (210:1.05);
+ \coordinate (b-e) at ({-1.05*cos(120)-1.05*sin(120)},
+ {-1.05*sin(120)+1.05*cos(120)});
+\end{scope}
+\foreach \prefix/\offset in {a/0,b/6.2} {
+ \foreach \point in {c,d,g} {
+ \draw[ray] (\offset,0)--(\prefix-\point);
+ \fill[blue!65!black] (\prefix-\point) circle[radius=2pt];
+ }
+ \draw[ray,semithick] (\offset,0)--(\prefix-e);
+ \begin{scope}[shift={(\prefix-e)}]
+ \draw[blue!65!black,fill=white,thick]
+ (0,0.09)--(0.08,-0.05)--(-0.08,-0.05)--cycle;
+ \end{scope}
+}
+\node[lab,anchor=west] at (1.13,0.08) {$c(1)$};
+\node[lab,anchor=east] at (-1.13,-0.10) {$d(1)$};
+\node[lab,anchor=west] at (0.10,1.13) {$g(1)$};
+\node[lab,anchor=south] at (-1.05,1.18) {$E(1)$};
+\node[lab,anchor=south east] at (5.58,1.03) {$c(\omega)$};
+\node[lab,anchor=west] at (6.83,-0.91) {$d(\omega)$};
+\node[lab,anchor=east] at (5.18,-0.58) {$g(\omega)$};
+\node[lab,anchor=north] at (5.82,-1.56) {$E(\omega)$};
+\draw[blue!65!black,thick,-{Stealth}] (2.1,0.3)--(3.8,0.3);
+\node[align=center,font=\small] at (2.95,0.82)
+ {Multiply every point\\by the same $\lambda$};
+\node[font=\small] at (2.95,-0.18) {shown: $\lambda=\omega$};
+\end{tikzpicture}
+\end{center}
+\vspace{-0.8em}
+\takeaway{Divide by $c(P)$ to remove the rotation:
+ $\dfrac{E(1)}{c(1)}=\dfrac{E(\omega)}{c(\omega)}$.}
+\sourcecredit{OpenAI (2026), Eq. (4.10).
+ Norm $9$ gives unit denominators in $A=\mathbb Z[i,\omega,1/3]$.
+ Schematic values; angles do not encode residues.}
+\end{frame}
+
+% 1:00. All residue comparisons are in the nonzero ring A/(1+i)A.
+% Geometry motivates normalization; sign arithmetic supplies the contradiction.
+\begin{frame}{Equal normalized values would have different residues}
+\[\frac{E(1)}{c(1)}=\frac{E(\omega)}{c(\omega)}.\]
+\begin{center}
+$E(P)\equiv J(P)\pmod{1+i}$, and the denominators remain invertible.
+\end{center}
+\begin{columns}[c]
+\begin{column}{0.45\textwidth}
+\centering\textcolor{blue!65!black}{At $P=1$}
+\[J(1)=\underbrace{1+\cdots+1}_{9\text{ terms}}=9,
+ \quad c(1)=\pm3.\]
+\[\frac{E(1)}{c(1)}\equiv\frac{9}{\pm3}\equiv\boxed{1}.\]
+\end{column}
+\begin{column}{0.45\textwidth}
+\centering\textcolor{blue!65!black}{At $P=\omega$}
+\[J(\omega)=3(1+\omega+\omega^{2})=0.\]
+\[\frac{E(\omega)}{c(\omega)}\equiv\boxed{0}.\]
+\end{column}
+\end{columns}
+\medskip
+\begin{center}\Large $1\not\equiv0\pmod{1+i}$.\end{center}
+\takeaway{The order-36 assumption forces an impossible equality.}
+\sourcecredit{Nodes 7--8; OpenAI (2026), Section 4. The quotient $A/(1+i)A$ is nonzero.}
+\end{frame}
+
+% 1:20. The many-prime conclusion compares products, not one common rotation.
+% Expansion and cancellation occur in the domain before reduction. Backup 2
+% supplies a four-input example if the audience asks about this step.
+\begin{frame}{Many primes: products become a sum}
+\small
+For odd $u>1$, use $f(P)f^{*}(P)=u^{2}$ and
+$J(P)=1+P+\cdots+P^{u^{2}-1}$.
+For each prime $p\mid u$, choose a primitive $p$th root $\zeta_{p}$.
+Let $I=\{p:p\mid u\}$ and $\zeta_{S}=\prod_{p\in S}\zeta_{p}$.
+Even subsets go upstairs; odd subsets go downstairs:
+\[\Delta(f)=\frac{\prod_{|S|\,\mathrm{even}}f(\zeta_{S})}
+ {\prod_{|S|\,\mathrm{odd}}f(\zeta_{S})}.\]
+\begin{center}
+Exact products $R=W=1$\ $\longrightarrow$\ expand, cancel, then reduce
+\ $\longrightarrow$
+\end{center}
+\[\mathcal S=\sum_{S\subseteq I}{(-1)}^{|S|}
+ \frac{E(\zeta_{S})}{c(\zeta_{S})}\equiv0\pmod{1+i}.\]
+\begin{columns}[c]
+\begin{column}{0.45\textwidth}
+\centering $S\ne\varnothing$: a nontrivial root
+\[J(\zeta_{S})=0.\]
+\end{column}
+\begin{column}{0.45\textwidth}
+\centering $S=\varnothing$: input $1$
+\[\mathcal S\equiv\frac{J(1)}{c(1)}
+ =\frac{u^{2}}{\pm u}\equiv1\pmod{1+i}.\]
+\end{column}
+\end{columns}
+\takeaway{The surviving odd term contradicts the vanishing sum. Therefore $n=1$ or $n=4$.}
+\sourcecredit{Nodes 7--8; OpenAI (2026), Lemma 4.1 and Eq. (4.11).
+ Unit denominators in $\mathbb Z[i,\{\zeta_{p}\},1/u]$.}
+\end{frame}
+
+
+% Both speakers, 1:00. Credit the source proof and state the event contribution.
+% Invite the audience to choose a node for questions. Point to the report for
+% the full argument, cited foundations, checks, and limits of the illustrations.
+\section{Explore the proof}
+\begin{frame}{An explanation the reader can navigate}
+  \par
+  {\Large\alert{1} overview $\longrightarrow$ \alert{8} main ideas
+    $\longrightarrow$ \alert{39} refinements\par}
+  \medskip
+  Written arguments, 48 narrated videos, and an interactive phase comparison.
 
   \medskip
-  To do: Explain the main argument and its evidence, as recorded in the report.
+  \textbf{Human direction}\quad Structure, narration, mathematical editing.
+
+  \smallskip
+  \textbf{Codex/GPT-6}\quad Drafts, code, checks, and reviews.
+
+  \smallskip
+  \textbf{Evidence}\quad Source comparison and automated checks;
+  detailed arguments and limitations in the report.
+  \takeaway{Our contribution is the exposition, the visual explanation, and the website.}
+  \centering
+  {\small\href{\WebsiteURL}{\nolinkurl{tomasortega.net/circulant-Hadamard/}}\par}
+  \sourcecredit{Mathematical source: OpenAI, September 23, 2026 preprint.
+    No Lean verification or measured learning gains are claimed.}
 \end{frame}
 
-\begin{frame}{Limitations and next steps}
-  To do: State what is established and what remains open.
+\appendix
+\section{Backup: details and sources}
+
+% BACKUP FRAMES
+% Backup, outside the timed proof segment: local comparison supplies both
+% integrality and the prime-power restrictions on the order.
+\begin{frame}{Backup: where arithmetic enters the $\Delta$-theorem}
+\centering
+\resizebox{0.86\textwidth}{!}{%
+ \input{assets/diagrams/report-delta-detail.tex}%
+}
+\takeaway{Local comparison proves integrality before Kronecker can be applied.}
+\sourcecredit{Website Node 4 refinement; OpenAI (2026), Section 3 and Proposition 3.4.}
 \end{frame}
 
-\begin{frame}{References}
-  \bibliographystyle{plain}
-  \bibliography{references}
+% Backup: u=15 has Delta=1 individually and four inputs, without an inferred
+% common rotation. Cancel in the domain, then reduce; all quotients are exact.
+\begin{frame}{Backup: the four evaluations when $u=15$}
+\small
+\[\Delta(f)=\frac{f(1)f(\zeta_{3}\zeta_{5})}
+ {f(\zeta_{3})f(\zeta_{5})}=1.\]
+Its order is both a power of $3$ and a power of $5$.
+The conclusion compares products, rather than one common rotation.
+
+\medskip
+Write $d(\zeta_{S})/c(\zeta_{S})=1+2a_{S}$ and
+$g(\zeta_{S})/c(\zeta_{S})=1+(1+i)b_{S}$, with
+$a_{S}+b_{S}=E(\zeta_{S})/c(\zeta_{S})$.
+\[(1+tx_{0})(1+tx_{35})=(1+tx_{3})(1+tx_{5})
+ \quad\Longrightarrow\quad
+ x_{0}+x_{35}-x_{3}-x_{5}+t(x_{0}x_{35}-x_{3}x_{5})=0.\]
+For $t=2$ or $t=1+i$, cancel the nonzero $t$ in the original domain; then reduce.
+\[\underbrace{\frac{E(1)}{c(1)}}_{\equiv\,225/(\pm15)\,\equiv\,1}
+ -\underbrace{\frac{E(\zeta_{3})}{c(\zeta_{3})}}_{\equiv\,0}
+ -\underbrace{\frac{E(\zeta_{5})}{c(\zeta_{5})}}_{\equiv\,0}
+ +\underbrace{\frac{E(\zeta_{3}\zeta_{5})}{c(\zeta_{3}\zeta_{5})}}_{\equiv\,0}
+ \equiv0\pmod{1+i}.\]
+\takeaway{Three terms vanish. The same odd term survives: $1\equiv0$, a contradiction.}
+\sourcecredit{OpenAI (2026), Proposition 3.4 and Lemma 4.1.
+ All divisions use exact quotients and units.}
+\end{frame}
+
+% Optional backup for a network-free view of the original website maps.
+\begin{frame}{Backup: the website's dependency maps}
+  \begin{columns}[c,onlytextwidth]
+    \begin{column}{0.47\textwidth}
+      \centering
+      \includegraphics[width=\linewidth,height=5.6cm,keepaspectratio]
+        {assets/images/slides-proof-map.png}
+      \par\small The main proof map.
+    \end{column}
+    \begin{column}{0.49\textwidth}
+      \centering
+      \includegraphics[width=\linewidth,height=5.6cm,keepaspectratio]
+        {assets/images/slides-delta-map.png}
+      \par\small Inside the $\Delta$-theorem.
+    \end{column}
+  \end{columns}
+  \sourcecredit{Actual website views. The main talk redraws the first graph for readability.}
+\end{frame}
+
+\begin{frame}{Sources, tools, and what the report contains}
+  \small
+  \textbf{Mathematical argument}
+  \par\href{https://github.com/openai/math/blob/main/preprints/The-circulant-Hadamard-conjecture-September-23-2026/paper.pdf}
+    {OpenAI, \emph{The circulant Hadamard conjecture}, September 23, 2026.}
+  \par Classical restrictions and cyclotomic inputs are attributed in the report.
+
+  \medskip
+  \textbf{Visual and audio resources}
+  \begin{itemize}
+    \item \href{https://github.com/3b1b/manim}{ManimGL},
+      \href{https://github.com/3b1b/3Blue1Brown.com}{3Blue1Brown website styles},
+      and \href{https://github.com/3b1b/videos}{animation guidance}.
+    \item \href{https://docs.cloud.google.com/text-to-speech/docs/chirp3-hd}
+      {Google Chirp 3 HD Achird} narration;
+      \href{https://github.com/SYSTRAN/faster-whisper}{faster-whisper} alignment.
+    \item Codex/GPT-6 assistance, with team direction and source review.
+  \end{itemize}
+  \medskip
+  The report contains the argument, descriptions of the figures, event work,
+  AI roles, source attribution, and limitations.
+  \takeaway{Visual intuition supports the proof; the written argument supplies its details.}
 \end{frame}
 
 \end{document}
