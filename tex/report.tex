@@ -58,7 +58,8 @@ is circulant, and any two distinct rows have two positive and two negative
 terms in their dot product. Thus it is Hadamard. The $1\times1$ matrix
 $(1)$ is another example.
 
-The question is whether larger examples exist. This is the selected
+The question is whether larger examples exist. The conjecture is traditionally
+attributed to Ryser's 1963 book~\cite{ryser1963}. This is the selected
 Mathathon problem~\cite{mathathon}, and the theorem of the source
 preprint~\cite{circulant-source} is the following.
 
@@ -71,9 +72,10 @@ $n=1$ or $n=4$.
 The tension is already visible in the definition. A single row determines
 the entire matrix, but must be orthogonal to every nontrivial cyclic shift
 of itself. The problem connects sign sequences and periodic correlations
-to the arithmetic of roots of unity. Classical restrictions, attributed
-to Turyn in the source's historical discussion, force every nontrivial
-order to have the form $4u^{2}$ with $u$ odd, and exclude prime-power $u$.
+to the arithmetic of roots of unity. Turyn's classical restrictions force
+every nontrivial order to have the form $4u^{2}$ with $u$ odd~%
+\cite[Theorem~8 and its corollary, pp.~335--336]{turyn1965}, and exclude
+prime-power $u>1$~\cite[Corollary~2 to Theorem~6, p.~333]{turyn1965}.
 The source proof treats all odd $u>1$ through an alternating product of
 evaluations. Our example $u=3$ is therefore a teaching example of the
 mechanism, not a new nonexistence result.
@@ -315,10 +317,11 @@ Its positive square root is then even, and we can write $n=4u^{2}$ with
 $u$ a positive integer.
 
 The remaining restriction uses the arithmetic of a power-of-two cycle.
-We give the descent from~\cite[Proposition~2.2]{circulant-source}, which
-the source attributes to Turyn.
+This is Turyn's classical restriction~\cite[Theorem~8 and its corollary]{turyn1965}.
+We give the streamlined group-ring descent
+from~\cite[Proposition~2.2]{circulant-source}.
 \begin{quote}
-  \textbf{Order restriction~\cite[Proposition~2.2]{circulant-source}.}
+  \textbf{Order restriction (Turyn~\cite{turyn1965}).}
   If a real circulant Hadamard matrix has order $n>1$, then
   $n=4u^{2}$ for an odd positive integer $u$.
 \end{quote}
