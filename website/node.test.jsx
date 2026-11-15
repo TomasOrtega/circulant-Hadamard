@@ -19,7 +19,7 @@ describe("recursive node navigation", () => {
   test("every node has its own page, a deeper link, and a direct parent link", () => {
     expect(
       Math.max(...entries.map((entry) => entry.path.length)),
-    ).toBeGreaterThan(2);
+    ).toBe(1);
     for (const entry of entries) {
       const html = readFileSync(join(output, pagePath(entry)), "utf8");
       expect(html).toContain(`<h1>${entry.node.title}</h1>`);
@@ -65,7 +65,7 @@ describe("recursive node navigation", () => {
   test("every view has an overview slot, and each child node has a clip and deeper button", () => {
     for (const entry of entries) {
       const html = readFileSync(join(output, pagePath(entry)), "utf8");
-      const children = entry.node.children ?? [];
+      const children = (entry.node.children ?? []).filter(({ node }) => !node.supplemental);
       expect(html).toContain("Overview video");
       expect([...html.matchAll(/>Node excerpt</g)]).toHaveLength(
         children.length,
@@ -104,15 +104,11 @@ describe("recursive node navigation", () => {
 
 describe("node authoring constraints", () => {
   test("undergraduate foundations are terminal views", () => {
-    const foundations = entries.filter((entry) => entry.node.foundation);
-    expect(foundations.length).toBeGreaterThan(0);
-    for (const entry of foundations) {
-      expect(entry.node.children).toHaveLength(0);
-      expect(readFileSync(join(output, pagePath(entry)), "utf8")).not.toContain(
-        "Dig in deeper",
-      );
-    }
-    const foundation = foundations[0].node;
+    const foundation = { ...rootNode.children[0].node, foundation: true };
+    const [entry] = collectNodes(foundation);
+    expect(entry.node.children).toHaveLength(0);
+    const html = renderToStaticMarkup(<NodePage entry={entry} entries={[entry]} />);
+    expect(html).not.toContain("Dig in deeper");
     expect(() =>
       collectNodes({
         ...foundation,
@@ -131,11 +127,11 @@ describe("node authoring constraints", () => {
   test("duplicate slugs and circular hierarchies fail the build", () => {
     expect(() =>
       collectNodes({
-        ...rootNode,
+        ...rootNode, graphLayout: null,
         children: [rootNode.children[0], rootNode.children[0]],
       }),
     ).toThrow("Duplicate child node IDs");
-    const circular = { ...rootNode, children: [] };
+    const circular = { ...rootNode, graphLayout: null, children: [] };
     circular.children.push({
       node: circular,
       script: ["Cut script"],
@@ -147,7 +143,7 @@ describe("node authoring constraints", () => {
 
   test("the displayed order-four example has orthogonal cyclic shifts", () => {
     const source = entries
-      .find((entry) => entry.node.id === "example")
+      .find((entry) => entry.node.id === "theorem")
       .node.script.join("\n\n");
     const matrix = source
       .match(/\\begin\{pmatrix\}([\s\S]*?)\\end\{pmatrix\}/)[1]
@@ -169,11 +165,11 @@ describe("node authoring constraints", () => {
 
   test("configured videos render real players and relative file URLs work at depth", () => {
     const child = {
-      ...rootNode.children[0].node.children[0].node,
+      ...rootNode.children[0].node,
       video: { src: "media/test.mp4", captions: "media/test.vtt" },
     };
     const configured = collectNodes({
-      ...rootNode,
+      ...rootNode, graphLayout: null,
       video: { youtubeId: "abcdefghijk" },
       children: [
         {

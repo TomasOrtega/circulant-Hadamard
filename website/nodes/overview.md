@@ -1,31 +1,72 @@
 ---
 id: overview
 title: The circulant Hadamard conjecture
-shortTitle: Overview
-summary: A guided route through the question, the structure behind it, and the
-  argument we are developing.
-video: null
+shortTitle: Proof map
+summary: Start with order 36. Follow eight high-level nodes, then see how the
+  same argument extends to every odd u > 1.
+draft: true
+graphLayout: proof-map
 children:
-  - node: question
+  - node: group-ring-encoding
     dependsOn: []
     segment: null
-    script: |
-      A Hadamard matrix has entries +1 and −1 and mutually orthogonal rows. A circulant matrix is determined by its first row: every later row is obtained by shifting the entries around a circle.
-  - node: structure
+  - node: restriction-on-the-order
     dependsOn:
-      - question
+      - group-ring-encoding
     segment: null
-    script: |
-      Because the rows are shifts of the same sequence, their inner products depend only on the relative shift. Cyclic correlations express those comparisons directly in terms of the first row.
-  - node: argument
+  - node: three-evaluations
     dependsOn:
-      - question
-      - structure
+      - restriction-on-the-order
     segment: null
-    script: |
-      This node is a place for the team's argument, rather than a claim that the conjecture has been proved. The completed version will explain how each step follows and what evidence supports it.
+  - node: delta-theorem
+    dependsOn: []
+    segment: null
+    contextFrom:
+      - group-ring-encoding
+  - node: signs-become-all-ones
+    dependsOn:
+      - three-evaluations
+    segment: null
+  - node: odd-order-rigidity
+    dependsOn:
+      - three-evaluations
+      - delta-theorem
+      - signs-become-all-ones
+    segment: null
+  - node: products-to-sums
+    dependsOn:
+      - signs-become-all-ones
+      - odd-order-rigidity
+    segment: null
+  - node: final-contradiction
+    dependsOn:
+      - signs-become-all-ones
+      - products-to-sums
+    segment: null
+  - node: theorem
+    dependsOn:
+      - final-contradiction
+    segment: null
+  - node: proof-by-example
+    dependsOn: []
+    segment: null
+  - node: general-proof
+    dependsOn: []
+    segment: null
 ---
 
-Start with the overview, then read the nodes below. Each short clip will explain one part of the story. Follow ‘Dig in deeper’ when you want the next layer of detail, and return to the bigger picture whenever you are ready.
+## The theorem
 
-This is a draft node outline. The proof nodes and videos are still being prepared; the background sections illustrate how the finished node will work.
+A real circulant Hadamard matrix exists exactly at orders $n=1$ and $n=4$.
+
+This exposition follows the supplied proof map and the cited paper, accepting **Proposition 2.2** (the order restriction) and **Proposition 3.4** (the Δ-theorem) as black boxes. Their internal proofs are not supplied here.
+
+## Begin with the smallest remaining case
+
+After the order restriction, $u=3$ gives the first nontrivial candidate, $n=36$. The proof by example uses only $P=1$ and $P=\omega$, where $\omega=e^{2\pi i/3}$. It rules out order $36$; the separate general route rules out all odd $u>1$.
+
+The graph connects the eight high-level statements. The Δ-theorem is independent of the original signs; its conclusion combines with the sign identities at **Odd-Order Rigidity**.
+
+These are high-level statement cards. Video scripts and smaller internal graphs are the next stage.
+
+Primary source: [OpenAI, *The circulant Hadamard conjecture*, Sections 2–4 (September 23, 2026)](https://github.com/openai/math/blob/main/preprints/The-circulant-Hadamard-conjecture-September-23-2026/paper.pdf).

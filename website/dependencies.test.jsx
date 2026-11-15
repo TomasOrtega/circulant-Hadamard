@@ -82,14 +82,14 @@ describe("node files and dependency navigation", () => {
     );
   });
 
-  test("foundation views keep a graph of their siblings for navigation", () => {
+  test("statement views keep the high-level graph for navigation", () => {
     const entries = collectNodes(rootNode);
-    const entry = entries.find(({ node }) => node.id === "zero-shift");
+    const entry = entries.find(({ node }) => node.id === "signs-become-all-ones");
     const html = renderToStaticMarkup(
       <NodePage entry={entry} entries={entries} />,
     );
     expect(html).toContain('aria-label="Node dependency graph"');
-    expect(html).toContain("Explore node: Other shifts must cancel");
+    expect(html).toContain("Explore node: Odd-Order Rigidity");
     expect(html).toContain('aria-current="page"');
   });
 
@@ -110,7 +110,7 @@ describe("node files and dependency navigation", () => {
         ],
       },
     }));
-    const entries = collectNodes({ ...rootNode, children: parents });
+    const entries = collectNodes({ ...rootNode, graphLayout: null, children: parents });
     const second = entries.find((entry) => entry.node.id === "second");
     const sharedSecond = entries.find(
       (entry) => entry.path.join("/") === "second/shared",
@@ -129,7 +129,7 @@ describe("node files and dependency navigation", () => {
         <NodePage entry={entry} entries={entries} />,
       );
       const owner = entry.node.children.length ? entry : entry.ancestors.at(-1);
-      const children = owner.node.children;
+      const children = owner.node.children.filter(({ node }) => !node.supplemental);
       const graphStart = html.indexOf('aria-label="Node dependency graph"');
       expect(graphStart).toBeGreaterThan(html.indexOf("Full overview ·"));
       expect(graphStart).toBeLessThan(
@@ -152,7 +152,7 @@ describe("one long video per node", () => {
     const link = child("detail", [], { start: 20, end: 55 });
     link.node.video = { youtubeId: "lmnopqrstuv", duration: 200 };
     const parent = {
-      ...rootNode,
+      ...rootNode, graphLayout: null,
       video: { youtubeId: "abcdefghijk", duration: 300 },
       children: [link],
     };
@@ -177,7 +177,7 @@ describe("one long video per node", () => {
 
   test("an unconfigured cut never plays the full overview as a preview", () => {
     const parent = {
-      ...rootNode,
+      ...rootNode, graphLayout: null,
       video: { youtubeId: "abcdefghijk" },
       children: [child("detail")],
     };
@@ -189,7 +189,7 @@ describe("one long video per node", () => {
 
   test("native cuts share the overview source and include playback bounds", () => {
     const parent = {
-      ...rootNode,
+      ...rootNode, graphLayout: null,
       video: { src: "media/long.mp4", duration: 300 },
       children: [child("detail", [], { start: 10.5, end: 45.5 })],
     };
@@ -205,7 +205,7 @@ describe("one long video per node", () => {
     const fixture = (
       segment,
       video = { youtubeId: "abcdefghijk", duration: 100 },
-    ) => ({ ...rootNode, video, children: [child("detail", [], segment)] });
+    ) => ({ ...rootNode, graphLayout: null, video, children: [child("detail", [], segment)] });
     for (const segment of [
       { start: -1, end: 20 },
       { start: 20, end: 20 },

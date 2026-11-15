@@ -76,7 +76,7 @@ function Media({ video, title, excerpt = false, base }) {
     <figure className="flex w-full flex-col gap-3">
       {player ?? (
         <div
-          className={`${frameClass} flex flex-col items-center justify-center gap-4 p-8 text-center font-sans text-white`}
+          className="min-h-32 w-full rounded-md bg-black flex flex-col items-center justify-center gap-4 p-6 text-center font-sans text-white"
         >
           <span className="text-lg">{label}</span>
           <span className="text-sm text-gray">
@@ -140,12 +140,16 @@ function Heading({ id, children }) {
 
 function Markdown({ script }) {
   return (
-    <div
-      className="flex min-w-0 flex-col gap-8 overflow-x-auto"
-      dangerouslySetInnerHTML={{
-        __html: renderMarkdown(script.join("\n\n")).html,
-      }}
-    />
+    <>
+      <div className="flex min-w-0 flex-col gap-8 overflow-x-auto"
+        dangerouslySetInnerHTML={{ __html: renderMarkdown(script.join("\n\n")).html }} />
+      {script.some((text) => text.includes("$")) && (
+        <details className="w-full max-w-200 font-sans text-sm text-dark-gray">
+          <summary className="cursor-pointer">Copyable text and LaTeX</summary>
+          <pre className="mt-4 max-h-100 overflow-auto whitespace-pre-wrap rounded-md bg-light-gray p-4">{script.join("\n\n")}</pre>
+        </details>
+      )}
+    </>
   );
 }
 
@@ -156,7 +160,7 @@ function ChildNode({ child, entry, entries }) {
   return (
     <section id={nodeAnchor(node)} className="width-lg">
       <Heading>
-        {target.numbers.join(".")}. {node.title}
+        {node.number ? `${node.number}. ` : ""}{node.title}
       </Heading>
       <div className="grid grid-cols-[minmax(0,1fr)_14rem] items-start gap-12 max-md:grid-cols-1 max-md:gap-8">
         <div className="flex min-w-0 flex-col gap-8">
@@ -179,11 +183,13 @@ function ChildNode({ child, entry, entries }) {
             Dig in deeper <span aria-hidden="true">→</span>
           </NodeButton>
           <p className="font-sans text-sm text-dark-gray">
-            {node.foundation
+            {node.blackBox
+              ? `Accepted black box · ${node.blackBox}`
+              : node.foundation
               ? "Undergraduate foundation"
               : count
                 ? `${count} child nodes`
-                : "Draft proof node"}
+                : "Statement ready · video script pending"}
           </p>
         </aside>
       </div>
@@ -191,10 +197,50 @@ function ChildNode({ child, entry, entries }) {
   );
 }
 
+function ReadingRoutes({ entry, entries }) {
+  const routes = entries.filter(({ node, ancestors }) => node.supplemental && ancestors.length === 1);
+  if (!routes.length) return null;
+  return (
+    <nav aria-label="Reading routes" className="flex flex-wrap justify-center gap-4 font-sans">
+      {routes.map((route, index) => (
+        <NodeButton key={route.node.id} href={hrefFor(route, entry)} primary={index === 0}
+          id={entry.ancestors.length ? undefined : nodeAnchor(route.node)}
+          aria-current={route === entry ? "page" : undefined}>
+          {index === 0 ? "Start here · " : "Then · "}{route.node.title}
+        </NodeButton>
+      ))}
+    </nav>
+  );
+}
+
+function NodeDependencies({ entry, entries }) {
+  const owner = entry.ancestors.at(-1);
+  if (!owner || entry.node.supplemental) return null;
+  const siblings = owner.node.children;
+  const current = siblings.find(({ node }) => node === entry.node);
+  const incoming = current.dependsOn ?? [];
+  const context = current.contextFrom ?? [];
+  const outgoing = siblings.filter(({ dependsOn = [] }) => dependsOn.includes(entry.node.id));
+  const notationFor = siblings.filter(({ contextFrom = [] }) => contextFrom.includes(entry.node.id));
+  const links = (ids) => ids.map((id, index) => {
+    const node = siblings.find(({ node }) => node.id === id).node;
+    const target = findChildEntry(node, owner, entries);
+    return <span key={id}>{index ? ", " : ""}<a href={hrefFor(target, entry)}>{node.title}</a></span>;
+  });
+  return (
+    <nav aria-label="Incoming and outgoing dependencies" className="w-full rounded-md bg-light-gray p-6 font-sans text-sm">
+      <p><strong>Uses: </strong>{incoming.length ? links(incoming) : "No earlier proof node."}</p>
+      {!!context.length && <p><strong>Shared notation only: </strong>{links(context)}</p>}
+      <p><strong>Used by: </strong>{outgoing.length ? links(outgoing.map(({ node }) => node.id)) : "Conclusion of the proof map."}</p>
+      {!!notationFor.length && <p><strong>Supplies notation to: </strong>{links(notationFor.map(({ node }) => node.id))}</p>}
+    </nav>
+  );
+}
+
 export function NodePage({ entry, entries }) {
   const { node } = entry;
   const root = entries[0];
-  const children = node.children ?? [];
+  const children = (node.children ?? []).filter(({ node: child }) => !child.supplemental);
   const base = assetRoot(entry);
   return (
     <>
@@ -225,19 +271,27 @@ export function NodePage({ entry, entries }) {
           </div>
           <hgroup className="flex flex-col items-center gap-4 font-sans">
             <p className="text-dark-gray">
-              {entry.numbers.length
-                ? `Node ${entry.numbers.join(".")}`
+              {node.number
+                ? `Node ${node.number}`
                 : "The argument, one node at a time"}
             </p>
             <h1>{node.title}</h1>
             <span className="text-sm text-dark-gray">
-              {node.foundation
+              {node.blackBox
+                ? `Accepted black box · ${node.blackBox}`
+                : node.foundation
                 ? "Undergraduate foundation"
                 : node.draft
-                  ? "Draft proof node"
+                  ? "Exposition draft · video scripts forthcoming"
                   : "Draft node"}
             </span>
           </hgroup>
+          {!entry.ancestors.length && node.graphLayout === "proof-map" && (
+            <p className="max-w-175 text-center text-xl">
+              A real circulant Hadamard matrix exists exactly at orders 1 and 4.
+            </p>
+          )}
+          <ReadingRoutes entry={entry} entries={entries} />
           <div className="w-full max-w-200">
             <Media video={node.video} title={node.title} base={base} />
           </div>
@@ -245,6 +299,7 @@ export function NodePage({ entry, entries }) {
           <p className="max-w-175 text-center text-lg">{node.summary}</p>
         </section>
         <section>
+          <NodeDependencies entry={entry} entries={entries} />
           <Markdown script={node.script} />
           {!!children.length && (
             <nav
@@ -253,7 +308,7 @@ export function NodePage({ entry, entries }) {
             >
               {children.map(({ node: child }, index) => (
                 <a key={child.id} href={`#${nodeAnchor(child)}`}>
-                  {index + 1}. {child.title}
+                  {child.number ? `${child.number}. ` : ""}{child.title}
                 </a>
               ))}
             </nav>
