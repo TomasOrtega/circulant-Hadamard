@@ -1,0 +1,179 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:03.360
+Assume f of P times f star
+of P equals u squared,
+
+00:00:03.820 --> 00:00:07.030
+where u is odd and greater
+than one. For u equal to three,
+
+00:00:07.100 --> 00:00:10.900
+compare f of one with f of omega,
+where omega is a primitive cube root.
+
+00:00:11.440 --> 00:00:15.570
+Both values have magnitude three,
+so their quotient has magnitude one.
+
+00:00:16.080 --> 00:00:20.185
+As an actual norm example,
+take f of P equals three i P.
+
+00:00:20.460 --> 00:00:25.040
+The quotient of three i by
+three i omega is omega inverse.
+
+00:00:25.660 --> 00:00:29.460
+Dividing removes the common length
+while retaining the relative angle.
+
+00:00:30.680 --> 00:00:35.880
+For general u, let I be the nonempty
+set of distinct primes dividing u.
+
+00:00:36.260 --> 00:00:40.620
+Choose a primitive p-th root
+zeta sub p for every prime in I.
+
+00:00:41.140 --> 00:00:45.520
+For a subset S, multiply its
+chosen roots to obtain zeta sub S.
+
+00:00:46.100 --> 00:00:48.020
+The empty subset gives one.
+
+00:00:48.500 --> 00:00:52.340
+Each of these inputs has order dividing
+the product of the distinct primes,
+
+00:00:52.660 --> 00:00:57.100
+hence dividing u squared. All these
+evaluations are therefore allowed.
+
+00:00:58.100 --> 00:01:01.500
+Define delta of f by putting
+even-sized subsets in the
+
+00:01:01.500 --> 00:01:05.140
+numerator and odd-sized
+subsets in the denominator.
+
+00:01:05.700 --> 00:01:10.820
+Equivalently, multiply f of zeta sub S
+raised to negative one to the size of S.
+
+00:01:11.440 --> 00:01:16.880
+With two primes p and q, the even
+subsets are empty and the pair p q.
+
+00:01:17.160 --> 00:01:19.800
+The odd subsets are the two singletons.
+
+00:01:20.220 --> 00:01:24.640
+The quotient is f of one
+times f of zeta p zeta q,
+
+00:01:25.040 --> 00:01:28.340
+divided by f of zeta p times f of zeta q.
+
+00:01:29.240 --> 00:01:32.200
+Now fix one prime, say p.
+
+00:01:33.340 --> 00:01:37.320
+Toggle its membership: add p when
+absent, and remove it when present.
+
+00:01:38.120 --> 00:01:41.920
+This pairs every even subset
+with exactly one odd subset,
+
+00:01:42.240 --> 00:01:44.360
+and toggling again returns to the start.
+
+00:01:45.000 --> 00:01:48.020
+Numerator and denominator thus
+have equally many factors.
+
+00:01:48.520 --> 00:01:52.880
+Every magnitude is u. Cancel
+those magnitudes along the pairs,
+
+00:01:52.880 --> 00:01:57.040
+leaving absolute value of
+delta of f equal to one.
+
+00:01:57.620 --> 00:02:01.960
+Every division is legitimate.
+At each allowed input, the norm
+
+00:02:01.960 --> 00:02:06.700
+identity gives the evaluated value times
+its complex conjugate equal to u squared.
+
+00:02:07.420 --> 00:02:10.780
+Since u is positive, no
+evaluated value is zero.
+
+00:02:11.400 --> 00:02:14.620
+We are dividing actual
+nonzero algebraic numbers,
+
+00:02:14.620 --> 00:02:17.380
+not cancelling potentially zero residues.
+
+00:02:18.380 --> 00:02:22.460
+We need the same conclusion
+for every algebraic conjugate.
+
+00:02:22.980 --> 00:02:26.540
+A field embedding sigma
+replaces the generating
+
+00:02:26.540 --> 00:02:30.360
+roots of unity by other roots
+while respecting their equations.
+
+00:02:31.180 --> 00:02:35.640
+It acts on the coefficients as well as
+the inputs, including i when present.
+
+00:02:36.800 --> 00:02:39.400
+Conjugating a root of
+unity means inverting it,
+
+00:02:39.460 --> 00:02:41.960
+so sigma commutes with
+complex conjugation.
+
+00:02:42.420 --> 00:02:46.660
+Apply sigma to each norm equation. The
+rational number u squared stays fixed,
+
+00:02:46.940 --> 00:02:49.720
+so every transformed factor
+still has magnitude u.
+
+00:02:50.360 --> 00:02:55.320
+The same subset pairing gives absolute
+value of sigma of delta of f equal to one.
+
+00:02:55.940 --> 00:02:59.940
+Thus delta of f and all its
+conjugates lie on the unit circle.
+
+00:03:00.940 --> 00:03:03.240
+This is one hypothesis
+for Kronecker's theorem.
+
+00:03:03.820 --> 00:03:07.420
+We still have to prove that delta
+of f is an algebraic integer.
+
+00:03:08.100 --> 00:03:12.020
+A quotient of algebraic integers does
+not automatically have that property.
+
+00:03:12.020 --> 00:03:15.520
+The next steps address that
+denominator obstruction.

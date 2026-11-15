@@ -5,7 +5,10 @@ shortTitle: Alternating Product
 summary: Pair the prime-indexed evaluations to cancel their magnitudes and compare their phases.
 number: "4.2"
 draft: true
-video: null
+video:
+  src: media/alternating-phase-product.mp4
+  captions: media/alternating-phase-product.vtt
+  duration: 196.866667
 mapPosition: [40, 200]
 mapSummary: 'All conjugates have modulus $1$'
 ---
