@@ -1,0 +1,22 @@
+{
+  "source": "website/scripts/node1/cyclic-group-ring.md",
+  "source_sha256": "69a0a29befab18a30a5fc48510ff5097fbca0d7e033cc764003fb5a98d0f0977",
+  "scene": "CyclicGroupRing",
+  "scene_file": "videos/cyclic_group_ring.py",
+  "voice": "en-US-Chirp3-HD-Achird",
+  "work_started_at": "2026-11-14T22:24:23-08:00",
+  "cues": {
+    "cycle": 0,
+    "ring": 14.05,
+    "integers": 32.25,
+    "wrap": 51.47,
+    "existence": 69.99,
+    "unique": 84.25,
+    "row": 102.43
+  },
+  "alignment_match_ratio": 0.9891,
+  "narration_duration": 120.00022675736962,
+  "duration": 120.033333,
+  "narration_sha256": "4c6c58071a40ce7ef1aca5a484dd4f88335626067d37ae041115e26612545de3",
+  "video_sha256": "e9502a7e1229c39329f190764f50f3b8a03c120b1c8bf1270f68da47631e2204"
+}

@@ -6,7 +6,10 @@ summary: Cyclic positions become powers of X, with a unique coefficient list of
   length n.
 number: "1.1"
 draft: true
-video: null
+video:
+  src: media/cyclic-group-ring.mp4
+  captions: media/cyclic-group-ring.vtt
+  duration: 120.033333
 mapPosition:
   - 240
   - 24
