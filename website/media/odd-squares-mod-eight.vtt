@@ -1,0 +1,137 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:05.940
+Recall the earlier factorization: n
+equals two to the two s times w squared,
+
+00:00:06.460 --> 00:00:09.020
+with s at least one and w odd.
+
+00:00:09.480 --> 00:00:14.160
+The original parameter u equals
+two to the s minus one times w.
+
+00:00:14.620 --> 00:00:19.980
+Assume, for contradiction, that s is
+at least two. Under that assumption,
+
+00:00:20.340 --> 00:00:24.560
+the preceding descent would leave a cycle
+of length M equal to two to the s plus
+
+00:00:24.920 --> 00:00:30.660
+one, with odd coefficients b sub
+j and scalar norm four w squared.
+
+00:00:31.760 --> 00:00:36.240
+Read the identity coefficient of
+the final polynomial times its star.
+
+00:00:36.760 --> 00:00:41.260
+A term b sub j times X
+to the j meets a starred
+
+00:00:41.340 --> 00:00:45.300
+term b sub ell times
+X to the negative ell.
+
+00:00:45.540 --> 00:00:48.940
+Their product returns to the
+identity position exactly when
+
+00:00:48.940 --> 00:00:52.980
+j minus ell is zero modulo M.
+
+00:00:53.300 --> 00:00:59.380
+With both indices between zero and M
+minus one, this means j equals ell.
+
+00:00:59.840 --> 00:01:03.920
+Matching pairs therefore contribute
+the squares b sub j squared.
+
+00:01:04.660 --> 00:01:09.740
+Collecting them gives a sum of M
+odd squares equal to four w squared.
+
+00:01:10.400 --> 00:01:15.080
+Our eight position illustration
+shows the smallest possible endpoint.
+
+00:01:15.840 --> 00:01:21.580
+Now reduce modulo eight. Write an
+odd integer b as two r plus one.
+
+00:01:21.960 --> 00:01:26.580
+Its square is one plus four times the
+product of the consecutive integers r
+
+00:01:26.580 --> 00:01:31.320
+and r plus one. One of those integers
+is even, so their product is even.
+
+00:01:31.860 --> 00:01:34.730
+The multiple of four is
+therefore a multiple of eight.
+
+00:01:35.160 --> 00:01:37.580
+Every odd square has residue one.
+
+00:01:38.280 --> 00:01:42.780
+Replace each square on the left
+by one. Since s is at least two,
+
+00:01:42.880 --> 00:01:47.290
+M equals eight times
+two to the s minus two.
+
+00:01:47.760 --> 00:01:51.700
+Group the ones into blocks of
+eight. Every block has residue zero,
+
+00:01:52.060 --> 00:01:56.800
+so the whole left side has residue
+zero. But w is odd as well.
+
+00:01:57.420 --> 00:02:02.040
+Its square has residue one, so four w
+squared has residue four modulo eight.
+
+00:02:02.320 --> 00:02:06.460
+The same integer equation would require
+zero to equal four. That is impossible.
+
+00:02:07.280 --> 00:02:09.660
+The conditional descent
+endpoint cannot exist.
+
+00:02:10.860 --> 00:02:13.310
+Therefore s cannot be at least two.
+
+00:02:13.700 --> 00:02:17.060
+We already had s at least
+one, so s equals one.
+
+00:02:17.460 --> 00:02:22.160
+Substitute this into the original
+u: two to the zero times w equals w,
+
+00:02:22.500 --> 00:02:26.480
+which is odd. The order becomes
+n equals four u squared,
+
+00:02:26.480 --> 00:02:29.900
+with u odd. This completes
+the order restriction.
+
+00:02:30.800 --> 00:02:35.840
+The case u equals one gives order
+four and survives this argument.
+
+00:02:36.280 --> 00:02:40.560
+Its known circulant Hadamard matrix
+remains an example. The remaining
+
+00:02:40.560 --> 00:02:44.840
+proof will assume u greater than one
+and exclude those larger candidates.

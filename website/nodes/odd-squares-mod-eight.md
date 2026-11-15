@@ -6,7 +6,10 @@ mapTitle: 'Odd Squares Modulo $8$'
 summary: The final coefficient squares would have to sum to both zero and four modulo eight.
 number: "2.6"
 draft: true
-video: null
+video:
+  src: media/odd-squares-mod-eight.mp4
+  captions: media/odd-squares-mod-eight.vtt
+  duration: 166.233333
 mapPosition: [240, 600]
 mapSummary: '$s=1$, so $n=4u^2$ with $u$ odd'
 ---
