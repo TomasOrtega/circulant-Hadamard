@@ -17,5 +17,11 @@
   "narration_duration": 137.32022675736962,
   "duration": 137.333333,
   "narration_sha256": "82cc075439e94ea7b484a868795d28fe21449d212f4012d0c7c5de27a651beca",
-  "video_sha256": "4a0ed34aee0f147480c8099d0d349291044c0ceb97a9e5172deb0b42917e7f4a"
+  "video_sha256": "16cd7ca7cf6cff1fbb6d29e885994f3aaa6217951b4a4874652e99aaf0f8ee16",
+  "subtitle_safe_fraction": 0.2,
+  "subtitle_band_max_luma": 16.0,
+  "subtitle_frames_checked": 4120,
+  "production_status": "final",
+  "scene_sha256": "c07961f622e282057c410981e620a1c4d71771b6415b19ab0a5cf5710e0d64e8",
+  "layout_sha256": "af65a79e6ee3c1e4c50be87eaf23e651674da7cae9a65dd5fa0a5b94e9c219f2"
 }

@@ -64,12 +64,25 @@ class StarOperation(NodeScene):
         )
 
         self.section("example", "The fixed sign row happens to be symmetric")
+        original = formula(r"h=-1+X+X^2+X^3", color=BLUE_C).move_to(UP * 1.1)
+        self.show(original)
+        self.wait_until_narration(self.cues["example"] + 7)
+        reversed_powers = formula(
+            r"h^*=-1+X^{-1}+X^{-2}+X^{-3}",
+            size=47,
+        ).move_to(DOWN * 0.2)
+        self.show(reversed_powers)
+        self.wait_until_narration(self.cues["example"] + 17)
+        residues = formula(r"h^*=-1+X^3+X^2+X", size=47, color=YELLOW)
+        residues.move_to(reversed_powers)
+        self.play(Transform(reversed_powers, residues), run_time=1.7)
+        self.wait_until_narration(self.cues["example"] + 25)
+        reordered = formula(r"h^*=-1+X+X^2+X^3=h", size=47, color=YELLOW)
+        reordered.move_to(reversed_powers)
+        self.play(Transform(reversed_powers, reordered), run_time=1.6)
         self.show(
-            self.stack(
-                formula(r"h=-1+X+X^2+X^3", color=BLUE_C),
-                formula(r"h^*=-1+X^{-1}+X^{-2}+X^{-3}", size=44),
-                formula(r"=-1+X^3+X^2+X=h", size=44, color=YELLOW),
-                words("This example has h* = h; the general row need not.", size=25),
+            words("The final three coefficients are equal.", size=26).move_to(
+                DOWN * 1.7
             )
         )
 
