@@ -23,6 +23,12 @@ remainder coordinates, four sign polynomials, and the three evaluations.
 Dividing by two removes the factor of four from the norm identity; the
 closing circle picture previews the later common phase comparison.
 
+[Video 4](node4/delta-theorem.md) introduces the Δ-theorem using Gaussian
+coefficients and the example $f(P)=3iP$. Its
+[phase-circle storyboard](node4/storyboards/phase-circles.svg) distinguishes
+evaluation values from their relative rotation. The script then states the
+general alternating product and explains the role of Kronecker's theorem.
+
 The main overviews use order 36 as a guiding example. Opening a node develops
 the general argument through smaller steps in the same proof hierarchy.
 
@@ -45,8 +51,12 @@ scripts/
 │   └── reference/
 ├── node2/
 │   └── restriction-on-the-order.md
-└── node3/
-    └── three-evaluations.md
+├── node3/
+│   └── three-evaluations.md
+└── node4/
+    ├── delta-theorem.md
+    └── storyboards/
+        └── phase-circles.svg
 ```
 
 | Video | Script file | Website node |
@@ -60,6 +70,7 @@ scripts/
 | 1.5 — Hadamard Dictionary | [node1/hadamard-dictionary.md](node1/hadamard-dictionary.md) | [Hadamard Dictionary](../nodes/hadamard-dictionary.md) |
 | 2 — Restriction on the Order | [node2/restriction-on-the-order.md](node2/restriction-on-the-order.md) (slide narration and animation directions) | [Restriction on the Order](../nodes/restriction-on-the-order.md) |
 | 3 — The Three Evaluations | [node3/three-evaluations.md](node3/three-evaluations.md) (slide narration and animation directions) | [The Three Evaluations](../nodes/three-evaluations.md) |
+| 4 — The Δ-Theorem | [node4/delta-theorem.md](node4/delta-theorem.md) (narration and animation directions) | [The Δ-Theorem](../nodes/delta-theorem.md) |
 
 Create a numbered folder when a main node gets its first script, and keep its
 supporting sources in that folder's `reference/` directory. Put the video

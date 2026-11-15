@@ -2,47 +2,225 @@
 id: delta-theorem
 title: The Δ-Theorem
 shortTitle: The Δ-Theorem
-summary: An independent arithmetic statement about norm solutions, with no sign
-  hypothesis.
+mapTitle: 'The $\Delta$-Theorem'
+summary: Equal evaluation magnitudes, local arithmetic, and Kronecker's theorem
+  restrict the alternating phase product to a root of unity of odd order.
 number: 4
 draft: true
 video: null
-mapTitle: 'The $\Delta$-Theorem'
 mapPosition:
   - 460
   - 180
 mapSummary: '$\Delta(f)$ has odd order'
-blackBox: Proposition 3.4
+graphLayout: proof-map
+graphTitle: Inside Node 4 · From a Circle to Roots of Unity
+children:
+  - node: circle-evaluations
+    dependsOn: []
+    segment: null
+    script: |
+      Let $u>1$ be odd. Work in $\mathbb Z[i][P]/(P^{u^2}-1)$ and suppose
+
+      $$
+      f(P)f^*(P)=u^2.
+      $$
+
+      If $\zeta^{u^2}=1$, substitution turns star into complex conjugation:
+
+      $$
+      f(\zeta)\overline{f(\zeta)}=u^2.
+      $$
+
+      Thus every evaluation is nonzero and lies on the circle of radius $u$.
+      For $u=3$, the nine root-of-unity inputs give points on the circle of
+      radius $3$. Different inputs may give the same point.
+
+      This statement allows arbitrary Gaussian-integer coefficients;
+      no Hadamard sign array is assumed.
+  - node: alternating-phase-product
+    dependsOn:
+      - circle-evaluations
+    segment: null
+    script: |
+      Let $I$ be the set of distinct primes dividing $u$. Choose a primitive
+      $p$th root $\zeta_p$ for each $p\in I$, and put
+
+      $$
+      \zeta_S=\prod_{p\in S}\zeta_p,\qquad \zeta_\varnothing=1.
+      $$
+
+      Define the alternating product
+
+      $$
+      \Delta(f)=\prod_{S\subseteq I}f(\zeta_S)^{(-1)^{|S|}}.
+      $$
+
+      Even-sized subsets contribute numerator factors; odd-sized subsets
+      contribute denominator factors. All values have magnitude $u$, and
+      there are equally many factors of each kind. Hence $|\Delta(f)|=1$.
+      The same reasoning applies to every algebraic conjugate.
+
+      For $u=3$, choose $\omega=e^{2\pi i/3}$. Then
+
+      $$
+      \Delta(f)=\frac{f(1)}{f(\omega)}.
+      $$
+
+      Its angle is $\arg f(1)-\arg f(\omega)$: the rotation from the
+      denominator's direction to the numerator's direction.
+  - node: local-character-comparison
+    dependsOn:
+      - circle-evaluations
+    segment: null
+    script: |
+      > **Technical input: Lemma 3.1.** Fix a prime $p\mid u$. Compare two
+      > character evaluations that differ only in the $p$-component: one
+      > substitutes $1$ there, and the other a primitive $p$th root.
+      >
+      > Write $u^2=p^e b$ with $p\nmid b$. The $p$-component has order $p^e$,
+      > so its order and the scalar norm have matching powers of $p$.
+      > After evaluating the other components, the lemma says that the ratio
+      > of these two values is a local unit with residue $1$ at each prime
+      > above $p$.
+
+      This is the arithmetic input that controls division. Simply reducing
+      the two original evaluations would not justify reducing their ratio:
+      both values might vanish in the residue field. The detailed proof
+      of the comparison lemma remains to be expanded inside this node.
+  - node: integral-delta
+    dependsOn:
+      - alternating-phase-product
+      - local-character-comparison
+    segment: null
+    script: |
+      For each $p\in I$, pair the subset $S$ with $S\cup\{p\}$:
+
+      $$
+      \Delta(f)=\prod_{S\subseteq I\setminus\{p\}}
+      \left(\frac{f(\zeta_S)}{f(\zeta_{S\cup\{p\}})}\right)^{(-1)^{|S|}}.
+      $$
+
+      Every paired ratio is a local unit with residue $1$ at primes above
+      $p$. Changing the pairing direction leaves the same $\Delta(f)$,
+      so this controls every prime dividing $u$.
+
+      At the remaining primes, $u^2$ is a unit. The norm equation then
+      makes every evaluated factor a unit. Together these statements show
+      that $\Delta(f)$ lies in every localization of the cyclotomic
+      coefficient ring, hence in that ring itself.
+
+      In particular, $\Delta(f)$ is an algebraic integer. This supplies the
+      missing hypothesis that a point on the unit circle need not satisfy.
+  - node: kronecker-step
+    dependsOn:
+      - alternating-phase-product
+      - integral-delta
+    segment: null
+    script: |
+      > **Kronecker's theorem, taken as a black box:** an algebraic integer
+      > all of whose conjugates have absolute value $1$ is a root of unity.
+
+      We now have both hypotheses: the alternating product is an algebraic
+      integer, and every conjugate lies on the unit circle. Therefore
+
+      $$
+      \Delta(f)^r=1
+      \quad\text{for some positive integer }r.
+      $$
+
+      Magnitude alone did not give finite order. The integrality step is
+      what makes Kronecker's theorem applicable.
+  - node: delta-odd-order
+    dependsOn:
+      - local-character-comparison
+      - kronecker-step
+    segment: null
+    script: |
+      The local comparison also gave $\Delta(f)$ residue $1$ in
+      characteristic $p$, for every $p\mid u$. A root of unity with
+      residue $1$ in characteristic $p$ must have $p$-power order.
+      This follows by applying the geometric-sum identity to its
+      prime-to-$p$ part.
+
+      Since every prime dividing $u$ is odd, the order is odd. In the
+      guiding case $u=3$, $\Delta(f)$ lies in $\mathbb Q(i,\omega)$, whose
+      odd-order roots of unity are precisely
+
+      $$
+      \Delta(f)\in\{1,\omega,\omega^2\}.
+      $$
+
+      The possible relative phases are $0^\circ$, $120^\circ$, and
+      $240^\circ$. If $u$ has two distinct prime divisors, the order must
+      be a power of both, forcing the stronger conclusion $\Delta(f)=1$.
+
+      Applying the theorem to the three norm solutions from Node 3 gives
+      $\Delta(c),\Delta(d),\Delta(g)$ of odd order, ready for Node 6.
 ---
 
-## Guiding example: $u=3$, $n=36$
-
-Accept Proposition 3.4 in the case $u=3$: for any Gaussian-integer polynomial modulo $P^9-1$ with $ff^*=9$,
+Let $u>1$ be odd, and let $I$ be the set of distinct primes dividing $u$.
+Choose a primitive $p$th root of unity $\zeta_p$ for each $p\in I$.
+For every subset $S\subseteq I$, put
 
 $$
-\Delta(f)=\frac{f(1)}{f(\omega)}
+\zeta_S=\prod_{p\in S}\zeta_p,
+\qquad \zeta_\varnothing=1.
 $$
 
-is a root of unity of odd order. Apply this to $c,d,g$. The value may be $1$; it need not be a primitive root. This accepted black box does not assume that $f$ came from signs.
+For a polynomial $f(P)\in\mathbb Z[i][P]/(P^{u^2}-1)$ whose evaluations
+at these roots are nonzero, define
 
-## General statement
-
-**Input:** Arbitrary $f\in\mathbb Z[i][P]/(P^{u^2}-1)$ with $ff^*=u^2$, for odd $u>1$. It does **not** require sign coefficients or a Hadamard matrix.
-
-**Definitions:** For each prime $p\mid u$, fix a primitive $p$th root $\zeta_p$. For each subset $S$ of the distinct prime divisors, let $\zeta_S=\prod_{p\in S}\zeta_p$ and $\zeta_\varnothing=1$. Define
 $$
-\Delta(f)=\prod_{S\subseteq\{p:p\mid u\}}
-f(\zeta_S)^{(-1)^{|S|}}.
+\Delta(f)=
+\frac{\displaystyle\prod_{\substack{S\subseteq I\\ |S|\text{ even}}}f(\zeta_S)}
+{\displaystyle\prod_{\substack{S\subseteq I\\ |S|\text{ odd}}}f(\zeta_S)}.
 $$
 
-**Statement (accept Proposition 3.4):** $\Delta(f)$ is a root of unity of **odd order**. It need not be a *primitive* root and can equal $1$.
+In other words, subsets containing an **even number of primes** contribute
+factors to the numerator, and subsets containing an **odd number of primes**
+contribute factors to the denominator. The empty subset counts as even,
+so it contributes $f(1)$ to the numerator.
 
-**Intuition:** The alternating product is a ratio for one prime and a ratio of ratios for two primes. It cancels common complex magnitudes, while local prime-by-prime arithmetic removes denominators. Integral algebraic numbers whose conjugates have absolute value 1 are roots of unity.
+**Guiding example: $u=3$.** There is only one prime in $I$, so the subsets
+are $\varnothing$ and $\{3\}$. Writing $\omega=e^{2\pi i/3}$, the entire
+product becomes the simple quotient
 
-**Output:** Apply later to $c,d,g$, then take ratios of their Δ-values.
+$$
+\Delta(f)=\frac{f(1)}{f(\omega)}.
+$$
 
-**Status:** BLACK BOX; later expand local character-comparison and integrality proof.
+The Δ-theorem tells us what this comparison can be when $f$ satisfies
+the norm identity:
 
-## Source and status
+> **Theorem (The Δ-theorem).** *Let $u>1$ be odd. If
+> $f(P)\in\mathbb Z[i][P]/(P^{u^2}-1)$ satisfies*
+>
+> $$
+> f(P)f^*(P)=u^2,
+> $$
+>
+> *then $\Delta(f)$ is a root of unity of odd order.*
 
-Exposition draft based on [OpenAI, *The circulant Hadamard conjecture*, Sections 2–4 (September 23, 2026)](https://github.com/openai/math/blob/main/preprints/The-circulant-Hadamard-conjecture-September-23-2026/paper.pdf). This proposition is an **accepted black box** here; its internal proof graph will be added later.
+For $u=3$, the norm identity puts both $f(1)$ and $f(\omega)$ on the
+circle of radius $3$. Their quotient lies on the unit circle and records
+the rotation from $f(\omega)$ to $f(1)$. The theorem restricts this phase to
+
+$$
+\Delta(f)\in\{1,\omega,\omega^2\}:
+\qquad 0^\circ,\ 120^\circ,\ 240^\circ.
+$$
+
+**Why should this be true?** The norm identity makes every evaluation
+$f(\zeta_S)$ have absolute value $u$. Since there are equally many even
+and odd subsets, these magnitudes cancel, giving $|\Delta(f)|=1$.
+The same reasoning puts all its algebraic conjugates on the unit circle.
+An arithmetic comparison of the evaluations also shows that $\Delta(f)$
+is an algebraic integer. We can therefore apply **Kronecker's theorem**:
+an algebraic integer whose conjugates all have absolute value one is a
+root of unity. A further congruence argument using the odd primes dividing
+$u$ shows that its order is odd.
+
+The polynomials $c(P),d(P),g(P)$ from Node 3 satisfy this norm identity,
+inherited from the Hadamard condition. Thus the theorem gives three
+phases $\Delta(c),\Delta(d),\Delta(g)$ of odd order, ready to compare
+in Node 6.

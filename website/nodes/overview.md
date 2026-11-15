@@ -53,32 +53,6 @@ children:
     segment: { start: 131.85, end: 145.45 }
     contextFrom:
       - group-ring-encoding
-    script: |
-      > **Theorem (The Δ-theorem).** *Let $u>1$ be odd and let
-      > $f(P)\in\mathbb Z[i][P]/(P^{u^2}-1)$ satisfy*
-      >
-      > $$
-      > f(P)f^*(P)=u^2.
-      > $$
-      >
-      > *Let $I$ be the set of distinct primes dividing $u$. Choose a primitive
-      > $p$th root $\zeta_p$ for each $p\in I$, and set
-      > $\zeta_S=\prod_{p\in S}\zeta_p$, with $\zeta_\varnothing=1$. Then*
-      >
-      > $$
-      > \Delta(f):=\prod_{S\subseteq I}f(\zeta_S)^{(-1)^{|S|}}
-      > $$
-      >
-      > *is a root of unity of odd order.*
-
-      For $u=3$, both $f(1)$ and $f(\omega)$ lie on the circle of radius $3$.
-      Their ratio records the relative phase, and the theorem restricts it to
-      $1,\omega,\omega^2$. The key is arithmetic: prove integrality, apply
-      Kronecker's theorem, then use local congruences to force odd order.
-
-      This is an independent statement about Gaussian-integer norm solutions.
-      It applies to $c(P),d(P),g(P)$ from Node 3 without using their sign origin.
-      At this level, we use the theorem as the accepted input from Proposition 3.4.
   - node: signs-become-all-ones
     dependsOn:
       - three-evaluations

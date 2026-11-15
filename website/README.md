@@ -9,10 +9,14 @@ without a client router. Native video cuts use a small playback controller.
 
 The homepage owns the eight high-level proof nodes in one recursive map.
 Main overviews use order 36 as a guiding example; deeper nodes explain the
-general argument. Propositions 2.2 and 3.4 remain accepted inputs at this level.
+general argument. Proposition 2.2 remains an accepted input at this level.
 [Group-Ring Encoding](nodes/group-ring-encoding.md) and
 [The Three Evaluations](nodes/three-evaluations.md) each expand into five
-subnodes. The theorem concludes Node 8. Other detailed graphs remain in
+subnodes. [The Δ-Theorem](nodes/delta-theorem.md) has six steps (4.1–4.6):
+circle evaluations, the alternating phase product, local character comparison,
+integrality, Kronecker's theorem, and odd order. Its detailed outline retains
+the technical character-comparison lemma (Lemma 3.1) and Kronecker's theorem
+as stated inputs. The theorem concludes Node 8. Other detailed graphs remain in
 preparation.
 
 The homepage's reading-route buttons open the supplementary

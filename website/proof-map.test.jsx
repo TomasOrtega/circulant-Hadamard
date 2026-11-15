@@ -37,8 +37,8 @@ describe("supplied eight-node proof map", () => {
     ]);
     expect(entries.some(({ node }) => ["proof-by-example", "general-proof"].includes(node.id))).toBe(false);
     expect(html).toContain("Accepted black box · Proposition 2.2");
-    expect(html).toContain("Accepted black box · Proposition 3.4");
-    const counts = { "group-ring-encoding": 5, "three-evaluations": 5, "final-contradiction": 1 };
+    expect(html).not.toContain("Accepted black box · Proposition 3.4");
+    const counts = { "group-ring-encoding": 5, "three-evaluations": 5, "delta-theorem": 6, "final-contradiction": 1 };
     for (const { node } of children) expect(node.children.length).toBe(counts[node.id] ?? 0);
     const theorem = entries.find(({ node }) => node.id === "theorem");
     expect(theorem.ancestors.at(-1).node.id).toBe("final-contradiction");

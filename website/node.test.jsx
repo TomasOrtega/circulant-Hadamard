@@ -41,7 +41,7 @@ describe("recursive node navigation", () => {
     for (const entry of entries) {
       const html = readFileSync(join(output, pagePath(entry)), "utf8");
       const heading = html.match(/<hgroup\b[\s\S]*?<\/hgroup>/)[0];
-      expect(heading.replace(/<[^>]+>/g, ""), entry.node.id).toBe(entry.node.title);
+      expect(heading.replace(/<[^>]+>/g, ""), entry.node.id).toBe(renderToStaticMarkup(<>{entry.node.title}</>));
     }
   });
 
