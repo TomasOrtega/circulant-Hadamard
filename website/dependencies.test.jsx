@@ -93,6 +93,16 @@ describe("node files and dependency navigation", () => {
     expect(html).toContain('aria-current="page"');
   });
 
+  test.each([0, 1])("automatic layouts use a collapsed graph dropdown in view %i", (index) => {
+    const { entries } = render({ ...leaf("parent"), foundation: false, children: [child("detail")] });
+    const html = renderToStaticMarkup(<NodePage entry={entries[index]} entries={entries} />);
+    const dropdown = html.match(/<details\b[^>]*>[\s\S]*?<\/details>/)?.[0];
+    expect(dropdown).toBeDefined();
+    expect(dropdown.includes('aria-label="Node dependency graph"')).toBe(true);
+    expect(dropdown.match(/^<details\b[^>]*><summary\b[^>]*>([^<]*)<\/summary>/)?.[1]).toBe("Show the proof map");
+    expect(/^<details\b[^>]*\bopen(?:[\s=>])/.test(dropdown)).toBe(false);
+  });
+
   test("reused node files keep navigation in the current parent context", () => {
     const shared = leaf("shared");
     const parents = ["first", "second"].map((id) => ({

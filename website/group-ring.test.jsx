@@ -40,7 +40,7 @@ describe("Node 1 supplied refinement", () => {
       expect(page).toContain(`href="${hrefFor(entry, parent)}"`);
       const childPage = renderToStaticMarkup(<NodePage entry={entry} entries={entries} />);
       expect(childPage).toContain(`href="${hrefFor(parent, entry)}#node-${id}"`);
-      expect(childPage).toContain("Show the parent proof map");
+      expect(childPage.includes("Show the proof map")).toBe(true);
       expect(entry.node.children).toEqual([]);
     }
     const correlation = entries.find(({ node }) => node.id === ids[3]);

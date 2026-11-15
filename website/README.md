@@ -109,7 +109,8 @@ argument and videos still await the team's material.
 ## Dependency graph
 
 Every view starts with its video. Views with proof children, or with proof
-siblings, follow it with a dependency graph. The homepage and example route
+siblings, follow it with a collapsed “Show the proof map” dropdown. All graphs
+use the same native disclosure. The homepage and example route
 have no proof children or siblings, so they show no empty graph. Expanded
 proof nodes present the written exposition in the child sections, with a
 deeper link for each step. The general route retains its full proof explanation
@@ -139,9 +140,8 @@ Reading-route nodes use `supplemental: true`: they have their own pages and
 entry buttons on the homepage only, and do not appear as extra nodes or
 video cuts in the map. The main overview emphasizes the example as the starting
 point. Page headings show only the node title.
-Terminal statement pages offer the parent map in a collapsed disclosure and
-list their incoming and outgoing links. No disclosure contains an invented
-internal proof.
+Terminal statement pages list their incoming and outgoing links. No disclosure
+contains an invented internal proof.
 
 At a terminal node, the graph shows its siblings and highlights the current
 node. Native SVG links support clicking and keyboard navigation. Wide graphs

@@ -120,6 +120,19 @@ describe("recursive node navigation", () => {
     }
   });
 
+  test.each(entries)("$node.id keeps its graph in a collapsed dropdown", (entry) => {
+    const html = readFileSync(join(output, pagePath(entry)), "utf8");
+    const graphs = html.match(/<nav aria-label="Node dependency graph"[\s\S]*?<\/nav>/g) ?? [];
+    const dropdowns = html.match(/<details\b[^>]*>[\s\S]*?<\/details>/g) ?? [];
+    expect(dropdowns).toHaveLength(graphs.length);
+    for (const graph of graphs) {
+      const dropdown = dropdowns.find((markup) => markup.includes(graph));
+      expect(dropdown).toBeDefined();
+      expect(dropdown.match(/^<details\b[^>]*><summary\b[^>]*>([^<]*)<\/summary>/)?.[1]).toBe("Show the proof map");
+      expect(/^<details\b[^>]*\bopen(?:[\s=>])/.test(dropdown)).toBe(false);
+    }
+  });
+
   test("deep pages point to the shared stylesheet from their own location", () => {
     for (const entry of entries) {
       const filename = join(output, pagePath(entry));
