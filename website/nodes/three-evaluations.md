@@ -6,7 +6,10 @@ summary: Split the cyclic coordinates, evaluate the four-position factor, and
   divide by two to obtain three integral norm solutions.
 number: 3
 draft: true
-video: null
+video:
+  src: media/three-evaluations.mp4
+  captions: media/three-evaluations.vtt
+  duration: 214.966667
 mapPosition:
   - 40
   - 340
@@ -16,7 +19,7 @@ graphTitle: Inside Node 3 · The Three Evaluations
 children:
   - node: crt-coordinates
     dependsOn: []
-    segment: null
+    segment: { start: 16.55, end: 40.81 }
     script: |
       Since $u$ is odd, $4$ and $u^2$ are coprime. The Chinese remainder
       theorem gives
@@ -39,7 +42,7 @@ children:
   - node: four-sign-polynomials
     dependsOn:
       - crt-coordinates
-    segment: null
+    segment: { start: 40.81, end: 62.83 }
     script: |
       Sort the terms by their power of $Z$:
 
@@ -53,7 +56,7 @@ children:
   - node: evaluate-four-cycle
     dependsOn:
       - four-sign-polynomials
-    segment: null
+    segment: { start: 62.83, end: 90.45 }
     script: |
       We can substitute $Z=1,-1,i$, since each satisfies $Z^4=1$.
       This leaves polynomials in $P$:
@@ -79,7 +82,7 @@ children:
   - node: halve-sign-sums
     dependsOn:
       - four-sign-polynomials
-    segment: null
+    segment: { start: 115.07, end: 143.23 }
     script: |
       For a column $(a_0,a_1,a_2,a_3)$ of signs, both
 
@@ -101,7 +104,7 @@ children:
     dependsOn:
       - evaluate-four-cycle
       - halve-sign-sums
-    segment: null
+    segment: { start: 90.45, end: 115.07 }
     script: |
       Define
 

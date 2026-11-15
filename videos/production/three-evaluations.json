@@ -1,0 +1,74 @@
+{
+  "source": "website/scripts/node3/three-evaluations.md",
+  "source_sha256": "e60e09b8aee962f6fef4fe5075c0dc63ffca427fafa632e49b1f5c2a2c6cc110",
+  "scene": "ThreeEvaluations",
+  "scene_file": "videos/three_evaluations.py",
+  "voice": "en-US-Chirp3-HD-Achird",
+  "work_started_at": "2026-11-14T22:53:48-08:00",
+  "cues": {
+    "hypothesis": 0,
+    "crt": 16.55,
+    "collect": 40.81,
+    "evaluate": 62.83,
+    "normalize": 90.45,
+    "integral": 115.07,
+    "geometry": 143.23,
+    "general": 166.41,
+    "preview": 189.35
+  },
+  "alignment_match_ratio": 0.8831,
+  "narration_duration": 214.9602267573696,
+  "detail_cues": {
+    "hypothesis_norm": 12.66,
+    "crt_map": 24.88,
+    "crt_move": 27.77,
+    "collect_sum": 51.14,
+    "evaluate_one": 68.34,
+    "evaluate_minus": 72.5,
+    "evaluate_i": 76.06,
+    "evaluate_conjugate": 84.18,
+    "normalize_pair": 96.66,
+    "normalize_nine": 102.22,
+    "normalize_star": 108.64,
+    "integral_cd": 119.86,
+    "integral_g": 128.3,
+    "integral_result": 135.02,
+    "geometry_star": 146.58,
+    "geometry_points": 154.2,
+    "general_return": 173.26,
+    "general_phase": 183.56,
+    "preview_rotation": 201.04,
+    "preview_result": 209.28
+  },
+  "duration": 214.966667,
+  "narration_sha256": "0b81c7c8c1338b402294a02cf36ff9c347e152f9fef534648018185c5747ba32",
+  "video_sha256": "caaacde635a8afaa8e7929913d5e3afa074ce69dfab7e2d69bcc16393361c16f",
+  "subtitle_safe_fraction": 0.2,
+  "subtitle_band_max_luma": 16.0,
+  "subtitle_frames_checked": 6449,
+  "production_status": "final",
+  "child_segments": {
+    "crt-coordinates": {
+      "start": 16.55,
+      "end": 40.81
+    },
+    "four-sign-polynomials": {
+      "start": 40.81,
+      "end": 62.83
+    },
+    "evaluate-four-cycle": {
+      "start": 62.83,
+      "end": 90.45
+    },
+    "halve-sign-sums": {
+      "start": 115.07,
+      "end": 143.23
+    },
+    "normalized-evaluation-norms": {
+      "start": 90.45,
+      "end": 115.07
+    }
+  },
+  "scene_sha256": "b628e1288d4561ff99b0ceb38bee6beba788db7856ede48808537ce92c60d02e",
+  "layout_sha256": "af65a79e6ee3c1e4c50be87eaf23e651674da7cae9a65dd5fa0a5b94e9c219f2"
+}

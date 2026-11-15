@@ -1,0 +1,188 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:04.160
+Our guiding case is u equal to
+three, so the order is thirty six.
+
+00:00:04.460 --> 00:00:08.100
+Assume, for contradiction, that a
+circulant Hadamard matrix of this
+
+00:00:08.100 --> 00:00:12.080
+order exists. Its thirty six sign
+coefficients are hypothetical.
+
+00:00:12.780 --> 00:00:16.180
+Their polynomial times its
+star equals thirty six.
+
+00:00:16.700 --> 00:00:20.340
+Since four and nine are coprime,
+the Chinese remainder theorem
+
+00:00:20.340 --> 00:00:24.400
+identifies the thirty six cycle with
+a four cycle times a nine cycle.
+
+00:00:25.000 --> 00:00:27.280
+Replace X by Z times P.
+
+00:00:27.890 --> 00:00:31.620
+Coefficient j moves to the
+cell with row j modulo four
+
+00:00:31.800 --> 00:00:35.660
+and column j modulo nine. This
+reorganizes the same coefficients.
+
+00:00:36.680 --> 00:00:39.720
+These grid rows are not
+rows of the original matrix.
+
+00:00:40.960 --> 00:00:44.480
+Collect each row of the
+grid as a polynomial in P.
+
+00:00:45.520 --> 00:00:50.420
+Call them H zero through H three.
+Each has nine sign coefficients.
+
+00:00:51.260 --> 00:00:56.490
+The original polynomial
+becomes H zero plus Z H one
+
+00:00:56.680 --> 00:01:02.467
+plus Z squared H two plus Z cubed H three.
+
+00:01:02.980 --> 00:01:07.970
+The fourth roots of unity respect
+Z to the fourth equals one.
+
+00:01:08.460 --> 00:01:11.580
+At Z equal to one, all four parts add.
+
+00:01:12.620 --> 00:01:15.000
+At negative one, their signs alternate.
+
+00:01:16.180 --> 00:01:19.240
+At i, the real part is H zero minus H two,
+
+00:01:19.320 --> 00:01:23.873
+and the imaginary part
+is H one minus H three.
+
+00:01:24.300 --> 00:01:27.040
+The value at negative i
+conjugates the coefficients,
+
+00:01:27.580 --> 00:01:29.620
+giving no independent fourth polynomial.
+
+00:01:30.600 --> 00:01:36.180
+Divide each evaluation by two,
+and call the results c, d, and g.
+
+00:01:36.780 --> 00:01:41.850
+Dividing both a polynomial and its star
+by two divides their product by four.
+
+00:01:42.340 --> 00:01:44.430
+Thus thirty six becomes nine.
+
+00:01:45.060 --> 00:01:48.610
+Each of c, d, and g times
+its star equals nine.
+
+00:01:48.760 --> 00:01:53.960
+For Gaussian coefficients, star conjugates
+coefficients and reverses powers of P.
+
+00:01:55.220 --> 00:01:58.860
+Why are there no fractions?
+Fix one power of P.
+
+00:01:59.980 --> 00:02:03.540
+For c and d, its numerator
+is a sum of four signs,
+
+00:02:03.860 --> 00:02:07.360
+possibly with alternating
+signs. That sum is even.
+
+00:02:08.420 --> 00:02:10.400
+For the real and imaginary parts of g,
+
+00:02:10.920 --> 00:02:14.520
+each numerator is a difference
+of two signs, also even.
+
+00:02:15.140 --> 00:02:18.520
+Therefore c and d have
+integer coefficients,
+
+00:02:19.460 --> 00:02:21.900
+and g has Gaussian integer coefficients.
+
+00:02:23.380 --> 00:02:26.700
+Now substitute any ninth
+root of unity for P.
+
+00:02:26.700 --> 00:02:29.220
+Star becomes complex conjugation,
+
+00:02:29.520 --> 00:02:33.950
+so the norm identity says the squared
+absolute value of each output is nine.
+
+00:02:34.320 --> 00:02:37.380
+All three values lie on
+the circle of radius three.
+
+00:02:37.780 --> 00:02:42.370
+These are output values; the permitted
+inputs satisfy P to the ninth equals one.
+
+00:02:42.460 --> 00:02:44.820
+Their pictured positions are schematic.
+
+00:02:46.560 --> 00:02:52.820
+For general odd u, the same construction
+gives norm u squared and output radius u.
+
+00:02:53.380 --> 00:02:55.970
+Return to u equal to three.
+
+00:02:56.620 --> 00:03:01.340
+We will compare the inputs one
+and omega, a cube root of unity.
+
+00:03:01.860 --> 00:03:04.720
+Both are ninth roots.
+The norm fixes distances;
+
+00:03:05.880 --> 00:03:08.180
+next we want to compare
+the changes in phase.
+
+00:03:09.500 --> 00:03:12.210
+Here is a preview of Node six.
+
+00:03:12.860 --> 00:03:16.620
+Further information from the original
+signs will force one common rotation to
+
+00:03:16.620 --> 00:03:20.200
+carry all three outputs at
+one to their outputs at omega.
+
+00:03:21.160 --> 00:03:25.480
+The illustrated hundred and twenty degree
+rotation uses schematic starting points,
+
+00:03:25.900 --> 00:03:29.460
+not values from an actual order
+thirty six Hadamard matrix. This
+
+00:03:29.460 --> 00:03:33.680
+common rotation is a later conclusion,
+not a consequence of the norm alone.
