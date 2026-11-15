@@ -1,0 +1,177 @@
+{
+  "source": "website/scripts/node5/signs-become-all-ones.md",
+  "source_sha256": "82883e18692136bc6e66d6c25bee9cb47c5d8c8892c7b2bfd89e3f7b9cd2acaf",
+  "scene": "SignsBecomeAllOnes",
+  "scene_file": "videos/signs_become_all_ones.py",
+  "voice": "en-US-Chirp3-HD-Achird",
+  "work_started_at": "2026-11-15T02:56:13-08:00",
+  "cues": {
+    "goal": 0,
+    "connection": 29.47,
+    "definition": 42.91,
+    "first_quotient": 59.35,
+    "second_quotient": 72.87,
+    "integral": 87.35,
+    "combine": 100.53,
+    "factor": 126.37,
+    "signs": 141.83,
+    "all_ones": 157.77,
+    "at_one": 178.23,
+    "general": 199.21
+  },
+  "alignment_match_ratio": 0.892,
+  "narration_duration": 224.4402267573696,
+  "detail_cues": {
+    "goal_signs": 6.1,
+    "goal_target": 20.54,
+    "definition_divide": 46.76,
+    "first_cancel": 62.74,
+    "first_result": 65.6,
+    "combine_halves": 102.98,
+    "combine_factor": 107.08,
+    "combine_result": 122.32,
+    "factor_identity": 129.42,
+    "factor_vanish": 134.44,
+    "sign_factor": 145.82,
+    "sign_merge": 153.06,
+    "all_ones_result": 165.86,
+    "at_one_replace": 181.46,
+    "at_one_pair": 184.02,
+    "at_one_two": 185.96,
+    "at_one_zero": 187.26,
+    "at_one_survivor": 190.08,
+    "at_one_result": 193.36,
+    "general_count": 203.1,
+    "general_result": 211.12
+  },
+  "detail_alignment": {
+    "goal_signs": {
+      "phrase": "same four sign polynomials",
+      "source_word_start": 17,
+      "time": 6.1
+    },
+    "goal_target": {
+      "phrase": "For u equal to three",
+      "source_word_start": 48,
+      "time": 20.54
+    },
+    "definition_divide": {
+      "phrase": "divided by two",
+      "source_word_start": 120,
+      "time": 46.76
+    },
+    "first_cancel": {
+      "phrase": "The H zero terms cancel",
+      "source_word_start": 154,
+      "time": 62.74
+    },
+    "first_result": {
+      "phrase": "The first quotient becomes",
+      "source_word_start": 159,
+      "time": 65.6
+    },
+    "combine_halves": {
+      "phrase": "The two halves",
+      "source_word_start": 248,
+      "time": 102.98
+    },
+    "combine_factor": {
+      "phrase": "Collecting the other terms",
+      "source_word_start": 261,
+      "time": 107.08
+    },
+    "combine_result": {
+      "phrase": "This identity is",
+      "source_word_start": 297,
+      "time": 122.32
+    },
+    "factor_identity": {
+      "phrase": "Since i minus one",
+      "source_word_start": 311,
+      "time": 129.42
+    },
+    "factor_vanish": {
+      "phrase": "the entire second term disappears",
+      "source_word_start": 323,
+      "time": 134.44
+    },
+    "sign_factor": {
+      "phrase": "These signs have the same residue",
+      "source_word_start": 348,
+      "time": 145.82
+    },
+    "sign_merge": {
+      "phrase": "Both signs therefore",
+      "source_word_start": 369,
+      "time": 153.06
+    },
+    "all_ones_result": {
+      "phrase": "E of P is congruent",
+      "source_word_start": 396,
+      "time": 165.86
+    },
+    "at_one_replace": {
+      "phrase": "Each of the nine terms",
+      "source_word_start": 433,
+      "time": 181.46
+    },
+    "at_one_pair": {
+      "phrase": "Pair eight of those ones",
+      "source_word_start": 440,
+      "time": 184.02
+    },
+    "at_one_two": {
+      "phrase": "Every pair is two",
+      "source_word_start": 445,
+      "time": 185.96
+    },
+    "at_one_zero": {
+      "phrase": "which vanishes modulo",
+      "source_word_start": 449,
+      "time": 187.26
+    },
+    "at_one_survivor": {
+      "phrase": "One unpaired one remains",
+      "source_word_start": 455,
+      "time": 190.08
+    },
+    "at_one_result": {
+      "phrase": "Thus E of one",
+      "source_word_start": 459,
+      "time": 193.36
+    },
+    "general_count": {
+      "phrase": "There are u squared terms",
+      "source_word_start": 486,
+      "time": 203.1
+    },
+    "general_result": {
+      "phrase": "Therefore E of one is congruent",
+      "source_word_start": 506,
+      "time": 211.12
+    }
+  },
+  "duration": 224.466667,
+  "narration_sha256": "f2e3639c1df44f91d1ac3d4505526aa82c27ed22d3bd8803dc408acfac660d9e",
+  "video_sha256": "3ed8746b3289b698dc0d5aa4c78abcb2a6c8e6913b88dd0b223f0b1754bed8ec",
+  "subtitle_safe_fraction": 0.2,
+  "subtitle_band_max_luma": 16.0,
+  "subtitle_frames_checked": 6734,
+  "production_status": "final",
+  "child_segments": {
+    "form-sign-combination": {
+      "start": 29.47,
+      "end": 126.37
+    },
+    "gaussian-parity": {
+      "start": 126.37,
+      "end": 157.77
+    },
+    "all-ones-congruence": {
+      "start": 157.77,
+      "end": 224.466667
+    }
+  },
+  "scene_sha256": "e4fa0960421af99de3fa2a3b723beeda8604f66fb508c162540b8286e49971ed",
+  "layout_sha256": "af65a79e6ee3c1e4c50be87eaf23e651674da7cae9a65dd5fa0a5b94e9c219f2"
+}

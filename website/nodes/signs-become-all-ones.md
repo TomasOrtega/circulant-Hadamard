@@ -5,7 +5,10 @@ shortTitle: Signs Become All Ones
 summary: The common sign array becomes an all-ones polynomial after reduction.
 number: 5
 draft: true
-video: null
+video:
+  src: media/signs-become-all-ones.mp4
+  captions: media/signs-become-all-ones.vtt
+  duration: 224.466667
 mapPosition:
   - 40
   - 500
@@ -15,7 +18,7 @@ graphTitle: Inside Node 5 · Signs Become All Ones
 children:
   - node: form-sign-combination
     dependsOn: []
-    segment: null
+    segment: { start: 29.47, end: 126.37 }
     script: |
       The three polynomials $c(P),d(P),g(P)$ came from the same four
       sign polynomials $H_0(P),\ldots,H_3(P)$. Define
@@ -49,7 +52,7 @@ children:
       We form these exact quotients first, before reducing any coefficients.
   - node: gaussian-parity
     dependsOn: []
-    segment: null
+    segment: { start: 126.37, end: 157.77 }
     script: |
       Two Gaussian integers are congruent modulo $1+i$ when their difference
       is a Gaussian-integer multiple of $1+i$. For example,
@@ -68,7 +71,7 @@ children:
     dependsOn:
       - form-sign-combination
       - gaussian-parity
-    segment: null
+    segment: { start: 157.77, end: 224.466667 }
     script: |
       In the exact expression
 
