@@ -7,6 +7,7 @@ const defaultNodeHeight = 64;
 const columnGap = 56;
 const rowGap = 36;
 const padding = 32;
+const bendRadius = 12;
 
 const wrapLabel = (text) => {
   const lines = [""];
@@ -116,9 +117,10 @@ export function DependencyGraph({ entry, entries }) {
                 if (from.y === to.y) {
                   path = `M ${startX} ${startY} L ${to.x} ${endY}`;
                 } else if (kind === "context" && to.y - from.y > nodeHeight + rowGap) {
-                  path = `M ${startX} ${startY} H ${width - 16} V ${endY} H ${to.x + nodeWidth}`;
+                  const outerX = width - 16;
+                  path = `M ${startX} ${startY} H ${outerX - bendRadius} Q ${outerX} ${startY} ${outerX} ${startY + bendRadius} V ${endY - bendRadius} Q ${outerX} ${endY} ${outerX - bendRadius} ${endY} H ${to.x + nodeWidth}`;
                 } else if (source === "signs-become-all-ones" && target === "final-contradiction") {
-                  path = `M ${from.x} ${startY} H 20 V ${endY} H ${to.x}`;
+                  path = `M ${from.x} ${startY} H ${20 + bendRadius} Q 20 ${startY} 20 ${startY + bendRadius} V ${endY - bendRadius} Q 20 ${endY} ${20 + bendRadius} ${endY} H ${to.x}`;
                 } else {
                   const x1 = from.x + nodeWidth / 2;
                   const y1 = from.y + nodeHeight;
@@ -183,7 +185,7 @@ export function DependencyGraph({ entry, entries }) {
                     className={
                       current
                         ? "fill-theme/15 stroke-theme"
-                        : "fill-white stroke-transparent group-hocus:fill-theme/15 group-hocus:stroke-theme"
+                        : "fill-white stroke-theme/40 group-hocus:fill-theme/15 group-hocus:stroke-theme"
                     }
                   />
                   <text

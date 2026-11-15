@@ -125,11 +125,14 @@ pages explain their inputs in words. The root's `graphLayout: proof-map` uses ea
 support Markdown and `$...$` math, rendered at build time like the article. Use
 `graphTitle` to label a refined map; its height follows the node positions. `number`
 keeps the eight node numbers stable. Maps use the website's ruled headings,
-white nodes, blue numbers, and serif math summaries. The current node and
-hovered or keyboard-focused links receive a blue tint and outline.
+white nodes with subtle blue outlines, blue numbers, and serif math summaries.
+The current node and hovered or keyboard-focused links receive a blue tint and
+stronger outline. Elbow connections use curved bends.
 
 Reading-route nodes use `supplemental: true`: they have their own pages and
 entry buttons but do not appear as extra nodes or video cuts in the proof map.
+Each route highlights its own page; shared proof nodes leave both routes
+unselected. The main overview emphasizes the example as the starting point.
 Terminal statement pages offer the parent map in a collapsed disclosure and
 list their incoming and outgoing links. No disclosure contains an invented
 internal proof.

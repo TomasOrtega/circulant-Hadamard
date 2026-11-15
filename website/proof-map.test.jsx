@@ -26,7 +26,7 @@ describe("supplied eight-node proof map", () => {
     expect(html).not.toContain("stroke-dasharray");
     expect(html).toContain('data-edge-kind="context"');
     expect(html).not.toContain("stroke-arithmetic");
-    expect(html).toContain("fill-white stroke-transparent");
+    expect(html.match(/<rect\b[^>]*class="([^"]+)"/)[1]).toContain("stroke-theme/40");
   });
 
   test("the example comes first, all eight titles remain, and only supplied refinements appear", () => {
@@ -51,6 +51,17 @@ describe("supplied eight-node proof map", () => {
     }
   });
 
+  test("outer connections have curved bends", () => {
+    for (const [source, target] of [
+      ["group-ring-encoding", "delta-theorem"],
+      ["signs-become-all-ones", "final-contradiction"],
+    ]) {
+      const edge = html.match(new RegExp(`<path[^>]*data-source="${source}"[^>]*data-target="${target}"[^>]*>`))[0];
+      const path = edge.match(/\bd="([^"]+)"/)[1];
+      expect([...path.matchAll(/\bQ\b/g)]).toHaveLength(2);
+    }
+  });
+
   test("statement pages expose incoming and outgoing links without a source dropdown", () => {
     const entry = entries.find(({ node }) => node.id === "odd-order-rigidity");
     const page = renderToStaticMarkup(<NodePage entry={entry} entries={entries} />);
@@ -72,6 +83,16 @@ describe("supplied eight-node proof map", () => {
       expect(highlighted[0][1]).toContain('aria-current="page"');
       expect(highlighted[0][2]).toEndWith(entry.node.title);
       expect(links.filter(([, attributes]) => attributes.includes('aria-current="page"'))).toHaveLength(1);
+    }
+  });
+
+  test("shared proof nodes leave both reading routes unselected", () => {
+    for (const entry of entries.filter(({ node, ancestors }) => ancestors.length && !node.supplemental)) {
+      const page = renderToStaticMarkup(<NodePage entry={entry} entries={entries} />);
+      const navigation = page.match(/<nav aria-label="Reading routes"[\s\S]*?<\/nav>/)[0];
+      for (const [, classes] of navigation.matchAll(/<a\b[^>]*class="([^"]*)"/g))
+        expect(classes.split(/\s+/).includes("bg-theme"), entry.node.id).toBe(false);
+      expect(navigation).not.toContain('aria-current="page"');
     }
   });
 

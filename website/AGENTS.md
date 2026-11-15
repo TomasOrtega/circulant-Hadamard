@@ -59,8 +59,9 @@ Keep generated math styles in the shared `math.css`; content needs no client
 math renderer. Preserve node paths and parent context when editing the loader.
 Every non-root view must have a visible link back to its direct parent.
 Stop expanding at standard undergraduate prerequisites: `foundation: true`
-nodes must have no children. Keep unfinished proof material visibly marked as
-draft, and leave unavailable videos as empty slots.
+nodes must have no children. Record unfinished proof status with `draft: true`
+in metadata; page headings show titles, node numbers, and black-box or
+foundation labels. Leave unavailable videos as empty slots.
 
 Run `make -C website check` and `make -C website` after changes. Preview `website/dist/`: the source
 `styles.css` requires compilation. The build installs locked dependencies when

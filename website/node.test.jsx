@@ -23,7 +23,10 @@ describe("recursive node navigation", () => {
     ).toBe(2);
     for (const entry of entries) {
       const html = readFileSync(join(output, pagePath(entry)), "utf8");
-      expect(html).toContain(`<h1>${entry.node.title}</h1>`);
+      const heading = html.match(/<hgroup\b[\s\S]*?<\/hgroup>/)[0];
+      expect(heading).toContain(`<h1>${entry.node.title}</h1>`);
+      expect(heading.includes("The argument, one node at a time"), entry.node.id).toBe(false);
+      expect(heading.includes("Exposition draft"), entry.node.id).toBe(false);
       expect(html).toContain(
         "A project for the Caltech × SAIR Mathathon, by Steven Creech and Tomas Ortega",
       );

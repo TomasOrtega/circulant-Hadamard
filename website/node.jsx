@@ -192,7 +192,9 @@ function ChildNode({ child, entry, entries }) {
 function ReadingRoutes({ entry, entries }) {
   const routes = entries.filter(({ node, ancestors }) => node.supplemental && ancestors.length === 1);
   if (!routes.length) return null;
-  const primaryRoute = routes.includes(entry) ? entry : routes[0];
+  const primaryRoute = routes.includes(entry)
+    ? entry
+    : entry.ancestors.length ? null : routes[0];
   return (
     <nav aria-label="Reading routes" className="flex flex-wrap justify-center gap-4 font-sans">
       {routes.map((route, index) => (
@@ -265,21 +267,13 @@ export function NodePage({ entry, entries }) {
             <ParentButton entry={entry} />
           </div>
           <hgroup className="flex flex-col items-center gap-4 font-sans">
-            <p className="text-dark-gray">
-              {node.number
-                ? `Node ${node.number}`
-                : "The argument, one node at a time"}
-            </p>
+            {node.number && <p className="text-dark-gray">Node {node.number}</p>}
             <h1>{node.title}</h1>
-            <span className="text-sm text-dark-gray">
-              {node.blackBox
-                ? `Accepted black box · ${node.blackBox}`
-                : node.foundation
-                ? "Undergraduate foundation"
-                : node.draft
-                  ? "Exposition draft"
-                  : "Draft node"}
-            </span>
+            {(node.blackBox || node.foundation) && (
+              <span className="text-sm text-dark-gray">
+                {node.blackBox ? `Accepted black box · ${node.blackBox}` : "Undergraduate foundation"}
+              </span>
+            )}
           </hgroup>
           <ReadingRoutes entry={entry} entries={entries} />
           <div className="w-full max-w-200">
