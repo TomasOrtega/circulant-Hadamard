@@ -1,0 +1,112 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:05.460
+We want to divide h of one, P, h
+of negative one, P, and h of i,
+
+00:00:05.660 --> 00:00:10.140
+P by two, while keeping integer
+or Gaussian integer coefficients.
+
+00:00:10.780 --> 00:00:14.760
+It is enough to check one
+power, P to the b, at a time.
+
+00:00:15.660 --> 00:00:18.640
+Select that same position in
+the four sign polynomials.
+
+00:00:19.260 --> 00:00:23.670
+Call its coefficients a zero,
+a one, a two, and a three.
+
+00:00:24.020 --> 00:00:26.620
+Each is positive or negative
+one, so each is odd.
+
+00:00:26.620 --> 00:00:32.120
+Keep the power P to the b fixed while
+we calculate with its four coefficients.
+
+00:00:33.880 --> 00:00:38.510
+At Z equal to one, the coefficient
+is the sum of all four signs.
+
+00:00:38.960 --> 00:00:43.840
+At Z equal to negative one, the signs
+on a one and a three are reversed.
+
+00:00:44.640 --> 00:00:48.800
+Work modulo two: both positive and
+negative versions of an odd integer
+
+00:00:48.800 --> 00:00:52.980
+have residue one. Each expression
+therefore becomes four ones.
+
+00:00:53.400 --> 00:00:58.470
+Pair the ones: each pair has even
+sum, and the total has residue zero.
+
+00:00:59.080 --> 00:01:01.300
+Return to the original
+integer expressions.
+
+00:01:02.040 --> 00:01:05.600
+Both are even, so dividing
+either by two gives an integer.
+
+00:01:06.340 --> 00:01:08.920
+We have justified the two
+real half coefficients.
+
+00:01:10.100 --> 00:01:15.140
+At Z equal to i, separate the
+coefficient into a zero minus a two,
+
+00:01:15.440 --> 00:01:19.360
+plus i times the difference
+of a one and a three.
+
+00:01:19.780 --> 00:01:21.780
+Each difference of two signs is even.
+
+00:01:21.780 --> 00:01:26.130
+Divide the real difference and the
+imaginary difference separately by two.
+
+00:01:26.480 --> 00:01:30.040
+Both halves are integers, so their
+combination is a Gaussian integer.
+
+00:01:31.320 --> 00:01:35.330
+For one coefficient check, choose
+the column negative one, one,
+
+00:01:35.765 --> 00:01:39.220
+one, negative one. The
+first real half is zero.
+
+00:01:39.680 --> 00:01:44.540
+The second real half is also zero. The
+Gaussian half is negative one plus i.
+
+00:01:45.100 --> 00:01:48.940
+This is one column illustrating
+parity, not a constructed Hadamard row.
+
+00:01:49.540 --> 00:01:53.440
+Repeat the same argument
+independently at every power of P.
+
+00:01:54.060 --> 00:01:56.840
+Therefore the first two
+polynomials have integer
+
+00:01:56.840 --> 00:02:00.780
+half coefficients, and the third has
+Gaussian integer half coefficients.
+
+00:02:01.680 --> 00:02:05.980
+The proof uses only the common
+signs. No norm identity is needed.

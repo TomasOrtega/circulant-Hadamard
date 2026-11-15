@@ -1,0 +1,148 @@
+{
+  "source": "website/scripts/node3/halve-sign-sums.md",
+  "source_sha256": "4b384ef4b23f7c415e86c3236c2ceee9d065a46e7eaece4005b2bd5cc0460ffd",
+  "scene": "HalveSignSums",
+  "scene_file": "videos/halve_sign_sums.py",
+  "voice": "en-US-Chirp3-HD-Achird",
+  "work_started_at": "2026-11-15T05:24:27-08:00",
+  "cues": {
+    "column": 0,
+    "real": 33.73,
+    "gaussian": 69.95
+  },
+  "alignment_match_ratio": 0.8952,
+  "narration_duration": 127.44022675736962,
+  "detail_cues": {
+    "fixed_power": 10.78,
+    "coefficients": 19.26,
+    "odd_signs": 24.02,
+    "plus_sum": 35.6,
+    "alternating_sum": 38.96,
+    "modulo_two": 44.64,
+    "pairs": 53.4,
+    "integer_halves": 59.08,
+    "gaussian_expression": 72.08,
+    "even_differences": 79.78,
+    "divide_parts": 81.78,
+    "gaussian_integer": 88.1,
+    "example_column": 91.32,
+    "first_zero": 97.4,
+    "second_zero": 99.68,
+    "example_gaussian": 102.1,
+    "coefficient_check": 105.1,
+    "every_position": 109.54,
+    "polynomial_halves": 114.06,
+    "only_signs": 121.68
+  },
+  "animation_alignment": {
+    "fixed_power": {
+      "phrase": "It is enough to check one power",
+      "time": 10.78,
+      "source_word_index": 27
+    },
+    "coefficients": {
+      "phrase": "Call its coefficients a zero",
+      "time": 19.26,
+      "source_word_index": 50
+    },
+    "odd_signs": {
+      "phrase": "Each is positive or negative one",
+      "time": 24.02,
+      "source_word_index": 62
+    },
+    "plus_sum": {
+      "phrase": "the coefficient is the sum of all four signs",
+      "time": 35.6,
+      "source_word_index": 92
+    },
+    "alternating_sum": {
+      "phrase": "At Z equal to negative one",
+      "time": 38.96,
+      "source_word_index": 101
+    },
+    "modulo_two": {
+      "phrase": "Work modulo two",
+      "time": 44.64,
+      "source_word_index": 117
+    },
+    "pairs": {
+      "phrase": "Pair the ones",
+      "time": 53.4,
+      "source_word_index": 138
+    },
+    "integer_halves": {
+      "phrase": "Return to the original integer expressions",
+      "time": 59.08,
+      "source_word_index": 152
+    },
+    "gaussian_expression": {
+      "phrase": "separate the coefficient into",
+      "time": 72.08,
+      "source_word_index": 182
+    },
+    "even_differences": {
+      "phrase": "Each difference of two signs is even",
+      "time": 79.78,
+      "source_word_index": 202
+    },
+    "divide_parts": {
+      "phrase": "Divide the real difference and the imaginary difference",
+      "time": 81.78,
+      "source_word_index": 209
+    },
+    "gaussian_integer": {
+      "phrase": "their combination is a Gaussian integer",
+      "time": 88.1,
+      "source_word_index": 225
+    },
+    "example_column": {
+      "phrase": "For one coefficient check",
+      "time": 91.32,
+      "source_word_index": 231
+    },
+    "first_zero": {
+      "phrase": "The first real half is zero",
+      "time": 97.4,
+      "source_word_index": 244
+    },
+    "second_zero": {
+      "phrase": "The second real half is also zero",
+      "time": 99.68,
+      "source_word_index": 250
+    },
+    "example_gaussian": {
+      "phrase": "The Gaussian half is negative one plus i",
+      "time": 102.1,
+      "source_word_index": 257
+    },
+    "coefficient_check": {
+      "phrase": "This is one column illustrating parity",
+      "time": 105.1,
+      "source_word_index": 265
+    },
+    "every_position": {
+      "phrase": "Repeat the same argument independently at every power of P",
+      "time": 109.54,
+      "source_word_index": 276
+    },
+    "polynomial_halves": {
+      "phrase": "Therefore the first two polynomials have integer half coefficients",
+      "time": 114.06,
+      "source_word_index": 286
+    },
+    "only_signs": {
+      "phrase": "The proof uses only the common signs",
+      "time": 121.68,
+      "source_word_index": 303
+    }
+  },
+  "duration": 127.466667,
+  "narration_sha256": "534e787d2b516c752f28130aa32d69d516f42b48bb6f949d4998e985bd8f9e26",
+  "video_sha256": "ddbdcebd845923651681ac4dae38c27dfb92fcafa2364b176f6f97a956aab140",
+  "subtitle_safe_fraction": 0.2,
+  "subtitle_band_max_luma": 16.0,
+  "subtitle_frames_checked": 3824,
+  "production_status": "final",
+  "scene_sha256": "999d33fc8d747f399e6754802d9c46ab64272d4402e6be1edb9b0f5e520aad99",
+  "layout_sha256": "af65a79e6ee3c1e4c50be87eaf23e651674da7cae9a65dd5fa0a5b94e9c219f2"
+}
