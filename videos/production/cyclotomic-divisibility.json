@@ -1,0 +1,275 @@
+{
+  "source": "website/scripts/node2/cyclotomic-divisibility.md",
+  "source_sha256": "72c7ab2985bec76dc8599296da2d15269796c2cc8cc40f782e1ee9ea703a2ab9",
+  "scene": "CyclotomicDivisibility",
+  "scene_file": "videos/cyclotomic_divisibility.py",
+  "voice": "en-US-Chirp3-HD-Achird",
+  "work_started_at": "2026-11-15T04:57:28-08:00",
+  "cues": {
+    "goal": 0,
+    "basis": 23.07,
+    "valuation_input": 45.85,
+    "cyclotomic_origin": 71.7,
+    "norm": 94.51,
+    "conjugation": 119.07,
+    "opposite_terms": 141.33,
+    "conclusion": 165.81,
+    "order_sixteen": 183.41,
+    "general": 212.83
+  },
+  "alignment_match_ratio": 0.876,
+  "narration_duration": 228.04022675736962,
+  "detail_cues": {
+    "goal_norm": 6.26,
+    "goal_opposite": 15.58,
+    "goal_not_signs": 19.96,
+    "basis_half": 28.08,
+    "basis_denominators": 35.92,
+    "basis_powers": 39.76,
+    "valuation_normalize": 52.9,
+    "valuation_arithmetic": 55.92,
+    "valuation_hypothesis": 61.04,
+    "valuation_integer": 66.38,
+    "valuation_divides": 68.22,
+    "origin_shift": 77.56,
+    "origin_eisenstein": 80.72,
+    "origin_unit": 83.0,
+    "origin_coefficients": 88.98,
+    "norm_substitute": 98.64,
+    "norm_add": 108.26,
+    "norm_odd": 112.74,
+    "norm_value": 115.4,
+    "conjugation_map": 123.11,
+    "conjugation_unit": 129.96,
+    "conjugation_unchanged": 131.62,
+    "conjugation_twice": 134.04,
+    "conjugation_result": 137.72,
+    "opposite_pair": 145.4,
+    "opposite_factor": 151.54,
+    "opposite_negative": 156.2,
+    "opposite_difference": 157.46,
+    "opposite_every": 163.42,
+    "conclusion_valuation": 172.28,
+    "conclusion_input": 174.32,
+    "conclusion_divides": 177.18,
+    "sixteen_signs": 191.58,
+    "sixteen_differences": 193.24,
+    "sixteen_only_zero": 198.24,
+    "sixteen_equal": 200.64,
+    "sixteen_shift": 204.74,
+    "sixteen_dot": 207.64,
+    "general_odd": 216.64,
+    "general_fold": 220.2
+  },
+  "detail_alignment": {
+    "goal_norm": {
+      "phrase": "Suppose T times its star equals two to the power two t, times w squared,",
+      "source_word_start": 21,
+      "time": 6.26
+    },
+    "goal_opposite": {
+      "phrase": "every opposite coefficient difference is divisible by two to the t.",
+      "source_word_start": 50,
+      "time": 15.58
+    },
+    "goal_not_signs": {
+      "phrase": "The coefficients need not be signs.",
+      "source_word_start": 61,
+      "time": 19.96
+    },
+    "basis_half": {
+      "phrase": "and let D be half that order.",
+      "source_word_start": 80,
+      "time": 28.08
+    },
+    "basis_denominators": {
+      "phrase": "After allowing rational numbers with odd denominators,",
+      "source_word_start": 101,
+      "time": 35.92
+    },
+    "basis_powers": {
+      "phrase": "the first D powers, one, xi, through xi to the D minus one, form a basis.",
+      "source_word_start": 108,
+      "time": 39.76
+    },
+    "valuation_normalize": {
+      "phrase": "normalized by v of two equals one.",
+      "source_word_start": 138,
+      "time": 52.9
+    },
+    "valuation_arithmetic": {
+      "phrase": "This is an arithmetic measure, not complex magnitude.",
+      "source_word_start": 145,
+      "time": 55.92
+    },
+    "valuation_hypothesis": {
+      "phrase": "if the valuation of the sum of b j times xi to the j is at least t,",
+      "source_word_start": 157,
+      "time": 61.04
+    },
+    "valuation_integer": {
+      "phrase": "and the b j are integers,",
+      "source_word_start": 175,
+      "time": 66.38
+    },
+    "valuation_divides": {
+      "phrase": "then every b j is divisible by two to the t.",
+      "source_word_start": 181,
+      "time": 68.22
+    },
+    "origin_shift": {
+      "phrase": "Replacing X by one plus Y",
+      "source_word_start": 205,
+      "time": 77.56
+    },
+    "origin_eisenstein": {
+      "phrase": "Eisenstein polynomial at two.",
+      "source_word_start": 213,
+      "time": 80.72
+    },
+    "origin_unit": {
+      "phrase": "Also, two is a unit times the D-th power of xi minus one.",
+      "source_word_start": 217,
+      "time": 83.0
+    },
+    "origin_coefficients": {
+      "phrase": "These standard properties are the input that lets us read divisibility coefficient by coefficient.",
+      "source_word_start": 230,
+      "time": 88.98
+    },
+    "norm_substitute": {
+      "phrase": "Star becomes complex conjugation,",
+      "source_word_start": 250,
+      "time": 98.64
+    },
+    "norm_add": {
+      "phrase": "Apply the valuation: multiplication becomes addition.",
+      "source_word_start": 271,
+      "time": 108.26
+    },
+    "norm_odd": {
+      "phrase": "The odd number w has valuation zero,",
+      "source_word_start": 277,
+      "time": 112.74
+    },
+    "norm_value": {
+      "phrase": "so the right side has valuation two t.",
+      "source_word_start": 284,
+      "time": 115.4
+    },
+    "conjugation_map": {
+      "phrase": "Conjugation sends xi minus one to negative xi inverse times xi minus one.",
+      "source_word_start": 301,
+      "time": 123.11
+    },
+    "conjugation_unit": {
+      "phrase": "That multiplier is a unit,",
+      "source_word_start": 314,
+      "time": 129.96
+    },
+    "conjugation_unchanged": {
+      "phrase": "so it does not change the valuation.",
+      "source_word_start": 319,
+      "time": 131.62
+    },
+    "conjugation_twice": {
+      "phrase": "Therefore twice the valuation of T of xi equals two t,",
+      "source_word_start": 326,
+      "time": 134.04
+    },
+    "conjugation_result": {
+      "phrase": "and the valuation of T of xi equals t.",
+      "source_word_start": 337,
+      "time": 137.72
+    },
+    "opposite_pair": {
+      "phrase": "Pair a j times xi to the j with the opposite term,",
+      "source_word_start": 355,
+      "time": 145.4
+    },
+    "opposite_factor": {
+      "phrase": "xi to the j plus D.",
+      "source_word_start": 373,
+      "time": 151.54
+    },
+    "opposite_negative": {
+      "phrase": "negative one.",
+      "source_word_start": 387,
+      "time": 156.2
+    },
+    "opposite_difference": {
+      "phrase": "Their sum becomes a j minus a sub j plus D, times xi to the j.",
+      "source_word_start": 389,
+      "time": 157.46
+    },
+    "opposite_every": {
+      "phrase": "Do this for every opposite pair.",
+      "source_word_start": 405,
+      "time": 163.42
+    },
+    "conclusion_valuation": {
+      "phrase": "Its valuation is t.",
+      "source_word_start": 430,
+      "time": 172.28
+    },
+    "conclusion_input": {
+      "phrase": "The supplied basis fact",
+      "source_word_start": 434,
+      "time": 174.32
+    },
+    "conclusion_divides": {
+      "phrase": "divisible by two to the t.",
+      "source_word_start": 445,
+      "time": 177.18
+    },
+    "sixteen_signs": {
+      "phrase": "Here the coefficients are signs.",
+      "source_word_start": 480,
+      "time": 191.58
+    },
+    "sixteen_differences": {
+      "phrase": "Their possible differences are negative two, zero, or two.",
+      "source_word_start": 485,
+      "time": 193.24
+    },
+    "sixteen_only_zero": {
+      "phrase": "Only zero is divisible by four,",
+      "source_word_start": 494,
+      "time": 198.24
+    },
+    "sixteen_equal": {
+      "phrase": "so every entry equals the entry eight positions away.",
+      "source_word_start": 500,
+      "time": 200.64
+    },
+    "sixteen_shift": {
+      "phrase": "The eighth cyclic shift would repeat the row.",
+      "source_word_start": 509,
+      "time": 204.74
+    },
+    "sixteen_dot": {
+      "phrase": "Its dot product with the original would be sixteen, instead of the required zero.",
+      "source_word_start": 517,
+      "time": 207.64
+    },
+    "general_odd": {
+      "phrase": "In the general descent, the coefficients may be larger odd integers.",
+      "source_word_start": 536,
+      "time": 216.64
+    },
+    "general_fold": {
+      "phrase": "We keep the divisibility result,",
+      "source_word_start": 547,
+      "time": 220.2
+    }
+  },
+  "duration": 228.066667,
+  "narration_sha256": "eb819037da3b19e3d9f1ec66421b8e083763b1352f990e955a97e5dda1fb2a41",
+  "video_sha256": "c539a06d528a6fec2db8ea0f528e6beb0eb326dc3e5ed52b314db496373937de",
+  "subtitle_safe_fraction": 0.2,
+  "subtitle_band_max_luma": 16.0,
+  "subtitle_frames_checked": 6842,
+  "production_status": "final",
+  "scene_sha256": "a662ab80eedc1f05fddb09e42767a853f321c9dcc6fc808dcbe6097b738b27e3",
+  "layout_sha256": "af65a79e6ee3c1e4c50be87eaf23e651674da7cae9a65dd5fa0a5b94e9c219f2"
+}

@@ -1,0 +1,195 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:04.060
+Let T of X have integer coefficients
+on a cycle of length two to the k,
+
+00:00:04.320 --> 00:00:09.893
+with k at least one. Suppose T times
+its star equals two to the power two t,
+
+00:00:10.100 --> 00:00:14.300
+times w squared, where t is a
+nonnegative integer and w is odd.
+
+00:00:14.780 --> 00:00:18.780
+We will prove that every opposite
+coefficient difference is divisible by
+
+00:00:18.810 --> 00:00:22.220
+two to the t. The coefficients
+need not be signs.
+
+00:00:23.220 --> 00:00:27.700
+Choose a primitive root of
+unity xi of order two to the k,
+
+00:00:28.080 --> 00:00:29.780
+and let D be half that order.
+
+00:00:30.440 --> 00:00:35.760
+We now use a supplied cyclotomic input:
+the specialization of Lemma two point one.
+
+00:00:35.920 --> 00:00:40.920
+After allowing rational numbers with
+odd denominators, the first D powers,
+
+00:00:41.587 --> 00:00:46.000
+one, xi, through xi to the
+D minus one, form a basis.
+
+00:00:46.000 --> 00:00:48.240
+In this ring,
+
+00:00:48.440 --> 00:00:52.540
+powers of xi minus one measure
+divisibility through a valuation v,
+
+00:00:52.900 --> 00:00:55.600
+normalized by v of two equals one.
+
+00:00:55.920 --> 00:01:00.820
+This is an arithmetic measure, not
+complex magnitude. The supplied fact is:
+
+00:01:01.040 --> 00:01:06.160
+if the valuation of the sum of b
+j times xi to the j is at least t,
+
+00:01:06.380 --> 00:01:11.260
+and the b j are integers, then every
+b j is divisible by two to the t.
+
+00:01:11.850 --> 00:01:17.090
+The basis comes from the cyclotomic
+polynomial X to the D plus one.
+
+00:01:17.560 --> 00:01:22.650
+Replacing X by one plus Y gives
+an Eisenstein polynomial at two.
+
+00:01:23.000 --> 00:01:29.500
+Also, two is a unit times the D-th
+power of xi minus one. These standard
+
+00:01:29.500 --> 00:01:33.680
+properties are the input that lets us read
+divisibility coefficient by coefficient.
+
+00:01:34.660 --> 00:01:37.840
+Now substitute X equal to xi.
+
+00:01:38.640 --> 00:01:40.960
+Star becomes complex conjugation,
+
+00:01:41.400 --> 00:01:47.480
+so T of xi times its conjugate equals
+two to the power two t, times w squared.
+
+00:01:48.260 --> 00:01:51.680
+Apply the valuation:
+multiplication becomes addition.
+
+00:01:52.740 --> 00:01:58.547
+The odd number w has valuation zero,
+so the right side has valuation two t.
+
+00:01:59.220 --> 00:02:02.460
+The two factors on the
+left have equal valuation.
+
+00:02:03.110 --> 00:02:09.620
+Conjugation sends xi minus one to
+negative xi inverse times xi minus one.
+
+00:02:09.960 --> 00:02:13.360
+That multiplier is a unit, so it
+does not change the valuation.
+
+00:02:14.040 --> 00:02:17.540
+Therefore twice the valuation
+of T of xi equals two t,
+
+00:02:17.720 --> 00:02:20.300
+and the valuation of T of xi equals t.
+
+00:02:21.480 --> 00:02:25.020
+Finally use xi to the
+D equals negative one.
+
+00:02:25.400 --> 00:02:29.200
+Pair a j times xi to the
+j with the opposite term,
+
+00:02:29.640 --> 00:02:33.260
+a sub j plus D times xi to the j plus D.
+
+00:02:33.840 --> 00:02:37.110
+Replace the extra xi to
+the D by negative one.
+
+00:02:37.460 --> 00:02:41.000
+Their sum becomes a j
+minus a sub j plus D,
+
+00:02:41.420 --> 00:02:45.060
+times xi to the j. Do this
+for every opposite pair.
+
+00:02:45.960 --> 00:02:51.920
+Now T of xi is written in our basis, with
+coefficients a j minus a sub j plus D.
+
+00:02:52.280 --> 00:02:55.960
+Its valuation is t. The supplied
+basis fact therefore makes
+
+00:02:55.960 --> 00:02:59.000
+every one of these differences
+divisible by two to the t.
+
+00:02:59.380 --> 00:03:02.480
+This proves our claim from
+the stated cyclotomic input.
+
+00:03:03.560 --> 00:03:07.950
+For a hypothetical order sixteen
+row, take k equal to four,
+
+00:03:08.200 --> 00:03:11.230
+t equal to two, and w equal to one.
+
+00:03:11.580 --> 00:03:16.393
+Here the coefficients are signs. Their
+possible differences are negative two,
+
+00:03:16.827 --> 00:03:20.390
+zero, or two. Only zero
+is divisible by four,
+
+00:03:20.640 --> 00:03:24.120
+so every entry equals the
+entry eight positions away.
+
+00:03:24.740 --> 00:03:27.160
+The eighth cyclic shift
+would repeat the row.
+
+00:03:27.640 --> 00:03:32.410
+Its dot product with the original would
+be sixteen, instead of the required zero.
+
+00:03:32.980 --> 00:03:36.110
+This illustration excludes order sixteen.
+
+00:03:36.640 --> 00:03:40.200
+In the general descent, the
+coefficients may be larger odd integers.
+
+00:03:40.200 --> 00:03:42.760
+We keep the divisibility result,
+
+00:03:42.980 --> 00:03:46.480
+which will let the folding step compare
+and average opposite coefficients.

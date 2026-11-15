@@ -5,7 +5,10 @@ shortTitle: Opposite Coefficients
 summary: A cyclotomic divisibility lemma controls differences between positions halfway around a power-of-two cycle.
 number: "2.4"
 draft: true
-video: null
+video:
+  src: media/cyclotomic-divisibility.mp4
+  captions: media/cyclotomic-divisibility.vtt
+  duration: 228.066667
 blackBox: Lemma 2.1
 mapPosition: [440, 210]
 mapSummary: '$2^t$ divides opposite differences'
