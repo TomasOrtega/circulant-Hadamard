@@ -13,7 +13,7 @@ mapPosition:
 mapSummary: '$\sum_S(-1)^{|S|}\frac{E(\zeta_S)}{c(\zeta_S)}\equiv0$'
 ---
 
-## First route: $u=3$, $n=36$
+## Guiding example: $u=3$, $n=36$
 
 With only $P=1$ and $P=\omega$, the two product identities are equalities of ratios:
 

@@ -9,15 +9,34 @@ const rowGap = 36;
 const padding = 32;
 const bendRadius = 12;
 
-const wrapLabel = (text) => {
-  const lines = [""];
-  for (const word of text.split(/\s+/)) {
-    const last = lines.length - 1;
-    if (lines[last] && lines[last].length + word.length > 24) lines.push(word);
-    else lines[last] += `${lines[last] ? " " : ""}${word}`;
-  }
-  return lines;
-};
+function GraphLabel({ node, position, width, height, showSummary }) {
+  const title = renderMarkdown(node.mapTitle ?? node.shortTitle, `${node.id} graph title`);
+  const summary = showSummary && node.mapSummary
+    ? renderMarkdown(node.mapSummary, `${node.id} graph summary`)
+    : null;
+  return (
+    <foreignObject
+      x={position.x + 12}
+      y={position.y + 6}
+      width={width - 24}
+      height={height - 12}
+      className="pointer-events-none"
+      aria-hidden="true"
+    >
+      <div xmlns="http://www.w3.org/1999/xhtml"
+        className="flex size-full flex-col items-center justify-center gap-2 text-center [&_p]:m-0 [&_p]:leading-tight [&_p]:[text-box-trim:none]">
+        <div className={`w-full leading-tight text-balance ${showSummary ? "text-base font-medium" : "text-sm"}`}>
+          {node.number && <span className="text-theme">{node.number}. </span>}
+          <div className="inline [&_p]:inline" dangerouslySetInnerHTML={{ __html: title.html }} />
+        </div>
+        {summary && (
+          <div className="w-full font-serif text-xs text-dark-gray"
+            dangerouslySetInnerHTML={{ __html: summary.html }} />
+        )}
+      </div>
+    </foreignObject>
+  );
+}
 
 export function DependencyGraph({ entry, entries }) {
   const owner = entry.node.children?.length
@@ -27,7 +46,7 @@ export function DependencyGraph({ entry, entries }) {
   const nodeWidth = proofMap ? 300 : defaultNodeWidth;
   const nodeHeight = proofMap ? 112 : defaultNodeHeight;
   const children = owner.node.children?.length
-    ? owner.node.children.filter(({ node }) => !node.supplemental)
+    ? owner.node.children
     : [{ node: entry.node, dependsOn: [] }];
   if (!children.length) return null;
   const { layers, edges } = dependencyGraph(children);
@@ -151,8 +170,6 @@ export function DependencyGraph({ entry, entries }) {
                   node === entry.node
                     ? entry
                     : findChildEntry(node, owner, entries);
-                const lines = wrapLabel(`${node.number ? `${node.number}. ` : ""}${node.shortTitle}`);
-                const lineHeight = proofMap ? 22 : 18;
                 const current = node === entry.node;
                 const prerequisites = dependsOn.map(
                   (id) =>
@@ -188,37 +205,8 @@ export function DependencyGraph({ entry, entries }) {
                           : "fill-white stroke-theme/40 group-hocus:fill-theme/15 group-hocus:stroke-theme"
                       }
                     />
-                    <text
-                      x={position.x + nodeWidth / 2}
-                      y={
-                        position.y +
-                        (proofMap ? 43 : nodeHeight / 2) -
-                        ((lines.length - 1) * lineHeight) / 2
-                      }
-                      textAnchor="middle"
-                      dominantBaseline="middle"
-                      className={proofMap ? "fill-current text-base font-medium" : "fill-current text-sm"}
-                    >
-                      {lines.map((line, index) => (
-                        <tspan
-                          key={index}
-                          x={position.x + nodeWidth / 2}
-                          dy={index ? lineHeight : 0}
-                        >
-                          {index === 0 && node.number ? (
-                            <><tspan className="fill-theme">{node.number}.</tspan>{line.slice(String(node.number).length + 1)}</>
-                          ) : line}
-                        </tspan>
-                      ))}
-                    </text>
-                    {proofMap && (
-                      <foreignObject x={position.x + 16} y={position.y + 70}
-                        width={nodeWidth - 32} height={36}>
-                        <div xmlns="http://www.w3.org/1999/xhtml"
-                          className="flex h-full items-center justify-center text-center font-serif text-base text-dark-gray [&_p]:leading-normal"
-                          dangerouslySetInnerHTML={{ __html: renderMarkdown(node.mapSummary ?? "").html }} />
-                      </foreignObject>
-                    )}
+                    <GraphLabel node={node} position={position} width={nodeWidth}
+                      height={nodeHeight} showSummary={proofMap} />
                   </a>
                 );
               })}

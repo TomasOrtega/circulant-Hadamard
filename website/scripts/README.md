@@ -18,6 +18,14 @@ square and parity restrictions, leaves the oddness of $u$ to the deeper
 proof, and sets up the contradiction for odd $u>1$ with $u=3$ as the
 guiding example.
 
+[Video 3](node3/three-evaluations.md) uses six slides to explain Chinese
+remainder coordinates, four sign polynomials, and the three evaluations.
+Dividing by two removes the factor of four from the norm identity; the
+closing circle picture previews the later common phase comparison.
+
+The main overviews use order 36 as a guiding example. Opening a node develops
+the general argument through smaller steps in the same proof hierarchy.
+
 ## Naming and editing
 
 Group each main node's script and its subnode scripts in a numbered folder,
@@ -35,8 +43,10 @@ scripts/
 │   ├── correlation-identity.md
 │   ├── hadamard-dictionary.md
 │   └── reference/
-└── node2/
-    └── restriction-on-the-order.md
+├── node2/
+│   └── restriction-on-the-order.md
+└── node3/
+    └── three-evaluations.md
 ```
 
 | Video | Script file | Website node |
@@ -49,6 +59,7 @@ scripts/
 | 1.4 — Correlation Identity | [node1/correlation-identity.md](node1/correlation-identity.md) | [Correlation Identity](../nodes/correlation-identity.md) |
 | 1.5 — Hadamard Dictionary | [node1/hadamard-dictionary.md](node1/hadamard-dictionary.md) | [Hadamard Dictionary](../nodes/hadamard-dictionary.md) |
 | 2 — Restriction on the Order | [node2/restriction-on-the-order.md](node2/restriction-on-the-order.md) (slide narration and animation directions) | [Restriction on the Order](../nodes/restriction-on-the-order.md) |
+| 3 — The Three Evaluations | [node3/three-evaluations.md](node3/three-evaluations.md) (slide narration and animation directions) | [The Three Evaluations](../nodes/three-evaluations.md) |
 
 Create a numbered folder when a main node gets its first script, and keep its
 supporting sources in that folder's `reference/` directory. Put the video
@@ -69,7 +80,7 @@ full explanation in its body. Use `$...$` and `$$...$$` for the website's math
 renderer.
 
 For an excerpt introducing a main proof step, put the reader-facing passage in
-that child's `script: |` field in [../nodes/general-proof.md](../nodes/general-proof.md).
+that child's `script: |` field in [../nodes/overview.md](../nodes/overview.md).
 A child node's own video has its own full script in this directory. Animation
 directions stay with the production draft.
 

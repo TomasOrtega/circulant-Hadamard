@@ -9,10 +9,10 @@ video: null
 mapPosition:
   - 40
   - 500
-mapSummary: '$E(P)\equiv J(P)\pmod{1+i}$'
+mapSummary: '$E(P)$ reduces to all ones'
 ---
 
-## First route: $u=3$, $n=36$
+## Guiding example: $u=3$, $n=36$
 
 The same 36 signs produced all three polynomials. Form
 

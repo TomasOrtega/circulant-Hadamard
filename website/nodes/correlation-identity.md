@@ -10,18 +10,18 @@ video: null
 mapPosition:
   - 460
   - 340
-mapSummary: '$[X^a](h(X)h^*(X))=\sum_j h_jh_{j-a}$'
+mapSummary: '$[X^a](h(X)h^*(X))=\sum_j h_j h_{j-a}$'
 ---
 
 ## The coefficient identity
 
 Let $h_0,\ldots,h_{n-1}$ be arbitrary integers and set $h(X)=\sum_j h_jX^j$ in $\mathbb Z[X]/(X^n-1)$. For $0\leq a<n$, write $[X^a]F$ for the coefficient of $X^a$ in the unique representative of $F$ of degree less than $n$.
 
-**Proposition.** With all coefficient subscripts taken modulo $n$,
-
-$$
-[X^a](h(X)h^*(X))=\sum_{j=0}^{n-1}h_jh_{j-a}.
-$$
+> **Proposition.** With all coefficient subscripts taken modulo $n$,
+>
+> $$
+> [X^a](h(X)h^*(X))=\sum_{j=0}^{n-1}h_jh_{j-a}.
+> $$
 
 **Proof.** Expand in this group ring:
 

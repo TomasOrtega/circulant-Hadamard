@@ -8,9 +8,8 @@ import { renderMarkdown } from "./markdown.js";
 
 const root = loadNodes();
 const entries = collectNodes(root);
-const general = entries.find(({ node }) => node.id === "general-proof");
-const children = general.node.children;
-const html = renderToStaticMarkup(<NodePage entry={general} entries={entries} />);
+const children = root.children;
+const html = renderToStaticMarkup(<NodePage entry={entries[0]} entries={entries} />);
 const overviewHtml = renderToStaticMarkup(<NodePage entry={entries[0]} entries={entries} />);
 
 describe("supplied eight-node proof map", () => {
@@ -19,7 +18,7 @@ describe("supplied eight-node proof map", () => {
     const { edges, layers } = dependencyGraph(children);
     expect(edges.filter(({ kind }) => !kind).map(({ source, target }) =>
       `${number(source)}->${number(target)}`).sort()).toEqual([
-      "1->2", "2->3", "3->5", "3->6", "4->6", "5->6", "5->7", "6->7", "5->8", "7->8", "8->theorem",
+      "1->2", "2->3", "3->5", "3->6", "4->6", "5->6", "5->7", "6->7", "5->8", "7->8",
     ].sort());
     expect(edges.filter(({ kind }) => kind === "context")).toEqual([
       { source: "group-ring-encoding", target: "delta-theorem", kind: "context" },
@@ -31,18 +30,18 @@ describe("supplied eight-node proof map", () => {
     expect(html.match(/<rect\b[^>]*class="([^"]+)"/)[1]).toContain("stroke-theme/40");
   });
 
-  test("the example comes first, all eight titles remain, and only supplied refinements appear", () => {
+  test("one hierarchy retains eight main statements and the published refinements", () => {
     expect(children.filter(({ node }) => node.number).map(({ node }) => node.title)).toEqual([
       "Group-Ring Encoding", "Restriction on the Order", "The Three Evaluations", "The Δ-Theorem",
       "Signs Become All Ones", "Odd-Order Rigidity", "From Products to Sums", "The Final Contradiction",
     ]);
-    expect(overviewHtml.indexOf("Start here · Proof by Example: n = 36")).toBeLessThan(overviewHtml.indexOf("Then · The General Odd-u Proof"));
+    expect(entries.some(({ node }) => ["proof-by-example", "general-proof"].includes(node.id))).toBe(false);
     expect(html).toContain("Accepted black box · Proposition 2.2");
     expect(html).toContain("Accepted black box · Proposition 3.4");
-    for (const { node } of children) {
-      if (node.id !== "group-ring-encoding") expect(node.children).toEqual([]);
-    }
-    expect(entries.find(({ node }) => node.id === "proof-by-example").node.script.join(" ")).not.toContain("\\zeta_S");
+    const counts = { "group-ring-encoding": 5, "three-evaluations": 5, "final-contradiction": 1 };
+    for (const { node } of children) expect(node.children.length).toBe(counts[node.id] ?? 0);
+    const theorem = entries.find(({ node }) => node.id === "theorem");
+    expect(theorem.ancestors.at(-1).node.id).toBe("final-contradiction");
   });
 
   test("map summaries use the article's typeset math inside each node link", () => {
@@ -74,14 +73,8 @@ describe("supplied eight-node proof map", () => {
     expect(page).not.toContain("<pre");
   });
 
-  test("reading routes appear only on the homepage", () => {
-    const navigation = overviewHtml.match(/<nav aria-label="Reading routes"[\s\S]*?<\/nav>/)[0];
-    const links = [...navigation.matchAll(/<a\b([^>]*)>([^<]*)<\/a>/g)];
-    expect(links.map(([, , label]) => label)).toEqual([
-      "Start here · Proof by Example: n = 36",
-      "Then · The General Odd-u Proof",
-    ]);
-    for (const entry of entries.filter(({ ancestors }) => ancestors.length)) {
+  test("all views use a single proof hierarchy without reading-route buttons", () => {
+    for (const entry of entries) {
       const page = renderToStaticMarkup(<NodePage entry={entry} entries={entries} />);
       expect(page.includes('aria-label="Reading routes"'), entry.node.id).toBe(false);
       expect(page.includes("Start here · "), entry.node.id).toBe(false);

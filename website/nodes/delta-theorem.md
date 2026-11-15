@@ -7,6 +7,7 @@ summary: An independent arithmetic statement about norm solutions, with no sign
 number: 4
 draft: true
 video: null
+mapTitle: 'The $\Delta$-Theorem'
 mapPosition:
   - 460
   - 180
@@ -14,7 +15,7 @@ mapSummary: '$\Delta(f)$ has odd order'
 blackBox: Proposition 3.4
 ---
 
-## First route: $u=3$, $n=36$
+## Guiding example: $u=3$, $n=36$
 
 Accept Proposition 3.4 in the case $u=3$: for any Gaussian-integer polynomial modulo $P^9-1$ with $ff^*=9$,
 

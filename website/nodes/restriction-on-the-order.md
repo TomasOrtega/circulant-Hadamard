@@ -14,7 +14,7 @@ mapSummary: '$n=4u^2$, $u$ odd'
 blackBox: Proposition 2.2
 ---
 
-## First route: $u=3$, $n=36$
+## Guiding example: $u=3$, $n=36$
 
 The accepted order restriction leaves $n=4u^2$ with $u$ odd. The case $u=1$ gives the known order $4$; the smallest remaining candidate is $u=3$, or $n=36$. Our first complete route rules out this candidate. That example alone does not rule out every larger odd $u$.
 

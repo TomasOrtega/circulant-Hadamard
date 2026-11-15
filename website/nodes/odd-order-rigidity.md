@@ -12,7 +12,7 @@ mapPosition:
 mapSummary: '$R=W=1$'
 ---
 
-## First route: $u=3$, $n=36$
+## Guiding example: $u=3$, $n=36$
 
 Compare the two evaluations by
 

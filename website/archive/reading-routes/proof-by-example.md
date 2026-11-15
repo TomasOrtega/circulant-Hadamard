@@ -35,4 +35,6 @@ Work in $\mathbb Z[i,\omega,1/3]$ modulo the ideal $(1+i)$. This is a nonzero ri
 
 ## Continue
 
-[Read the general odd-$u$ proof](../general-proof/index.html) and explore its eight-step proof map. Video scripts and internal proof graphs are still to come.
+[Read the general odd-$u$ outline](general-proof.md). These former route outlines
+are retained as reference material; the active website develops both the example
+and the general argument through a single proof map.
