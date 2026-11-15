@@ -1,0 +1,93 @@
+{
+  "source": "website/scripts/node6/odd-order-rigidity.md",
+  "source_sha256": "61a0348793842aef3863d3faced1937b91ed3d3f83f8fc6ebcbdfcf9fd4b1f04",
+  "scene": "OddOrderRigidity",
+  "scene_file": "videos/odd_order_rigidity.py",
+  "voice": "en-US-Chirp3-HD-Achird",
+  "work_started_at": "2026-11-15T02:58:26-08:00",
+  "cues": {
+    "goal": 0,
+    "comparisons": 29.77,
+    "signs": 55.63,
+    "units": 71.29,
+    "ratios": 91.99,
+    "rigidity": 110.29,
+    "rotation": 145.03,
+    "combination": 175.57,
+    "normalization": 202.61,
+    "conflict": 218.59,
+    "general": 245.19
+  },
+  "detail_cues": {
+    "goal_inputs": 10.54,
+    "goal_rotation": 16.18,
+    "goal_scope": 21.78,
+    "comparison_odd": 34.98,
+    "comparison_ratios": 39.92,
+    "comparison_candidates": 51.46,
+    "signs_reduce": 65.1,
+    "units_inverse": 77.34,
+    "units_localize": 82.98,
+    "units_conclusion": 88.22,
+    "ratios_compare": 98.7,
+    "ratios_conclusion": 105.76,
+    "rigidity_sum": 114.46,
+    "rigidity_ones": 118.24,
+    "rigidity_pairs": 119.725,
+    "rigidity_exclude": 124.14,
+    "rigidity_general": 126.32,
+    "rigidity_cancel": 134.22,
+    "rigidity_reduce": 137.36,
+    "rigidity_conclusion": 140.42,
+    "rotation_ratios": 150.0,
+    "rotation_distinct": 155.28,
+    "rotation_lambda": 159.14,
+    "rotation_turn": 165.98,
+    "rotation_reverse": 172.36,
+    "combination_substitute": 187.46,
+    "combination_factor": 190.42,
+    "combination_schematic": 196.26,
+    "normalization_cancel": 205.66,
+    "normalization_value": 209.6,
+    "normalization_exact": 213.52,
+    "conflict_requirements": 225.52,
+    "conflict_schematic": 231.52,
+    "conflict_unit": 236.12,
+    "conflict_next": 242.12,
+    "general_products": 250.5,
+    "general_scope": 254.7
+  },
+  "alignment_match_ratio": 0.9037,
+  "narration_duration": 261.9402267573696,
+  "duration": 261.966667,
+  "narration_sha256": "445872e263e4237ba5e9c7ada289c3fe88c5d409670c17b3730f46a78384d60b",
+  "video_sha256": "501c74f0b470aa59de98dfe524b56b9bf6a49074bf745b522e3c29b238304d33",
+  "subtitle_safe_fraction": 0.2,
+  "subtitle_band_max_luma": 16.0,
+  "subtitle_frames_checked": 7859,
+  "production_status": "final",
+  "child_segments": {
+    "odd-comparison-products": {
+      "start": 29.77,
+      "end": 55.63
+    },
+    "evaluation-units": {
+      "start": 71.29,
+      "end": 91.99
+    },
+    "sign-ratio-congruences": {
+      "start": 55.63,
+      "end": 110.29
+    },
+    "residue-one-rigidity": {
+      "start": 110.29,
+      "end": 145.03
+    },
+    "exact-comparison-identities": {
+      "start": 145.03,
+      "end": 218.59
+    }
+  },
+  "scene_sha256": "46601fe284c84a25c2866b96d537cf7b9dd914c8dd8cb06992dc9eede572dafa",
+  "layout_sha256": "af65a79e6ee3c1e4c50be87eaf23e651674da7cae9a65dd5fa0a5b94e9c219f2"
+}

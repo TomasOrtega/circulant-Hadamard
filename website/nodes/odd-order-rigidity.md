@@ -6,7 +6,10 @@ summary: The arithmetic and sign branches force the comparison products to equal
   one; in the nine-position example, the three evaluations share a rotation.
 number: 6
 draft: true
-video: null
+video:
+  src: media/odd-order-rigidity.mp4
+  captions: media/odd-order-rigidity.vtt
+  duration: 261.966667
 mapPosition:
   - 460
   - 500
@@ -16,7 +19,7 @@ graphTitle: Inside Node 6 · Odd-Order Rigidity
 children:
   - node: odd-comparison-products
     dependsOn: []
-    segment: null
+    segment: { start: 29.77, end: 55.63 }
     script: |
       Node 3 gives three polynomial norm solutions, and the Δ-theorem gives
       $\Delta(c),\Delta(d),\Delta(g)$ of odd order. Define
@@ -36,7 +39,7 @@ children:
       belonging to $c(P)$. They are cube roots of unity in this example.
   - node: evaluation-units
     dependsOn: []
-    segment: null
+    segment: { start: 71.29, end: 91.99 }
     script: |
       Before dividing congruences, we need invertible denominators. For
       $x(P)\in\{c(P),d(P),g(P)\}$, every evaluation from Node 4 satisfies
@@ -64,7 +67,7 @@ children:
   - node: sign-ratio-congruences
     dependsOn:
       - evaluation-units
-    segment: null
+    segment: { start: 55.63, end: 110.29 }
     script: |
       The common signs in Node 5 gave coefficientwise divisibilities:
 
@@ -105,7 +108,7 @@ children:
     dependsOn:
       - odd-comparison-products
       - sign-ratio-congruences
-    segment: null
+    segment: { start: 110.29, end: 145.03 }
     script: |
       > **Odd-order rigidity.** A root of unity of odd order in our coefficient
       > ring that reduces to $1$ in a nonzero ring of characteristic two must
@@ -130,7 +133,7 @@ children:
   - node: exact-comparison-identities
     dependsOn:
       - residue-one-rigidity
-    segment: null
+    segment: { start: 145.03, end: 218.59 }
     script: |
       For general odd $u>1$, we have two exact alternating-product
       identities. In the guiding case $u=3$, there are only two
