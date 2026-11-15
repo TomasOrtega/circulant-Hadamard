@@ -1,0 +1,62 @@
+{
+  "source": "website/scripts/node3/four-sign-polynomials.md",
+  "source_sha256": "f7ff37480abdcdac70845f1eb5049e67214b99946c12050d3aa5c07c12ab306b",
+  "scene": "FourSignPolynomials",
+  "scene_file": "videos/four_sign_polynomials.py",
+  "voice": "en-US-Chirp3-HD-Achird",
+  "work_started_at": "2026-11-15T05:23:59-08:00",
+  "cues": {
+    "coordinates": 0,
+    "group": 22.11,
+    "define": 46.07,
+    "unique": 75.09,
+    "column": 104.21,
+    "handoff": 130.05
+  },
+  "alignment_match_ratio": 0.9859,
+  "narration_duration": 150.88022675736963,
+  "detail_cues": {
+    "four_powers": 3.4,
+    "generic_term": 7.68,
+    "indices": 15.96,
+    "sort": 30.28,
+    "name_H": 47.32,
+    "decomposition": 59.06,
+    "reexpand": 87.34,
+    "same_signs": 96.1,
+    "symbolic": 112.34,
+    "choose_column": 116.62,
+    "combine": 127.02,
+    "evaluate_next": 136.34,
+    "parity_next": 140.24,
+    "normalization": 146.0
+  },
+  "animation_alignment": {
+    "method": "Unique exact-source phrases aligned to the single take using local ASR, anticipating phrase by0.2seconds",
+    "phrases": {
+      "four_powers": "Only the four powers",
+      "generic_term": "Every term of our sign polynomial",
+      "indices": "The first index runs",
+      "sort": "The terms with no Z",
+      "name_H": "call the polynomial inside its group",
+      "decomposition": "Keeping the common power of Z outside",
+      "reexpand": "Re expand one group",
+      "same_signs": "Each H sub a therefore still",
+      "symbolic": "Keep these entries symbolic",
+      "choose_column": "Choose a single power",
+      "combine": "These are the signs that will combine",
+      "evaluate_next": "Substituting fourth roots for Z",
+      "parity_next": "Checking sums and differences",
+      "normalization": "Evaluation and parity will then"
+    }
+  },
+  "duration": 150.9,
+  "narration_sha256": "ac35d4304c90234a565ea8c4d8f35b6d6f1474f7ef864640b73dd62b2f7f2c5b",
+  "video_sha256": "77a376b10a65dac253fab099dc342a80ecdf950feb2065b864f2a38bcab74b4a",
+  "subtitle_safe_fraction": 0.2,
+  "subtitle_band_max_luma": 16.0,
+  "subtitle_frames_checked": 4527,
+  "production_status": "final",
+  "scene_sha256": "338c1a981292d7ea1e919ae443cc24e5c2b13a6f162fb16740800dddb497cc52",
+  "layout_sha256": "af65a79e6ee3c1e4c50be87eaf23e651674da7cae9a65dd5fa0a5b94e9c219f2"
+}

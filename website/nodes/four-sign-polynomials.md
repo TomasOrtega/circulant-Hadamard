@@ -5,7 +5,10 @@ shortTitle: Four Sign Polynomials
 summary: Collect the terms with the same power of Z into four polynomials in P.
 number: "3.2"
 draft: true
-video: null
+video:
+  src: media/four-sign-polynomials.mp4
+  captions: media/four-sign-polynomials.vtt
+  duration: 150.9
 foundation: true
 mapPosition: [240, 180]
 mapSummary: '$h(Z,P)=H_0(P)+\cdots+Z^3H_3(P)$'

@@ -1,0 +1,142 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:02.800
+In the new coordinates, Z
+to the fourth equals one.
+
+00:00:03.600 --> 00:00:07.240
+Only the four powers one, Z, Z
+squared, and Z cubed are needed.
+
+00:00:07.880 --> 00:00:12.153
+Every term of our sign polynomial
+has the form h sub a b,
+
+00:00:12.460 --> 00:00:15.320
+times Z to the a, times P to the b.
+
+00:00:16.160 --> 00:00:18.400
+The first index runs from zero to three;
+
+00:00:18.880 --> 00:00:21.240
+the second from zero
+to u squared minus one.
+
+00:00:22.260 --> 00:00:25.300
+Group the terms according
+to their power of Z.
+
+00:00:25.760 --> 00:00:29.620
+Follow the coefficient and its
+power of P as they move together.
+
+00:00:30.480 --> 00:00:33.080
+The terms with no Z go
+into the first group.
+
+00:00:33.640 --> 00:00:38.380
+Those with Z, Z squared, and Z cubed
+go into the other three groups.
+
+00:00:39.120 --> 00:00:40.800
+We are showing representative terms;
+
+00:00:41.560 --> 00:00:45.220
+the omitted powers of P continue
+in exactly the same way.
+
+00:00:46.220 --> 00:00:51.360
+For each a, call the polynomial
+inside its group H sub a of P.
+
+00:00:51.740 --> 00:00:55.600
+It is the sum of h sub
+a b times P to the b,
+
+00:00:55.900 --> 00:00:58.360
+over all u squared coefficient positions.
+
+00:00:59.260 --> 00:01:03.140
+Keeping the common power
+of Z outside gives h of Z
+
+00:01:03.560 --> 00:01:08.500
+and P equals H zero of
+P, plus Z H one of P,
+
+00:01:08.900 --> 00:01:14.520
+plus Z squared H two of P,
+plus Z cubed H three of P.
+
+00:01:15.240 --> 00:01:17.160
+Why is this expression unique?
+
+00:01:17.600 --> 00:01:22.420
+The monomials Z to the a times P to the
+b form the integer group-ring basis.
+
+00:01:23.060 --> 00:01:26.820
+Every basis position already
+has its own sign coefficient.
+
+00:01:27.540 --> 00:01:31.680
+Re-expand one group: the very
+same coefficients are still there.
+
+00:01:32.280 --> 00:01:35.720
+We have regrouped terms, without
+adding different coefficients together.
+
+00:01:36.300 --> 00:01:39.400
+Each H sub a therefore still
+has u squared coefficients,
+
+00:01:40.160 --> 00:01:44.360
+all plus or minus one. No norm identity
+was needed for this regrouping.
+
+00:01:44.360 --> 00:01:47.420
+In the guiding order thirty-six case,
+
+00:01:47.740 --> 00:01:51.840
+u is three, so each H sub a
+has nine coefficient positions.
+
+00:01:52.540 --> 00:01:56.220
+Keep these entries symbolic; this
+is not a constructed Hadamard row.
+
+00:01:56.820 --> 00:01:59.240
+Choose a single power,
+say P to the fourth.
+
+00:01:59.980 --> 00:02:03.140
+The four signs h zero four, h one four,
+
+00:02:03.300 --> 00:02:06.600
+h two four, and h three
+four line up in one column.
+
+00:02:07.220 --> 00:02:10.200
+These are the signs that will
+combine when we evaluate Z.
+
+00:02:10.200 --> 00:02:15.620
+We now have the four-polynomial expression
+ready for two independent checks.
+
+00:02:16.540 --> 00:02:19.040
+Substituting fourth roots
+for Z will preserve the
+
+00:02:19.040 --> 00:02:22.220
+norm identity. Checking sums and
+differences of the four signs
+
+00:02:22.220 --> 00:02:25.500
+will explain why division by two
+keeps the coefficients integral.
+
+00:02:26.200 --> 00:02:29.880
+Evaluation and parity will then come
+together in the normalization step.
