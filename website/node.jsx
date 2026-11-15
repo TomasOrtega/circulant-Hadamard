@@ -135,14 +135,14 @@ function TableOfContents() {
   return (
     <>
       <button id="toc-toggle" type="button" aria-controls="table-of-contents"
-        aria-label="Table of contents" aria-expanded="false" hidden
-        className="fixed top-0 left-0 z-20 flex size-10 items-center justify-center bg-white text-black shadow-md hocus:text-theme print:hidden">
+        aria-label="Table of contents" aria-expanded="false" inert
+        className="fixed top-0 left-0 z-20 flex size-10 items-center justify-center bg-white text-black shadow-md transition-opacity inert:opacity-0 motion-reduce:transition-none hocus:text-theme print:hidden">
         <svg viewBox="0 0 24 24" className="size-6" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
           <path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01" strokeLinecap="round" />
         </svg>
       </button>
-      <nav id="table-of-contents" aria-label="Table of contents" hidden
-        className="fixed inset-y-0 left-0 z-30 m-0 h-dvh w-80 max-w-[75vw] overflow-y-auto bg-white p-4 font-sans text-black shadow-md print:hidden">
+      <nav id="table-of-contents" aria-label="Table of contents" inert
+        className="fixed inset-y-0 left-0 z-30 m-0 h-dvh w-80 max-w-[75vw] overflow-y-auto bg-white p-4 font-sans text-black shadow-md transition inert:opacity-0 inert:-translate-x-full motion-reduce:transition-none print:hidden">
         <div className="sticky top-0 flex items-center justify-between gap-4 bg-white">
           <span className="font-medium">Table of Contents</span>
           <button id="toc-close" type="button"

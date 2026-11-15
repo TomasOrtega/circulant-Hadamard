@@ -43,29 +43,29 @@ if (headings.length > 1) {
 }
 const updateScrollControls = () => {
   topButton.hidden = window.scrollY <= 500;
-  tocButton.hidden = headings.length < 2 || !toc.hidden || masthead.getBoundingClientRect().bottom > 0;
+  tocButton.inert = headings.length < 2 || !toc.inert || masthead.getBoundingClientRect().bottom > 0;
 };
 window.addEventListener("scroll", updateScrollControls, { passive: true });
 window.addEventListener("resize", updateScrollControls);
 updateScrollControls();
 
 const setTocOpen = (open, focus = false) => {
-  toc.hidden = !open;
+  toc.inert = !open;
   tocButton.setAttribute("aria-expanded", String(open));
   root.classList.toggle("toc-open", open);
   updateScrollControls();
-  if (focus) (open ? tocClose : tocButton.hidden ? masthead.querySelector("a") : tocButton).focus();
+  if (focus) (open ? tocClose : tocButton.inert ? masthead.querySelector("a") : tocButton).focus();
 };
 tocButton.addEventListener("click", () => setTocOpen(true, true));
 tocClose.addEventListener("click", () => setTocOpen(false, true));
 document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape" && !toc.hidden) {
+  if (event.key === "Escape" && !toc.inert) {
     setTocOpen(false, true);
     event.preventDefault();
   }
 });
 document.addEventListener("pointerdown", (event) => {
-  if (!desktop.matches && !toc.hidden && !toc.contains(event.target) && !tocButton.contains(event.target))
+  if (!desktop.matches && !toc.inert && !toc.contains(event.target) && !tocButton.contains(event.target))
     setTocOpen(false);
 });
 

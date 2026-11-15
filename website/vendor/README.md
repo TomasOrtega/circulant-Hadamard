@@ -27,7 +27,9 @@ and no client React runtime.
 The contents panel and masthead appearance switch follow `TableOfContents.tsx`,
 `DarkMode.tsx`, and `Nav.tsx` at the same revision. The static panel keeps heading
 navigation open, reserves reading space on desktop, and uses a drawer on smaller
-screens. The switch uses the existing dark palette.
+screens. Its slide and toggle fade use upstream Tailwind transition timing;
+desktop reading space moves with the panel. Reduced motion disables transitions.
+The switch uses the existing dark palette.
 
 The upstream repository has no license file at this revision; this copy does
 not assign a license to their work. Tailwind's MIT license and the Fontsource
