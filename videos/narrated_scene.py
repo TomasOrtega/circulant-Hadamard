@@ -5,6 +5,9 @@ from contextlib import contextmanager
 from manimlib import Scene
 
 from narration.speech import Narrator, Voice
+from videos.render_cache import configure_render_cache
+
+configure_render_cache()
 
 
 class NarratedScene(Scene):
