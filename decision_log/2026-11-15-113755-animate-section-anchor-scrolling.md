@@ -35,3 +35,10 @@ Browser harnesses are temporary. Safari and physical phones were not tested.
 
 Records a user-directed navigation animation with failed-first behavior checks.
 Mathematical content and media are unchanged.
+
+Publication check at 2026-11-15T11:40:10-08:00: all 72 browser assertions pass
+on the live site; published CSS matches the tested build byte for byte.
+The [CI run](https://github.com/TomasOrtega/circulant-Hadamard/actions/runs/43753544249)
+passes website, lint and deployment. A concurrent report PR required rebasing
+onto `e8cbaf0`; website files are identical before/after rebase. The unrelated
+modified report PDF was backed up and restored byte for byte during integration.
