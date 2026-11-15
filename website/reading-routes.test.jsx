@@ -8,35 +8,48 @@ import { loadNodes } from "./load-nodes.js";
 import { collectNodes, pagePath } from "./node-tree.js";
 
 const directory = mkdtempSync(join(tmpdir(), "circulant-reading-routes-"));
-const entries = buildNodes({ outDir: directory });
+buildNodes({ outDir: directory });
 afterAll(() => rmSync(directory, { recursive: true, force: true }));
 const page = (path) => readFileSync(join(directory, path), "utf8");
 
-describe("single proof journey", () => {
-  test("the build contains only the shared proof hierarchy", () => {
-    expect(entries.map(pagePath)).toEqual(collectNodes(loadNodes()).map(pagePath));
-    expect(entries.some(({ node }) => ["proof-by-example", "general-proof"].includes(node.id))).toBe(false);
-  });
-
-  test("the homepage leads directly into its proof map without parallel reading routes", () => {
+describe("homepage reading routes", () => {
+  test("the homepage offers visible example and general proof start buttons", () => {
     const html = page("index.html");
-    expect(html).not.toContain('aria-label="Reading routes"');
-    expect(html).not.toContain('href="nodes/proof-by-example/index.html"');
-    expect(html).not.toContain('href="nodes/general-proof/index.html"');
+    const routes = html.match(/<nav aria-label="Reading routes"[\s\S]*?<\/nav>/)?.[0];
+    expect(routes).toBeDefined();
+    expect(routes).toContain('href="nodes/proof-by-example/index.html"');
+    expect(routes).toContain("Start here · Proof by Example: n = 36");
+    expect(routes).toContain('href="nodes/general-proof/index.html"');
+    expect(routes).toContain("Then · The General Odd-u Proof");
     for (const entry of collectNodes(loadNodes()).filter(({ path }) => path.length)) {
       expect(page(pagePath(entry))).not.toContain('aria-label="Reading routes"');
     }
   });
 
-  test("both retired reading routes redirect to the same proof map", () => {
-    for (const route of ["proof-by-example", "general-proof"]) {
-      const html = page(`nodes/${route}/index.html`);
-      expect(html).toContain('http-equiv="refresh" content="0; url=../../index.html"');
-      expect(html).toContain('href="../../index.html"');
-    }
+  test("the order-36 button opens the readable example proof instead of redirecting", () => {
+    const html = page("nodes/proof-by-example/index.html");
+    expect(html).not.toContain('http-equiv="refresh"');
+    expect(html).toContain("<h1>Proof by Example: n = 36</h1>");
+    expect(html).toContain("The following route derives a contradiction");
+    expect(html).toContain("Arithmetic setting");
+    expect(html).toContain("Contradiction.");
+    expect(html).toContain('jax="SVG"');
+    expect(html).toContain('href="../three-evaluations/index.html"');
+    expect(html).toContain('href="../../index.html#node-proof-by-example"');
   });
 
-  test("proof-map links and legacy redirects resolve without client routing", () => {
+  test("the general button opens its own argument and links into the common proof map", () => {
+    const html = page("nodes/general-proof/index.html");
+    expect(html).not.toContain('http-equiv="refresh"');
+    expect(html).toContain("<h1>The General Odd-u Proof</h1>");
+    expect(html).toContain("For each distinct prime");
+    expect(html).toContain("Where the congruences live");
+    expect(html).toContain('href="../products-to-sums/index.html"');
+    expect(html).toContain('href="../final-contradiction/index.html"');
+    expect(html).toContain('href="../../index.html#node-group-ring-encoding"');
+  });
+
+  test("reading-guide links and return anchors resolve without client routing", () => {
     for (const path of ["index.html", "nodes/proof-by-example/index.html", "nodes/general-proof/index.html"]) {
       const filename = join(directory, path);
       for (const [, href] of page(path).matchAll(/<a\b[^>]*\bhref="([^"]+)"/g)) {

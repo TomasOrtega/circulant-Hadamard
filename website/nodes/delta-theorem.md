@@ -22,6 +22,10 @@ children:
     dependsOn: []
     segment: { start: 15.81, end: 57.83 }
     script: |
+      > **Lemma (The evaluation circle).** *If
+      > $f(P)f^*(P)=u^2$ in $\mathbb Z[i][P]/(P^{u^2}-1)$, then
+      > $|f(\zeta)|=u$ for every $u^2$th root $\zeta$.*
+
       Let $u>1$ be odd. Work in $\mathbb Z[i][P]/(P^{u^2}-1)$ and suppose
 
       $$
@@ -57,6 +61,10 @@ children:
       $$
       \Delta(f)=\prod_{S\subseteq I}f(\zeta_S)^{(-1)^{|S|}}.
       $$
+
+      > **Lemma (Magnitude of the alternating product).** *If
+      > $f(P)f^*(P)=u^2$, then $\Delta(f)$ and all its algebraic
+      > conjugates have absolute value $1$.*
 
       Even-sized subsets contribute numerator factors; odd-sized subsets
       contribute denominator factors. All values have magnitude $u$, and
@@ -99,6 +107,10 @@ children:
       - local-character-comparison
     segment: { start: 188.5, end: 193.76 }
     script: |
+      > **Lemma (Integrality).** *The alternating product $\Delta(f)$
+      > is an algebraic integer. Above each prime dividing $u$, it is
+      > a unit with residue $1$.*
+
       For each $p\in I$, pair the subset $S$ with $S\cup\{p\}$:
 
       $$
@@ -144,6 +156,9 @@ children:
       - kronecker-step
     segment: { start: 197.79, end: 216.39 }
     script: |
+      > **Lemma (Odd order).** *The order of $\Delta(f)$ is a power
+      > of every prime dividing $u$. In particular it is odd.*
+
       The local comparison also gave $\Delta(f)$ residue $1$ in
       characteristic $p$, for every $p\mid u$. A root of unity with
       residue $1$ in characteristic $p$ must have $p$-power order.

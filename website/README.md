@@ -53,13 +53,14 @@ remains a visual reference. The theorem is now inside Node 8; the former
 `/nodes/theorem/` URL redirects to its new location.
 
 The homepage presents one proof map: the overviews use order 36 to introduce
-the ideas, and following a node develops the general argument. The former
-[order-36](reading-routes/proof-by-example.md) and
-[general odd-u](reading-routes/general-proof.md) guides remain as source
-references outside the active build, alongside the earlier
-[archived outlines](archive/reading-routes/README.md).
-Their published URLs at `nodes/proof-by-example/` and `nodes/general-proof/`
-redirect to the homepage. Old general-proof-prefixed deeper URLs still
+the ideas, and following a node develops the general argument. The homepage's
+reading-route buttons open the supplementary
+[order-36 proof](reading-routes/proof-by-example.md) and
+[general odd-u proof](reading-routes/general-proof.md). These readable guides
+link into the same eight-node hierarchy and retain their published URLs at
+`nodes/proof-by-example/` and `nodes/general-proof/`. The earlier outlines remain
+in [the archive](archive/reading-routes/README.md).
+Old general-proof-prefixed deeper URLs still
 redirect to the corresponding current nodes, including their published videos.
 
 The former background outline is retained in [archive/nodes/](archive/nodes/)

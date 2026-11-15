@@ -40,10 +40,11 @@ Keep one Markdown file per node in [nodes/](nodes/), starting at
 LaTeX in the body. Child IDs replace code imports; cut scripts use YAML literal
 blocks (`script: |`) and support Markdown and math. The homepage owns the
 eight main proof nodes in one hierarchy. Main overviews use order 36 as a
-guiding example, while deeper nodes develop the general argument. Do not split
-the overview into example and general reading routes. Keep the source guides in
-`reading-routes/` as reference material outside the build; their former URLs
-redirect to the homepage. Keep the order-four and order-16 examples where
+guiding example, while deeper nodes develop the general argument. Preserve the
+homepage's Proof by Example and General Proof buttons and build their readable
+guides from `reading-routes/` at the published URLs. These supplementary guides
+link into the shared hierarchy and remain outside its child/dependency graph.
+Keep the order-four and order-16 examples where
 they clarify a lemma. Every view
 has its own full overview video and written explanations. Retain redirects
 when published node paths change.

@@ -4,7 +4,7 @@ BUN ?= bun
 FONT_FAMILIES := figtree source-serif-4 sometype-mono
 FONT_FILES := $(addsuffix -latin-wght-normal.woff2,$(FONT_FAMILIES))
 FONT_LICENSES := $(addsuffix -OFL.txt,$(FONT_FAMILIES))
-NODE_SOURCES := $(wildcard nodes/*.md)
+NODE_SOURCES := $(wildcard nodes/*.md reading-routes/*.md)
 
 all: dist/index.html dist/styles.css dist/math.css dist/video-player.js dist/phase-explorer.js dist/3b1b-source.md dist/tailwindcss-LICENSE.txt dist/mathjax-LICENSE.txt $(addprefix dist/fonts/,$(FONT_FILES) $(FONT_LICENSES))
 

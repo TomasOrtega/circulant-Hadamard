@@ -9,7 +9,7 @@ import {
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { renderToStaticMarkup } from "react-dom/server";
-import { loadNodes } from "./load-nodes.js";
+import { loadNodes, parseNode } from "./load-nodes.js";
 import { mathStyles } from "./markdown.js";
 import { assetRoot, collectNodes, hrefFor, pagePath } from "./node-tree.js";
 import { NodePage } from "./node.jsx";
@@ -19,6 +19,13 @@ export function buildNodes({
   root = loadNodes(),
 } = {}) {
   const entries = collectNodes(root);
+  if (root.graphLayout === "proof-map") {
+    for (const id of ["proof-by-example", "general-proof"]) {
+      if (entries.some((entry) => pagePath(entry) === `nodes/${id}/index.html`)) continue;
+      const node = parseNode(readFileSync(resolve("reading-routes", `${id}.md`), "utf8"), `${id}.md`);
+      entries.push({ node, path: [id], ancestors: [entries[0]], numbers: [] });
+    }
+  }
   const stylesheet = mathStyles(entries);
   const template = readFileSync("index.html", "utf8");
   rmSync(resolve(outDir, "lessons"), { recursive: true, force: true });
