@@ -1,0 +1,65 @@
+{
+  "source": "website/scripts/node8/final-contradiction.md",
+  "source_sha256": "3d17b70f15e5dbab745654c0a0629a6c1ca9d49ba68cb2c36e5ebb1a956b20cb",
+  "scene": "FinalContradiction",
+  "scene_file": "videos/final_contradiction.py",
+  "voice": "en-US-Chirp3-HD-Achird",
+  "work_started_at": "2026-11-15T02:56:35-08:00",
+  "cues": {
+    "opening": 0,
+    "roots": 17.47,
+    "units": 49.59,
+    "survivor": 76.37,
+    "conflict": 97.43,
+    "orders": 115.83,
+    "examples": 133.85
+  },
+  "alignment_match_ratio": 0.8715,
+  "narration_duration": 162.32022675736962,
+  "detail_cues": {
+    "all_ones": 8.08,
+    "empty": 27.7,
+    "geometric": 36.68,
+    "value_at_one": 42.68,
+    "inverse": 58.28,
+    "discard": 71.04,
+    "signed_u": 80.06,
+    "parity": 85.0,
+    "nonzero": 106.82,
+    "u_one": 126.5,
+    "four_example": 140.7,
+    "theorem": 152.62,
+    "map": 159.02
+  },
+  "duration": 162.333333,
+  "narration_sha256": "860347616acde93df5c78eee4142ba0e39db6fcc5b51765dea4ab37a914ccaed",
+  "video_sha256": "82bc63151b0abb211a93cd5f45e4eb416cbea6fcd8557764d5e75b871a08f6a5",
+  "subtitle_safe_fraction": 0.2,
+  "subtitle_band_max_luma": 16.0,
+  "subtitle_frames_checked": 4870,
+  "production_status": "final",
+  "child_segments": {
+    "roots-cancel-ones": {
+      "start": 17.47,
+      "end": 49.59
+    },
+    "odd-ones-at-one": {
+      "start": 76.37,
+      "end": 97.43
+    },
+    "surviving-odd-term": {
+      "start": 49.59,
+      "end": 97.43
+    },
+    "incompatible-residues": {
+      "start": 97.43,
+      "end": 115.83
+    },
+    "theorem": {
+      "start": 115.83,
+      "end": 162.333333
+    }
+  },
+  "scene_sha256": "4b85599e6c882079b35aa256a5deedda42a61fb2208f004b29230d2dda0e4654",
+  "layout_sha256": "af65a79e6ee3c1e4c50be87eaf23e651674da7cae9a65dd5fa0a5b94e9c219f2"
+}

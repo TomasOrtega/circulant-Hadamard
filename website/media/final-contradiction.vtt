@@ -1,0 +1,136 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:04.120
+We now finish the general argument.
+Node seven gave an alternating sum,
+
+00:00:04.440 --> 00:00:07.740
+script S, congruent to
+zero modulo one plus i.
+
+00:00:08.080 --> 00:00:13.060
+Node five gave E of P congruent to
+the all ones polynomial, J of P.
+
+00:00:13.400 --> 00:00:16.520
+We will evaluate that
+same sum a second way.
+
+00:00:17.620 --> 00:00:22.880
+Let I contain the distinct primes dividing
+our odd integer u, greater than one.
+
+00:00:23.400 --> 00:00:26.980
+Each subset S supplies the product
+of its chosen primitive roots.
+
+00:00:27.700 --> 00:00:29.370
+The empty subset gives one.
+
+00:00:29.760 --> 00:00:35.900
+Every nonempty subset gives a nontrivial
+root whose order divides u squared.
+
+00:00:36.680 --> 00:00:42.280
+Therefore the u squared terms of J
+cancel exactly at every nonempty input.
+
+00:00:42.680 --> 00:00:48.180
+At one, they add to u squared. These are
+exact geometric sums, before reduction.
+
+00:00:49.740 --> 00:00:52.620
+Now reduce modulo one plus i.
+
+00:00:53.140 --> 00:00:57.580
+We may replace each E evaluation
+by its corresponding J evaluation.
+
+00:00:58.280 --> 00:01:00.680
+The denominators stay invertible:
+
+00:01:01.040 --> 00:01:05.820
+the norm identity supplies their inverses
+after inverting the odd number u.
+
+00:01:06.260 --> 00:01:10.420
+Thus a zero numerator really
+does give a zero term.
+
+00:01:11.040 --> 00:01:15.040
+Every nonempty subset disappears,
+leaving only the empty subset.
+
+00:01:16.520 --> 00:01:19.780
+The surviving term is J of
+one divided by c of one.
+
+00:01:20.060 --> 00:01:25.000
+Since c of one is positive or negative u,
+this quotient is positive or negative u.
+
+00:01:25.000 --> 00:01:30.060
+The integer u is odd. Pairs of
+ones vanish modulo one plus i,
+
+00:01:30.160 --> 00:01:33.280
+leaving one; a negative
+sign has the same residue.
+
+00:01:34.220 --> 00:01:38.860
+So script S is congruent to one.
+Compare the two conclusions.
+
+00:01:39.940 --> 00:01:41.590
+Node seven gives residue zero,
+
+00:01:42.020 --> 00:01:46.000
+while the all ones polynomial
+gives residue one for the same sum.
+
+00:01:46.820 --> 00:01:50.480
+Our reduction ring is nonzero,
+so zero and one are different.
+
+00:01:51.100 --> 00:01:55.400
+This contradiction rules out
+every odd u greater than one.
+
+00:01:55.980 --> 00:01:57.660
+Return to the order restriction.
+
+00:01:57.960 --> 00:02:02.980
+An order n greater than one must
+equal four u squared, with u odd.
+
+00:02:03.460 --> 00:02:06.170
+We have eliminated every
+u greater than one.
+
+00:02:06.500 --> 00:02:11.020
+The only remaining value is u
+equal to one, giving order four.
+
+00:02:11.540 --> 00:02:15.920
+Order one is the separate case.
+Both remaining orders occur.
+
+00:02:16.580 --> 00:02:20.300
+At order one, use the one by
+one matrix with entry one.
+
+00:02:20.700 --> 00:02:26.180
+At order four, use our circulant example
+whose first row is negative one, one,
+
+00:02:26.700 --> 00:02:32.110
+one, one. Its rows are mutually
+orthogonal and have squared length four.
+
+00:02:32.620 --> 00:02:36.760
+The argument concludes that a real
+circulant Hadamard matrix exists exactly
+
+00:02:36.760 --> 00:02:40.920
+at orders one and four. This
+completes the eight step proof map.

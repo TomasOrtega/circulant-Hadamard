@@ -6,7 +6,10 @@ summary: The general vanishing sum has residue one from the all-ones polynomial,
   excluding every odd u greater than one and leaving exactly orders 1 and 4.
 number: 8
 draft: true
-video: null
+video:
+  src: media/final-contradiction.mp4
+  captions: media/final-contradiction.vtt
+  duration: 162.333333
 mapPosition:
   - 250
   - 820
@@ -16,7 +19,7 @@ graphTitle: Inside Node 8 · The Final Contradiction
 children:
   - node: roots-cancel-ones
     dependsOn: []
-    segment: null
+    segment: { start: 17.47, end: 49.59 }
     script: |
       Recall the all-ones polynomial from Node 5:
 
@@ -47,7 +50,7 @@ children:
       This exact evaluation happens before reduction modulo $1+i$.
   - node: odd-ones-at-one
     dependsOn: []
-    segment: null
+    segment: { start: 76.37, end: 97.43 }
     script: |
       At $P=1$, every term contributes one:
 
@@ -72,7 +75,7 @@ children:
     dependsOn:
       - roots-cancel-ones
       - odd-ones-at-one
-    segment: null
+    segment: { start: 49.59, end: 97.43 }
     script: |
       Node 5 gives $E(P)\equiv J(P)\pmod{1+i}$ coefficient by
       coefficient. Evaluate and divide by the units $c(\zeta_S)$
@@ -101,7 +104,7 @@ children:
   - node: incompatible-residues
     dependsOn:
       - surviving-odd-term
-    segment: null
+    segment: { start: 97.43, end: 115.83 }
     script: |
       Node 7 and the all-ones calculation give two incompatible residues
       for the same element:
@@ -120,7 +123,7 @@ children:
   - node: theorem
     dependsOn:
       - incompatible-residues
-    segment: null
+    segment: { start: 115.83, end: 162.333333 }
     script: |
       > **Theorem.** A real circulant Hadamard matrix exists exactly at
       > orders $1$ and $4$.
