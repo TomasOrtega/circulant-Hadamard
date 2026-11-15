@@ -7,7 +7,10 @@ summary: Equal evaluation magnitudes, local arithmetic, and Kronecker's theorem
   restrict the alternating phase product to a root of unity of odd order.
 number: 4
 draft: true
-video: null
+video:
+  src: media/delta-theorem.mp4
+  captions: media/delta-theorem.vtt
+  duration: 238.8
 mapPosition:
   - 460
   - 180
@@ -17,7 +20,7 @@ graphTitle: Inside Node 4 · From a Circle to Roots of Unity
 children:
   - node: circle-evaluations
     dependsOn: []
-    segment: null
+    segment: { start: 15.81, end: 57.83 }
     script: |
       Let $u>1$ be odd. Work in $\mathbb Z[i][P]/(P^{u^2}-1)$ and suppose
 
@@ -40,7 +43,7 @@ children:
   - node: alternating-phase-product
     dependsOn:
       - circle-evaluations
-    segment: null
+    segment: { start: 103.13, end: 168.05 }
     script: |
       Let $I$ be the set of distinct primes dividing $u$. Choose a primitive
       $p$th root $\zeta_p$ for each $p\in I$, and put
@@ -91,7 +94,7 @@ children:
     dependsOn:
       - alternating-phase-product
       - local-character-comparison
-    segment: null
+    segment: { start: 188.5, end: 193.76 }
     script: |
       For each $p\in I$, pair the subset $S$ with $S\cup\{p\}$:
 
@@ -115,7 +118,7 @@ children:
     dependsOn:
       - alternating-phase-product
       - integral-delta
-    segment: null
+    segment: { start: 168.05, end: 197.79 }
     script: |
       > **Kronecker's theorem, taken as a black box:** an algebraic integer
       > all of whose conjugates have absolute value $1$ is a root of unity.
@@ -134,7 +137,7 @@ children:
     dependsOn:
       - local-character-comparison
       - kronecker-step
-    segment: null
+    segment: { start: 197.79, end: 216.39 }
     script: |
       The local comparison also gave $\Delta(f)$ residue $1$ in
       characteristic $p$, for every $p\mid u$. A root of unity with

@@ -1,0 +1,78 @@
+{
+  "source": "website/scripts/node4/delta-theorem.md",
+  "source_sha256": "996e1bbe7e4d3df80662dc51d766d312d46bf3dbc89efbbd2337460878f76b6f",
+  "scene": "DeltaTheorem",
+  "scene_file": "videos/delta_theorem.py",
+  "voice": "en-US-Chirp3-HD-Achird",
+  "work_started_at": "2026-11-15T00:47:07-08:00",
+  "cues": {
+    "opening": 0,
+    "circle": 15.81,
+    "example": 35.97,
+    "quotient": 57.83,
+    "direction": 77.91,
+    "primes": 103.13,
+    "product": 122.77,
+    "two_primes": 142.35,
+    "kronecker": 168.05,
+    "odd_order": 197.79,
+    "application": 216.39
+  },
+  "alignment_match_ratio": 0.9325,
+  "narration_duration": 238.7802267573696,
+  "detail_cues": {
+    "opening_gaussian": 3.94,
+    "circle_conjugate": 23.78,
+    "circle_radius": 29.8,
+    "example_star": 40.66,
+    "example_map": 45.34,
+    "example_scope": 52.1,
+    "quotient_define": 62.96,
+    "quotient_magnitudes": 67.56,
+    "quotient_direction": 73.86,
+    "direction_turn": 90.18,
+    "primes_subset": 112.12,
+    "product_define": 130.04,
+    "two_primes_square": 146.02,
+    "two_primes_phase": 157.7,
+    "kronecker_cancel": 179.6,
+    "kronecker_integral": 188.5,
+    "kronecker_apply": 193.76,
+    "odd_order_conclusion": 202.58,
+    "odd_order_three": 207.04,
+    "application_deltas": 222.66,
+    "application_six": 227.4,
+    "application_signs": 230.48
+  },
+  "duration": 238.8,
+  "narration_sha256": "c5d031bb0c5fd8f503787e9bfe582cab09dfac5f6450e8a7657e1d071b41f36f",
+  "video_sha256": "bc5cfd1cee6bd5da46b1ba6b595f00fdb9eaa9e407e6ac09134e8f643f4e27d4",
+  "subtitle_safe_fraction": 0.2,
+  "subtitle_band_max_luma": 16.0,
+  "subtitle_frames_checked": 7164,
+  "production_status": "final",
+  "child_segments": {
+    "circle-evaluations": {
+      "start": 15.81,
+      "end": 57.83
+    },
+    "alternating-phase-product": {
+      "start": 103.13,
+      "end": 168.05
+    },
+    "integral-delta": {
+      "start": 188.5,
+      "end": 193.76
+    },
+    "kronecker-step": {
+      "start": 168.05,
+      "end": 197.79
+    },
+    "delta-odd-order": {
+      "start": 197.79,
+      "end": 216.39
+    }
+  },
+  "scene_sha256": "a23b6eea4cef15db6979a1fab1dd6e5af116d176dc270dedef85269d72d9ed78",
+  "layout_sha256": "af65a79e6ee3c1e4c50be87eaf23e651674da7cae9a65dd5fa0a5b94e9c219f2"
+}
