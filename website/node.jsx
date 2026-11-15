@@ -235,7 +235,7 @@ export function NodePage({ entry, entries }) {
   const children = (node.children ?? []).filter(({ node: child }) => !child.supplemental);
   const base = assetRoot(entry);
   const hasOwnProofMap = node.graphLayout === "proof-map";
-  const showOwnExplanation = !entry.ancestors.length || !children.length;
+  const showOwnExplanation = !entry.ancestors.length || node.supplemental || !children.length;
   return (
     <>
       <a

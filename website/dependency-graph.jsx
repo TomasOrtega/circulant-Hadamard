@@ -29,6 +29,7 @@ export function DependencyGraph({ entry, entries }) {
   const children = owner.node.children?.length
     ? owner.node.children.filter(({ node }) => !node.supplemental)
     : [{ node: entry.node, dependsOn: [] }];
+  if (!children.length) return null;
   const { layers, edges } = dependencyGraph(children);
   const rows = Math.max(...layers.map((layer) => layer.length));
   const width =
