@@ -134,18 +134,18 @@ function Markdown({ script }) {
 function TableOfContents() {
   return (
     <>
-      <button id="toc-toggle" type="button" popoverTarget="table-of-contents"
-        aria-label="Table of contents" hidden
+      <button id="toc-toggle" type="button" aria-controls="table-of-contents"
+        aria-label="Table of contents" aria-expanded="false" hidden
         className="fixed top-0 left-0 z-20 flex size-10 items-center justify-center bg-white text-black shadow-md hocus:text-theme print:hidden">
         <svg viewBox="0 0 24 24" className="size-6" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
           <path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01" strokeLinecap="round" />
         </svg>
       </button>
-      <nav id="table-of-contents" popover="auto" aria-label="Table of contents"
-        className="fixed inset-y-0 left-0 right-auto m-0 h-dvh w-80 max-w-[75vw] overflow-y-auto border-0 bg-white p-4 font-sans text-black shadow-md print:hidden">
+      <nav id="table-of-contents" aria-label="Table of contents" hidden
+        className="fixed inset-y-0 left-0 z-30 m-0 h-dvh w-80 max-w-[75vw] overflow-y-auto bg-white p-4 font-sans text-black shadow-md print:hidden">
         <div className="sticky top-0 flex items-center justify-between gap-4 bg-white">
           <span className="font-medium">Table of Contents</span>
-          <button type="button" popoverTarget="table-of-contents" popoverTargetAction="hide"
+          <button id="toc-close" type="button"
             aria-label="Close table of contents" className="flex size-10 shrink-0 items-center justify-center hocus:text-theme">
             <svg viewBox="0 0 24 24" className="size-6" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
               <path d="m6 6 12 12M6 18 18 6" />
@@ -220,7 +220,7 @@ export function NodePage({ entry, entries }) {
       >
         Jump to main content
       </a>
-      <header className="dark relative flex flex-wrap items-center justify-between gap-4 bg-white p-8 text-black max-md:p-4 print:hidden">
+      <header className="dark relative flex flex-wrap items-center justify-between gap-4 bg-white p-8 pr-24 text-black max-md:p-4 max-md:pr-20 print:hidden">
         <NodeButton href={hrefFor(root, entry)}>
           <span className="font-serif text-2xl">Circulant Hadamard</span>
         </NodeButton>
@@ -232,6 +232,17 @@ export function NodePage({ entry, entries }) {
             Repository
           </NodeButton>
         </nav>
+        <button id="dark-mode-toggle" type="button" role="switch" aria-checked="false"
+          aria-label="Toggle dark mode" title="Toggle dark mode" hidden
+          className={`${buttonBase} group absolute right-8 top-8 text-black hocus:bg-theme/15 hocus:text-theme max-md:right-4 max-md:top-4 print:hidden`}>
+          <svg viewBox="0 0 24 24" className="size-6 group-aria-checked:hidden" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+            <path d="M21 13a9 9 0 1 1-10-10 7 7 0 0 0 10 10Z" />
+          </svg>
+          <svg viewBox="0 0 24 24" className="hidden size-6 group-aria-checked:block" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 1v2M12 21v2M1 12h2M21 12h2M4 4l2 2M18 18l2 2M4 20l2-2M18 6l2-2" />
+          </svg>
+        </button>
       </header>
       <TableOfContents />
       <main id="content" className="striped">
@@ -274,23 +285,11 @@ export function NodePage({ entry, entries }) {
           </section>
         )}
       </main>
-      <footer className="flex items-center justify-between gap-4 bg-alt-white p-8 text-center font-sans text-sm text-dark-gray">
-        <button id="dark-mode-toggle" type="button" role="switch" aria-checked="false"
-          aria-label="Toggle dark mode" title="Toggle dark mode" hidden
-          className={`${buttonBase} group shrink-0 text-black hocus:bg-theme/15 hocus:text-theme print:hidden`}>
-          <svg viewBox="0 0 24 24" className="size-6 group-aria-checked:hidden" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-            <path d="M21 13a9 9 0 1 1-10-10 7 7 0 0 0 10 10Z" />
-          </svg>
-          <svg viewBox="0 0 24 24" className="hidden size-6 group-aria-checked:block" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-            <circle cx="12" cy="12" r="4" />
-            <path d="M12 1v2M12 21v2M1 12h2M21 12h2M4 4l2 2M18 18l2 2M4 20l2-2M18 6l2-2" />
-          </svg>
-        </button>
-        <p className="flex-1">
+      <footer className="bg-alt-white p-8 text-center font-sans text-sm text-dark-gray">
+        <p>
           A project for the Caltech × SAIR Mathathon, by Steven Creech and Tomas
           Ortega
         </p>
-        <span className="size-12 shrink-0 max-md:hidden print:hidden" aria-hidden="true" />
       </footer>
       <aside id="page-controls" aria-label="Page controls" hidden
         className="fixed right-2 bottom-2 z-20 flex flex-col items-end gap-2 text-[white] mix-blend-difference print:hidden">

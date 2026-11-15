@@ -241,8 +241,10 @@ and link to GitHub issues for feedback. Sharing uses the native share sheet or
 falls back to copying the link.
 
 After the masthead scrolls away, the top-left contents button opens links to
-the current page's headings. The footer's dark-mode switch remembers the
-appearance choice across pages.
+the current page's headings. The panel stays open when following those links.
+Desktop pages reserve a reading lane beside it; smaller screens use a drawer
+that closes with its close button, Escape, or a click outside. The masthead's
+top-right dark-mode switch remembers the appearance choice across pages.
 
 The shared renderer is [node.jsx](node.jsx), with the pinned
 [3Blue1Brown styling](vendor/README.md). Parsing and math rendering are in

@@ -24,9 +24,10 @@ native sharing with a copy-link fallback, and feedback linking to GitHub issues.
 The static implementation uses inline SVG icons
 and no client React runtime.
 
-The contents panel and footer appearance switch follow `TableOfContents.tsx`,
-`DarkMode.tsx`, and `Footer.tsx` at the same revision, using native popover
-controls and the existing dark palette.
+The contents panel and masthead appearance switch follow `TableOfContents.tsx`,
+`DarkMode.tsx`, and `Nav.tsx` at the same revision. The static panel keeps heading
+navigation open, reserves reading space on desktop, and uses a drawer on smaller
+screens. The switch uses the existing dark palette.
 
 The upstream repository has no license file at this revision; this copy does
 not assign a license to their work. Tailwind's MIT license and the Fontsource

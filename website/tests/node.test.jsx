@@ -43,6 +43,16 @@ describe("recursive node navigation", () => {
     }
   });
 
+  test("each page has one appearance switch in its masthead", () => {
+    for (const entry of entries) {
+      const html = readFileSync(join(output, pagePath(entry)), "utf8");
+      const masthead = html.slice(html.indexOf("<header"), html.indexOf("</header>"));
+      expect(masthead, entry.node.id).toContain('id="dark-mode-toggle"');
+      expect(masthead, entry.node.id).toContain('role="switch"');
+      expect([...html.matchAll(/id="dark-mode-toggle"/g)], entry.node.id).toHaveLength(1);
+    }
+  });
+
   test("breadcrumbs match the surrounding navigation typography and link style", () => {
     for (const entry of entries.filter(({ ancestors }) => ancestors.length)) {
       const html = readFileSync(join(output, pagePath(entry)), "utf8");

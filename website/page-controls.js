@@ -23,7 +23,9 @@ window.addEventListener("afterprint", () => setDarkMode(darkButton.getAttribute(
 
 const toc = document.getElementById("table-of-contents");
 const tocButton = document.getElementById("toc-toggle");
+const tocClose = document.getElementById("toc-close");
 const masthead = document.querySelector("body > header");
+const desktop = window.matchMedia("(min-width: 70rem)");
 const headings = [...document.querySelectorAll("main h1, main h2, main h3")];
 if (headings.length > 1) {
   document.getElementById("toc-links").replaceChildren(...headings.map((heading, index) => {
@@ -35,21 +37,37 @@ if (headings.length > 1) {
     link.style.paddingLeft = `${Number(heading.tagName[1]) * 0.5}rem`;
     link.innerHTML = heading.innerHTML;
     link.querySelectorAll("hr").forEach(rule => rule.remove());
+    link.querySelectorAll("[id]").forEach(label => label.removeAttribute("id"));
     return link;
   }));
 }
-toc.addEventListener("click", (event) => {
-  if (event.target.closest("a")) toc.hidePopover();
-});
-
 const updateScrollControls = () => {
   topButton.hidden = window.scrollY <= 500;
-  tocButton.hidden = headings.length < 2 || masthead.getBoundingClientRect().bottom > 0;
-  if (tocButton.hidden && toc.matches(":popover-open")) toc.hidePopover();
+  tocButton.hidden = headings.length < 2 || !toc.hidden || masthead.getBoundingClientRect().bottom > 0;
 };
 window.addEventListener("scroll", updateScrollControls, { passive: true });
 window.addEventListener("resize", updateScrollControls);
 updateScrollControls();
+
+const setTocOpen = (open, focus = false) => {
+  toc.hidden = !open;
+  tocButton.setAttribute("aria-expanded", String(open));
+  root.classList.toggle("toc-open", open);
+  updateScrollControls();
+  if (focus) (open ? tocClose : tocButton.hidden ? masthead.querySelector("a") : tocButton).focus();
+};
+tocButton.addEventListener("click", () => setTocOpen(true, true));
+tocClose.addEventListener("click", () => setTocOpen(false, true));
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && !toc.hidden) {
+    setTocOpen(false, true);
+    event.preventDefault();
+  }
+});
+document.addEventListener("pointerdown", (event) => {
+  if (!desktop.matches && !toc.hidden && !toc.contains(event.target) && !tocButton.contains(event.target))
+    setTocOpen(false);
+});
 
 topButton.addEventListener("click", () => {
   window.scrollTo({
