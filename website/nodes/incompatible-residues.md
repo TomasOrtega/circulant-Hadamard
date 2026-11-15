@@ -5,7 +5,10 @@ shortTitle: The Contradiction
 summary: The same alternating sum has residues zero and one in a nonzero ring, excluding every odd u greater than one.
 number: "8.4"
 draft: true
-video: null
+video:
+  src: media/incompatible-residues.mp4
+  captions: media/incompatible-residues.vtt
+  duration: 129.4
 mapPosition: [240, 420]
 mapSummary: '$\mathcal S\equiv0,\quad\mathcal S\equiv1$'
 ---
