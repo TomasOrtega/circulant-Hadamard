@@ -5,7 +5,10 @@ shortTitle: Integrality
 summary: Pairing subsets in each prime direction shows that the alternating product has no local denominator obstruction.
 number: "4.4"
 draft: true
-video: null
+video:
+  src: media/integral-delta.mp4
+  captions: media/integral-delta.vtt
+  duration: 180.966667
 mapPosition: [240, 380]
 mapSummary: '$\Delta(f)$ is an algebraic integer'
 ---

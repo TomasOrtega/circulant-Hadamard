@@ -1,0 +1,203 @@
+{
+  "source": "website/scripts/node4/integral-delta.md",
+  "source_sha256": "0928402faae2dfb5f98a6bf6b585f5b4b5a13b86c4a373429eeb3b508d5aed8c",
+  "scene": "IntegralDelta",
+  "scene_file": "videos/integral_delta.py",
+  "voice": "en-US-Chirp3-HD-Achird",
+  "work_started_at": "2026-11-15T05:57:31-08:00",
+  "cues": {
+    "regroup": 0,
+    "local": 46.63,
+    "other": 81.77,
+    "global": 112.79
+  },
+  "alignment_match_ratio": 0.9824,
+  "narration_duration": 180.9402267573696,
+  "detail_cues": {
+    "ring": 8.7,
+    "pair": 15.6,
+    "paired_product": 22.86,
+    "two_primes": 30.7,
+    "inverted": 36.86,
+    "same_number": 42.94,
+    "local_ratio": 49.92,
+    "unit_inverse": 55.18,
+    "delta_unit": 63.58,
+    "q_direction": 66.9,
+    "all_divisors": 71.84,
+    "u_invertible": 88.12,
+    "explicit_inverse": 89.98,
+    "multiply_inverse": 97.42,
+    "all_factors": 100.66,
+    "every_local": 107.06,
+    "suppose_outside": 116.36,
+    "clearing_ideal": 120.68,
+    "proper": 126.28,
+    "maximal": 131.16,
+    "local_fraction": 133.96,
+    "clears": 142.4,
+    "inside": 144.52,
+    "contradiction": 151.76,
+    "generators": 155.3,
+    "integral": 165.36,
+    "circle": 167.84,
+    "kronecker": 172.46,
+    "residue": 175.26
+  },
+  "animation_alignment": {
+    "ring": {
+      "phrase": "Our evaluated values belong to B",
+      "time": 8.7,
+      "source_word_index": 25
+    },
+    "pair": {
+      "phrase": "Fix one prime p in I",
+      "time": 15.6,
+      "source_word_index": 43
+    },
+    "paired_product": {
+      "phrase": "The same alternating product becomes",
+      "time": 22.86,
+      "source_word_index": 63
+    },
+    "two_primes": {
+      "phrase": "For two distinct primes",
+      "time": 30.7,
+      "source_word_index": 81
+    },
+    "inverted": {
+      "phrase": "The second ratio is inverted",
+      "time": 36.86,
+      "source_word_index": 99
+    },
+    "same_number": {
+      "phrase": "We are regrouping one fixed number",
+      "time": 42.94,
+      "source_word_index": 113
+    },
+    "local_ratio": {
+      "phrase": "the preceding local comparison",
+      "time": 49.92,
+      "source_word_index": 128
+    },
+    "unit_inverse": {
+      "phrase": "A unit has an inverse",
+      "time": 55.18,
+      "source_word_index": 141
+    },
+    "delta_unit": {
+      "phrase": "Thus Delta has both properties",
+      "time": 63.58,
+      "source_word_index": 163
+    },
+    "q_direction": {
+      "phrase": "Change the pairing direction to q",
+      "time": 66.9,
+      "source_word_index": 169
+    },
+    "all_divisors": {
+      "phrase": "Repeat for every prime dividing u",
+      "time": 71.84,
+      "source_word_index": 182
+    },
+    "u_invertible": {
+      "phrase": "u squared is invertible",
+      "time": 88.12,
+      "source_word_index": 223
+    },
+    "explicit_inverse": {
+      "phrase": "The evaluated norm identity gives",
+      "time": 89.98,
+      "source_word_index": 227
+    },
+    "multiply_inverse": {
+      "phrase": "Multiplying the value by this inverse",
+      "time": 97.42,
+      "source_word_index": 245
+    },
+    "all_factors": {
+      "phrase": "Every evaluated factor is therefore a unit",
+      "time": 100.66,
+      "source_word_index": 253
+    },
+    "every_local": {
+      "phrase": "Together the two cases put Delta",
+      "time": 107.06,
+      "source_word_index": 271
+    },
+    "suppose_outside": {
+      "phrase": "Write z for Delta",
+      "time": 116.36,
+      "source_word_index": 295
+    },
+    "clearing_ideal": {
+      "phrase": "Form the ideal J",
+      "time": 120.68,
+      "source_word_index": 305
+    },
+    "proper": {
+      "phrase": "This ideal is proper",
+      "time": 126.28,
+      "source_word_index": 323
+    },
+    "maximal": {
+      "phrase": "Choose a maximal ideal",
+      "time": 131.16,
+      "source_word_index": 337
+    },
+    "local_fraction": {
+      "phrase": "Local membership writes z",
+      "time": 133.96,
+      "source_word_index": 343
+    },
+    "clears": {
+      "phrase": "But s times z equals a",
+      "time": 142.4,
+      "source_word_index": 364
+    },
+    "inside": {
+      "phrase": "Therefore s clears z",
+      "time": 144.52,
+      "source_word_index": 370
+    },
+    "contradiction": {
+      "phrase": "This contradiction proves Delta belongs to B",
+      "time": 151.76,
+      "source_word_index": 388
+    },
+    "generators": {
+      "phrase": "The generators of B are roots of unity",
+      "time": 155.3,
+      "source_word_index": 395
+    },
+    "integral": {
+      "phrase": "so Delta is an algebraic integer",
+      "time": 165.36,
+      "source_word_index": 415
+    },
+    "circle": {
+      "phrase": "Separately we already proved",
+      "time": 167.84,
+      "source_word_index": 421
+    },
+    "kronecker": {
+      "phrase": "These are the two inputs",
+      "time": 172.46,
+      "source_word_index": 432
+    },
+    "residue": {
+      "phrase": "Keep the local",
+      "time": 175.26,
+      "source_word_index": 440
+    }
+  },
+  "duration": 180.966667,
+  "narration_sha256": "d1673abca4a5449fd7f3300f06abb3a5854fb6ee95524b73dfde1f10f0fa7540",
+  "video_sha256": "ac7daa7e4a631a123d96df31507e8e1e246c7a4bbf87f2a74cb03cc6225a7fdf",
+  "subtitle_safe_fraction": 0.2,
+  "subtitle_band_max_luma": 16.0,
+  "subtitle_frames_checked": 5429,
+  "production_status": "final",
+  "scene_sha256": "322b238675a7e5a46df55168044b5e625d16697010417aa97dae3e4f7c6d7c0e",
+  "layout_sha256": "af65a79e6ee3c1e4c50be87eaf23e651674da7cae9a65dd5fa0a5b94e9c219f2"
+}
