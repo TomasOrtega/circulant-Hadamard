@@ -16,6 +16,27 @@ and `manim_imports_ext` belong to the upstream repository.
 - Achird US English is the approved voice. Keep voice settings and caching in
   [narration/speech.py](../narration/speech.py). Use offline previews while
   iterating on visuals, and read formulas as spoken mathematics.
+- Split narration at questions, deductions, and reveals. Use measured delivery
+  for dense mathematics, curiosity before a question, and restrained delight
+  at an insight. Keep delivery directions separate from spoken text.
+- Place thinking pauses between completed narration blocks with
+  `self.wait(seconds)`, after speech and animations finish. A wait inside a
+  narration block advances the visuals while its recording continues. Tune
+  pause lengths by reviewing the rendered explanation.
+- When extending narration controls, follow the
+  [expressive narration proposal](../decision_log/2026-11-14-160253-expressive-narration-and-pauses.md).
+  The planned API is `narrate(text, delivery="curious", pause_after=2.0)`;
+  these keywords are not implemented yet. Add `curious`, `deliberate`, and
+  `delighted` delivery presets, and apply `pause_after` after both audio and
+  animations finish. Keep pauses on the scene timeline so edits reuse speech.
+- Add expressive synthesis as an optional Cloud Gemini TTS mode through the
+  existing SDK, using a separate style prompt and the short voice name
+  `Achird`. Audition a short question, pause, and reveal before changing the
+  approved Chirp default. Check current model capabilities and request limits;
+  the proposal records differences from the current backend.
+- Include model and delivery prompt in expressive audio cache keys. Cover
+  pause ordering, cache reuse after pause edits, prompt/model invalidation,
+  and model-specific byte limits when implementing these controls.
 - Use a black background, light text, and consistent colors for mathematical
   objects. Reserve yellow for the current focus; use blue for recurring objects.
   Introduce and transform objects to explain their relationships.
