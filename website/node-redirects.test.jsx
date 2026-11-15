@@ -35,7 +35,7 @@ function expectRedirect(directory, previousPath, destination, assetPrefix) {
 }
 
 describe("published proof route compatibility", () => {
-  test("retired route entrypoints lead to the unified root", () => {
+  test("custom trees without reading guides retain their legacy root redirects", () => {
     const directory = build(node("overview", [node("three-evaluations")]));
     for (const route of ["general-proof", "proof-by-example"])
       expectRedirect(directory, `nodes/${route}/index.html`, "../../index.html", "../../");

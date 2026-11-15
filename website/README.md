@@ -15,10 +15,14 @@ general argument. Propositions 2.2 and 3.4 remain accepted inputs at this level.
 subnodes. The theorem concludes Node 8. Other detailed graphs remain in
 preparation.
 
-The former separate reading routes are retained in
-[archive/reading-routes/](archive/reading-routes/README.md). Their published
-URLs redirect to the main map; old general-proof-prefixed node URLs redirect
-to the corresponding current node, including Node 1's published videos.
+The homepage's reading-route buttons open the supplementary
+[order-36 proof](reading-routes/proof-by-example.md) and
+[general odd-u proof](reading-routes/general-proof.md). These readable guides
+use the same eight-node hierarchy; they do not duplicate its proof nodes.
+They retain their published URLs at `nodes/proof-by-example/` and
+`nodes/general-proof/`. Old general-proof-prefixed deeper URLs still redirect
+to the corresponding current nodes, including their published videos.
+The earlier route files remain in [the archive](archive/reading-routes/README.md).
 
 The former background outline is retained in [archive/nodes/](archive/nodes/)
 and is not built. Active nodes have new descriptive URLs.
