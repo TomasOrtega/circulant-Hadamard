@@ -5,7 +5,10 @@ shortTitle: Odd Ones at One
 summary: At one the all-ones polynomial is u squared, and its denominator is plus or minus u.
 number: "8.2"
 draft: true
-video: null
+video:
+  src: media/odd-ones-at-one.mp4
+  captions: media/odd-ones-at-one.vtt
+  duration: 135.333333
 mapPosition: [440, 24]
 mapSummary: '$J(1)=u^2,\quad c(1)=\pm u$'
 ---

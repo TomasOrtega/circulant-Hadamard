@@ -1,0 +1,118 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:02.960
+Let u be odd and greater than one.
+
+00:00:03.340 --> 00:00:06.520
+The all-ones polynomial
+J has u squared terms.
+
+00:00:07.200 --> 00:00:13.060
+Substitute P equal to one: every power
+becomes one, so J of one equals u squared.
+
+00:00:13.720 --> 00:00:17.920
+For u equal to three, count nine
+ones before taking any residue.
+
+00:00:19.000 --> 00:00:22.740
+Now use the same nonzero
+characteristic-two quotient ring as
+
+00:00:22.740 --> 00:00:27.560
+before. Two equals the product
+of one plus i and one minus i,
+
+00:00:27.560 --> 00:00:29.700
+so a pair of ones reduces to zero.
+
+00:00:30.080 --> 00:00:34.200
+In the residue calculation, pair
+eight of the nine ones; one remains.
+
+00:00:34.960 --> 00:00:40.680
+In general, u squared is odd, so J of
+one has residue one modulo one plus i.
+
+00:00:42.100 --> 00:00:47.480
+Our sum contains J of one divided by c of
+one, so account for the denominator too.
+
+00:00:47.480 --> 00:00:50.940
+The polynomial c has
+real integer coefficients
+
+00:00:51.500 --> 00:00:54.640
+and satisfies c times c
+star equals u squared.
+
+00:00:54.900 --> 00:00:57.960
+Star conjugates the coefficients
+and reverses the powers.
+
+00:00:58.680 --> 00:01:02.150
+At P equal to one, every
+reversed power is still one,
+
+00:01:02.400 --> 00:01:05.040
+and conjugating a real
+coefficient leaves it unchanged.
+
+00:01:06.320 --> 00:01:09.260
+Thus c star of one equals c of one.
+
+00:01:09.740 --> 00:01:15.100
+The evaluated norm identity becomes
+c of one squared equals u squared.
+
+00:01:15.100 --> 00:01:18.140
+Therefore c of one is
+either u or negative u.
+
+00:01:18.720 --> 00:01:22.660
+The real-coefficient condition restricts
+the value to these two real possibilities.
+
+00:01:24.180 --> 00:01:27.280
+Use the evaluation ring
+with one over u adjoined.
+
+00:01:27.680 --> 00:01:31.500
+The denominator c of one, equal to
+positive or negative u, is a unit there.
+
+00:01:31.880 --> 00:01:36.640
+Simplify the exact quotient before
+reducing: J of one over c of one equals
+
+00:01:36.640 --> 00:01:41.540
+u squared over positive or negative
+u, giving positive or negative u.
+
+00:01:42.280 --> 00:01:46.370
+For u equal to three, nine
+divided by three is three,
+
+00:01:46.680 --> 00:01:51.000
+and nine divided by negative three
+is negative three. Now take residues.
+
+00:01:51.920 --> 00:01:57.660
+Since u is odd, its residue is one. Plus
+and minus agree in characteristic two,
+
+00:01:57.980 --> 00:02:00.930
+so either sign of the
+quotient has residue one.
+
+00:02:01.620 --> 00:02:06.680
+The empty subset has input P equal
+to one and positive alternating sign.
+
+00:02:06.680 --> 00:02:10.980
+Its normalized contribution,
+including the unit denominator,
+
+00:02:11.160 --> 00:02:13.820
+therefore has residue one
+in the same common ring.
