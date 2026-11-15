@@ -1,0 +1,145 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:01.680
+Let u be any positive integer.
+
+00:00:02.440 --> 00:00:05.380
+We combine the exact sign
+formula with Gaussian parity.
+
+00:00:06.100 --> 00:00:11.010
+E of P equals minus H three of P, plus
+the product of the quantity i minus one
+
+00:00:11.060 --> 00:00:15.400
+with the half-sum of H one and H two.
+The half-sum has integer coefficients.
+
+00:00:16.700 --> 00:00:21.200
+Since i minus one equals i multiplied
+by the quantity one plus i,
+
+00:00:21.460 --> 00:00:24.760
+the whole second term is
+divisible by one plus i.
+
+00:00:25.340 --> 00:00:28.760
+Under coefficient reduction
+it vanishes, leaving E of P
+
+00:00:28.760 --> 00:00:32.460
+congruent to minus H three
+of P. The exact integer
+
+00:00:32.460 --> 00:00:36.800
+half-sum was formed before this reduction;
+we are not dividing in the residue ring.
+
+00:00:38.000 --> 00:00:42.740
+Write H three as the sum of h
+sub three r times P to the r,
+
+00:00:42.980 --> 00:00:47.920
+for r from zero to u squared minus
+one. Each sign is plus or minus one.
+
+00:00:48.240 --> 00:00:51.490
+Both possible values of its
+negative have residue one.
+
+00:00:51.920 --> 00:00:54.500
+Thus E of P is congruent to J of P,
+
+00:00:54.500 --> 00:00:57.340
+the sum of P to the r
+over those same positions.
+
+00:00:58.200 --> 00:01:02.360
+Every coefficient of E minus
+J is divisible by one plus i.
+
+00:01:02.760 --> 00:01:07.300
+This uses the common signs, without
+norm identities or oddness of u.
+
+00:01:08.540 --> 00:01:11.840
+For u equal to three, there
+are nine coefficient positions.
+
+00:01:12.820 --> 00:01:16.933
+Here is an illustrative row of
+allowed signs for minus H three.
+
+00:01:17.280 --> 00:01:20.920
+Keep all nine powers, from P to the
+zero through P to the eighth, fixed.
+
+00:01:21.740 --> 00:01:24.780
+Reduce each coefficient to
+one. These are residues:
+
+00:01:25.580 --> 00:01:28.850
+the original coefficients
+of E need not equal one.
+
+00:01:29.480 --> 00:01:34.170
+Now substitute P equal to one.
+Every power in J becomes one.
+
+00:01:34.620 --> 00:01:39.520
+Therefore E of one is congruent to J
+of one, and J of one equals u squared.
+
+00:01:40.340 --> 00:01:44.360
+This evaluation statement is different
+from the polynomial congruence we
+
+00:01:44.360 --> 00:01:48.700
+have already proved. Only
+now assume that u is odd.
+
+00:01:49.280 --> 00:01:52.220
+Then u squared is odd.
+In the nine-term example,
+
+00:01:52.820 --> 00:01:57.100
+four pairs of ones vanish because two
+has residue zero, and one remains.
+
+00:01:57.740 --> 00:02:00.980
+In general write u
+squared as two k plus one.
+
+00:02:01.340 --> 00:02:04.690
+The k pairs vanish in
+characteristic two, leaving one.
+
+00:02:05.100 --> 00:02:09.180
+Hence E of one is congruent
+to one modulo one plus i.
+
+00:02:10.320 --> 00:02:12.900
+Carry forward the coefficient congruence,
+
+00:02:12.900 --> 00:02:16.820
+together with the exact sign
+divisibilities from the earlier node:
+
+00:02:17.210 --> 00:02:20.300
+two divides d of P minus c of P,
+
+00:02:20.300 --> 00:02:26.000
+and one plus i divides g of P minus
+c of P, coefficient by coefficient.
+
+00:02:26.960 --> 00:02:29.320
+Those differences supply
+the later sign comparisons.
+
+00:02:30.520 --> 00:02:33.580
+The all-ones congruence will
+enter the final contradiction
+
+00:02:33.580 --> 00:02:36.680
+after the product identities
+become an additive relation.
