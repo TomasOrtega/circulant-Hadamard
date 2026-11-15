@@ -1,0 +1,196 @@
+{
+  "source": "website/scripts/node3/crt-coordinates.md",
+  "source_sha256": "723291fb2f34968b76565a2b9647609740dcd6fab278459af4d6f68b05a93fcc",
+  "scene": "CRTCoordinates",
+  "scene_file": "videos/crt_coordinates.py",
+  "voice": "en-US-Chirp3-HD-Achird",
+  "work_started_at": "2026-11-15T04:04:16-08:00",
+  "cues": {
+    "coordinates": 0,
+    "bijection": 31.63,
+    "polynomial": 77.85
+  },
+  "alignment_match_ratio": 0.8903,
+  "narration_duration": 131.1802267573696,
+  "detail_cues": {
+    "two_coordinates": 4.86,
+    "dials": 11.76,
+    "example_lengths": 13.68,
+    "one": 18.72,
+    "four": 22.4,
+    "nine": 25.28,
+    "advance": 28.04,
+    "same_pair": 34.64,
+    "divisible": 37.78,
+    "coprime": 42.18,
+    "same_position": 43.46,
+    "counts": 49.84,
+    "fill_grid": 52.96,
+    "add_example": 60.98,
+    "addition": 67.48,
+    "isomorphism": 71.0,
+    "variables": 80.54,
+    "generator": 84.36,
+    "monomial": 87.32,
+    "reduce": 90.84,
+    "coefficient": 93.48,
+    "unchanged": 97.28,
+    "multiplication": 103.08,
+    "inversion": 106.08,
+    "star": 108.16,
+    "norm": 111.48,
+    "relations": 118.58,
+    "same_data": 124.36
+  },
+  "animation_alignment": {
+    "two_coordinates": {
+      "phrase": "two coordinates",
+      "time": 4.86,
+      "source_word_index": 16
+    },
+    "dials": {
+      "phrase": "These are two residue dials",
+      "time": 11.76,
+      "source_word_index": 30
+    },
+    "example_lengths": {
+      "phrase": "In the illustration u equals three",
+      "time": 13.68,
+      "source_word_index": 35
+    },
+    "one": {
+      "phrase": "Position one becomes",
+      "time": 18.72,
+      "source_word_index": 48
+    },
+    "four": {
+      "phrase": "Position four becomes",
+      "time": 22.4,
+      "source_word_index": 53
+    },
+    "nine": {
+      "phrase": "Position nine becomes",
+      "time": 25.28,
+      "source_word_index": 58
+    },
+    "advance": {
+      "phrase": "Each step advances both dials together",
+      "time": 28.04,
+      "source_word_index": 63
+    },
+    "same_pair": {
+      "phrase": "Suppose two positions have the same pair",
+      "time": 34.64,
+      "source_word_index": 75
+    },
+    "divisible": {
+      "phrase": "Their difference is divisible by four and by u squared",
+      "time": 37.78,
+      "source_word_index": 82
+    },
+    "coprime": {
+      "phrase": "These lengths are coprime",
+      "time": 42.18,
+      "source_word_index": 92
+    },
+    "same_position": {
+      "phrase": "so their difference is divisible by four u squared",
+      "time": 43.46,
+      "source_word_index": 96
+    },
+    "counts": {
+      "phrase": "The two descriptions also have the same number of positions",
+      "time": 49.84,
+      "source_word_index": 114
+    },
+    "fill_grid": {
+      "phrase": "In our example all thirty six positions fill",
+      "time": 52.96,
+      "source_word_index": 124
+    },
+    "add_example": {
+      "phrase": "Addition is preserved too",
+      "time": 60.98,
+      "source_word_index": 143
+    },
+    "addition": {
+      "phrase": "In general add each coordinate modulo its own length",
+      "time": 67.48,
+      "source_word_index": 160
+    },
+    "isomorphism": {
+      "phrase": "Thus the cyclic group of order four u squared",
+      "time": 71.0,
+      "source_word_index": 169
+    },
+    "variables": {
+      "phrase": "Introduce Z for the four cycle",
+      "time": 80.54,
+      "source_word_index": 192
+    },
+    "generator": {
+      "phrase": "The generator X maps to Z times P",
+      "time": 84.36,
+      "source_word_index": 205
+    },
+    "monomial": {
+      "phrase": "Therefore X to the j becomes",
+      "time": 87.32,
+      "source_word_index": 213
+    },
+    "reduce": {
+      "phrase": "with the exponents reduced separately",
+      "time": 90.84,
+      "source_word_index": 228
+    },
+    "coefficient": {
+      "phrase": "Keep the same coefficient h sub j attached throughout",
+      "time": 93.48,
+      "source_word_index": 233
+    },
+    "unchanged": {
+      "phrase": "Every sign moves to exactly one new label",
+      "time": 97.28,
+      "source_word_index": 242
+    },
+    "multiplication": {
+      "phrase": "Multiplication respects addition of exponents",
+      "time": 103.08,
+      "source_word_index": 256
+    },
+    "inversion": {
+      "phrase": "Inversion negates both coordinates",
+      "time": 106.08,
+      "source_word_index": 261
+    },
+    "star": {
+      "phrase": "so the star operation is preserved as well",
+      "time": 108.16,
+      "source_word_index": 265
+    },
+    "norm": {
+      "phrase": "Consequently the original norm identity becomes",
+      "time": 111.48,
+      "source_word_index": 273
+    },
+    "relations": {
+      "phrase": "The new relations are",
+      "time": 118.58,
+      "source_word_index": 293
+    },
+    "same_data": {
+      "phrase": "We have changed coordinates while keeping the same sign data",
+      "time": 124.36,
+      "source_word_index": 311
+    }
+  },
+  "duration": 131.2,
+  "narration_sha256": "3173a853859d95b2aa26370b74d49bf1fc6e661d1ab33b208a31cb6b2c02ed08",
+  "video_sha256": "efc37235ef6797ad4f01197e95f08c1dcf8ea1b5729783444bb4950e7fe9ea51",
+  "subtitle_safe_fraction": 0.2,
+  "subtitle_band_max_luma": 16.0,
+  "subtitle_frames_checked": 3936,
+  "production_status": "final",
+  "scene_sha256": "8b3c46553211ee5aa51aeada86129457808f57a9e7ae912305ad783e593468ad",
+  "layout_sha256": "af65a79e6ee3c1e4c50be87eaf23e651674da7cae9a65dd5fa0a5b94e9c219f2"
+}

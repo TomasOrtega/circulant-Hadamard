@@ -5,7 +5,10 @@ shortTitle: Split the Cycle
 summary: Coprime cycle lengths let us label each position by a four-cycle coordinate and an odd-cycle coordinate.
 number: "3.1"
 draft: true
-video: null
+video:
+  src: media/crt-coordinates.mp4
+  captions: media/crt-coordinates.vtt
+  duration: 131.2
 foundation: true
 mapPosition: [240, 24]
 mapSummary: '$4$-cycle $\times$ $u^2$-cycle'

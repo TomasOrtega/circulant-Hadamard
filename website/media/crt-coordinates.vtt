@@ -1,0 +1,124 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:03.153
+Our matrix has order four
+u squared, with u odd.
+
+00:00:03.400 --> 00:00:05.620
+We will relabel its cycle
+using two coordinates.
+
+00:00:06.380 --> 00:00:11.180
+Send position j to j modulo
+four, and j modulo u squared.
+
+00:00:11.760 --> 00:00:13.260
+These are two residue dials.
+
+00:00:13.680 --> 00:00:18.210
+In the illustration, u equals three,
+so their lengths are four and nine.
+
+00:00:18.720 --> 00:00:21.673
+Position one becomes one, one.
+
+00:00:22.400 --> 00:00:27.533
+Position four becomes zero, four.
+Position nine becomes one, zero.
+
+00:00:28.040 --> 00:00:30.480
+Each step advances both dials together.
+
+00:00:31.780 --> 00:00:33.660
+Why does this lose no positions?
+
+00:00:34.640 --> 00:00:37.220
+Suppose two positions have the same pair.
+
+00:00:37.780 --> 00:00:41.500
+Their difference is divisible
+by four and by u squared.
+
+00:00:42.180 --> 00:00:46.280
+These lengths are coprime, so their
+difference is divisible by four u squared.
+
+00:00:46.980 --> 00:00:49.860
+They were the same position
+on the original cycle. The
+
+00:00:49.860 --> 00:00:53.740
+two descriptions also have the same
+number of positions. In our example,
+
+00:00:54.320 --> 00:00:57.100
+all thirty six positions
+fill a four by nine grid,
+
+00:00:57.100 --> 00:00:59.700
+with each cell used exactly once.
+
+00:01:00.980 --> 00:01:04.030
+Addition is preserved too:
+four plus nine is thirteen,
+
+00:01:04.080 --> 00:01:07.153
+and their coordinate
+pairs add to one, four.
+
+00:01:07.480 --> 00:01:12.300
+In general, add each coordinate modulo
+its own length. Thus the cyclic group
+
+00:01:12.300 --> 00:01:17.000
+of order four u squared is isomorphic to
+the product of these two cyclic groups.
+
+00:01:18.000 --> 00:01:19.960
+Now translate the polynomial.
+
+00:01:20.540 --> 00:01:23.940
+Introduce Z for the four cycle
+and P for the u squared cycle.
+
+00:01:24.360 --> 00:01:26.700
+The generator X maps to Z times P.
+
+00:01:27.320 --> 00:01:30.840
+Therefore X to the j becomes
+Z to the j times P to the j,
+
+00:01:30.840 --> 00:01:32.980
+with the exponents reduced separately.
+
+00:01:33.480 --> 00:01:36.500
+Keep the same coefficient h
+sub j attached throughout.
+
+00:01:37.280 --> 00:01:41.940
+Every sign moves to exactly one new
+label; no signs are added or changed.
+
+00:01:43.080 --> 00:01:45.540
+Multiplication respects
+addition of exponents.
+
+00:01:46.080 --> 00:01:51.020
+Inversion negates both coordinates, so
+the star operation is preserved as well.
+
+00:01:51.480 --> 00:01:56.100
+Consequently the original norm identity
+becomes h of Z, P times h star of Z,
+
+00:01:56.640 --> 00:02:00.910
+P equals four u squared. The new
+relations are Z to the fourth equals one,
+
+00:02:01.000 --> 00:02:05.640
+and P to the u squared equals
+one. We have changed coordinates,
+
+00:02:05.640 --> 00:02:09.800
+while keeping the same sign
+data and the same norm identity.
