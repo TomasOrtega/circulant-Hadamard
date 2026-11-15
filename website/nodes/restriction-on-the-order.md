@@ -6,7 +6,10 @@ summary: "Accept the order restriction, then begin with the smallest remaining
   case: u = 3."
 number: 2
 draft: true
-video: null
+video:
+  src: media/restriction-on-the-order.mp4
+  captions: media/restriction-on-the-order.vtt
+  duration: 165.566667
 mapPosition:
   - 40
   - 180

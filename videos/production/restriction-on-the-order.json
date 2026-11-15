@@ -1,0 +1,122 @@
+{
+  "source": "website/scripts/node2/restriction-on-the-order.md",
+  "source_sha256": "ad3634b3a4fbdd30a83f5df83c0c420e30eca97eaa86257c9fe5b3530e3010bb",
+  "scene": "RestrictionOnTheOrder",
+  "scene_file": "videos/restriction_on_the_order.py",
+  "voice": "en-US-Chirp3-HD-Achird",
+  "work_started_at": "2026-11-14T22:39:46-08:00",
+  "cues": {
+    "goal": 0,
+    "encoding": 16.37,
+    "square": 42.71,
+    "parity": 72.75,
+    "oddness": 114.51,
+    "contradiction": 133.75
+  },
+  "animation_cues": {
+    "star_appears": 28.82,
+    "identity_appears": 34.2,
+    "powers_become_one": 49.78,
+    "same_integer": 54.26,
+    "square_product": 59.44,
+    "square_simplify": 65.82,
+    "integer_square": 68.0,
+    "pair_signs": 86.0,
+    "n_even": 94.08,
+    "even_square": 97.74,
+    "two_u": 106.7,
+    "assume_counterexample": 142.38,
+    "guiding_example": 150.48
+  },
+  "alignment_match_ratio": 0.9102,
+  "narration_duration": 165.54022675736962,
+  "animation_alignment": {
+    "star_appears": {
+      "phrase": "Reverse the exponents",
+      "heard": "Reverse the exponents",
+      "match_ratio": 1.0,
+      "time": 28.82
+    },
+    "identity_appears": {
+      "phrase": "The Hadamard condition",
+      "heard": "The Hadamard condition",
+      "match_ratio": 1.0,
+      "time": 34.2
+    },
+    "powers_become_one": {
+      "phrase": "every power of one",
+      "heard": "Every power of 1,",
+      "match_ratio": 1.0,
+      "time": 49.78
+    },
+    "same_integer": {
+      "phrase": "Both polynomials therefore become",
+      "heard": "Both polynomials therefore become",
+      "match_ratio": 1.0,
+      "time": 54.26
+    },
+    "square_product": {
+      "phrase": "Substituting into the identity",
+      "heard": "Substituting into the identity",
+      "match_ratio": 1.0,
+      "time": 59.44
+    },
+    "square_simplify": {
+      "phrase": "which is h of one squared",
+      "heard": "which is h of 1 squared,",
+      "match_ratio": 1.0,
+      "time": 65.82
+    },
+    "integer_square": {
+      "phrase": "Since h of one is an integer",
+      "heard": "since h of 1 is an integer,",
+      "match_ratio": 1.0,
+      "time": 68.0
+    },
+    "pair_signs": {
+      "phrase": "Pair every positive contribution",
+      "heard": "Pair every positive contribution",
+      "match_ratio": 1.0,
+      "time": 86.0
+    },
+    "n_even": {
+      "phrase": "There are n terms altogether",
+      "heard": "There are n terms altogether,",
+      "match_ratio": 1.0,
+      "time": 94.08
+    },
+    "even_square": {
+      "phrase": "We now have an even perfect square",
+      "heard": "We now have an even perfect square.",
+      "match_ratio": 1.0,
+      "time": 97.74
+    },
+    "two_u": {
+      "phrase": "Write that square root as",
+      "heard": "Write that square root as",
+      "match_ratio": 1.0,
+      "time": 106.7
+    },
+    "assume_counterexample": {
+      "phrase": "Assume a circulant Hadamard matrix exists",
+      "heard": "Assume a Circulant Hadamard matrix exists",
+      "match_ratio": 1.0,
+      "time": 142.38
+    },
+    "guiding_example": {
+      "phrase": "The smallest remaining value",
+      "heard": "The smallest remaining value",
+      "match_ratio": 1.0,
+      "time": 150.48
+    }
+  },
+  "duration": 165.566667,
+  "narration_sha256": "7f8309baf4eb48e5ca532a9bbb77288a90d7723f198be3ca2aa4343e6661a6c3",
+  "video_sha256": "059316cb24f7ff7cd274c607944a3e7c5bf2d7df9c6988b8396976627ed5f9d3",
+  "subtitle_safe_fraction": 0.2,
+  "subtitle_band_max_luma": 16.0,
+  "subtitle_frames_checked": 4967,
+  "production_status": "final",
+  "scene_sha256": "201226e3a505349b3914e42918f4f44465e1956e062514a68704f5c801489a6d",
+  "layout_sha256": "af65a79e6ee3c1e4c50be87eaf23e651674da7cae9a65dd5fa0a5b94e9c219f2"
+}

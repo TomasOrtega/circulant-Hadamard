@@ -1,0 +1,144 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:02.020
+Our goal is the order restriction.
+
+00:00:02.800 --> 00:00:06.270
+If a real circulant Hadamard
+matrix has order greater than one,
+
+00:00:06.520 --> 00:00:11.400
+then its order must be four times the
+square of an odd positive integer. We will
+
+00:00:11.400 --> 00:00:15.680
+prove the square and parity restrictions,
+then use the deeper oddness result.
+
+00:00:16.520 --> 00:00:19.940
+We saw that we can encode the
+first row by a polynomial.
+
+00:00:20.520 --> 00:00:25.920
+For a row of signs, write h of X as
+the sum of h sub j times X to the j,
+
+00:00:26.260 --> 00:00:28.870
+with every coefficient
+positive or negative one.
+
+00:00:28.920 --> 00:00:34.440
+Reverse the exponents to form h star.The
+
+00:00:34.440 --> 00:00:39.180
+Hadamard condition gives h times
+h star equals n in the group ring,
+
+00:00:39.520 --> 00:00:42.030
+where X to the n equals one.
+
+00:00:42.860 --> 00:00:45.580
+Now choose X equal to one.
+
+00:00:46.180 --> 00:00:49.430
+Reversing the powers does
+not change the value at one:
+
+00:00:49.880 --> 00:00:53.780
+every power of one, including
+a negative power, is still one.
+
+00:00:54.360 --> 00:00:58.970
+Both polynomials therefore become
+the same integer sum, h of one.
+
+00:00:59.540 --> 00:01:03.900
+Substituting into the identity
+gives n equal to h of one times
+
+00:01:03.900 --> 00:01:07.600
+h star of one, which is h of one squared.
+
+00:01:08.100 --> 00:01:11.840
+Since h of one is an integer,
+n is a perfect square.
+
+00:01:12.900 --> 00:01:15.840
+We will now show that n must be even.
+
+00:01:16.600 --> 00:01:20.200
+Because n is greater than
+one, take two different rows.
+
+00:01:21.140 --> 00:01:26.040
+Their dot product is zero. Each term
+is positive one or negative one.
+
+00:01:26.100 --> 00:01:29.840
+Pair every positive contribution
+with a negative contribution.
+
+00:01:30.780 --> 00:01:33.320
+For the sum to vanish,
+their counts must agree.
+
+00:01:34.180 --> 00:01:39.700
+There are n terms altogether, so n is
+even. We now have an even perfect square.
+
+00:01:40.460 --> 00:01:46.040
+Its positive square root must be even too,
+because an odd integer has an odd square.
+
+00:01:46.800 --> 00:01:49.073
+Write that square root as two u.
+
+00:01:49.400 --> 00:01:53.800
+Then n is the square of two
+u, which is four u squared.
+
+00:01:54.660 --> 00:01:58.680
+There is one more
+restriction: u must be odd.
+
+00:01:59.300 --> 00:02:02.080
+This uses a deeper argument
+with the polynomial identity.
+
+00:02:02.920 --> 00:02:07.300
+We accept that result here; the square and
+parity arguments alone do not prove it.
+
+00:02:07.740 --> 00:02:10.400
+Combining these inputs gives
+n equal to four u squared,
+
+00:02:10.720 --> 00:02:12.800
+with u an odd positive integer.
+
+00:02:13.900 --> 00:02:17.550
+The case u equal to one gives
+our known example of order four.
+
+00:02:17.880 --> 00:02:21.860
+It remains to rule out u greater than
+one. We proceed by contradiction.
+
+00:02:22.480 --> 00:02:27.320
+Assume a circulant Hadamard matrix
+exists of order four u squared,
+
+00:02:28.080 --> 00:02:30.180
+with u odd and greater than one.
+
+00:02:30.580 --> 00:02:35.687
+The smallest remaining value is u equal
+to three, giving order thirty six.
+
+00:02:36.080 --> 00:02:40.460
+This will guide the remaining argument,
+while the proof must cover every odd u
+
+00:02:40.460 --> 00:02:44.160
+greater than one. Order one
+remains the trivial case.
