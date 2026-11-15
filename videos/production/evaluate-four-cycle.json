@@ -1,0 +1,208 @@
+{
+  "source": "website/scripts/node3/evaluate-four-cycle.md",
+  "source_sha256": "391fd69ad586ec173b2477ba823ac64a84e2627efbb46d3fa040264c009dabca",
+  "scene": "EvaluateFourCycle",
+  "scene_file": "videos/evaluate_four_cycle.py",
+  "voice": "en-US-Chirp3-HD-Achird",
+  "work_started_at": "2026-11-15T05:24:34-08:00",
+  "cues": {
+    "goal": 0,
+    "at_one": 24.03,
+    "at_minus_one": 49.13,
+    "at_i": 70.53,
+    "coefficient_conjugation": 90.37,
+    "evaluate_then_star": 110.91,
+    "star_then_evaluate": 143.51,
+    "norm": 174.23,
+    "preview": 195.95
+  },
+  "alignment_match_ratio": 0.881,
+  "narration_duration": 215.9402267573696,
+  "detail_cues": {
+    "goal_keep_p": 6.26,
+    "goal_roots": 10.1,
+    "goal_maps": 19.38,
+    "one_weights": 38.22,
+    "one_sum": 44.79,
+    "minus_weights": 51.5,
+    "minus_sum": 55.92,
+    "minus_integer": 65.76,
+    "i_weights": 72.7,
+    "i_collect_real": 76.12,
+    "i_collect_imaginary": 79.78,
+    "i_gaussian": 85.58,
+    "conjugation_coefficients": 92.88,
+    "conjugation_p_fixed": 95.52,
+    "conjugation_star": 100.96,
+    "path_original": 114.34,
+    "path_evaluate": 123.1,
+    "path_star_after": 131.56,
+    "path_star_first": 145.68,
+    "path_evaluate_after": 153.6,
+    "path_equal": 163.0,
+    "path_commutes": 169.1,
+    "norm_evaluate": 181.78,
+    "norm_own_star": 184.5,
+    "norm_p_relation": 187.46,
+    "norm_three": 191.8,
+    "preview_parity": 199.8,
+    "preview_halve": 203.65,
+    "preview_next": 207.74
+  },
+  "detail_alignment": {
+    "goal_keep_p": {
+      "phrase": "Replace only Z, and keep P unchanged.",
+      "source_word_start": 18,
+      "time": 6.26
+    },
+    "goal_roots": {
+      "phrase": "The substitutions one, negative one, and i are fourth roots of unity:",
+      "source_word_start": 25,
+      "time": 10.1
+    },
+    "goal_maps": {
+      "phrase": "They therefore respect the four cycle relation and define ring maps.",
+      "source_word_start": 45,
+      "time": 19.38
+    },
+    "one_weights": {
+      "phrase": "At Z equal to one, the four weights are one, one, one, one.",
+      "source_word_start": 87,
+      "time": 38.22
+    },
+    "one_sum": {
+      "phrase": "We get the sum of all four H polynomials.",
+      "source_word_start": 100,
+      "time": 44.79
+    },
+    "minus_weights": {
+      "phrase": "the weights become one, negative one, one, negative one.",
+      "source_word_start": 115,
+      "time": 51.5
+    },
+    "minus_sum": {
+      "phrase": "Thus h of negative one and P is H zero minus H one plus H two minus H three.",
+      "source_word_start": 124,
+      "time": 55.92
+    },
+    "minus_integer": {
+      "phrase": "Both of these first two evaluated polynomials have integer coefficients.",
+      "source_word_start": 143,
+      "time": 65.76
+    },
+    "i_weights": {
+      "phrase": "the weights are one, i, negative one, negative i.",
+      "source_word_start": 158,
+      "time": 72.7
+    },
+    "i_collect_real": {
+      "phrase": "Collect the real terms as H zero minus H two,",
+      "source_word_start": 167,
+      "time": 76.12
+    },
+    "i_collect_imaginary": {
+      "phrase": "and the imaginary terms as i times the difference H one minus H three.",
+      "source_word_start": 177,
+      "time": 79.78
+    },
+    "i_gaussian": {
+      "phrase": "This evaluated polynomial has Gaussian integer coefficients.",
+      "source_word_start": 191,
+      "time": 85.58
+    },
+    "conjugation_coefficients": {
+      "phrase": "This conjugates the coefficients of h of i and P,",
+      "source_word_start": 204,
+      "time": 92.88
+    },
+    "conjugation_p_fixed": {
+      "phrase": "while leaving P unchanged.",
+      "source_word_start": 214,
+      "time": 95.52
+    },
+    "conjugation_star": {
+      "phrase": "Coefficient conjugation here is different from star:",
+      "source_word_start": 223,
+      "time": 100.96
+    },
+    "path_original": {
+      "phrase": "Follow one term with real coefficient h sub a b:",
+      "source_word_start": 253,
+      "time": 114.34
+    },
+    "path_evaluate": {
+      "phrase": "First evaluate Z at epsilon.",
+      "source_word_start": 277,
+      "time": 123.1
+    },
+    "path_star_after": {
+      "phrase": "Now take star:",
+      "source_word_start": 299,
+      "time": 131.56
+    },
+    "path_star_first": {
+      "phrase": "First take star in the original two variable ring:",
+      "source_word_start": 332,
+      "time": 145.68
+    },
+    "path_evaluate_after": {
+      "phrase": "Then evaluate Z at epsilon.",
+      "source_word_start": 360,
+      "time": 153.6
+    },
+    "path_equal": {
+      "phrase": "The endpoints agree, because conjugate epsilon equals epsilon inverse on the unit circle.",
+      "source_word_start": 384,
+      "time": 163.0
+    },
+    "path_commutes": {
+      "phrase": "Applying this term by term proves that evaluation commutes with star.",
+      "source_word_start": 397,
+      "time": 169.1
+    },
+    "norm_evaluate": {
+      "phrase": "becomes h of epsilon and P",
+      "source_word_start": 426,
+      "time": 181.78
+    },
+    "norm_own_star": {
+      "phrase": "its own star equals four u squared.",
+      "source_word_start": 433,
+      "time": 184.5
+    },
+    "norm_p_relation": {
+      "phrase": "The relation P to the u squared equals one is still in force.",
+      "source_word_start": 440,
+      "time": 187.46
+    },
+    "norm_three": {
+      "phrase": "All three evaluated polynomials retain the same norm.",
+      "source_word_start": 453,
+      "time": 191.8
+    },
+    "preview_parity": {
+      "phrase": "Once the parity check permits division by two in the coefficient ring,",
+      "source_word_start": 472,
+      "time": 199.8
+    },
+    "preview_halve": {
+      "phrase": "halving both factors will divide the norm by four, giving nine.",
+      "source_word_start": 484,
+      "time": 203.65
+    },
+    "preview_next": {
+      "phrase": "That normalization is the next step.",
+      "source_word_start": 495,
+      "time": 207.74
+    }
+  },
+  "duration": 215.966667,
+  "narration_sha256": "37f53b02aabdd4df6b776d3a002fb55143fff3d661b1172871ecca36992bf668",
+  "video_sha256": "657fe8a2348e6a8997223c40b736f7e56f2d9ae5672de74bb265050cacead401",
+  "subtitle_safe_fraction": 0.2,
+  "subtitle_band_max_luma": 16.0,
+  "subtitle_frames_checked": 6479,
+  "production_status": "final",
+  "scene_sha256": "3a17f100fde54c91b02efd7ce5daf4142efbf82dc5e5e30ddb49e6052359be57",
+  "layout_sha256": "af65a79e6ee3c1e4c50be87eaf23e651674da7cae9a65dd5fa0a5b94e9c219f2"
+}

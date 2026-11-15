@@ -1,0 +1,183 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:04.540
+We want to turn h of Z and P into
+polynomials in P while preserving
+
+00:00:04.540 --> 00:00:09.300
+its norm identity. Replace
+only Z, and keep P unchanged.
+
+00:00:10.100 --> 00:00:14.840
+The substitutions one, negative one,
+and i are fourth roots of unity:
+
+00:00:15.600 --> 00:00:19.030
+each satisfies Z to the fourth equals one.
+
+00:00:19.380 --> 00:00:23.260
+They therefore respect the four
+cycle relation and define ring maps.
+
+00:00:24.180 --> 00:00:29.013
+Recall the decomposition into
+H zero, plus Z times H one,
+
+00:00:29.120 --> 00:00:34.487
+plus Z squared times H two,
+plus Z cubed times H three.
+
+00:00:34.820 --> 00:00:37.620
+Every H is still a polynomial in P.
+
+00:00:38.220 --> 00:00:44.104
+At Z equal to one, the four
+weights are one, one, one, one.
+
+00:00:44.790 --> 00:00:48.460
+We get the sum of all four H polynomials.
+
+00:00:49.280 --> 00:00:52.860
+At Z equal to negative one,
+the weights become one,
+
+00:00:53.260 --> 00:00:55.570
+negative one, one, negative one.
+
+00:00:55.920 --> 00:01:00.560
+Thus h of negative one and P is H zero
+
+00:01:00.700 --> 00:01:05.400
+minus H one plus H two minus H three.
+
+00:01:05.760 --> 00:01:09.700
+Both of these first two evaluated
+polynomials have integer coefficients.
+
+00:01:10.680 --> 00:01:14.520
+At Z equal to i, the weights are one, i,
+
+00:01:15.200 --> 00:01:19.687
+negative one, negative i. Collect
+the real terms as H zero minus H two,
+
+00:01:19.780 --> 00:01:25.320
+and the imaginary terms as i times
+the difference H one minus H three.
+
+00:01:25.580 --> 00:01:29.020
+This evaluated polynomial has
+Gaussian integer coefficients.
+
+00:01:30.520 --> 00:01:32.560
+We could also substitute negative i.
+
+00:01:32.880 --> 00:01:37.280
+This conjugates the coefficients of h
+of i and P, while leaving P unchanged.
+
+00:01:38.380 --> 00:01:40.360
+Its polynomial is already determined.
+
+00:01:40.960 --> 00:01:45.380
+Coefficient conjugation here is different
+from star: for Gaussian coefficients,
+
+00:01:45.940 --> 00:01:49.860
+star conjugates the coefficients
+and also reverses the powers of P.
+
+00:01:51.060 --> 00:01:53.800
+Let epsilon be one of
+our three chosen roots.
+
+00:01:54.340 --> 00:01:58.140
+Follow one term with real
+coefficient h sub a b:
+
+00:01:58.460 --> 00:02:02.500
+h sub a b times Z to
+the a times P to the b.
+
+00:02:03.100 --> 00:02:05.440
+First evaluate Z at epsilon.
+
+00:02:05.440 --> 00:02:11.040
+The term becomes h sub a b times
+epsilon to the a times P to the b.
+
+00:02:11.560 --> 00:02:16.100
+Now take star: conjugate epsilon
+and reverse the power of P.
+
+00:02:16.920 --> 00:02:20.060
+We obtain h sub a b times conjugate
+
+00:02:20.060 --> 00:02:22.980
+epsilon to the a times
+P to the negative b.
+
+00:02:23.660 --> 00:02:28.220
+Follow the other path. First take star
+in the original two variable ring:
+
+00:02:28.640 --> 00:02:33.600
+the term becomes h sub a b times Z to
+the negative a times P to the negative b.
+
+00:02:33.600 --> 00:02:36.020
+Then evaluate Z at epsilon.
+
+00:02:36.480 --> 00:02:40.080
+The result is h sub a b times epsilon to
+
+00:02:40.080 --> 00:02:43.920
+the negative a times P to the
+negative b. The endpoints agree,
+
+00:02:43.920 --> 00:02:48.620
+because conjugate epsilon equals
+epsilon inverse on the unit circle.
+
+00:02:49.100 --> 00:02:53.180
+Applying this term by term proves
+that evaluation commutes with star.
+
+00:02:54.380 --> 00:02:57.240
+Evaluation preserves
+multiplication and star.
+
+00:02:57.760 --> 00:03:02.160
+Therefore h of Z and P times its
+star equals four u squared becomes
+
+00:03:02.160 --> 00:03:06.820
+h of epsilon and P times its
+own star equals four u squared.
+
+00:03:07.460 --> 00:03:10.960
+The relation P to the u squared
+equals one is still in force.
+
+00:03:11.800 --> 00:03:15.040
+All three evaluated polynomials
+retain the same norm.
+
+00:03:16.100 --> 00:03:19.513
+For u equal to three, that
+norm is still thirty six.
+
+00:03:19.800 --> 00:03:23.340
+Once the parity check permits division
+by two in the coefficient ring,
+
+00:03:23.650 --> 00:03:27.350
+halving both factors will divide
+the norm by four, giving nine.
+
+00:03:27.740 --> 00:03:29.980
+That normalization is the next step.
+
+00:03:30.480 --> 00:03:34.680
+Here we have proved that these evaluations
+preserve the norm, with P unchanged.
