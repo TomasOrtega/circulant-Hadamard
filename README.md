@@ -9,7 +9,6 @@ Steven Creech (Rutgers University) and Tomas Ortega (Princeton University).
 - [Website](https://tomasortega.net/circulant-Hadamard/) · [source](website/).
 - [videos/](videos/README.md): narrated ManimGL scenes with Google Achird.
 - [GLOSSARY.md](GLOSSARY.md): the proof exposition's shared vocabulary.
-- [decision_log/](decision_log/): timestamped decisions and evidence for the report.
 
 <details>
 <summary>Installation and local build</summary>

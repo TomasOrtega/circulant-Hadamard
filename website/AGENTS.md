@@ -21,8 +21,7 @@ and provenance are in [vendor/README.md](vendor/README.md).
 - Name CSS classes and assets in kebab-case; keep page assets with their page.
 - Choose features established across Chrome, Firefox, and Safari for at least a
   year.
-- Explain unusual tradeoffs briefly; record substantive exceptions in the
-  [decision log](../decision_log/README.md).
+- Explain unusual tradeoffs briefly.
 
 Use Bun for dependency installation and scripts, with the pinned version in
 [package.json](package.json) and the committed `bun.lock`. Keep application code

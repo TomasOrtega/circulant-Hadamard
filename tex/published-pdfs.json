@@ -1,6 +1,6 @@
 {
   "pdfs": {
-    "report.pdf": "5b32743db26d603044124056d25e107157e6c42f1babe1d84dfd1605a0c2d948",
+    "report.pdf": "453ff7e11c1726c75df6dc44ac14d61dc510abc304e7c0251325841993fe69ec",
     "slides.pdf": "aca09077db4b3c30eb0ae1a9e03d371c14923a7da0542b0e927942b4b4403f1b"
   },
   "sources": {
@@ -19,7 +19,7 @@
     "preamble.tex": "eb9c723c64911643970f1201025f3565f7e410d638c7f2359726150f1eacdbf8",
     "published_pdfs.py": "11bdfd268d08769a51d29346ef9fc5fd38692433783cbc9d8c6423aa3ca7d6cc",
     "references.bib": "5dfc38c1fde6b7486bf837a60d6756f661bdd9f0dd6947484dbdfdbe60b01985",
-    "report.tex": "4976388e9d0de20395f5518da8d0a5f16b6b698c6340322b3ad9e060f047ad50",
+    "report.tex": "41beac0679c8394c04deb66fc12c802cf0b549cdedd98a2fd2886a2c351ce6ca",
     "slides.tex": "c9f94a55084cb2755eb3c7f30c5067a44292a1313b682cb1c323312a064652b5"
   }
 }

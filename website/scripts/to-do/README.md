@@ -29,12 +29,10 @@ video, script, and written explanation already exist.
 | `products-to-sums` | `expand-integral-products` | [7.2](../node7/expand-integral-products.md) |
 | `products-to-sums` | `cancel-before-reduction` | [7.3](../node7/cancel-before-reduction.md) |
 
-The [Delta overview decision](../../../decision_log/2026-11-15-011830-produce-final-delta-theorem-video.md)
-and [Products to Sums decision](../../../decision_log/2026-11-15-033257-finalize-products-to-sums-video.md)
-explain their deliberate coverage limits. Those four previews need suitable
-parent coverage rather than invented cut bounds. The Order overview explains
-the square and parity steps but accepts oddness; review its recording before
-planning the remaining previews.
+The Delta and Products to Sums overviews have limited coverage. Their four
+previews need suitable parent coverage rather than invented cut bounds. The
+Order overview explains the square and parity steps but accepts oddness;
+review its recording before planning the remaining previews.
 
 `make -C website check` verifies that this table matches all unavailable parent
 previews and that each node has an accepted video/script pair or its own to-do.
