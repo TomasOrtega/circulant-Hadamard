@@ -1,0 +1,166 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:04.560
+We will evaluate the residue of
+the full alternating sum, script S.
+
+00:00:05.140 --> 00:00:10.840
+Let u be odd and greater than one, and
+let I contain its distinct prime divisors.
+
+00:00:11.280 --> 00:00:16.960
+For each subset S, zeta sub S is the
+product of its chosen prime roots.
+
+00:00:17.780 --> 00:00:22.840
+The empty subset gives one. The sum
+uses sign minus one to the size of S,
+
+00:00:23.160 --> 00:00:28.000
+and the normalized value E at zeta
+sub S divided by c at zeta sub S.
+
+00:00:28.000 --> 00:00:31.320
+Work in the same ring A, with i,
+
+00:00:31.580 --> 00:00:34.700
+those roots, and one over
+u adjoined to the integers.
+
+00:00:36.140 --> 00:00:38.340
+Node five gives a
+coefficientwise congruence:
+
+00:00:38.980 --> 00:00:44.420
+E of P is congruent to the all-ones
+polynomial J of P modulo one plus i.
+
+00:00:44.860 --> 00:00:48.590
+J contains every power from zero
+through u squared minus one.
+
+00:00:49.020 --> 00:00:51.200
+Evaluation preserves that congruence.
+
+00:00:51.580 --> 00:00:54.780
+At every subset input, E
+and J have the same residue.
+
+00:00:54.780 --> 00:00:58.980
+We want to replace every numerator while
+preserving its sign and denominator.
+
+00:00:59.820 --> 00:01:03.220
+The denominator step is
+justified by units in A.
+
+00:01:03.680 --> 00:01:08.640
+The inverse of c at zeta sub S is its
+complex conjugate divided by u squared.
+
+00:01:09.440 --> 00:01:12.480
+Multiplying c by that
+inverse gives one exactly.
+
+00:01:13.220 --> 00:01:16.680
+Reduce this identity: the two
+images still multiply to one.
+
+00:01:17.280 --> 00:01:19.940
+Thus the denominator stays
+invertible after reduction.
+
+00:01:20.720 --> 00:01:23.760
+Multiply the congruence between
+E and J by this inverse.
+
+00:01:23.760 --> 00:01:26.620
+The normalized values
+have the same residue.
+
+00:01:27.200 --> 00:01:31.700
+This uses a unit of the evaluation ring,
+not merely a nonzero complex value.
+
+00:01:32.360 --> 00:01:34.820
+Make the replacement in
+every term of script S.
+
+00:01:36.080 --> 00:01:38.920
+Node eight point one gives an exact zero:
+
+00:01:39.700 --> 00:01:44.160
+J at zeta sub S equals zero
+whenever S is nonempty.
+
+00:01:44.820 --> 00:01:49.020
+Each corresponding whole term is
+zero, since its denominator is a unit.
+
+00:01:49.680 --> 00:01:53.440
+Remove all those terms. Only
+the empty subset remains.
+
+00:01:54.220 --> 00:01:57.580
+Its sign is positive one
+and its input is one.
+
+00:01:58.140 --> 00:02:02.640
+Therefore script S is congruent
+to J of one divided by c of one.
+
+00:02:03.420 --> 00:02:07.260
+Node eight point two
+evaluates this last quotient.
+
+00:02:07.840 --> 00:02:13.460
+J of one equals u squared, and c of
+one equals positive or negative u.
+
+00:02:14.060 --> 00:02:18.320
+Their quotient is positive or
+negative u. Because u is odd,
+
+00:02:18.840 --> 00:02:22.300
+both signs have residue
+one modulo one plus i.
+
+00:02:22.800 --> 00:02:25.700
+The full alternating sum
+therefore has residue one.
+
+00:02:26.580 --> 00:02:29.520
+See the same calculation
+for u equal to fifteen.
+
+00:02:30.460 --> 00:02:35.920
+The four subsets of three and five
+have signs plus, minus, minus, plus.
+
+00:02:36.500 --> 00:02:40.140
+Their input orders are one,
+three, five, and fifteen.
+
+00:02:41.000 --> 00:02:45.480
+The three nonempty-subset numerators
+vanish exactly. The surviving
+
+00:02:45.480 --> 00:02:49.840
+quotient is two hundred twenty-five
+divided by positive or negative fifteen.
+
+00:02:50.680 --> 00:02:53.900
+It equals positive or negative
+fifteen, with residue one.
+
+00:02:54.920 --> 00:03:00.020
+The number of distinct prime divisors can
+change, but exactly one term survives.
+
+00:03:01.280 --> 00:03:05.020
+Keep this residue one beside Node
+seven's residue zero for the very
+
+00:03:05.020 --> 00:03:09.620
+same sum in the very same quotient
+ring. The next step compares them.
