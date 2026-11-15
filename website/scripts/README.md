@@ -68,8 +68,8 @@ body states the result shown in its parent's card. A terminal node keeps its
 full explanation in its body. Use `$...$` and `$$...$$` for the website's math
 renderer.
 
-For an excerpt from the overview, put the corresponding reader-facing passage
-in that child's `script: |` field in [../nodes/overview.md](../nodes/overview.md).
+For an excerpt introducing a main proof step, put the reader-facing passage in
+that child's `script: |` field in [../nodes/general-proof.md](../nodes/general-proof.md).
 A child node's own video has its own full script in this directory. Animation
 directions stay with the production draft.
 

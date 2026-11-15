@@ -8,8 +8,10 @@ import { renderMarkdown } from "./markdown.js";
 
 const root = loadNodes();
 const entries = collectNodes(root);
-const children = root.children.filter(({ node }) => !node.supplemental);
-const html = renderToStaticMarkup(<NodePage entry={entries[0]} entries={entries} />);
+const general = entries.find(({ node }) => node.id === "general-proof");
+const children = general.node.children;
+const html = renderToStaticMarkup(<NodePage entry={general} entries={entries} />);
+const overviewHtml = renderToStaticMarkup(<NodePage entry={entries[0]} entries={entries} />);
 
 describe("supplied eight-node proof map", () => {
   test("all logical arrows and the independent notation branch match the handoff", () => {
@@ -34,7 +36,7 @@ describe("supplied eight-node proof map", () => {
       "Group-Ring Encoding", "Restriction on the Order", "The Three Evaluations", "The Δ-Theorem",
       "Signs Become All Ones", "Odd-Order Rigidity", "From Products to Sums", "The Final Contradiction",
     ]);
-    expect(html.indexOf("Start here · Proof by Example: n = 36")).toBeLessThan(html.indexOf("Then · The General Odd-u Proof"));
+    expect(overviewHtml.indexOf("Start here · Proof by Example: n = 36")).toBeLessThan(overviewHtml.indexOf("Then · The General Odd-u Proof"));
     expect(html).toContain("Accepted black box · Proposition 2.2");
     expect(html).toContain("Accepted black box · Proposition 3.4");
     for (const { node } of children) {
@@ -72,8 +74,8 @@ describe("supplied eight-node proof map", () => {
     expect(page).not.toContain("<pre");
   });
 
-  test("reading routes appear only on the proof map page", () => {
-    const navigation = html.match(/<nav aria-label="Reading routes"[\s\S]*?<\/nav>/)[0];
+  test("reading routes appear only on the homepage", () => {
+    const navigation = overviewHtml.match(/<nav aria-label="Reading routes"[\s\S]*?<\/nav>/)[0];
     const links = [...navigation.matchAll(/<a\b([^>]*)>([^<]*)<\/a>/g)];
     expect(links.map(([, , label]) => label)).toEqual([
       "Start here · Proof by Example: n = 36",

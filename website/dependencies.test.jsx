@@ -122,7 +122,7 @@ describe("node files and dependency navigation", () => {
     expect(html).not.toContain('href="../first/shared/index.html"');
   });
 
-  test("the graph follows the main video and links to every child at every depth", () => {
+  test("proof graphs follow the main video and link to every proof child at every depth", () => {
     const entries = collectNodes(rootNode);
     for (const entry of entries) {
       const html = renderToStaticMarkup(
@@ -131,7 +131,8 @@ describe("node files and dependency navigation", () => {
       const owner = entry.node.children.length ? entry : entry.ancestors.at(-1);
       const children = owner.node.children.filter(({ node }) => !node.supplemental);
       const graphStart = html.indexOf('aria-label="Node dependency graph"');
-      expect(graphStart).toBeGreaterThan(html.indexOf("Full overview ·"));
+      if (children.length) expect(graphStart).toBeGreaterThan(html.indexOf("Full overview ·"));
+      else expect(graphStart).toBe(-1);
       expect([...html.matchAll(/aria-label="Explore node:/g)]).toHaveLength(
         children.length,
       );

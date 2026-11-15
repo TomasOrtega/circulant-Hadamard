@@ -1,52 +1,11 @@
 ---
 id: overview
 title: The circulant Hadamard conjecture
-shortTitle: Proof map
-summary: A high-level overview of the proof. Explore the graph to follow each
-  step in greater detail.
+shortTitle: Overview
+summary: Explore the order-36 example or follow the general odd-u proof in
+  greater detail.
 draft: true
-graphLayout: proof-map
 children:
-  - node: group-ring-encoding
-    dependsOn: []
-    segment: null
-  - node: restriction-on-the-order
-    dependsOn:
-      - group-ring-encoding
-    segment: null
-  - node: three-evaluations
-    dependsOn:
-      - restriction-on-the-order
-    segment: null
-  - node: delta-theorem
-    dependsOn: []
-    segment: null
-    contextFrom:
-      - group-ring-encoding
-  - node: signs-become-all-ones
-    dependsOn:
-      - three-evaluations
-    segment: null
-  - node: odd-order-rigidity
-    dependsOn:
-      - three-evaluations
-      - delta-theorem
-      - signs-become-all-ones
-    segment: null
-  - node: products-to-sums
-    dependsOn:
-      - signs-become-all-ones
-      - odd-order-rigidity
-    segment: null
-  - node: final-contradiction
-    dependsOn:
-      - signs-become-all-ones
-      - products-to-sums
-    segment: null
-  - node: theorem
-    dependsOn:
-      - final-contradiction
-    segment: null
   - node: proof-by-example
     dependsOn: []
     segment: null
@@ -97,8 +56,7 @@ We give a high-level overview of the proof presented in
 At this level, the order restriction and the Δ-theorem are used as inputs to
 the main argument.
 
-The dependency graph above organizes the proof into eight main steps and
-shows how they fit together. **Click any node** to explore its statement and
-the idea behind it, then go deeper into the mathematical details. This lets
-you follow the overall argument first and explore individual steps in more
-detail as you go.
+[The general odd-$u$ proof](nodes/general-proof/index.html) organizes the
+argument into eight main steps and shows how they fit together. **Click any
+node in its proof map** to explore its statement and the idea behind it, then
+go deeper into the mathematical details.

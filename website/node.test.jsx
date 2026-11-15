@@ -17,6 +17,25 @@ const entries = buildNodes({ outDir: output });
 afterAll(() => rmSync(output, { recursive: true, force: true }));
 
 describe("recursive node navigation", () => {
+  test("all proof nodes belong to the general route, with the example separate", () => {
+    expect(rootNode.children.map(({ node }) => node.id)).toEqual([
+      "proof-by-example", "general-proof",
+    ]);
+    const general = entries.find(({ node }) => node.id === "general-proof");
+    const example = entries.find(({ node }) => node.id === "proof-by-example");
+    expect(general.node.graphLayout).toBe("proof-map");
+    expect(general.node.children).toHaveLength(9);
+    expect(example.node.children).toEqual([]);
+    expect(example.ancestors.map(({ node }) => node.id)).toEqual(["overview"]);
+    for (const entry of entries.filter(({ node }) => !["overview", "proof-by-example", "general-proof"].includes(node.id))) {
+      expect(entry.ancestors.includes(general), entry.node.id).toBe(true);
+      expect(pagePath(entry), entry.node.id).toStartWith("nodes/general-proof/");
+      const html = readFileSync(join(output, pagePath(entry)), "utf8");
+      const breadcrumbs = html.match(/<nav aria-label="Breadcrumb"[\s\S]*?<\/nav>/)[0];
+      expect(breadcrumbs).toContain(`href="${hrefFor(general, entry)}"`);
+    }
+  });
+
   test("page headings contain only the node title", () => {
     for (const entry of entries) {
       const html = readFileSync(join(output, pagePath(entry)), "utf8");
@@ -28,7 +47,7 @@ describe("recursive node navigation", () => {
   test("every node has its own page, a deeper link, and a direct parent link", () => {
     expect(
       Math.max(...entries.map((entry) => entry.path.length)),
-    ).toBe(2);
+    ).toBe(3);
     for (const entry of entries) {
       const html = readFileSync(join(output, pagePath(entry)), "utf8");
       const heading = html.match(/<hgroup\b[\s\S]*?<\/hgroup>/)[0];
@@ -74,18 +93,21 @@ describe("recursive node navigation", () => {
     }
   });
 
-  test("every view orders video, graph, and text, with clips and deeper buttons for children", () => {
+  test("views order video, available proof graphs, and text, with clips and deeper links", () => {
     for (const entry of entries) {
       const html = readFileSync(join(output, pagePath(entry)), "utf8");
       const children = (entry.node.children ?? []).filter(({ node }) => !node.supplemental);
       expect(html).toContain("Overview video");
       const graph = html.indexOf('aria-label="Node dependency graph"');
-      const script = entry.ancestors.length && children.length
+      const script = entry.ancestors.length && children.length && !entry.node.supplemental
         ? children[0].script
         : entry.node.script;
       const explanation = html.indexOf(renderMarkdown(script.join("\n\n")).html);
-      expect(graph).toBeGreaterThan(html.indexOf("Overview video"));
-      expect(explanation).toBeGreaterThan(graph);
+      const owner = entry.node.children.length ? entry : entry.ancestors.at(-1);
+      const hasGraph = owner.node.children.some(({ node }) => !node.supplemental);
+      if (hasGraph) expect(graph).toBeGreaterThan(html.indexOf("Overview video"));
+      else expect(graph).toBe(-1);
+      expect(explanation).toBeGreaterThan(hasGraph ? graph : html.indexOf("Overview video"));
       expect([...html.matchAll(/>Node excerpt</g)]).toHaveLength(
         children.length,
       );

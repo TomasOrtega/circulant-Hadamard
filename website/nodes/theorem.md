@@ -30,4 +30,4 @@ $$
 
 Its rows are cyclic shifts and $HH^{\mathsf T}=4I$. Here $u=1$, outside the Δ-theorem's hypothesis $u>1$.
 
-[Read the general proof](../general-proof/index.html).
+[Read the general proof](../index.html).
