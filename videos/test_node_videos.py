@@ -8,6 +8,7 @@ from pathlib import Path
 from unittest.mock import Mock, patch
 
 from narration.speech import AudioClip, Narrator
+from videos.captions import spoken_paragraphs
 from videos.test_captions import parse_vtt
 
 with patch.object(sys, "argv", ["manimgl"]):
@@ -105,9 +106,7 @@ class NodeVideoTests(unittest.TestCase):
                     for line in captions
                     if line and line != "WEBVTT" and " --> " not in line
                 )
-                spoken_text = " ".join(
-                    "".join(p.itertext()).strip() for p in paragraphs
-                )
+                spoken_text = " ".join(spoken_paragraphs(script))
                 self.assertEqual(unescape(caption_text), spoken_text)
                 previous_end = 0
                 for start, end, lines in parse_vtt("\n".join(captions)):

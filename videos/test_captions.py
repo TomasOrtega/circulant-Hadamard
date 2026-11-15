@@ -1,7 +1,7 @@
 import html
 import unittest
 
-from videos.captions import make_vtt
+from videos.captions import make_vtt, spoken_paragraphs
 
 
 def parse_vtt(source):
@@ -25,6 +25,17 @@ def timed_words(text, interval=0.32):
 
 
 class CaptionTests(unittest.TestCase):
+    def test_internal_ssml_breaks_separate_caption_words(self):
+        source = (
+            '<speak><p>Zero.<break time="700ms"/>Consequently, keep '
+            '<emphasis>each</emphasis> word.</p><p>One.<break time="1s"/>'
+            "The next statement.</p></speak>"
+        )
+        self.assertEqual(
+            spoken_paragraphs(source),
+            ["Zero. Consequently, keep each word.", "One. The next statement."],
+        )
+
     def test_short_sentence_tail_is_not_a_flashing_standalone_caption(self):
         text = "The coefficient moves around our cyclic row and then comes back to one."
         words = timed_words(text)

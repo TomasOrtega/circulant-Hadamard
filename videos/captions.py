@@ -1,10 +1,24 @@
 """Readable captions from exact-source words aligned to a single recording."""
 
 import math
+import xml.etree.ElementTree as ET
 from html import escape
 
 MAX_LINE = 42
 MIN_DISPLAY_MS = 1000
+
+
+def spoken_paragraphs(ssml):
+    """Extract caption text, retaining word boundaries at SSML pauses."""
+
+    def content(element):
+        parts = [element.text or ""]
+        for child in element:
+            parts.append(" " if child.tag == "break" else content(child))
+            parts.append(child.tail or "")
+        return "".join(parts)
+
+    return [" ".join(content(p).split()) for p in ET.fromstring(ssml)]
 
 
 def _lines(words):
