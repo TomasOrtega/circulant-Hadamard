@@ -1,0 +1,18 @@
+<speak>
+<p>Consider this four by four matrix. Put negative ones on the diagonal and positive ones everywhere else. Its rows have a special property: every row is perpendicular to every other row.<break time="700ms"/></p>
+<p>Compare the first two rows. Two positions disagree and contribute negative one. Two agree and contribute positive one. Their dot product is zero. Every row has squared length four, so H times H transpose equals four times the identity.<break time="700ms"/></p>
+<p>A matrix of signs with mutually orthogonal rows is called a Hadamard matrix. In dimension n, its defining equation is H times H transpose equals n times the identity.<break time="600ms"/></p>
+<p>Hadamard matrices exist in dimensions one and two. In every larger dimension, the order must be divisible by four. The general Hadamard conjecture asks whether every positive multiple of four works.<break time="700ms"/></p>
+<p>Our original matrix has an extra symmetry. Shift the first row cyclically one place to the right, and you get the second row. Repeat to get the third and fourth. The entire matrix is determined by one row. Such a matrix is called circulant.<break time="800ms"/></p>
+<p>The circulant Hadamard conjecture says that this extra symmetry leaves only orders one and four. We will explain the proposed proof through algebra and number theory. At this overview level, two deeper results are accepted inputs: the order restriction and the delta theorem.<break time="700ms"/></p>
+<p>The proof is organized into eight components. Follow the arrows from each ingredient to the steps that use it.<break time="600ms"/></p>
+<p>First, group ring encoding replaces the first row by a polynomial. Multiplication by its cyclic reversal records every dot product. Orthogonality becomes one polynomial equation.<break time="600ms"/></p>
+<p>Second, the order restriction says that, apart from order one, n is four times u squared, with u odd. It remains to rule out u greater than one.<break time="600ms"/></p>
+<p>Third, split the cyclic structure into a part of size four and a part of odd size. Evaluating the resulting polynomial at one, negative one, and i produces three polynomials, c, d, and g, with the same norm identity.<break time="600ms"/></p>
+<p>Fourth, the delta theorem supplies the number theoretic input. A special product of values at roots of unity must itself be a root of unity of odd order. The three polynomials satisfy its hypotheses.<break time="600ms"/></p>
+<p>Fifth, the original signs give another constraint. Combine c, d, and g into a new polynomial, E. Modulo one plus i, every coefficient of E becomes one.<break time="600ms"/></p>
+<p>Sixth, bring the two branches together. Certain odd order roots of unity are also congruent to one modulo one plus i. Rigidity forces those roots to equal one, giving exact product relations.<break time="600ms"/></p>
+<p>Seventh, turn those products into sums. A first order expansion shows that a particular alternating sum, S, is zero modulo one plus i.<break time="600ms"/></p>
+<p>Eighth, use the all ones coefficients. At nontrivial roots of unity their contributions cancel. At one, an odd number of ones survives, forcing that same sum to be one modulo one plus i.<break time="800ms"/></p>
+<p>The same sum cannot be both zero and one in this nonzero quotient. That is the contradiction. Thus u cannot exceed one. Together with the trivial case, the only possible orders are one and four. Open each node to explore its argument and the inputs it uses.<break time="1000ms"/></p>
+</speak>

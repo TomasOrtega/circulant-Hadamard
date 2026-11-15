@@ -1,0 +1,30 @@
+{
+  "source": "website/scripts/overview.md",
+  "source_sha256": "9db3ba36c0078ee5935d12f7f12fb547c13766680e8a2264da6a7bd265f64784",
+  "scene": "Overview",
+  "scene_file": "videos/overview.py",
+  "voice": "en-US-Chirp3-HD-Achird",
+  "cues": {
+    "matrix": 0,
+    "orthogonality": 12.83,
+    "hadamard": 30.09,
+    "dimensions": 42.21,
+    "cyclic": 56.03,
+    "conjecture": 70.65,
+    "roadmap": 88.09,
+    "encoding": 94.95,
+    "order": 105.91,
+    "evaluations": 116.45,
+    "delta": 131.85,
+    "signs": 145.45,
+    "rigidity": 156.81,
+    "sums": 170.03,
+    "contradiction": 181.41,
+    "conclusion": 195.39
+  },
+  "alignment_match_ratio": 0.9313,
+  "narration_duration": 214.92022675736962,
+  "duration": 214.933333,
+  "narration_sha256": "89f0467b4359847144ba7cfb91b7cd8e795875201e0bf6f46e0124e16c9bac95",
+  "video_sha256": "98ecb77a43036a5ea7fc95b4a567f78668acb99c8f01f0b5d8c50a0644efaa3c"
+}

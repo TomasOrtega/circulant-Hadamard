@@ -1,5 +1,5 @@
 import { afterAll, describe, expect, test } from "bun:test";
-import { mkdtempSync, readFileSync, rmSync } from "node:fs";
+import { existsSync, mkdtempSync, readFileSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join, resolve } from "node:path";
 import { pathToFileURL } from "node:url";
@@ -83,6 +83,13 @@ describe("recursive node navigation", () => {
         if (/^https?:/.test(href)) continue;
         const target = new URL(href, pathToFileURL(filename));
         const targetHtml = pages.get(decodeURIComponent(target.pathname));
+        if (targetHtml === undefined && !target.pathname.endsWith(".html")) {
+          expect(
+            existsSync(decodeURIComponent(target.pathname)),
+            `Missing linked asset: ${filename} → ${href}`,
+          ).toBe(true);
+          continue;
+        }
         expect(
           targetHtml,
           `Broken node link: ${filename} → ${href}`,
@@ -108,15 +115,28 @@ describe("recursive node navigation", () => {
       if (hasGraph) expect(graph).toBeGreaterThan(html.indexOf("Overview video"));
       else expect(graph).toBe(-1);
       expect(explanation).toBeGreaterThan(hasGraph ? graph : html.indexOf("Overview video"));
-      expect([...html.matchAll(/>Node excerpt</g)]).toHaveLength(
+      expect([...html.matchAll(/(?:>Node excerpt<|aria-label="Node excerpt:)/g)]).toHaveLength(
         children.length,
       );
       expect([...html.matchAll(/aria-label="Dig in deeper:/g)]).toHaveLength(
         children.length,
       );
-      expect(html).not.toContain("<iframe");
-      expect(html).not.toContain("<video");
-      expect(html).not.toContain("<script");
+      const cuts = children.filter(({ segment }) => segment);
+      const players = 1 + cuts.length;
+      expect([...html.matchAll(/<iframe\b/g)]).toHaveLength(
+        entry.node.video?.youtubeId ? players : 0,
+      );
+      expect([...html.matchAll(/<video\b/g)]).toHaveLength(
+        entry.node.video?.src ? players : 0,
+      );
+      expect([...html.matchAll(/<script\b/g)]).toHaveLength(
+        entry.node.video?.src && cuts.length ? 1 : 0,
+      );
+      for (const [, source] of html.matchAll(/<(?:source|track)\b[^>]*\bsrc="([^"]+)"/g)) {
+        if (/^https?:/.test(source)) continue;
+        const asset = new URL(source, pathToFileURL(join(output, pagePath(entry))));
+        expect(existsSync(decodeURIComponent(asset.pathname)), source).toBe(true);
+      }
     }
   });
 

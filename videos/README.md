@@ -137,3 +137,29 @@ Keep generated video under `videos/build/`. After a full node video is approved,
 copy it to `website/media/<node-id>.mp4` and set its `video.src` and actual
 `duration` in `website/nodes/<node-id>.md`. Parent previews use measured cuts of
 that finished video. The demo does not replace unfinished website video slots.
+
+## Scripted node videos
+
+Published node videos use the scenes listed in `production/<node-id>.json`.
+Their complete, spoken mathematics scripts are in `scripts/<node-id>.ssml`;
+the original editorial drafts remain in `website/scripts/`. The introduction
+uses a concise adaptation so its narration fits one synthesis request.
+
+For example, rebuild the introduction with:
+
+```sh
+make -C videos render SOURCE=videos/overview.py SCENE=Overview
+```
+
+Each scene uses one continuous Achird take. Production records contain the
+source draft's SHA-256, measured cue offsets, and narration duration. Visual
+iterations use `NARRATION_OFFLINE=1` to reuse that recording. A fresh checkout
+needs Google credentials to synthesize a new take; its timing must be checked
+again. The published MP4 preserves the finished recording.
+
+Final 1080p, 30 fps MP4s and matching WebVTT captions live in `website/media/`.
+Captions retain the exact spoken source text; local speech recognition helps
+align them and the animation cues. Recognition is supporting evidence, not
+human listening acceptance. Preserve the site's draft and accepted-input
+labels when attaching videos. Child previews use measured sections of their
+parent's recording, and remain empty when that parent has no video.

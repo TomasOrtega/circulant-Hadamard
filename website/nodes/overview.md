@@ -5,6 +5,10 @@ shortTitle: Overview
 summary: Explore the order-36 example or follow the general odd-u proof in
   greater detail.
 draft: true
+video:
+  src: media/overview.mp4
+  captions: media/overview.vtt
+  duration: 214.933333
 children:
   - node: proof-by-example
     dependsOn: []
