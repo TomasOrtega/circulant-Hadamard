@@ -8,7 +8,7 @@ draft: true
 mapPosition:
   - 250
   - 980
-mapSummary: Only orders 1 and 4
+mapSummary: 'Only orders $1$ and $4$'
 ---
 
 ## Conclusion of the general route

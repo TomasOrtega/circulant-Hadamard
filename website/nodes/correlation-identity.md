@@ -10,7 +10,7 @@ video: null
 mapPosition:
   - 460
   - 340
-mapSummary: "[Xᵃ](h(X)h*(X)) = Σ hⱼ hⱼ₋ₐ"
+mapSummary: '$[X^a](h(X)h^*(X))=\sum_j h_jh_{j-a}$'
 ---
 
 ## The coefficient identity

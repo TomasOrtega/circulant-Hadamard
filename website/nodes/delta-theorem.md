@@ -10,7 +10,7 @@ video: null
 mapPosition:
   - 460
   - 180
-mapSummary: Δ(f) has odd order
+mapSummary: '$\Delta(f)$ has odd order'
 blackBox: Proposition 3.4
 ---
 

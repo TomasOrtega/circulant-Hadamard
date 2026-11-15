@@ -1,5 +1,6 @@
 import { dependencyGraph } from "./dependencies.js";
 import { hrefFor, findChildEntry } from "./node-tree.js";
+import { renderMarkdown } from "./markdown.js";
 
 const defaultNodeWidth = 200;
 const defaultNodeHeight = 64;
@@ -23,7 +24,7 @@ export function DependencyGraph({ entry, entries }) {
     : (entry.ancestors.at(-1) ?? entry);
   const proofMap = owner.node.graphLayout === "proof-map";
   const nodeWidth = proofMap ? 300 : defaultNodeWidth;
-  const nodeHeight = proofMap ? 96 : defaultNodeHeight;
+  const nodeHeight = proofMap ? 112 : defaultNodeHeight;
   const children = owner.node.children?.length
     ? owner.node.children.filter(({ node }) => !node.supplemental)
     : [{ node: entry.node, dependsOn: [] }];
@@ -64,11 +65,13 @@ export function DependencyGraph({ entry, entries }) {
       className="w-full max-w-200 font-sans"
     >
       <figure className="flex flex-col gap-4">
-        <figcaption className="text-center text-sm text-dark-gray">
-          {owner.node.graphTitle ?? (proofMap ? "Eight-node proof map · general argument" : `Draft dependency map · ${owner.node.shortTitle}`)}
+        <figcaption className={proofMap ? "flex items-center gap-4 text-center text-lg tracking-wide" : "text-center text-sm text-dark-gray"}>
+          {proofMap && <hr />}
+          <span>{owner.node.graphTitle ?? (proofMap ? "Eight-node proof map · general argument" : `Draft dependency map · ${owner.node.shortTitle}`)}</span>
+          {proofMap && <hr />}
         </figcaption>
         <div
-          className="overflow-x-auto rounded-md bg-white p-2"
+          className={proofMap ? "overflow-x-auto p-2" : "overflow-x-auto rounded-md bg-white p-2"}
           tabIndex={0}
           aria-label="Scrollable node dependency graph"
         >
@@ -95,7 +98,7 @@ export function DependencyGraph({ entry, entries }) {
                 markerHeight="7"
                 orient="auto-start-reverse"
               >
-                <path d="M 0 0 L 10 5 L 0 10 z" className="fill-gray" />
+                <path d="M 0 0 L 10 5 L 0 10 z" className="fill-gray/60" />
               </marker>
             </defs>
             {edges.map(({ source, target, kind }, index) => {
@@ -128,11 +131,13 @@ export function DependencyGraph({ entry, entries }) {
                   key={`${source}-${target}`}
                   d={path}
                   fill="none"
-                  className="stroke-gray"
+                  className="stroke-gray/60"
                   data-source={source}
                   data-target={target}
                   data-edge-kind={kind ?? "dependency"}
                   strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   markerEnd={`url(#${markerId})`}
                   aria-hidden="true"
                 />
@@ -145,6 +150,7 @@ export function DependencyGraph({ entry, entries }) {
                   ? entry
                   : findChildEntry(node, owner, entries);
               const lines = wrapLabel(`${node.number ? `${node.number}. ` : ""}${node.shortTitle}`);
+              const lineHeight = proofMap ? 22 : 18;
               const current = node === entry.node;
               const prerequisites = dependsOn.map(
                 (id) =>
@@ -177,35 +183,39 @@ export function DependencyGraph({ entry, entries }) {
                     className={
                       current
                         ? "fill-theme/15 stroke-theme"
-                        : "fill-white stroke-theme/50 group-hocus:fill-theme/15 group-hocus:stroke-theme"
+                        : "fill-white stroke-transparent group-hocus:fill-theme/15 group-hocus:stroke-theme"
                     }
                   />
                   <text
                     x={position.x + nodeWidth / 2}
                     y={
                       position.y +
-                      nodeHeight / 2 - (proofMap ? 13 : 0) -
-                      ((lines.length - 1) * 18) / 2
+                      (proofMap ? 43 : nodeHeight / 2) -
+                      ((lines.length - 1) * lineHeight) / 2
                     }
                     textAnchor="middle"
                     dominantBaseline="middle"
-                    className="fill-current text-sm"
+                    className={proofMap ? "fill-current text-base font-medium" : "fill-current text-sm"}
                   >
                     {lines.map((line, index) => (
                       <tspan
                         key={index}
                         x={position.x + nodeWidth / 2}
-                        dy={index ? 18 : 0}
+                        dy={index ? lineHeight : 0}
                       >
-                        {line}
+                        {index === 0 && node.number ? (
+                          <><tspan className="fill-theme">{node.number}.</tspan>{line.slice(String(node.number).length + 1)}</>
+                        ) : line}
                       </tspan>
                     ))}
                   </text>
                   {proofMap && (
-                    <text x={position.x + nodeWidth / 2} y={position.y + 76}
-                      textAnchor="middle" className="fill-dark-gray text-xs">
-                      {node.mapSummary}
-                    </text>
+                    <foreignObject x={position.x + 16} y={position.y + 70}
+                      width={nodeWidth - 32} height={36}>
+                      <div xmlns="http://www.w3.org/1999/xhtml"
+                        className="flex h-full items-center justify-center text-center font-serif text-base text-dark-gray [&_p]:leading-normal"
+                        dangerouslySetInnerHTML={{ __html: renderMarkdown(node.mapSummary ?? "").html }} />
+                    </foreignObject>
                   )}
                 </a>
               );

@@ -4,6 +4,7 @@ import { loadNodes } from "./load-nodes.js";
 import { collectNodes } from "./node-tree.js";
 import { dependencyGraph } from "./dependencies.js";
 import { NodePage } from "./node.jsx";
+import { renderMarkdown } from "./markdown.js";
 
 const root = loadNodes();
 const entries = collectNodes(root);
@@ -25,7 +26,7 @@ describe("supplied eight-node proof map", () => {
     expect(html).not.toContain("stroke-dasharray");
     expect(html).toContain('data-edge-kind="context"');
     expect(html).not.toContain("stroke-arithmetic");
-    expect(html).toContain("fill-white stroke-theme/50");
+    expect(html).toContain("fill-white stroke-transparent");
   });
 
   test("the example comes first, all eight titles remain, and only supplied refinements appear", () => {
@@ -40,6 +41,14 @@ describe("supplied eight-node proof map", () => {
       if (node.id !== "group-ring-encoding") expect(node.children).toEqual([]);
     }
     expect(entries.find(({ node }) => node.id === "proof-by-example").node.script.join(" ")).not.toContain("\\zeta_S");
+  });
+
+  test("map summaries use the article's typeset math inside each node link", () => {
+    for (const { node } of children) {
+      const link = html.match(new RegExp(`<a[^>]*data-node-id="${node.id}"[\\s\\S]*?</a>`))[0];
+      expect(link).toContain(renderMarkdown(node.mapSummary).html);
+      expect(link).toContain('jax="SVG"');
+    }
   });
 
   test("statement pages expose incoming and outgoing links without a source dropdown", () => {

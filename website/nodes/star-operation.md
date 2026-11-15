@@ -10,7 +10,7 @@ video: null
 mapPosition:
   - 460
   - 180
-mapSummary: h*(X) = h(X⁻¹)
+mapSummary: '$h^*(X)=h(X^{-1})$'
 foundation: true
 ---
 

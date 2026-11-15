@@ -10,7 +10,7 @@ video: null
 mapPosition:
   - 40
   - 180
-mapSummary: Row j ↔ Xʲ⁻¹h
+mapSummary: 'Row $j\leftrightarrow X^{j-1}h$'
 foundation: true
 ---
 

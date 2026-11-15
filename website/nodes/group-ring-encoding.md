@@ -10,7 +10,7 @@ video: null
 mapPosition:
   - 240
   - 24
-mapSummary: h(X)h*(X) = n
+mapSummary: '$h(X)h^*(X)=n$'
 graphLayout: proof-map
 graphTitle: Inside Node 1 · Group-Ring Encoding
 children:

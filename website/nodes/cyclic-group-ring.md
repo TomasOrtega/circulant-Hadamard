@@ -10,7 +10,7 @@ video: null
 mapPosition:
   - 240
   - 24
-mapSummary: ℤ[Cₙ] ≅ ℤ[X]/(Xⁿ − 1)
+mapSummary: '$\mathbb Z[C_n]\cong\mathbb Z[X]/(X^n-1)$'
 foundation: true
 ---
 

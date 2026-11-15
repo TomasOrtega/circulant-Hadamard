@@ -10,7 +10,7 @@ video: null
 mapPosition:
   - 250
   - 660
-mapSummary: Σ (−1)^|S| E(ζ_S)/c(ζ_S) ≡ 0
+mapSummary: '$\sum_S(-1)^{|S|}\frac{E(\zeta_S)}{c(\zeta_S)}\equiv0$'
 ---
 
 ## First route: $u=3$, $n=36$

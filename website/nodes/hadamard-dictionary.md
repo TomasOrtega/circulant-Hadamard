@@ -9,7 +9,7 @@ video: null
 mapPosition:
   - 240
   - 500
-mapSummary: HHᵀ = nI ⇔ h(X)h*(X) = n
+mapSummary: '$HH^{\mathsf T}=nI\iff h(X)h^*(X)=n$'
 ---
 
 ## The dictionary lemma

@@ -10,7 +10,7 @@ video: null
 mapPosition:
   - 250
   - 820
-mapSummary: 0 ≡ ±u ≡ 1 mod (1+i)
+mapSummary: '$0\equiv\pm u\equiv1\pmod{1+i}$'
 ---
 
 ## First route: $u=3$, $n=36$

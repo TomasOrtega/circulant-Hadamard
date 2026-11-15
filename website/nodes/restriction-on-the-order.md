@@ -10,7 +10,7 @@ video: null
 mapPosition:
   - 40
   - 180
-mapSummary: n = 4u², u odd
+mapSummary: '$n=4u^2$, $u$ odd'
 blackBox: Proposition 2.2
 ---
 

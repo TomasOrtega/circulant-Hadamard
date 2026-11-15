@@ -9,7 +9,7 @@ video: null
 mapPosition:
   - 40
   - 500
-mapSummary: E(P) ≡ J(P) mod (1+i)
+mapSummary: '$E(P)\equiv J(P)\pmod{1+i}$'
 ---
 
 ## First route: $u=3$, $n=36$

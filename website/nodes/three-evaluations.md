@@ -10,7 +10,7 @@ video: null
 mapPosition:
   - 40
   - 340
-mapSummary: cc* = dd* = gg* = u²
+mapSummary: '$cc^*=dd^*=gg^*=u^2$'
 ---
 
 ## First route: $u=3$, $n=36$

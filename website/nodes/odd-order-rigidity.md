@@ -9,7 +9,7 @@ video: null
 mapPosition:
   - 460
   - 500
-mapSummary: R = W = 1
+mapSummary: '$R=W=1$'
 ---
 
 ## First route: $u=3$, $n=36$

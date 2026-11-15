@@ -121,10 +121,12 @@ Use `contextFrom` for shared-notation links. These are validated but are not
 logical prerequisites; in particular the Δ-theorem does not depend on the
 Hadamard signs. All connections use the same solid arrow styling; the statement
 pages explain their inputs in words. The root's `graphLayout: proof-map` uses each node's
-`mapPosition: [x, y]` and `mapSummary` to match the supplied diagram. Use
+`mapPosition: [x, y]` and `mapSummary` to match the supplied diagram. Map summaries
+support Markdown and `$...$` math, rendered at build time like the article. Use
 `graphTitle` to label a refined map; its height follows the node positions. `number`
-keeps the eight node numbers stable. Nodes use white backgrounds and the
-website's blue accent; the current node and hovered links receive a blue tint.
+keeps the eight node numbers stable. Maps use the website's ruled headings,
+white nodes, blue numbers, and serif math summaries. The current node and
+hovered or keyboard-focused links receive a blue tint and outline.
 
 Reading-route nodes use `supplemental: true`: they have their own pages and
 entry buttons but do not appear as extra nodes or video cuts in the proof map.

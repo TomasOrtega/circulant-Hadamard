@@ -4,7 +4,7 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { parseNode, loadNodes } from "./load-nodes.js";
 import { collectNodes } from "./node-tree.js";
-import { renderMarkdown } from "./markdown.js";
+import { renderMarkdown, mathStyles } from "./markdown.js";
 
 const directories = [];
 const fixture = (files) => {
@@ -143,6 +143,13 @@ $$`);
     expect(html).toContain("<ul>");
     expect(html).toContain('href="https://example.com"');
     expect(html).toContain("<table>");
+  });
+
+  test("map-only math supplies shared styles and rejects malformed equations", () => {
+    const node = { id: "example", script: ["Plain prose."], mapSummary: "$x^2$" };
+    expect(mathStyles([{ node }])).toContain("mjx-container");
+    expect(() => mathStyles([{ node: { ...node, mapSummary: String.raw`$\frac{1}{$` } }]))
+      .toThrow("example.md (map summary)");
   });
 
   test("malformed LaTeX fails the build instead of publishing an error box", () => {

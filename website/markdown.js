@@ -60,6 +60,8 @@ export function mathStyles(entries) {
   const styles = new Set();
   for (const { node } of entries) {
     styles.add(renderMarkdown(node.script.join("\n\n"), `${node.id}.md`).css);
+    if (node.mapSummary)
+      styles.add(renderMarkdown(node.mapSummary, `${node.id}.md (map summary)`).css);
     for (const child of node.children ?? []) {
       styles.add(
         renderMarkdown(
