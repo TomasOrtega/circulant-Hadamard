@@ -1,0 +1,195 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:05.540
+Let u be odd and greater than one. Use the
+prime-indexed subset roots from Node four,
+
+00:00:05.540 --> 00:00:09.980
+and write c sub S, d sub S, and
+g sub S for their evaluations.
+
+00:00:10.940 --> 00:00:15.300
+The preceding steps prove
+R equals W equals one.
+
+00:00:16.060 --> 00:00:20.100
+Unpack R as the alternating
+product of d sub S over c sub S,
+
+00:00:20.380 --> 00:00:24.360
+and W as the alternating
+product of g sub S over c sub S.
+
+00:00:24.580 --> 00:00:27.440
+Even subsets contribute
+positive first powers,
+
+00:00:27.440 --> 00:00:30.380
+and odd subsets contribute
+negative first powers.
+
+00:00:31.020 --> 00:00:34.000
+Every denominator is a unit
+in our evaluation ring.
+
+00:00:34.500 --> 00:00:37.380
+Moving the inverse factors across gives an
+
+00:00:37.380 --> 00:00:40.720
+exact equality between
+the even and odd products.
+
+00:00:42.060 --> 00:00:46.200
+For u equal to three, there are
+only two inputs, one and omega.
+
+00:00:47.040 --> 00:00:50.180
+The d over c ratio at one
+equals that ratio at omega,
+
+00:00:50.660 --> 00:00:52.840
+and the same is true for g over c.
+
+00:00:53.500 --> 00:00:56.720
+Define lambda as c of
+omega divided by c of one.
+
+00:00:57.300 --> 00:01:00.960
+Both values have magnitude three,
+so lambda has magnitude one.
+
+00:01:01.640 --> 00:01:06.600
+Rearrange the two ratio equalities:
+d of omega is lambda times d of one,
+
+00:01:06.940 --> 00:01:09.640
+and g of omega is lambda times g of one.
+
+00:01:10.140 --> 00:01:13.520
+The same multiplier also
+carries c of one to c of omega.
+
+00:01:14.140 --> 00:01:17.540
+This forward multiplier is
+the inverse of Delta of c.
+
+00:01:18.300 --> 00:01:22.600
+The three values share a rotation.
+They need not be the same point:
+
+00:01:22.600 --> 00:01:25.020
+the rotation preserves
+their relative positions.
+
+00:01:25.720 --> 00:01:30.360
+Now recall the exact integral
+combination E of P: d of P minus c of P,
+
+00:01:30.360 --> 00:01:36.420
+divided by two, plus g of P minus
+c of P, divided by one plus i.
+
+00:01:36.840 --> 00:01:39.940
+These polynomial quotients
+were formed before reduction.
+
+00:01:40.820 --> 00:01:43.400
+Substitute the three
+shared-rotation identities.
+
+00:01:44.200 --> 00:01:46.140
+Factor lambda from both differences.
+
+00:01:46.840 --> 00:01:50.840
+The result is E of omega
+equals lambda times E of one.
+
+00:01:52.000 --> 00:01:57.100
+Divide this last identity by c of omega,
+which equals lambda times c of one.
+
+00:01:57.580 --> 00:01:59.360
+The common multiplier cancels,
+
+00:01:59.440 --> 00:02:04.240
+leaving E of omega over c of omega
+equal to E of one over c of one.
+
+00:02:04.680 --> 00:02:08.880
+We divide by the nonzero unit
+values of c, never by E of one.
+
+00:02:09.360 --> 00:02:12.360
+Thus the argument also covers
+E of one equal to zero.
+
+00:02:13.200 --> 00:02:16.360
+The E arrow need not lie
+on the radius-three circle.
+
+00:02:17.420 --> 00:02:19.240
+Here is a numerical schematic,
+
+00:02:19.500 --> 00:02:24.380
+not a construction satisfying all Hadamard
+conditions. Take c of one equal to three,
+
+00:02:24.760 --> 00:02:28.980
+d of one equal to negative three,
+and g of one equal to three i.
+
+00:02:29.600 --> 00:02:32.160
+Rotate all three by lambda equal to omega.
+
+00:02:32.800 --> 00:02:36.340
+The combination gives E of one equal
+to negative three plus three i.
+
+00:02:36.760 --> 00:02:39.420
+After dividing by the
+corresponding c value,
+
+00:02:39.560 --> 00:02:42.560
+both normalized E values
+are negative one plus i.
+
+00:02:43.020 --> 00:02:45.240
+The two normalized arrows coincide.
+
+00:02:46.800 --> 00:02:48.980
+The raw E values need not be equal.
+
+00:02:49.420 --> 00:02:53.000
+They differ by lambda, which may
+also have a nontrivial residue.
+
+00:02:53.700 --> 00:02:57.980
+Equality after division by c does not
+assert equality of their raw residues.
+
+00:02:58.820 --> 00:03:02.600
+We have assigned no all-ones
+residue to the schematic values.
+
+00:03:03.560 --> 00:03:08.900
+For several distinct prime divisors of u,
+retain the full subset-product identities.
+
+00:03:09.720 --> 00:03:13.520
+We cannot infer one common rotation
+between every pair of inputs.
+
+00:03:14.080 --> 00:03:18.120
+Keep two outputs separate: the normalized
+equality for the two-input case,
+
+00:03:18.120 --> 00:03:20.260
+and the general exact products.
+
+00:03:21.060 --> 00:03:24.720
+Node seven uses the normalized
+equality for the guiding example,
+
+00:03:24.720 --> 00:03:27.660
+and product expansion
+for the general argument.

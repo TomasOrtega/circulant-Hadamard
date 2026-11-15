@@ -5,7 +5,10 @@ shortTitle: Exact Comparisons
 summary: The comparison products equal one; in the two-evaluation example this means one common rotation of all three points.
 number: "6.5"
 draft: true
-video: null
+video:
+  src: media/exact-comparison-identities.mp4
+  captions: media/exact-comparison-identities.vtt
+  duration: 209.133333
 mapPosition: [240, 560]
 mapSummary: '$R=W=1$; one rotation when $u=3$'
 ---
