@@ -253,7 +253,7 @@ export function NodePage({ entry, entries }) {
               <Markdown script={node.script} />
             </div>
           )}
-          {showOwnExplanation && <p className="max-w-175 text-center text-lg">{node.summary}</p>}
+          {showOwnExplanation && entry.ancestors.length > 0 && <p className="max-w-175 text-center text-lg">{node.summary}</p>}
         </section>
         {showOwnExplanation && !hasOwnProofMap && (
           <section>
