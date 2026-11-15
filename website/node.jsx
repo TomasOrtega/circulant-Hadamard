@@ -120,18 +120,18 @@ function Breadcrumbs({ entry }) {
   return (
     <nav
       aria-label="Breadcrumb"
-      className="flex flex-wrap items-center gap-2 font-sans text-sm"
+      className="flex flex-wrap items-center gap-2 font-sans text-lg"
     >
       {entry.ancestors.map((ancestor) => (
         <span
           key={ancestor.path.join("/")}
           className="inline-flex items-center gap-2"
         >
-          <a href={hrefFor(ancestor, entry)}>{ancestor.node.shortTitle}</a>
-          <span aria-hidden="true">/</span>
+          <NodeButton href={hrefFor(ancestor, entry)}>{ancestor.node.shortTitle}</NodeButton>
+          <span aria-hidden="true" className="text-dark-gray">/</span>
         </span>
       ))}
-      <span aria-current="page">{entry.node.shortTitle}</span>
+      <span aria-current="page" className="p-3">{entry.node.shortTitle}</span>
     </nav>
   );
 }

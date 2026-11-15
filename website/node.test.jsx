@@ -45,6 +45,19 @@ describe("recursive node navigation", () => {
     }
   });
 
+  test("breadcrumbs match the surrounding navigation typography and link style", () => {
+    for (const entry of entries.filter(({ ancestors }) => ancestors.length)) {
+      const html = readFileSync(join(output, pagePath(entry)), "utf8");
+      const breadcrumbs = html.match(/<nav aria-label="Breadcrumb"[\s\S]*?<\/nav>/)[0];
+      const parentButton = html.match(/<a\b[^>]*aria-label="Back to higher-level view:[^"]*"[^>]*>/)[0];
+      const parentClasses = parentButton.match(/\bclass="([^"]+)"/)[1];
+      expect(breadcrumbs.match(/^<nav\b[^>]*>/)[0], entry.node.id).toContain("font-sans text-lg");
+      for (const [link] of breadcrumbs.matchAll(/<a\b[^>]*>/g)) {
+        expect(link.match(/\bclass="([^"]+)"/)?.[1], entry.node.id).toBe(parentClasses);
+      }
+    }
+  });
+
   test("published local overview players resolve their videos and captions", () => {
     for (const entry of entries.filter(({ node }) => node.video?.src?.startsWith("media/"))) {
       const html = readFileSync(join(output, pagePath(entry)), "utf8");
