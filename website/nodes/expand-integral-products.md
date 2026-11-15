@@ -5,7 +5,10 @@ shortTitle: Expand the Products
 summary: The sign divisibilities let us separate the linear terms from terms with two or more factors.
 number: "7.2"
 draft: true
-video: null
+video:
+  src: media/expand-integral-products.mp4
+  captions: media/expand-integral-products.vtt
+  duration: 203.2
 mapPosition: [440, 24]
 mapSummary: '$\prod_j(1+t x_j)=1+t\sum_jx_j+t^2Q$'
 ---
