@@ -5,7 +5,10 @@ shortTitle: Fold the Cycle
 summary: Average opposite coefficients to halve the cycle while preserving oddness and dividing the scalar norm by four.
 number: "2.5"
 draft: true
-video: null
+video:
+  src: media/fold-and-divide.mp4
+  captions: media/fold-and-divide.vtt
+  duration: 175.333333
 mapPosition: [240, 420]
 mapSummary: 'Halve length; divide norm by $4$'
 ---

@@ -1,0 +1,142 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:03.800
+Suppose T of X has odd integer
+coefficients on a cycle of length two to
+
+00:00:03.800 --> 00:00:09.240
+the k. Its product with T star is two
+to the power two t, times w squared,
+
+00:00:09.780 --> 00:00:13.620
+where t is at least two and w
+is odd. We will halve the cycle,
+
+00:00:13.620 --> 00:00:18.040
+keep every coefficient odd, and
+divide the scalar norm by four.
+
+00:00:18.440 --> 00:00:24.160
+The parameters will change from
+k, t to k minus one, t minus one.
+
+00:00:24.940 --> 00:00:30.260
+The comparison lemma says that opposite
+coefficients agree modulo two to the t.
+
+00:00:30.900 --> 00:00:34.670
+Since t is at least two,
+they agree modulo four.
+
+00:00:35.180 --> 00:00:40.360
+Write one opposite pair as a sub
+j and a sub j plus four r sub j.
+
+00:00:40.760 --> 00:00:44.180
+Their average is a sub j plus two r sub j:
+
+00:00:44.300 --> 00:00:48.260
+an odd integer plus an even
+integer, hence still odd.
+
+00:00:49.020 --> 00:00:53.100
+For example, three and
+seven average to five.
+
+00:00:53.700 --> 00:00:56.400
+Apply this averaging
+to every opposite pair.
+
+00:00:56.860 --> 00:01:00.000
+The old cycle folds onto a
+cycle of half the length,
+
+00:01:00.320 --> 00:01:02.520
+with one odd average at each new position.
+
+00:01:04.160 --> 00:01:08.780
+Now check the norm. Let q reduce
+exponents modulo the half length,
+
+00:01:09.100 --> 00:01:12.047
+and call the polynomial of averages T one.
+
+00:01:12.480 --> 00:01:14.820
+Opposite coefficients
+add under projection,
+
+00:01:15.480 --> 00:01:19.160
+so q of T equals twice T one.
+
+00:01:19.540 --> 00:01:22.380
+The projection preserves
+multiplication and star.
+
+00:01:23.200 --> 00:01:27.320
+Applying it to the original
+norm identity therefore gives
+
+00:01:27.540 --> 00:01:31.940
+four times T one times T one
+
+00:01:32.260 --> 00:01:37.120
+star equals two to the power
+two t, times w squared.
+
+00:01:38.500 --> 00:01:41.320
+Divide the integer coefficients by four.
+
+00:01:41.660 --> 00:01:45.820
+This is valid because the integer group
+ring has a free coefficient basis.
+
+00:01:46.600 --> 00:01:50.820
+The new norm is two raised to twice
+the difference between t and one,
+
+00:01:51.020 --> 00:01:56.700
+times w squared. One fold has halved
+the length and divided the norm by four.
+
+00:01:57.560 --> 00:02:00.200
+Keep the indices visible as we repeat.
+
+00:02:00.840 --> 00:02:06.470
+Start with k equal to two s and t
+equal to s, assuming s is at least two.
+
+00:02:06.840 --> 00:02:11.420
+After j folds, k equals two s minus j,
+
+00:02:11.780 --> 00:02:16.100
+and t equals s minus j. The initial row,
+
+00:02:16.540 --> 00:02:20.845
+j equal to zero, is the projection
+from Node two point three.
+
+00:02:21.060 --> 00:02:25.700
+Whenever j is less than s minus
+one, t is still at least two,
+
+00:02:26.020 --> 00:02:29.660
+so the next fold is allowed and
+every coefficient stays odd.
+
+00:02:30.860 --> 00:02:33.700
+After exactly s minus one folds,
+
+00:02:34.280 --> 00:02:37.380
+k equals s plus one and t equals one.
+
+00:02:37.480 --> 00:02:43.300
+The length is two to the power s plus
+one, and the norm is four w squared.
+
+00:02:44.280 --> 00:02:49.340
+Stop here. We do not apply another
+oddness preserving fold at t equal to one.
+
+00:02:49.360 --> 00:02:53.800
+The next node uses this endpoint
+to obtain the contradiction.

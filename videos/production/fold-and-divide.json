@@ -1,0 +1,167 @@
+{
+  "source": "website/scripts/node2/fold-and-divide.md",
+  "source_sha256": "b909a270e6a48eb2963ecf1b67a77da2baaa48f16d1da13f5c13d553762e1dca",
+  "scene": "FoldAndDivide",
+  "scene_file": "videos/fold_and_divide.py",
+  "voice": "en-US-Chirp3-HD-Achird",
+  "work_started_at": "2026-11-15T04:57:18-08:00",
+  "cues": {
+    "setup": 0,
+    "averages": 24.79,
+    "norm": 64.01,
+    "iteration": 117.41
+  },
+  "alignment_match_ratio": 0.8827,
+  "narration_duration": 175.30022675736961,
+  "detail_cues": {
+    "hypothesis": 4.7,
+    "goal": 12.8,
+    "comparison": 26.92,
+    "mod_four": 30.9,
+    "pair": 35.18,
+    "average": 40.76,
+    "odd_average": 44.3,
+    "pair_example": 49.02,
+    "all_pairs": 53.7,
+    "projection": 66.14,
+    "coefficients_add": 72.48,
+    "twice": 75.48,
+    "preserves": 79.54,
+    "project_norm": 83.2,
+    "divide_four": 98.5,
+    "free_basis": 101.66,
+    "new_norm": 106.6,
+    "initial": 120.84,
+    "after_j": 126.84,
+    "allowed": 141.06,
+    "endpoint": 150.86,
+    "stop": 164.28,
+    "next": 169.36
+  },
+  "animation_alignment": {
+    "hypothesis": {
+      "phrase": "Its product with T star",
+      "time": 4.7,
+      "source_word_index": 17
+    },
+    "goal": {
+      "phrase": "We will halve the cycle",
+      "time": 12.8,
+      "source_word_index": 42
+    },
+    "comparison": {
+      "phrase": "opposite coefficients agree modulo two to the t",
+      "time": 26.92,
+      "source_word_index": 77
+    },
+    "mod_four": {
+      "phrase": "Since t is at least two",
+      "time": 30.9,
+      "source_word_index": 85
+    },
+    "pair": {
+      "phrase": "Write one opposite pair",
+      "time": 35.18,
+      "source_word_index": 95
+    },
+    "average": {
+      "phrase": "Their average is",
+      "time": 40.76,
+      "source_word_index": 112
+    },
+    "odd_average": {
+      "phrase": "an odd integer plus an even integer",
+      "time": 44.3,
+      "source_word_index": 123
+    },
+    "pair_example": {
+      "phrase": "For example three and seven",
+      "time": 49.02,
+      "source_word_index": 133
+    },
+    "all_pairs": {
+      "phrase": "Apply this averaging to every opposite pair",
+      "time": 53.7,
+      "source_word_index": 141
+    },
+    "projection": {
+      "phrase": "Let q reduce exponents modulo the half length",
+      "time": 66.14,
+      "source_word_index": 171
+    },
+    "coefficients_add": {
+      "phrase": "Opposite coefficients add under projection",
+      "time": 72.48,
+      "source_word_index": 187
+    },
+    "twice": {
+      "phrase": "so q of T equals twice T one",
+      "time": 75.48,
+      "source_word_index": 192
+    },
+    "preserves": {
+      "phrase": "The projection preserves multiplication and star",
+      "time": 79.54,
+      "source_word_index": 200
+    },
+    "project_norm": {
+      "phrase": "Applying it to the original norm identity",
+      "time": 83.2,
+      "source_word_index": 206
+    },
+    "divide_four": {
+      "phrase": "Divide the integer coefficients by four",
+      "time": 98.5,
+      "source_word_index": 233
+    },
+    "free_basis": {
+      "phrase": "This is valid because the integer group ring",
+      "time": 101.66,
+      "source_word_index": 239
+    },
+    "new_norm": {
+      "phrase": "The new norm is",
+      "time": 106.6,
+      "source_word_index": 252
+    },
+    "initial": {
+      "phrase": "Start with k equal to two s",
+      "time": 120.84,
+      "source_word_index": 288
+    },
+    "after_j": {
+      "phrase": "After j folds",
+      "time": 126.84,
+      "source_word_index": 306
+    },
+    "allowed": {
+      "phrase": "Whenever j is less than s minus one",
+      "time": 141.06,
+      "source_word_index": 336
+    },
+    "endpoint": {
+      "phrase": "After exactly s minus one folds",
+      "time": 150.86,
+      "source_word_index": 361
+    },
+    "stop": {
+      "phrase": "Stop here",
+      "time": 164.28,
+      "source_word_index": 393
+    },
+    "next": {
+      "phrase": "The next node uses this endpoint",
+      "time": 169.36,
+      "source_word_index": 408
+    }
+  },
+  "duration": 175.333333,
+  "narration_sha256": "86c1f7f6a028a3b18c409998047ce7b53bc98b2c223bfc3564b5047e5d520110",
+  "video_sha256": "b82093d06ac2ab05f3ca469e914e40b5ed604450800da65f95879553a6c7b654",
+  "subtitle_safe_fraction": 0.2,
+  "subtitle_band_max_luma": 16.0,
+  "subtitle_frames_checked": 5260,
+  "production_status": "final",
+  "scene_sha256": "07f9a3697fd4cb8451bb72352b1d2e323d3a0e386caccc32e09bfd6601c0f56b",
+  "layout_sha256": "af65a79e6ee3c1e4c50be87eaf23e651674da7cae9a65dd5fa0a5b94e9c219f2"
+}
