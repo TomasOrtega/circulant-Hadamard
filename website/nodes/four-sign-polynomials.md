@@ -4,7 +4,7 @@ title: Four Sign Polynomials
 shortTitle: Four Sign Polynomials
 summary: Collect the terms with the same power of Z into four polynomials in P.
 number: "3.2"
-draft: true
+draft: false
 video:
   src: media/four-sign-polynomials.mp4
   captions: media/four-sign-polynomials.vtt

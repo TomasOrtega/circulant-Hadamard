@@ -4,7 +4,7 @@ title: The circulant Hadamard conjecture
 shortTitle: Proof map
 summary: A high-level overview of the proof. Explore the graph to follow each
   step in greater detail.
-draft: true
+draft: false
 video:
   src: media/overview.mp4
   captions: media/overview.vtt

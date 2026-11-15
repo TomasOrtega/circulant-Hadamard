@@ -4,7 +4,7 @@ title: Expand Products with Exact Quotients
 shortTitle: Expand the Products
 summary: The sign divisibilities let us separate the linear terms from terms with two or more factors.
 number: "7.2"
-draft: true
+draft: false
 video:
   src: media/expand-integral-products.mp4
   captions: media/expand-integral-products.vtt

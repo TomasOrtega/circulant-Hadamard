@@ -5,7 +5,7 @@ shortTitle: Correlation Identity
 summary: Each coefficient of h(X)h*(X) is a dot product with a cyclic shift of the
   original row.
 number: "1.4"
-draft: true
+draft: false
 video:
   src: media/correlation-identity.mp4
   captions: media/correlation-identity.vtt

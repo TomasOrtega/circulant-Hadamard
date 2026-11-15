@@ -4,7 +4,7 @@ title: Project to a Power-of-Two Cycle
 shortTitle: Power-of-Two Cycle
 summary: Group positions by their residue on a shorter cycle; each new coefficient is an odd sum of signs.
 number: "2.3"
-draft: true
+draft: false
 video:
   src: media/power-of-two-cycle.mp4
   captions: media/power-of-two-cycle.vtt

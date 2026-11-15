@@ -4,7 +4,7 @@ title: Exact Comparisons and a Common Rotation
 shortTitle: Exact Comparisons
 summary: The comparison products equal one; in the two-evaluation example this means one common rotation of all three points.
 number: "6.5"
-draft: true
+draft: false
 video:
   src: media/exact-comparison-identities.mp4
   captions: media/exact-comparison-identities.vtt

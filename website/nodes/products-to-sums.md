@@ -5,7 +5,7 @@ shortTitle: From Products to Sums
 summary: Canceling the common rotation contradicts the all-ones residues for u=3;
   exact product expansions supply the general vanishing sum.
 number: 7
-draft: true
+draft: false
 video:
   src: media/products-to-sums.mp4
   captions: media/products-to-sums.vtt

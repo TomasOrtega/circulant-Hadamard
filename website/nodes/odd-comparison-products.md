@@ -5,7 +5,7 @@ shortTitle: Compare the Delta Values
 mapTitle: 'Compare the $\Delta$-Values'
 summary: The two comparison products inherit odd order from the Delta theorem.
 number: "6.1"
-draft: true
+draft: false
 video:
   src: media/odd-comparison-products.mp4
   captions: media/odd-comparison-products.vtt

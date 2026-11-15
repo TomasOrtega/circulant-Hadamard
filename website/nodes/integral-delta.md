@@ -4,7 +4,7 @@ title: The Product Is Integral
 shortTitle: Integrality
 summary: Pairing subsets in each prime direction shows that the alternating product has no local denominator obstruction.
 number: "4.4"
-draft: true
+draft: false
 video:
   src: media/integral-delta.mp4
   captions: media/integral-delta.vtt

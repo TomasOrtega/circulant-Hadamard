@@ -4,7 +4,7 @@ title: Split the Exact Products
 shortTitle: Split the Products
 summary: Put the even and odd subsets on opposite sides of each exact product identity.
 number: "7.1"
-draft: true
+draft: false
 video:
   src: media/split-exact-products.mp4
   captions: media/split-exact-products.vtt

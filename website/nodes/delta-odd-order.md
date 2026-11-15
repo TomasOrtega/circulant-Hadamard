@@ -4,7 +4,7 @@ title: Why the Order Is Odd
 shortTitle: Odd Order
 summary: A root of unity with residue one in characteristic p has p-power order, and every prime dividing u is odd.
 number: "4.6"
-draft: true
+draft: false
 video:
   src: media/delta-odd-order.mp4
   captions: media/delta-odd-order.vtt

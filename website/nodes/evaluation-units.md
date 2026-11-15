@@ -4,7 +4,7 @@ title: Why We Can Divide
 shortTitle: Why We Can Divide
 summary: The odd norm makes every evaluated polynomial invertible before reduction.
 number: "6.2"
-draft: true
+draft: false
 video:
   src: media/evaluation-units.mp4
   captions: media/evaluation-units.vtt

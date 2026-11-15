@@ -5,7 +5,7 @@ shortTitle: The Three Evaluations
 summary: Split the cyclic coordinates, evaluate the four-position factor, and
   divide by two to obtain three integral norm solutions.
 number: 3
-draft: true
+draft: false
 video:
   src: media/three-evaluations.mp4
   captions: media/three-evaluations.vtt

@@ -4,7 +4,7 @@ title: The Alternating Phase Product
 shortTitle: Alternating Product
 summary: Pair the prime-indexed evaluations to cancel their magnitudes and compare their phases.
 number: "4.2"
-draft: true
+draft: false
 video:
   src: media/alternating-phase-product.mp4
   captions: media/alternating-phase-product.vtt

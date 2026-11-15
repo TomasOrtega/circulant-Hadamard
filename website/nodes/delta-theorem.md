@@ -6,7 +6,7 @@ mapTitle: 'The $\Delta$-Theorem'
 summary: Equal evaluation magnitudes, local arithmetic, and Kronecker's theorem
   restrict the alternating phase product to a root of unity of odd order.
 number: 4
-draft: true
+draft: false
 video:
   src: media/delta-theorem.mp4
   captions: media/delta-theorem.vtt

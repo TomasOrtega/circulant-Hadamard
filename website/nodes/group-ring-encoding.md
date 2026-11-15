@@ -5,7 +5,7 @@ shortTitle: Group-Ring Encoding
 summary: One polynomial records the first row; its product with its cyclic
   reversal records every dot product.
 number: 1
-draft: true
+draft: false
 video:
   src: media/group-ring-encoding.mp4
   captions: media/group-ring-encoding.vtt

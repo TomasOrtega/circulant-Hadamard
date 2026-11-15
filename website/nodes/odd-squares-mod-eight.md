@@ -5,7 +5,7 @@ shortTitle: Odd Squares Modulo 8
 mapTitle: 'Odd Squares Modulo $8$'
 summary: The final coefficient squares would have to sum to both zero and four modulo eight.
 number: "2.6"
-draft: true
+draft: false
 video:
   src: media/odd-squares-mod-eight.mp4
   captions: media/odd-squares-mod-eight.vtt

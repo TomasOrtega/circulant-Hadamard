@@ -4,7 +4,7 @@ title: The Nontrivial Roots Cancel the Ones
 shortTitle: Roots Cancel the Ones
 summary: Every nonempty subset gives a nontrivial root at which the all-ones polynomial vanishes exactly.
 number: "8.1"
-draft: true
+draft: false
 video:
   src: media/roots-cancel-ones.mp4
   captions: media/roots-cancel-ones.vtt

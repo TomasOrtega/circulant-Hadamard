@@ -5,7 +5,7 @@ shortTitle: Order 36
 summary: "The first complete route: two evaluations, one common rotation, and a
   contradiction."
 supplemental: true
-draft: true
+draft: false
 ---
 
 Assume a circulant Hadamard matrix of order 36 exists. The following route derives a contradiction, accepting the Δ-theorem. It is a proof of this case, not by itself a proof for every order.

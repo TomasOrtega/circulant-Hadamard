@@ -4,7 +4,7 @@ title: An Odd Number of Ones at One
 shortTitle: Odd Ones at One
 summary: At one the all-ones polynomial is u squared, and its denominator is plus or minus u.
 number: "8.2"
-draft: true
+draft: false
 video:
   src: media/odd-ones-at-one.mp4
   captions: media/odd-ones-at-one.vtt

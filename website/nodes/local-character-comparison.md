@@ -4,7 +4,7 @@ title: Local Character Comparison
 shortTitle: Local Comparison
 summary: At each prime dividing u, comparing two neighboring character values gives a local unit with residue one.
 number: "4.3"
-draft: true
+draft: false
 video:
   src: media/local-character-comparison.mp4
   captions: media/local-character-comparison.vtt

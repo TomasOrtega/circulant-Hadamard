@@ -4,7 +4,7 @@ title: Compare Opposite Coefficients
 shortTitle: Opposite Coefficients
 summary: A cyclotomic divisibility lemma controls differences between positions halfway around a power-of-two cycle.
 number: "2.4"
-draft: true
+draft: false
 video:
   src: media/cyclotomic-divisibility.mp4
   captions: media/cyclotomic-divisibility.vtt

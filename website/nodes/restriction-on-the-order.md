@@ -5,7 +5,7 @@ shortTitle: Restriction on the Order
 summary: Square and parity restrictions lead to a power-of-two descent, leaving
   n = 4u² with u odd.
 number: 2
-draft: true
+draft: false
 video:
   src: media/restriction-on-the-order.mp4
   captions: media/restriction-on-the-order.vtt

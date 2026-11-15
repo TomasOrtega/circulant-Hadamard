@@ -4,7 +4,7 @@ title: Hadamard Dictionary
 shortTitle: Hadamard Dictionary
 summary: The polynomial identity and the circulant Hadamard condition imply one another.
 number: "1.5"
-draft: true
+draft: false
 video:
   src: media/hadamard-dictionary.mp4
   captions: media/hadamard-dictionary.vtt

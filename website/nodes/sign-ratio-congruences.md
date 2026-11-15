@@ -4,7 +4,7 @@ title: The Ratios Have Residue One
 shortTitle: Ratios Have Residue One
 summary: Divisibility from the common signs survives evaluation and division by the unit denominators.
 number: "6.3"
-draft: true
+draft: false
 video:
   src: media/sign-ratio-congruences.mp4
   captions: media/sign-ratio-congruences.vtt

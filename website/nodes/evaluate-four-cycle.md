@@ -4,7 +4,7 @@ title: Evaluate at 1, −1, and i
 shortTitle: Three Evaluations
 summary: Fourth roots of unity respect the four-cycle relation and carry the norm identity into one variable.
 number: "3.3"
-draft: true
+draft: false
 video:
   src: media/evaluate-four-cycle.mp4
   captions: media/evaluate-four-cycle.vtt

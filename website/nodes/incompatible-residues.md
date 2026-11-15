@@ -4,7 +4,7 @@ title: The Two Residues Cannot Agree
 shortTitle: The Contradiction
 summary: The same alternating sum has residues zero and one in a nonzero ring, excluding every odd u greater than one.
 number: "8.4"
-draft: true
+draft: false
 video:
   src: media/incompatible-residues.mp4
   captions: media/incompatible-residues.vtt

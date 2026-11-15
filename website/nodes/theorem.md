@@ -4,7 +4,7 @@ title: Only orders 1 and 4
 shortTitle: Theorem
 summary: The general contradiction excludes odd u greater than one; explicit examples supply the two remaining orders.
 number: "8.5"
-draft: true
+draft: false
 video:
   src: media/theorem.mp4
   captions: media/theorem.vtt

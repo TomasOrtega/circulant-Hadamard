@@ -4,7 +4,7 @@ title: Parity of Sign Columns
 shortTitle: Parity of Sign Columns
 summary: Four signs have even sums, and two signs have even differences, so the normalized coefficients remain integral.
 number: "3.4"
-draft: true
+draft: false
 video:
   src: media/halve-sign-sums.mp4
   captions: media/halve-sign-sums.vtt

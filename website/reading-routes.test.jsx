@@ -26,6 +26,14 @@ describe("homepage reading routes", () => {
     }
   });
 
+  test("reading-route buttons share a neutral default appearance", () => {
+    const routes = page("index.html").match(/<nav aria-label="Reading routes"[\s\S]*?<\/nav>/)[0];
+    const links = [...routes.matchAll(/<a\b[^>]*>/g)].map(([link]) => link);
+    expect(links).toHaveLength(2);
+    const classes = links.map((link) => link.match(/\bclass="([^"]+)"/)[1]);
+    expect(classes[0]).toBe(classes[1]);
+  });
+
   test("the order-36 button opens the readable example proof instead of redirecting", () => {
     const html = page("nodes/proof-by-example/index.html");
     expect(html).not.toContain('http-equiv="refresh"');

@@ -5,7 +5,7 @@ shortTitle: Pair +1 and −1 Terms
 mapTitle: 'Pair $+1$ and $-1$ Terms'
 summary: Orthogonality pairs each positive contribution with a negative one, forcing an even number of terms.
 number: "2.2"
-draft: true
+draft: false
 video:
   src: media/order-is-even.mp4
   captions: media/order-is-even.vtt

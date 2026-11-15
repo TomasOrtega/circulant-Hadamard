@@ -5,7 +5,7 @@ shortTitle: Odd-Order Rigidity
 summary: The arithmetic and sign branches force the comparison products to equal
   one; in the nine-position example, the three evaluations share a rotation.
 number: 6
-draft: true
+draft: false
 video:
   src: media/odd-order-rigidity.mp4
   captions: media/odd-order-rigidity.vtt

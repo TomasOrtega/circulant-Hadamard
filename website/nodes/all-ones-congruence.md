@@ -5,7 +5,7 @@ shortTitle: All Coefficients Become 1
 mapTitle: 'All Coefficients Become $1$'
 summary: The exact sign formula for E(P) reduces to a polynomial with one in every coefficient position.
 number: "5.3"
-draft: true
+draft: false
 video:
   src: media/all-ones-congruence.mp4
   captions: media/all-ones-congruence.vtt

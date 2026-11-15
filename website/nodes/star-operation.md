@@ -5,7 +5,7 @@ shortTitle: Star Operation
 summary: Replacing X by its inverse reverses cyclic positions while preserving
   the coefficients.
 number: "1.3"
-draft: true
+draft: false
 video:
   src: media/star-operation.mp4
   captions: media/star-operation.vtt

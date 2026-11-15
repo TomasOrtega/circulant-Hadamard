@@ -4,7 +4,7 @@ title: One Surviving Odd Term
 shortTitle: One Surviving Term
 summary: Substitute the all-ones polynomial into the alternating sum; only the empty subset survives, with residue one.
 number: "8.3"
-draft: true
+draft: false
 video:
   src: media/surviving-odd-term.mp4
   captions: media/surviving-odd-term.vtt

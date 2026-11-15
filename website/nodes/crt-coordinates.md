@@ -4,7 +4,7 @@ title: Chinese Remainder Coordinates
 shortTitle: Split the Cycle
 summary: Coprime cycle lengths let us label each position by a four-cycle coordinate and an odd-cycle coordinate.
 number: "3.1"
-draft: true
+draft: false
 video:
   src: media/crt-coordinates.mp4
   captions: media/crt-coordinates.vtt

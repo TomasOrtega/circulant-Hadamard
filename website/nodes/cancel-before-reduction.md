@@ -4,7 +4,7 @@ title: Cancel Before Reducing
 shortTitle: Cancel, Then Reduce
 summary: Cancel the common factor in characteristic zero before reducing the two resulting sums modulo one plus i.
 number: "7.3"
-draft: true
+draft: false
 video:
   src: media/cancel-before-reduction.mp4
   captions: media/cancel-before-reduction.vtt

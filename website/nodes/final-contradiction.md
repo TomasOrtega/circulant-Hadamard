@@ -5,7 +5,7 @@ shortTitle: The Final Contradiction
 summary: The general vanishing sum has residue one from the all-ones polynomial,
   excluding every odd u greater than one and leaving exactly orders 1 and 4.
 number: 8
-draft: true
+draft: false
 video:
   src: media/final-contradiction.mp4
   captions: media/final-contradiction.vtt

@@ -4,7 +4,7 @@ title: Form the Combination
 shortTitle: Form the Combination
 summary: The common sign array makes both quotients in E(P) integral and gives an exact formula for their sum.
 number: "5.1"
-draft: true
+draft: false
 video:
   src: media/form-sign-combination.mp4
   captions: media/form-sign-combination.vtt

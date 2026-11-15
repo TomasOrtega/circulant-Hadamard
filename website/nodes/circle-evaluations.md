@@ -4,7 +4,7 @@ title: Evaluations on a Circle
 shortTitle: Circle Evaluations
 summary: The polynomial norm identity puts every character value on a circle of radius u.
 number: "4.1"
-draft: true
+draft: false
 video:
   src: media/circle-evaluations.mp4
   captions: media/circle-evaluations.vtt

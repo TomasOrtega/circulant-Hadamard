@@ -4,7 +4,7 @@ title: Signs Become All Ones
 shortTitle: Signs Become All Ones
 summary: The common sign array becomes an all-ones polynomial after reduction.
 number: 5
-draft: true
+draft: false
 video:
   src: media/signs-become-all-ones.mp4
   captions: media/signs-become-all-ones.vtt

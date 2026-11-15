@@ -4,7 +4,7 @@ title: Identify E(P) and Add the Sums
 shortTitle: One Vanishing Sum
 summary: Adding the two linear sums produces the alternating sum of normalized evaluations.
 number: "7.4"
-draft: true
+draft: false
 video:
   src: media/vanishing-alternating-sum.mp4
   captions: media/vanishing-alternating-sum.vtt

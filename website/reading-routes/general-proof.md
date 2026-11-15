@@ -5,7 +5,7 @@ shortTitle: General proof
 summary: The same eight nodes, with an alternating product over subsets of the
   prime divisors.
 supplemental: true
-draft: true
+draft: false
 ---
 
 [See the order-36 proof](../proof-by-example/index.html) for the two-evaluation case.
@@ -46,7 +46,7 @@ A=\mathbb Z[i,\{\zeta_p:p\mid u\},1/u]
 $$
 The quotient is a nonzero ring of characteristic 2. Every $c(\zeta_S)$ is invertible in $A$ because $c(\zeta_S)\overline{c(\zeta_S)}=u^2$. Likewise for $d,g$. Expressions divided by $2$ or $1+i$ are **formed in characteristic zero** using coefficientwise divisibility, not divided in the quotient.
 
-See [From Products to Sums](../products-to-sums/index.html) for the expansion step and [The Final Contradiction](../final-contradiction/index.html) for the surviving term. The internal proofs of the two accepted propositions are deferred.
+See [From Products to Sums](../products-to-sums/index.html) for the expansion step and [The Final Contradiction](../final-contradiction/index.html) for the surviving term. The [order restriction](../restriction-on-the-order/index.html) and [Δ-theorem](../delta-theorem/index.html) are developed in their deeper proof nodes.
 
 ## Explore the common proof map
 

@@ -140,7 +140,7 @@ function ReadingRoutes({ entry }) {
   if (entry.ancestors.length || entry.node.graphLayout !== "proof-map") return null;
   return (
     <nav aria-label="Reading routes" className="flex flex-wrap justify-center gap-4 font-sans">
-      <NodeButton href="nodes/proof-by-example/index.html" id="node-proof-by-example" primary>
+      <NodeButton href="nodes/proof-by-example/index.html" id="node-proof-by-example">
         Start here · Proof by Example: n = 36
       </NodeButton>
       <NodeButton href="nodes/general-proof/index.html" id="node-general-proof">

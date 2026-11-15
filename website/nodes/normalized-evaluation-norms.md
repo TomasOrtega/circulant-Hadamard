@@ -4,7 +4,7 @@ title: Normalize the Norm Identities
 shortTitle: Normalize the Norms
 summary: Dividing each evaluated polynomial by two divides its product with its star by four.
 number: "3.5"
-draft: true
+draft: false
 video:
   src: media/normalized-evaluation-norms.mp4
   captions: media/normalized-evaluation-norms.vtt
