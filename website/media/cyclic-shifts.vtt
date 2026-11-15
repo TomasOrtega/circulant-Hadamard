@@ -1,0 +1,97 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:03.820
+Start with an arbitrary coefficient row, h zero through h n minus
+
+00:00:04.260 --> 00:00:04.360
+one.
+
+00:00:04.700 --> 00:00:08.780
+Encode it as the polynomial h of X, with those entries as
+
+00:00:08.780 --> 00:00:09.100
+coefficients.
+
+00:00:09.880 --> 00:00:12.230
+We work with X to the n equal to one.
+
+00:00:12.900 --> 00:00:14.080
+Multiply by X.
+
+00:00:15.100 --> 00:00:17.190
+Every exponent increases by one.
+
+00:00:17.680 --> 00:00:20.860
+The last term reaches X to the n, which becomes one.
+
+00:00:21.340 --> 00:00:24.760
+So the last coefficient moves to the first position, and every other
+
+00:00:24.760 --> 00:00:26.960
+coefficient moves one position to the right.
+
+00:00:26.960 --> 00:00:29.520
+This is exactly one right cyclic shift.
+
+00:00:30.820 --> 00:00:34.560
+For our running example, h is negative one plus X plus X
+
+00:00:34.560 --> 00:00:36.240
+squared plus X cubed.
+
+00:00:36.520 --> 00:00:40.780
+Multiplying by X gives one minus X plus X squared plus X
+
+00:00:40.780 --> 00:00:41.400
+cubed.
+
+00:00:41.800 --> 00:00:46.220
+Its coefficients, one, negative one, one, one, form the second row of
+
+00:00:46.220 --> 00:00:47.040
+the original matrix.
+
+00:00:47.960 --> 00:00:49.720
+We have not rearranged the example.
+
+00:00:50.540 --> 00:00:53.040
+The same reasoning works for any power.
+
+00:00:53.040 --> 00:00:58.040
+Multiplication by X to the r shifts the row r places right.
+
+00:00:58.620 --> 00:01:01.900
+The coefficient at X to the j becomes h sub j minus
+
+00:01:01.900 --> 00:01:04.780
+r, with its index reduced modulo n.
+
+00:01:05.260 --> 00:01:09.420
+The first row is h, the second is X h, and row
+
+00:01:09.420 --> 00:01:12.480
+j is X to the j minus one times h.
+
+00:01:13.020 --> 00:01:15.800
+After the nth row, one more multiplication returns to h.
+
+00:01:16.820 --> 00:01:21.960
+For a precise indexing formula, number both rows and columns from zero.
+
+00:01:21.960 --> 00:01:25.720
+Then the entry in row r, column j is h sub j
+
+00:01:25.720 --> 00:01:27.460
+minus r modulo n.
+
+00:01:28.320 --> 00:01:33.220
+In dimension four, row two, column one traces back to coefficient three
+
+00:01:33.220 --> 00:01:34.060
+of the original row.
+
+00:01:34.460 --> 00:01:39.260
+This translates the entire circulant structure into multiplication, and prepares us to
+
+00:01:39.260 --> 00:01:41.420
+compare dot products of arbitrary rows.

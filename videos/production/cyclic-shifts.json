@@ -1,0 +1,20 @@
+{
+  "source": "website/scripts/node1/cyclic-shifts.md",
+  "source_sha256": "65cd94d28e24156a1aa478a42d08aad706b915c8e9b92b9e7df7337d097d1be7",
+  "scene": "CyclicShifts",
+  "scene_file": "videos/cyclic_shifts.py",
+  "voice": "en-US-Chirp3-HD-Achird",
+  "work_started_at": "2026-11-14T22:28:44-08:00",
+  "cues": {
+    "encode": 0,
+    "multiply": 12.75,
+    "example": 30.67,
+    "powers": 50.39,
+    "indexing": 76.67
+  },
+  "alignment_match_ratio": 0.9331,
+  "narration_duration": 102.78022675736962,
+  "duration": 102.8,
+  "narration_sha256": "7ac7103092157cebf1cf1ede40611a714814475a02878160c33d0bfc2889ae0d",
+  "video_sha256": "c015eec20c00a46a55c3174e047170da90ada41e9a9646ab0fb9fd4c776a1c07"
+}

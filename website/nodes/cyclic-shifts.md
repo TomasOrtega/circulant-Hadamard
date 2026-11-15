@@ -6,7 +6,10 @@ summary: "Multiplying by X moves the last coefficient to the first position: one
   right cyclic shift."
 number: "1.2"
 draft: true
-video: null
+video:
+  src: media/cyclic-shifts.mp4
+  captions: media/cyclic-shifts.vtt
+  duration: 102.8
 mapPosition:
   - 40
   - 180

@@ -1,0 +1,7 @@
+<speak>
+<p>Start with an arbitrary coefficient row, h zero through h n minus one. Encode it as the polynomial h of X, with those entries as coefficients. We work with X to the n equal to one.<break time="700ms"/></p>
+<p>Multiply by X. Every exponent increases by one. The last term reaches X to the n, which becomes one. So the last coefficient moves to the first position, and every other coefficient moves one position to the right. This is exactly one right cyclic shift.<break time="800ms"/></p>
+<p>For our running example, h is negative one plus X plus X squared plus X cubed. Multiplying by X gives one minus X plus X squared plus X cubed. Its coefficients, one, negative one, one, one, form the second row of the original matrix. We have not rearranged the example.<break time="700ms"/></p>
+<p>The same reasoning works for any power. Multiplication by X to the r shifts the row r places right. The coefficient at X to the j becomes h sub j minus r, with its index reduced modulo n. The first row is h, the second is X h, and row j is X to the j minus one times h. After the nth row, one more multiplication returns to h.<break time="800ms"/></p>
+<p>For a precise indexing formula, number both rows and columns from zero. Then the entry in row r, column j is h sub j minus r modulo n. In dimension four, row two, column one traces back to coefficient three of the original row. This translates the entire circulant structure into multiplication, and prepares us to compare dot products of arbitrary rows.<break time="900ms"/></p>
+</speak>
