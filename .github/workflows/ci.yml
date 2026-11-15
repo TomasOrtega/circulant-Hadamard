@@ -27,6 +27,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
+      - name: Check published PDFs
+        run: |
+          python3 -m unittest discover -s tex -p 'test_*.py'
+          make -C tex check-pdfs
       - name: Check and build TeX
         uses: xu-cheng/latex-action@v4
         with:

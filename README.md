@@ -29,6 +29,9 @@ make -C website
 
 Build files are in `tex/build/` and `website/dist/`.
 
+After changing TeX inputs, run `make -C tex publish` to refresh the checked-in
+PDFs. CI checks their recorded source and file hashes.
+
 </details>
 
-We submitted `report.tex`, `report.pdf`, and `slides.pdf`.
+We submitted `report.tex`, [report.pdf](tex/report.pdf), and [slides.pdf](tex/slides.pdf).

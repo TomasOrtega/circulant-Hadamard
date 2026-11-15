@@ -397,5 +397,3 @@ auto/*
 
 # LaTeX build output; keep PDF assets trackable.
 /tex/build/
-/tex/report.pdf
-/tex/slides.pdf

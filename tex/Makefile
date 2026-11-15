@@ -1,10 +1,16 @@
-.PHONY: all report slides check clean
+.PHONY: all report slides publish check check-pdfs clean
 
 all: report slides
 
 report: build/report.pdf
 
 slides: build/slides.pdf
+
+publish: all
+	python3 published_pdfs.py publish
+
+check-pdfs:
+	python3 published_pdfs.py check
 
 check: build/report.tex
 	chktex -q -H1 -I0 $(wildcard *.tex assets/diagrams/*.tex) build/report.tex
@@ -23,7 +29,7 @@ build/report.tex: report.tex $(SHARED) build/bib/report.bbl Makefile | build
 build/report.pdf: build/report.tex $(SHARED)
 	latexmk $(LATEXMK_FLAGS) -outdir=build build/report.tex
 
-build/slides.pdf: slides.tex $(SHARED) | build
+build/slides.pdf: slides.tex $(SHARED) Makefile | build
 	latexmk $(LATEXMK_FLAGS) -outdir=build slides.tex
 
 build:
