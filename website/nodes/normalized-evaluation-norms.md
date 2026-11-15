@@ -5,7 +5,10 @@ shortTitle: Normalize the Norms
 summary: Dividing each evaluated polynomial by two divides its product with its star by four.
 number: "3.5"
 draft: true
-video: null
+video:
+  src: media/normalized-evaluation-norms.mp4
+  captions: media/normalized-evaluation-norms.vtt
+  duration: 138.566667
 mapPosition: [240, 560]
 mapSummary: '$4u^2\div4=u^2$'
 ---

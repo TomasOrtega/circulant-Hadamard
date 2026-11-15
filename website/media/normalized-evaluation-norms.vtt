@@ -1,0 +1,127 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:04.460
+Two independent checks now meet.
+Evaluation gave h of one P,
+
+00:00:04.640 --> 00:00:09.960
+h of negative one P, and h of i
+P, each with norm four u squared.
+
+00:00:10.680 --> 00:00:15.520
+Separately, the parity check showed that
+their coefficients can be divided by two.
+
+00:00:15.960 --> 00:00:17.480
+One result supplies the norm;
+
+00:00:17.940 --> 00:00:21.280
+the other justifies exact
+division in the coefficient rings.
+
+00:00:22.180 --> 00:00:26.550
+Define c of P as h of
+one P divided by two,
+
+00:00:27.000 --> 00:00:30.220
+d of P as h of negative
+one P divided by two,
+
+00:00:30.500 --> 00:00:33.750
+and g of P as h of i P divided by two.
+
+00:00:34.120 --> 00:00:36.560
+The coefficients of c and d are integers.
+
+00:00:37.500 --> 00:00:39.480
+Those of g are Gaussian integers.
+
+00:00:40.340 --> 00:00:44.580
+All three retain the relation
+P to the u squared equals one.
+
+00:00:45.320 --> 00:00:47.430
+Star fixes the real number two.
+
+00:00:47.820 --> 00:00:52.520
+So dividing h of one P by two
+also divides its star by two.
+
+00:00:52.920 --> 00:00:56.160
+In c times c star, one half
+appears in each factor.
+
+00:00:56.880 --> 00:01:00.960
+The two halves multiply to one
+quarter. Substitute the original norm,
+
+00:01:01.233 --> 00:01:06.540
+four u squared, then cancel
+four. The result is u squared.
+
+00:01:07.720 --> 00:01:11.100
+The same calculation applies to d and g.
+
+00:01:11.980 --> 00:01:14.700
+All three normalized
+polynomials have product
+
+00:01:14.700 --> 00:01:17.967
+with their star equal to u squared. For g,
+
+00:01:18.480 --> 00:01:22.620
+star conjugates the Gaussian
+coefficients as well as reversing powers.
+
+00:01:23.560 --> 00:01:26.420
+The real scalar two stays
+fixed under that operation.
+
+00:01:27.620 --> 00:01:32.140
+In our guiding case u equals three,
+the original norm is thirty six.
+
+00:01:32.440 --> 00:01:35.570
+Dividing each factor by two
+divides their product by four.
+
+00:01:35.740 --> 00:01:38.650
+Thirty six divided by four is nine.
+
+00:01:39.240 --> 00:01:41.600
+Now choose an allowed input zeta,
+
+00:01:41.600 --> 00:01:44.380
+satisfying zeta to the
+u squared equals one.
+
+00:01:44.740 --> 00:01:49.460
+At these roots of unity, star becomes
+complex conjugation. Each normalized
+
+00:01:49.460 --> 00:01:53.460
+norm identity therefore gives an output
+times its conjugate equal to u squared.
+
+00:01:54.180 --> 00:01:58.340
+Its squared absolute value is u
+squared, so its absolute value is u.
+
+00:01:59.280 --> 00:02:03.540
+When u is three, send an allowed
+ninth root through c, d, and g.
+
+00:02:03.860 --> 00:02:06.490
+Their three outputs lie on
+the circle of radius three.
+
+00:02:06.900 --> 00:02:10.420
+Keep this output circle separate
+from the unit circle of input roots.
+
+00:02:11.300 --> 00:02:14.880
+The angles in our drawing are schematic:
+the argument fixes their lengths,
+
+00:02:14.880 --> 00:02:17.140
+while later nodes compare their phases.
