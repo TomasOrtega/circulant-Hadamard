@@ -16,6 +16,16 @@ export function dependencyGraph(children) {
       if (!known.has(source)) throw new Error(`Unknown dependency: ${source}`);
       edges.push({ source, target: child.node.id });
     }
+    const context = child.contextFrom ?? [];
+    if (!Array.isArray(context) || new Set(context).size !== context.length)
+      throw new Error(`Invalid context links for ${child.node.id}`);
+    for (const source of context) {
+      if (!known.has(source) || source === child.node.id)
+        throw new Error(`Unknown or self context link: ${source}`);
+      if (prerequisites.includes(source))
+        throw new Error(`Context link duplicates a dependency: ${source}`);
+      edges.push({ source, target: child.node.id, kind: "context" });
+    }
   }
   const remaining = new Set(ids);
   const layers = [];

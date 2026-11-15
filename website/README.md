@@ -7,6 +7,26 @@ without a client router. Native video cuts use a small playback controller.
 
 ## One Markdown file per node
 
+The active outline contains the eight high-level proof nodes, a theorem
+conclusion, and two reading routes. Start with
+[proof-by-example.md](nodes/proof-by-example.md) for the order-36 case; the
+general route is [general-proof.md](nodes/general-proof.md). Each statement
+page puts the example before the general notation. Propositions 2.2 and 3.4
+are explicitly accepted black boxes. No internal proof graphs have been added.
+
+The former background outline is retained in [archive/nodes/](archive/nodes/)
+and is not built. Active nodes have new descriptive URLs.
+
+Draft video narration and animation directions in [scripts/](scripts/README.md),
+using the corresponding node's filename. The supplied introduction is saved as
+[scripts/overview.md](scripts/overview.md). These production drafts are not
+automatically published by the website build.
+
+When ready, adapt the narration into the node's Markdown explanation and add
+the corresponding reader-facing `script: |` under its entry in `overview.md`
+for each overview cut. Until then, previews use the short summary. Keep video
+sources and cut timings unset until supplied.
+
 Edit the `.md` files in [nodes/](nodes/), starting at
 [overview.md](nodes/overview.md). Use **node** at every level and name each file
 `<id>.md`. The shared vocabulary is in [GLOSSARY.md](../GLOSSARY.md).
@@ -75,6 +95,21 @@ points from a prerequisite to a node that uses it. Set `dependsOn` to the IDs
 of other children in this view; an empty array means no prerequisite here.
 Dependencies determine graph placement independently of narrative order.
 Unknown references, duplicate IDs, and dependency cycles fail the build.
+
+Use `contextFrom` for shared-notation links. These are validated but are not
+logical prerequisites; in particular the Δ-theorem does not depend on the
+Hadamard signs. All connections use the same solid arrow styling; the statement
+pages explain their inputs in words. The root's `graphLayout: proof-map` uses each node's
+`mapPosition: [x, y]` and `mapSummary` to match the supplied diagram. `number`
+keeps the eight node numbers stable. Nodes use white backgrounds and the
+website's blue accent; the current node and hovered links receive a blue tint.
+
+Reading-route nodes use `supplemental: true`: they have their own pages and
+entry buttons but do not appear as extra nodes or video cuts in the proof map.
+Terminal statement pages offer the parent map in a collapsed disclosure and
+list their incoming and outgoing links. No disclosure contains an invented
+internal proof. Math-bearing explanations include selectable Markdown and
+LaTeX in a separate disclosure for copying.
 
 At a terminal node, the graph shows its siblings and highlights the current
 node. Native SVG links support clicking and keyboard navigation. Wide graphs
