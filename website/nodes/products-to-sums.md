@@ -18,121 +18,89 @@ children:
     dependsOn: []
     segment: null
     script: |
-      Let $I$ be the set of distinct primes dividing the odd integer $u>1$,
-      with $\zeta_S=\prod_{p\in S}\zeta_p$ and $\zeta_\varnothing=1$.
-      Recall the ratios from Node 6:
+      > **Lemma (Separate the two products).** The exact identities from
+      > Node 6 give
+      >
+      > $$
+      > \prod_{|S|\text{ even}}r_S=\prod_{|S|\text{ odd}}r_S,
+      > \qquad
+      > \prod_{|S|\text{ even}}w_S=\prod_{|S|\text{ odd}}w_S.
+      > $$
 
-      $$
-      \begin{aligned}
-      r_S&=\frac{d(\zeta_S)}{c(\zeta_S)},\\
-      w_S&=\frac{g(\zeta_S)}{c(\zeta_S)}.
-      \end{aligned}
-      $$
-
-      The exact identities $R=W=1$ say that each even-subset product
-      equals its odd-subset product:
-
-      $$
-      \begin{aligned}
-      \prod_{|S|\text{ even}}r_S&=\prod_{|S|\text{ odd}}r_S,\\
-      \prod_{|S|\text{ even}}w_S&=\prod_{|S|\text{ odd}}w_S.
-      \end{aligned}
-      $$
-
-      For $u=3$, each side has just one factor. This is the common rotation
-      from Node 6. Several distinct primes give genuine product identities.
+      Let $I$ be the distinct prime divisors of the odd integer $u>1$.
+      Choose primitive $p$th roots $\zeta_p$. For $S\subseteq I$, put
+      $\zeta_S=\prod_{p\in S}\zeta_p$ with empty product $1$, and
+      $r_S=d(\zeta_S)/c(\zeta_S)$, $w_S=g(\zeta_S)/c(\zeta_S)$.
+      All factors are units in $\mathbb Z[i,\{\zeta_p:p\mid u\},1/u]$.
+      Multiply the alternating-product identity by its odd-subset product
+      to remove the negative exponents. For $u=3$ this is an equality of
+      two factors; with two distinct primes it is an equality of two
+      products, so no common rotation across all inputs is assumed.
   - node: expand-integral-products
     dependsOn: []
     segment: null
     script: |
-      The sign divisibilities from Node 5 and the invertible denominators
-      from Node 6 let us write
+      > **Lemma (Exact expansion).** For a finite family $x_j$ in a
+      > commutative ring and $t$ in that ring,
+      >
+      > $$
+      > \prod_j(1+t x_j)=1+t\sum_jx_j+t^2Q
+      > $$
+      >
+      > for an element $Q$ of the same ring.
 
-      $$
-      \begin{aligned}
-      r_S&=1+2\frac{d(\zeta_S)-c(\zeta_S)}{2c(\zeta_S)},\\
-      w_S&=1+(1+i)\frac{g(\zeta_S)-c(\zeta_S)}{(1+i)c(\zeta_S)}.
-      \end{aligned}
-      $$
-
-      Both displayed quotients belong to
-      $\mathbb Z[i,\{\zeta_p:p\mid u\},1/u]$. The divisions by $2$ and
-      $1+i$ are exact coefficientwise divisions before evaluation;
-      division by $c(\zeta_S)$ then uses its inverse in this ring.
-
-      For any finite family of elements $x_j$ in the ring, multiplication
-      gives an exact identity
-
-      $$
-      \prod_j(1+t x_j)=1+t\sum_jx_j+t^2Q,
-      $$
-
-      where $Q$ also belongs to the ring. Every term involving at least
-      two selected factors contains $t^2$. Apply this separately with
-      $t=2$ and $t=1+i$; no approximation is involved.
+      Choose either $1$ or $t x_j$ from each factor. Selecting none gives
+      $1$; selecting one gives the sum; selecting two or more supplies a
+      factor $t^2$. Nothing is discarded. Apply this with
+      $t=2$, $x_S=(d(\zeta_S)-c(\zeta_S))/(2c(\zeta_S))$, and with
+      $t=1+i$, $x_S=(g(\zeta_S)-c(\zeta_S))/((1+i)c(\zeta_S))$.
+      These quotients are in the evaluation ring: divide the coefficientwise
+      sign differences exactly first, then use the unit $c(\zeta_S)$.
   - node: cancel-before-reduction
     dependsOn:
       - split-exact-products
       - expand-integral-products
     segment: null
     script: |
-      Expand the equal even and odd products. Subtracting them cancels
-      their constant terms and gives
+      > **Lemma (Cancel before reducing).** If the two expanded products
+      > give $tL+t^2Q=0$ in the characteristic-zero evaluation domain, then
+      >
+      > $$
+      > L=-tQ\equiv0\pmod{1+i}
+      > $$
+      >
+      > for either $t=2$ or $t=1+i$.
 
-      $$
-      t\sum_{S\subseteq I}(-1)^{|S|}x_S+t^2Q=0.
-      $$
-
-      Cancel the nonzero factor $t$ in the original characteristic-zero
-      domain. **Only then reduce modulo $1+i$.** Both choices of $t$,
-      namely $2$ and $1+i$, have zero residue, so the remainder vanishes.
-      The two applications give
-
-      $$
-      \sum_{S\subseteq I}(-1)^{|S|}
-      \frac{d(\zeta_S)-c(\zeta_S)}{2c(\zeta_S)}\equiv0
-      \pmod{1+i},
-      $$
-
-      $$
-      \sum_{S\subseteq I}(-1)^{|S|}
-      \frac{g(\zeta_S)-c(\zeta_S)}{(1+i)c(\zeta_S)}\equiv0
-      \pmod{1+i}.
-      $$
-
-      There is no division by $2$ or $1+i$ in the reduction ring. That
-      ring need not be a field: all cancellation happened beforehand.
+      Subtract the odd-subset product from the even-subset product.
+      The constant terms cancel. Cancel the nonzero factor $t$ in the
+      original domain, then reduce. Both $2=(1+i)(1-i)$ and $1+i$ vanish
+      in the quotient. This gives a vanishing alternating sum for each
+      family of exact divided differences. No division by the zero residue
+      of $2$ or $1+i$ occurs.
   - node: vanishing-alternating-sum
     dependsOn:
       - cancel-before-reduction
     segment: null
     script: |
-      Add the two congruences. At each evaluation, the definition
+      > **Lemma (The vanishing sum).** The two preceding congruences imply
+      >
+      > $$
+      > \mathcal S:=\sum_{S\subseteq I}(-1)^{|S|}
+      > \frac{E(\zeta_S)}{c(\zeta_S)}\equiv0\pmod{1+i}.
+      > $$
+
+      Add the sums term by term in their common quotient ring. Their
+      summands combine because
 
       $$
-      E(P)=\frac{d(P)-c(P)}2+\frac{g(P)-c(P)}{1+i}
+      \frac{d(\zeta_S)-c(\zeta_S)}{2c(\zeta_S)}+
+      \frac{g(\zeta_S)-c(\zeta_S)}{(1+i)c(\zeta_S)}
+      =\frac{E(\zeta_S)}{c(\zeta_S)}.
       $$
 
-      combines their summands into $E(\zeta_S)/c(\zeta_S)$. Consequently
-
-      $$
-      \mathcal S:=\sum_{S\subseteq I}(-1)^{|S|}
-      \frac{E(\zeta_S)}{c(\zeta_S)}\equiv0\pmod{1+i}.
-      $$
-
-      In the guiding example, the values of $c(P),d(P),g(P)$ share one
-      rotation multiplier $\lambda$ from $P=1$ to $P=\omega$. Their
-      fixed linear combination $E(P)$ satisfies
-      $E(\omega)=\lambda E(1)$ too. Thus
-
-      $$
-      \frac{E(1)}{c(1)}-\frac{E(\omega)}{c(\omega)}=0
-      $$
-
-      exactly. The overview combines this equality with the all-ones
-      residue to finish the $u=3$ contradiction. For general $u$, the
-      product expansion establishes the congruence above; Node 8 then
-      uses the all-ones residue to finish the general contradiction.
+      For $u=3$, both product expansions have one factor per side, so the
+      sum is exactly zero. For general $u$, the congruence above is the
+      conclusion needed by Node 8.
 ---
 
 For our guiding case $u=3$, Node 6 established the exact equality

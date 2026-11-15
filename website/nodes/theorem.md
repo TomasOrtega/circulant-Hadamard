@@ -33,7 +33,10 @@ mechanism; the general argument is what excludes every other order.
 
 ## Verify the two examples
 
-At order $1$, take the matrix $(1)$. At order $4$, return to the
+At order $1$, take the matrix $(1)$. Its only row has squared length
+$1$, there are no two distinct rows to compare, and cyclic shifting fixes
+that row. Thus it is circulant and satisfies $(1)(1)^{\mathsf T}=(1)$.
+At order $4$, return to the
 same example used on the main page:
 
 $$

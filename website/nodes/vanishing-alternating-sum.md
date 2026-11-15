@@ -10,6 +10,24 @@ mapPosition: [240, 420]
 mapSummary: '$\mathcal S\equiv0\pmod{1+i}$'
 ---
 
+> **Lemma (The vanishing alternating sum).** Let $u>1$ be odd, let
+> $I$ be its distinct prime divisors, and put
+> $\zeta_S=\prod_{p\in S}\zeta_p$, with empty product $1$.
+> For the polynomials $c(P),d(P),g(P)$ from the common sign array, set
+>
+> $$
+> E(P)=\frac{d(P)-c(P)}2+\frac{g(P)-c(P)}{1+i}.
+> $$
+>
+> The exact product identities from Node 6 imply
+>
+> $$
+> \mathcal S:=\sum_{S\subseteq I}(-1)^{|S|}
+> \frac{E(\zeta_S)}{c(\zeta_S)}\equiv0\pmod{1+i}
+> $$
+>
+> in $A=\mathbb Z[i,\{\zeta_p:p\in I\},1/u]$.
+
 ## The same combination as Node 5
 
 Recall the polynomial
@@ -19,7 +37,8 @@ E(P)=\frac{d(P)-c(P)}{2}+\frac{g(P)-c(P)}{1+i}.
 $$
 
 Both polynomial quotients are exact, with Gaussian-integer coefficients.
-Using the evaluation notation from Node 7.1, put $E_S=E(\zeta_S)$.
+Write $c_S=c(\zeta_S)$, $d_S=d(\zeta_S)$,
+$g_S=g(\zeta_S)$, and $E_S=E(\zeta_S)$.
 Evaluating and dividing by the unit $c_S$ gives the exact identity in $A$
 
 $$

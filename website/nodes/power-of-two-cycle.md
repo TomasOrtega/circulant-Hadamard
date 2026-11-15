@@ -10,32 +10,34 @@ mapPosition: [40, 210]
 mapSummary: Odd coefficients; same norm
 ---
 
-## Statement
+> **Lemma (Projection to the power-of-two cycle).** *Write
+> $u=2^{s-1}w$, where $s\geq1$ and $w$ is odd, so $n=2^{2s}w^2$.
+> Projecting a hypothetical sign polynomial $h(X)$ to the cycle of
+> length $2^{2s}$ gives a polynomial $T(X)$ with odd integer coefficients and*
+>
+> $$
+> T(X)T^*(X)=2^{2s}w^2
+> \quad\text{in }\mathbb Z[X]/(X^{2^{2s}}-1).
+> $$
 
-The square and parity steps give $n=4u^2$, without yet knowing that $u$ is odd.
-Write $u=2^{s-1}w$, where $s\geq1$ and $w$ is odd. Then
+Every positive integer $u$ has a unique power of two times an odd part.
+The notation $u=2^{s-1}w$ keeps the $u$ already chosen in $n=4u^2$.
+
+Since $2^{2s}$ divides $n$, reducing exponents modulo $2^{2s}$ defines a
+ring map from $\mathbb Z[X]/(X^n-1)$ to the smaller group ring. Explicitly,
 
 $$
-n=2^{2s}w^2.
+T(X)=\sum_{r=0}^{2^{2s}-1}a_rX^r,
+\qquad a_r=\sum_{\ell=0}^{w^2-1}h_{r+\ell2^{2s}}.
 $$
 
-Reduce exponents modulo $2^{2s}$, collecting the coefficients in each residue
-class. This gives a polynomial $T(X)$ in $\mathbb Z[X]/(X^{2^{2s}}-1)$ with
+Each $a_r$ is a sum of the odd number $w^2$ of signs, so it is odd.
+These coefficients can exceed $1$ in absolute value; only their oddness
+is needed.
 
-$$
-T(X)T^*(X)=2^{2s}w^2.
-$$
+The projection preserves multiplication and sends $X^{-1}$ to the inverse
+of the image of $X$. It therefore commutes with star. Applying it to
+$h(X)h^*(X)=n$ gives the claimed identity, with the same scalar $n$.
+For $n=36$, the four residue classes modulo $4$ each collect nine signs.
 
-Each new coefficient is the sum of $w^2$ signs, hence is an odd integer.
-The projection respects multiplication and star, so it preserves the scalar
-on the right of the identity.
-
-## A picture at order 36
-
-For a hypothetical order-$36$ matrix, $36=4\cdot9$. Collect positions with the
-same residue modulo $4$: each of the four new coefficients sums nine signs.
-This illustrates the projection; it does not construct a Hadamard matrix of
-order $36$.
-
-**Output.** A power-of-two cycle with odd coefficients and the same scalar
-norm identity. The detailed projection argument can be expanded here later.
+Source: [the paper, Section 2](https://github.com/openai/math/blob/main/preprints/The-circulant-Hadamard-conjecture-September-23-2026/paper.pdf).

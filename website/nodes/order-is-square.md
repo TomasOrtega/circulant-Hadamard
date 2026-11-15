@@ -12,23 +12,27 @@ mapPosition: [40, 24]
 mapSummary: '$n=h(1)^2$'
 ---
 
-## Statement
+> **Lemma (The order is a square).** *If a circulant Hadamard matrix has
+> first-row polynomial $h(X)$ and order $n$, then*
+>
+> $$
+> n=h(1)^2=\left(\sum_{j=0}^{n-1}h_j\right)^2.
+> $$
 
-For a circulant Hadamard matrix of order $n$, the first-row polynomial satisfies
-$h(X)h^*(X)=n$ in $\mathbb Z[X]/(X^n-1)$. Substituting $X=1$ gives
+Write $h(X)=\sum_{j=0}^{n-1}h_jX^j$, with $h_j=\pm1$. The encoding from
+Node 1 gives $h(X)h^*(X)=n$ in $\mathbb Z[X]/(X^n-1)$, where star reverses
+powers. Substitution $X=1$ is valid because $1^n-1=0$.
+
+Every positive or negative power of $1$ is $1$, so
 
 $$
-n=h(1)^2=\left(\sum_{j=0}^{n-1}h_j\right)^2.
+h^*(1)=\sum_jh_j1^{-j}=\sum_jh_j=h(1).
 $$
 
-Thus $n$ is a perfect square. The substitution respects $X^n=1$, and
-$h^*(1)=h(1)$ because $1^{-1}=1$.
+Evaluating the product therefore gives $n=h(1)h^*(1)=h(1)^2$.
+The row sum $h(1)$ is an integer, hence $n$ is a perfect square.
 
-## The example to keep in view
+For $(-1,1,1,1)$ the sum is $2$, giving $n=4$. A hypothetical order-$36$
+row must sum to $6$ or $-6$; this is a necessary condition, not a construction.
 
-Our row $(-1,1,1,1)$ has sum $2$, so its order is $2^2=4$.
-A hypothetical example of order $36$ would need row sum $6$ or $-6$.
-That required sum is only a necessary condition for existence.
-
-**Output.** The order is an integer square. The parity step will show that
-its square root is even.
+Source: [the paper, Section 2](https://github.com/openai/math/blob/main/preprints/The-circulant-Hadamard-conjecture-September-23-2026/paper.pdf).

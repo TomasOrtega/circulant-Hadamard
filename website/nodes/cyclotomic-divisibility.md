@@ -11,36 +11,59 @@ mapPosition: [440, 210]
 mapSummary: '$2^t$ divides opposite differences'
 ---
 
-## The algebraic input
+> **Lemma (Opposite-coefficient divisibility).** *Let $k\geq1$, $t\geq0$,
+> and let $w$ be odd. If $T(X)=\sum_{j=0}^{2^k-1}a_jX^j$ has integer
+> coefficients and satisfies $T(X)T^*(X)=2^{2t}w^2$ on the cycle of
+> length $2^k$, then*
+>
+> $$
+> 2^t\mid a_j-a_{j+2^{k-1}}
+> \qquad(0\leq j<2^{k-1}).
+> $$
 
-Let $k\geq1$ and $t\geq0$ be integers, and let $w$ be an odd integer.
-Suppose $T(X)=\sum_{j=0}^{2^k-1}a_jX^j$ has integer coefficients and satisfies
+Put $D=2^{k-1}$ and choose a primitive $2^k$th root $\xi$. We use the
+following standard cyclotomic fact, the $p=2$, $L=1$ case of Lemma 2.1.
+Write $\mathbb Z_{(2)}$ for rational numbers with odd denominators.
+The ring $\mathbb Z_{(2)}[\xi]$ has basis $1,\xi,\ldots,\xi^{D-1}$.
+Its powers of $\xi-1$ give an additive valuation $v$, normalized by
+$v(2)=1$, such that for integers $b_j$ and $\ell\geq0$,
 
 $$
-T(X)T^*(X)=2^{2t}w^2
-\quad\text{in }\mathbb Z[X]/(X^{2^k}-1).
+v\!\left(\sum_{j=0}^{D-1}b_j\xi^j\right)\geq\ell
+\quad\Longleftrightarrow\quad
+2^\ell\mid b_j\text{ for every }j.
 $$
 
-The cyclotomic divisibility input gives
+This is the needed passage from divisibility of a root evaluation to
+ordinary integer divisibility of its basis coefficients. Its cyclotomic
+input is that $\Phi_{2^k}(X)=X^D+1$, the shifted polynomial
+$\Phi_{2^k}(1+Y)$ is Eisenstein at $2$, and $2$ is a unit times
+$(\xi-1)^D$ in this local ring. Lemma 2.1 proves the general form.
+These properties let us read divisibility from the coefficients in the
+specified basis.
+
+Conjugation preserves the valuation: it sends $\xi-1$ to
+$-\xi^{-1}(\xi-1)$, differing by a unit. Evaluating the norm identity gives
 
 $$
-2^t\mid a_j-a_{j+2^{k-1}}
-\qquad(0\leq j<2^{k-1}).
+T(\xi)\overline{T(\xi)}=2^{2t}w^2.
 $$
 
-This is a general statement about integer polynomials on a power-of-two cycle.
-It supplies an independent input to the folding step.
+Since $w$ is odd, the right side has valuation $2t$. Both factors on the
+left have the same valuation, so $v(T(\xi))=t$.
 
-## Why order 16 is a useful example
+Finally, $\xi^D=-1$ combines opposite positions:
 
-At order $16$, the original coefficients are signs and $t=2$. The lemma says
-$4\mid h_j-h_{j+8}$. A difference of signs is $-2$, $0$, or $2$, so opposite
-coefficients must agree. The eighth shift then repeats the original row,
-giving dot product $16$ instead of zero.
+$$
+T(\xi)=\sum_{j=0}^{D-1}(a_j-a_{j+D})\xi^j.
+$$
 
-That contradiction uses the divisibility lemma. It illustrates the order-$16$
-case; the general exclusion of $16\mid n$ uses the remaining graph.
+This expression uses exactly the cyclotomic basis. Its valuation is $t$,
+so the coefficient statement gives $2^t\mid a_j-a_{j+D}$ for every $j$.
 
-**Status.** The cyclotomic proof is deferred. This consequence uses Lemma 2.1
-and the primitive-root coefficient basis from
-[the paper, Section 2](https://github.com/openai/math/blob/main/preprints/The-circulant-Hadamard-conjecture-September-23-2026/paper.pdf).
+At order $16$, take $k=4,t=2,w=1$ and sign coefficients. A difference of
+signs is $-2$, $0$, or $2$; divisibility by $4$ forces it to be zero.
+The eight-step shift would then repeat the row, contradicting orthogonality.
+The folding nodes extend the obstruction to all larger powers of two.
+
+Source: [the paper, Section 2](https://github.com/openai/math/blob/main/preprints/The-circulant-Hadamard-conjecture-September-23-2026/paper.pdf).

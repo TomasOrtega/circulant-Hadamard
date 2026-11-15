@@ -12,25 +12,29 @@ mapPosition: [440, 24]
 mapSummary: '$n$ is even'
 ---
 
-## Statement
+> **Lemma (An even square).** *A Hadamard matrix of order $n>1$ has even
+> order. If it is circulant, the square restriction therefore gives*
+>
+> $$
+> n=4u^2\qquad\text{for some positive integer }u.
+> $$
 
-If a Hadamard matrix has order $n>1$, then $n$ is even.
+Choose two distinct rows. Suppose their dot product contains $a$ positive
+terms and $b$ negative terms. All entries are signs, so every product is
+$+1$ or $-1$. Orthogonality and the number of positions give
 
-Choose two distinct rows. Their dot product is zero and has $n$ terms, each
-equal to $+1$ or $-1$. There must be equally many positive and negative terms,
-so the total number of terms is even.
+$$
+a-b=0,\qquad a+b=n.
+$$
 
-## Pairing in the order-four example
-
-The first two rows give
+Thus $a=b$ and $n=2a$ is even. The order-four example illustrates this:
 
 $$
 (-1,1,1,1)\cdot(1,-1,1,1)=-1-1+1+1=0.
 $$
 
-Pair the two negative contributions with the two positive contributions.
-The same counting argument applies to any pair of distinct rows at any order.
+For a circulant matrix, Node 2.1 also gives $n=m^2$ for a positive integer
+$m$. An odd integer has odd square, so $m$ must be even. Write $m=2u$;
+then $n=4u^2$. We have not yet proved that this same $u$ is odd.
 
-**Output.** Combining evenness with the square restriction gives
-$n=4u^2$ for a positive integer $u$. Showing that $u$ is odd still requires
-the remaining steps.
+Source: [the paper, Section 2](https://github.com/openai/math/blob/main/preprints/The-circulant-Hadamard-conjecture-September-23-2026/paper.pdf).

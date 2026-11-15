@@ -10,10 +10,26 @@ mapPosition: [440, 24]
 mapSummary: '$\prod_j(1+t x_j)=1+t\sum_jx_j+t^2Q$'
 ---
 
+> **Lemma (Exact finite-product expansion).** For any finite index set
+> $F$, elements $x_j$ of a commutative ring $A$, and $t\in A$, there is
+> $Q\in A$ such that
+>
+> $$
+> \prod_{j\in F}(1+t x_j)=1+t\sum_{j\in F}x_j+t^2Q.
+> $$
+>
+> This identity applies to the evaluated ratios $r_S$ with $t=2$ and
+> $w_S$ with $t=1+i$, because their divided differences belong to the
+> same evaluation ring.
+
 ## The quotients already belong to the ring
 
-Use the evaluation ring $A$ and the notation $c_S,d_S,g_S$ from
-Node 7.1. The common sign array gives the coefficientwise divisibilities
+Let $I$ be the distinct prime divisors of the odd integer $u>1$, and
+put $\zeta_S=\prod_{p\in S}\zeta_p$. Work in
+$A=\mathbb Z[i,\{\zeta_p:p\in I\},1/u]$ and write
+$c_S=c(\zeta_S)$, $d_S=d(\zeta_S)$, $g_S=g(\zeta_S)$.
+The ratios are $r_S=d_S/c_S$ and $w_S=g_S/c_S$.
+The common sign array gives the coefficientwise divisibilities
 
 $$
 \begin{aligned}

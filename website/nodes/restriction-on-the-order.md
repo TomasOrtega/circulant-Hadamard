@@ -14,7 +14,6 @@ mapPosition:
   - 40
   - 180
 mapSummary: '$n=4u^2$, $u$ odd'
-blackBox: Proposition 2.2
 graphLayout: proof-map
 graphTitle: Inside Node 2 · Restriction on the Order
 children:
@@ -22,108 +21,110 @@ children:
     dependsOn: []
     segment: null
     script: |
-      Set $X=1$ in $h(X)h^*(X)=n$. Since $h^*(1)=h(1)$, we get
+      Substituting $X=1$ respects the relation $X^n=1$. Every positive
+      and negative power becomes one, so $h^*(1)=h(1)$ and
 
       $$
-      n=h(1)^2=\left(\sum_{j=0}^{n-1}h_j\right)^2.
+      n=h(1)h^*(1)=h(1)^2.
       $$
 
-      The row sum is an integer, so $n$ is a square. Our order-four
-      example has row sum $-1+1+1+1=2$. At order $36$, a hypothetical
-      row would need sum $6$ or $-6$.
+      The row sum is an integer, hence $n$ is a square. The order-four
+      row $(-1,1,1,1)$ has sum $2$; an order-$36$ candidate would need
+      sum $6$ or $-6$.
   - node: order-is-even
     dependsOn: []
     segment: null
     script: |
-      Since $n>1$, there are two distinct rows, and their dot product
-      must be zero. Each of its $n$ terms is $+1$ or $-1$.
-      Pairing positive and negative terms shows that $n$ is even.
+      Choose two distinct rows, possible since $n>1$. If their dot
+      product has $a$ positive terms and $b$ negative terms,
+      orthogonality gives $a-b=0$, while $a+b=n$. Thus $n=2a$ is even.
 
-      For our order-four example, the first two rows give
-      $-1-1+1+1=0$. Combined with the square restriction, this leaves
+      Since $n=m^2$ is also a square, its positive square root $m$ is
+      even. Writing $m=2u$ gives
 
       $$
       n=4u^2,\qquad u\text{ a positive integer}.
       $$
 
-      The candidate orders begin $4,16,36,64,100,\ldots$.
-      We still have to show that $u$ is odd.
+      The remaining steps prove that this same $u$ is odd.
   - node: power-of-two-cycle
     dependsOn:
       - order-is-square
       - order-is-even
     segment: null
     script: |
-      Keep $u$ from $n=4u^2$ and separate its power of two by writing
-      $u=2^{s-1}w$, with $s\geq1$ and $w$ odd. Then
+      Write $u=2^{s-1}w$ with $s\geq1$ and $w$ odd. Then
+      $n=2^{2s}w^2$. Reduce exponents modulo $2^{2s}$, defining
 
       $$
-      n=2^{2s}w^2.
+      T(X)=\sum_{r=0}^{2^{2s}-1}a_rX^r,
+      \qquad a_r=\sum_{\ell=0}^{w^2-1}h_{r+\ell2^{2s}}.
       $$
 
-      Collect coefficients whose positions agree modulo $2^{2s}$.
-      This projects onto a cycle of length $2^{2s}$. Each new coefficient
-      is a sum of $w^2$ signs, so it is odd, and the product identity
-      is preserved.
-
-      At order $36=4\cdot9$, this means four groups of nine signs.
-      Their sums are odd integers, not necessarily signs.
-      This is a construction from a hypothetical Hadamard row.
+      Each new coefficient sums $w^2$ signs, so it is odd. Projection
+      preserves products and star, hence
+      $T(X)T^*(X)=2^{2s}w^2$ on the shorter cycle. For order $36$, this
+      collects nine signs into each of four positions; the resulting
+      odd coefficients need not be signs.
   - node: cyclotomic-divisibility
     dependsOn: []
     segment: null
     script: |
-      **The extra algebraic input.** On a cycle of length $2^k$, the identity
-      $T(X)T^*(X)=2^{2t}w^2$ with $w$ odd forces opposite coefficients to agree
-      modulo $2^t$. This is a consequence of cyclotomic divisibility
-      (Lemma 2.1), whose detailed proof will be developed inside this node.
+      Suppose $T(X)T^*(X)=2^{2t}w^2$ on a cycle of length $2^k$,
+      with integer coefficients and $w$ odd. Evaluate at a primitive
+      $2^k$th root $\xi$. The specialized cyclotomic basis and
+      valuation from Lemma 2.1 give $v(T(\xi))=t$: conjugation preserves
+      $v$, and the product has valuation $2t$.
 
-      For a hypothetical order-$16$ Hadamard row, it gives
+      Since $\xi^{2^{k-1}}=-1$, the basis coefficients of $T(\xi)$ are
+      the opposite differences. The coefficient statement therefore gives
 
       $$
-      4\mid h_j-h_{j+8}.
+      2^t\mid a_j-a_{j+2^{k-1}}.
       $$
 
-      A difference of two signs is only $-2$, $0$, or $2$, so opposite
-      entries must agree. The eight-step shift repeats the first row,
-      contradicting orthogonality. This is an example for the deeper proof;
-      it does not by itself rule out every multiple of $16$.
+      For order $16$, divisibility by $4$ forces opposite signs to
+      agree, so the eighth shift repeats the row. The leaf proves the
+      general deduction and states the standard cyclotomic input precisely.
   - node: fold-and-divide
     dependsOn:
       - power-of-two-cycle
       - cyclotomic-divisibility
     segment: null
     script: |
-      If $s\geq2$, opposite odd coefficients agree modulo $4$.
-      Replace each opposite pair by its average. The average is still
-      odd: for example, $3$ and $7$ agree modulo $4$, and their average is $5$.
-
-      This halves the cycle and divides the scalar in $T(X)T^*(X)$ by $4$.
-      Repeat this step $s-1$ times. We reach $2^{s+1}$ odd coefficients
-      with product identity
+      When $t\geq2$, opposite odd coefficients agree modulo $4$.
+      Writing a pair as $a_j,a_j+4r_j$, its average is the odd integer
+      $a_j+2r_j$. Project to the half-length cycle and divide by two.
+      The new polynomial satisfies
 
       $$
-      T(X)T^*(X)=4w^2.
+      T_1(X)T_1^*(X)=2^{2(t-1)}w^2.
       $$
 
-      The repetition is an induction within this step. There is no
-      circular dependency in the graph.
+      Starting at $(k,t)=(2s,s)$, induction gives
+      $(k,t)=(2s-j,s-j)$ after $j$ folds. Every step with $j<s-1$
+      starts with $t\geq2$, so it preserves odd coefficients. After
+      $s-1$ folds, the length is $2^{s+1}$ and the norm is $4w^2$.
   - node: odd-squares-mod-eight
     dependsOn:
       - fold-and-divide
     segment: null
     script: |
-      Every odd square is $1$ modulo $8$. If $s\geq2$, the
-      $2^{s+1}$ odd coefficients therefore have squares summing to $0$
-      modulo $8$. But the constant coefficient of their product must be
-      $4w^2$, which is $4$ modulo $8$.
+      If $s\geq2$, the endpoint has $2^{s+1}$ odd coefficients $b_j$.
+      Taking the identity coefficient of its norm gives
 
-      For $s=2$, the mismatch is already visible: eight odd squares
-      cannot sum to a number congruent to $4$ modulo $8$.
+      $$
+      \sum_jb_j^2=4w^2.
+      $$
 
-      Thus $s=1$, so $u=2^{s-1}w=w$ is odd and the order is $n=4u^2$.
-      The known order $4$ survives; the next candidate is $36$. The following main
-      nodes address that candidate and the larger remaining orders.
+      Every odd square is $1$ modulo $8$: for $b=2r+1$,
+      $b^2=4r(r+1)+1$, and $r(r+1)$ is even. The left side is thus
+      $0$ modulo $8$, since its number of terms is a multiple of eight.
+      The right side is $4$ modulo $8$ because $w$ is odd.
+
+      This contradiction forces $s=1$, so $u=2^{s-1}w=w$ is odd and
+      $n=4u^2$.
+
 ---
 
 > **Lemma (Order restriction, Proposition 2.2).** *If a real circulant Hadamard

@@ -10,6 +10,17 @@ mapPosition: [440, 200]
 mapSummary: '$R\equiv W\equiv1\pmod{1+i}$'
 ---
 
+> **Lemma (Residue-one ratios).** *The common sign coefficients and the
+> unit denominators from Node 6.2 give, for every subset $S$,*
+>
+> $$
+> \frac{d(\zeta_S)}{c(\zeta_S)}\equiv
+> \frac{g(\zeta_S)}{c(\zeta_S)}\equiv1\pmod{1+i}.
+> $$
+>
+> *Consequently the alternating comparison products satisfy
+> $R\equiv W\equiv1\pmod{1+i}$ in the same reduction ring.*
+
 ## Start with exact divisibility
 
 Node 5 established coefficientwise identities

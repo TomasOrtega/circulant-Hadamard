@@ -10,7 +10,15 @@ mapPosition: [440, 560]
 mapSummary: Only odd-order rotations remain
 ---
 
-## Residue one restricts the order
+> **Lemma (Odd order).** *For odd $u>1$ and
+> $f(P)f^*(P)=u^2$, the order of $\Delta(f)$ is a power of every prime
+> dividing $u$. In particular it is odd; if $u$ has two distinct prime
+> divisors, then $\Delta(f)=1$.*
+
+The preceding nodes show that $\Delta(f)$ is a root of unity and has
+residue $1$ above every prime dividing $u$. We now combine those facts.
+
+## A vanishing sum restricts the order
 
 Let $\xi$ be a root of unity in a local domain whose residue field has
 characteristic $p$. Suppose $\xi$ has residue $1$ and order
@@ -53,7 +61,7 @@ $$
 The possible phase differences are $0$, $120$, and $240$ degrees.
 They need not all be zero: $f(P)=3iP$ gives $\Delta(f)=\omega^2$.
 
-**Output.** The Δ-theorem applies to every Gaussian norm solution of the
+The Δ-theorem applies to every Gaussian norm solution of the
 stated size. In particular, Node 3 supplies $c(P),d(P),g(P)$, so their
 three Δ-values have odd order. Node 6 combines this arithmetic fact
 with the separate information from signs.

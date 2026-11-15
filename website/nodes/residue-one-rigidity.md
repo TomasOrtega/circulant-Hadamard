@@ -13,9 +13,9 @@ mapSummary: 'Odd order and residue $1$ force $1$'
 
 ## The elementary rigidity lemma
 
-> Let $A$ be a characteristic-zero domain with a reduction map to a nonzero
-> ring of characteristic two. Suppose $\xi\in A$ is a root of unity of
-> odd order and has residue $1$. Then $\xi=1$.
+> **Lemma (Odd-order rigidity).** *Let $A$ be a characteristic-zero domain
+> with a reduction map to a nonzero ring of characteristic two. A root of
+> unity in $A$ of odd order and residue $1$ must equal $1$.*
 
 To prove this, suppose instead that $\xi\ne1$, and let its order be the
 odd integer $r>1$. We have

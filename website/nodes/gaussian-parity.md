@@ -11,6 +11,14 @@ mapPosition: [440, 24]
 mapSummary: 'Both signs reduce to $1$'
 ---
 
+> **Lemma (Gaussian parity).** *For integers $a,b$, reduction modulo $1+i$
+> sends $a+bi$ to $a+b$ modulo $2$. In particular,*
+>
+> $$
+> \mathbb Z[i]/(1+i)\cong\mathbb F_2,
+> \qquad i\equiv-1\equiv1\pmod{1+i}.
+> $$
+
 ## Parity for Gaussian integers
 
 A Gaussian integer has the form $a+bi$, where $a,b\in\mathbb Z$.

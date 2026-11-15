@@ -17,7 +17,8 @@ narration with animation directions. It states the goal, evaluates the
 polynomial identity abstractly at $X=1$, and proves the parity restriction.
 The oddness of $u$ is an accepted input in this overview, with its proof
 in the deeper graph. The script ends by assuming $u>1$ for the contradiction
-and choosing $u=3$ as the guiding example. Detailed subnode scripts are still to come.
+and choosing $u=3$ as the guiding example. Its six refined-node scripts
+give the general square, parity, divisibility, and descent arguments.
 
 [Video 3](node3/three-evaluations.md) develops Steven's order-36 outline:
 Chinese remainder coordinates, four sign polynomials, evaluations at $1,-1,i$,
@@ -31,8 +32,10 @@ Node 6's common phase change from $1$ to $\omega$.
 coefficients and the example $f(P)=3iP$. Its
 [phase-circle storyboard](node4/storyboards/phase-circles.svg) distinguishes
 evaluation values from their relative rotation. The script then states the
-general alternating product and explains the role of Kronecker's theorem. The inner graph separates integrality,
-Kronecker's criterion, and the local congruences that force odd order.
+general alternating product and explains the role of Kronecker's theorem.
+The six refined scripts prove the local comparison, integrality, Kronecker's
+criterion, and the local congruences that force odd order. The standard
+cyclotomic basis/valuation facts used in the comparison are stated explicitly.
 
 [Video 5](node5/signs-become-all-ones.md) uses five slides to motivate $E(P)$
 and expand it directly in the sign polynomials $H_a(P)$. The nine-position
@@ -68,6 +71,50 @@ Node 8, and its five-step inner graph includes both remaining examples.
 The [supplied outline](node8/reference/supplied-outline.md) is retained
 with its pasted mathematics normalized to LaTeX.
 
+## Refined-node scripts
+
+These 34 scripts develop the general arguments inside Nodes 2–8. Each slide
+pairs spoken narration with concrete animation directions; examples support
+the proof without replacing it. Existing recordings keep their actual
+sources and clip times. New refined videos have no invented timing metadata.
+
+| Video | Production script | Website explanation |
+| --- | --- | --- |
+| 2.1 | [Evaluate at 1](node2/order-is-square.md) | [Exposition](../nodes/order-is-square.md) |
+| 2.2 | [Pair the Dot-Product Terms](node2/order-is-even.md) | [Exposition](../nodes/order-is-even.md) |
+| 2.3 | [Project to a Power-of-Two Cycle](node2/power-of-two-cycle.md) | [Exposition](../nodes/power-of-two-cycle.md) |
+| 2.4 | [Compare Opposite Coefficients](node2/cyclotomic-divisibility.md) | [Exposition](../nodes/cyclotomic-divisibility.md) |
+| 2.5 | [Fold the Cycle](node2/fold-and-divide.md) | [Exposition](../nodes/fold-and-divide.md) |
+| 2.6 | [Odd Squares Modulo 8](node2/odd-squares-mod-eight.md) | [Exposition](../nodes/odd-squares-mod-eight.md) |
+| 3.1 | [Chinese Remainder Coordinates](node3/crt-coordinates.md) | [Exposition](../nodes/crt-coordinates.md) |
+| 3.2 | [Four Sign Polynomials](node3/four-sign-polynomials.md) | [Exposition](../nodes/four-sign-polynomials.md) |
+| 3.3 | [Evaluate at 1, −1, and i](node3/evaluate-four-cycle.md) | [Exposition](../nodes/evaluate-four-cycle.md) |
+| 3.4 | [Parity of Sign Columns](node3/halve-sign-sums.md) | [Exposition](../nodes/halve-sign-sums.md) |
+| 3.5 | [Normalize the Norm Identities](node3/normalized-evaluation-norms.md) | [Exposition](../nodes/normalized-evaluation-norms.md) |
+| 4.1 | [Evaluations on a Circle](node4/circle-evaluations.md) | [Exposition](../nodes/circle-evaluations.md) |
+| 4.2 | [The Alternating Phase Product](node4/alternating-phase-product.md) | [Exposition](../nodes/alternating-phase-product.md) |
+| 4.3 | [Local Character Comparison](node4/local-character-comparison.md) | [Exposition](../nodes/local-character-comparison.md) |
+| 4.4 | [The Product Is Integral](node4/integral-delta.md) | [Exposition](../nodes/integral-delta.md) |
+| 4.5 | [Kronecker's Theorem](node4/kronecker-step.md) | [Exposition](../nodes/kronecker-step.md) |
+| 4.6 | [Why the Order Is Odd](node4/delta-odd-order.md) | [Exposition](../nodes/delta-odd-order.md) |
+| 5.1 | [Form the Combination](node5/form-sign-combination.md) | [Exposition](../nodes/form-sign-combination.md) |
+| 5.2 | [Gaussian Parity](node5/gaussian-parity.md) | [Exposition](../nodes/gaussian-parity.md) |
+| 5.3 | [All Coefficients Become 1](node5/all-ones-congruence.md) | [Exposition](../nodes/all-ones-congruence.md) |
+| 6.1 | [Compare the Delta Values](node6/odd-comparison-products.md) | [Exposition](../nodes/odd-comparison-products.md) |
+| 6.2 | [Why We Can Divide](node6/evaluation-units.md) | [Exposition](../nodes/evaluation-units.md) |
+| 6.3 | [The Ratios Have Residue One](node6/sign-ratio-congruences.md) | [Exposition](../nodes/sign-ratio-congruences.md) |
+| 6.4 | [Odd Order Forces Equality](node6/residue-one-rigidity.md) | [Exposition](../nodes/residue-one-rigidity.md) |
+| 6.5 | [Exact Comparisons and a Common Rotation](node6/exact-comparison-identities.md) | [Exposition](../nodes/exact-comparison-identities.md) |
+| 7.1 | [Split the Exact Products](node7/split-exact-products.md) | [Exposition](../nodes/split-exact-products.md) |
+| 7.2 | [Expand Products with Exact Quotients](node7/expand-integral-products.md) | [Exposition](../nodes/expand-integral-products.md) |
+| 7.3 | [Cancel Before Reducing](node7/cancel-before-reduction.md) | [Exposition](../nodes/cancel-before-reduction.md) |
+| 7.4 | [Identify E(P) and Add the Sums](node7/vanishing-alternating-sum.md) | [Exposition](../nodes/vanishing-alternating-sum.md) |
+| 8.1 | [The Nontrivial Roots Cancel the Ones](node8/roots-cancel-ones.md) | [Exposition](../nodes/roots-cancel-ones.md) |
+| 8.2 | [An Odd Number of Ones at One](node8/odd-ones-at-one.md) | [Exposition](../nodes/odd-ones-at-one.md) |
+| 8.3 | [One Surviving Odd Term](node8/surviving-odd-term.md) | [Exposition](../nodes/surviving-odd-term.md) |
+| 8.4 | [The Two Residues Cannot Agree](node8/incompatible-residues.md) | [Exposition](../nodes/incompatible-residues.md) |
+| 8.5 | [Only orders 1 and 4](node8/theorem.md) | [Exposition](../nodes/theorem.md) |
+
 ## Narrative structure
 
 Write one overview script for each node. The main overviews use $n=36$ as the
@@ -84,6 +131,9 @@ the next level of detail.
 Group each main node's script and its subnode scripts in a numbered folder,
 such as `node1/` or `node2/`. Keep the descriptive filenames matching
 [../nodes/](../nodes/); `overview.md` stays at the top level for Video 0.
+
+The tree below shows the overview scripts and supporting assets; the table above
+lists every refined script saved beside its overview.
 
 ```text
 scripts/

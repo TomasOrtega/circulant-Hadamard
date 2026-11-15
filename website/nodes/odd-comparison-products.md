@@ -11,6 +11,16 @@ mapPosition: [40, 24]
 mapSummary: '$R,W$ have odd order'
 ---
 
+> **Lemma (Odd comparison products).** *For the normalized norm solutions
+> $c(P),d(P),g(P)$ and odd $u>1$, the Δ-theorem implies that*
+>
+> $$
+> R=\frac{\Delta(d)}{\Delta(c)},\qquad
+> W=\frac{\Delta(g)}{\Delta(c)}
+> $$
+>
+> *are roots of unity of odd order.*
+
 ## The arithmetic input
 
 Let $u>1$ be odd. Node 3 supplies $c(P),d(P),g(P)$ with
@@ -22,15 +32,6 @@ $$
 in $\mathbb Z[i][P]/(P^{u^2}-1)$. Their evaluations at the roots used
 in Node 4 are nonzero. The Δ-theorem therefore applies to all three:
 $\Delta(c),\Delta(d),\Delta(g)$ are roots of unity of odd order.
-
-Define
-
-$$
-\begin{aligned}
-R&=\frac{\Delta(d)}{\Delta(c)},\\
-W&=\frac{\Delta(g)}{\Delta(c)}.
-\end{aligned}
-$$
 
 If roots of unity $\alpha,\beta$ have odd orders $m,n$, then
 $(\alpha/\beta)^{mn}=1$. Thus their quotient has order dividing the odd

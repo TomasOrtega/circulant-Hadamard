@@ -17,15 +17,14 @@ children:
     dependsOn: []
     segment: null
     script: |
-      The three polynomials $c(P),d(P),g(P)$ came from the same four
-      sign polynomials $H_0(P),\ldots,H_3(P)$. Define
+      > **Lemma (Integral combination).** The common sign polynomials make
+      > both quotients defining $E(P)$ integral, and
+      >
+      > $$
+      > E(P)=-H_3(P)+(i-1)\frac{H_1(P)+H_2(P)}2.
+      > $$
 
-      $$
-      E(P)=\frac{d(P)-c(P)}2+\frac{g(P)-c(P)}{1+i}.
-      $$
-
-      Both quotients have Gaussian-integer coefficients. To see why,
-      substitute the definitions from Node 3:
+      Indeed, substituting the definitions from Node 3 gives
 
       $$
       \frac{d(P)-c(P)}2=-\frac{H_1(P)+H_3(P)}2,
@@ -39,64 +38,57 @@ children:
       \end{aligned}
       $$
 
-      Each half-sum has integer coefficients because the sum of two signs
-      is even. Adding these expressions gives the useful identity
+      Each half-sum has integer coefficients because a sum of two signs is
+      even. Adding the two quotients gives the displayed identity for $E(P)$.
+      These are exact divisions before reduction; the norm identities are
+      not needed.
 
-      $$
-      E(P)=-H_3(P)+(i-1)\frac{H_1(P)+H_2(P)}2.
-      $$
-
-      We form these exact quotients first, before reducing any coefficients.
   - node: gaussian-parity
     dependsOn: []
     segment: null
     script: |
-      Two Gaussian integers are congruent modulo $1+i$ when their difference
-      is a Gaussian-integer multiple of $1+i$. For example,
+      > **Lemma (Gaussian parity).** Reduction modulo $1+i$ sends $a+bi$ to
+      > $a+b$ modulo $2$. In particular, $i\equiv-1\equiv1\pmod{1+i}$.
+
+      The formula
 
       $$
-      2=(1+i)(1-i),\qquad i-1=i(1+i).
+      \frac{a+bi}{1+i}=\frac{a+b}{2}+i\frac{b-a}{2}
       $$
 
-      Thus $2\equiv0$ and $i\equiv1$. In particular, both $+1$ and $-1$
-      have residue $1$. Reducing a polynomial means applying this rule
-      separately to each coefficient.
+      shows that divisibility by $1+i$ is equivalent to $a+b$ being even.
+      Thus $\mathbb Z[i]/(1+i)\cong\mathbb F_2$. Apply this reduction to
+      polynomial coefficients while leaving the powers of $P$ in place.
+      Both $2$ and $1+i$ become zero, so the quotients defining $E(P)$ must
+      be formed before reduction.
 
-      Congruence does not mean equality: $i\equiv1\pmod{1+i}$,
-      even though $i\ne1$.
   - node: all-ones-congruence
     dependsOn:
       - form-sign-combination
       - gaussian-parity
     segment: null
     script: |
-      In the exact expression
+      > **Lemma (All-ones congruence).** The integral combination satisfies
+      >
+      > $$
+      > E(P)\equiv J(P)\pmod{1+i},
+      > \qquad J(P)=1+P+\cdots+P^{u^2-1}.
+      > $$
+
+      In the exact formula
 
       $$
       E(P)=-H_3(P)+(i-1)\frac{H_1(P)+H_2(P)}2,
       $$
 
-      the second term vanishes modulo $1+i$. Every coefficient of $-H_3(P)$
-      is a sign, so every coefficient has residue $1$. In our nine-position
-      example, this gives
+      the second term vanishes because $i-1=i(1+i)$. Every coefficient of
+      $-H_3(P)$ is a sign, and both signs reduce to one. This proves the
+      coefficient congruence without using the norm identities or oddness.
 
-      $$
-      E(P)\equiv1+P+\cdots+P^8\pmod{1+i}.
-      $$
-
-      In general there are $u^2$ positions. Write
-
-      $$
-      J(P):=1+P+\cdots+P^{u^2-1}.
-      $$
-
-      Then $E(P)\equiv J(P)\pmod{1+i}$ in
-      $\mathbb Z[i][P]/(P^{u^2}-1)$, with coefficients reduced modulo $1+i$.
-      The symbol $J(P)$ is just shorthand for this all-ones polynomial.
-
-      This calculation uses the common sign array. It also gives the
-      divisibilities needed in Node 6: $d(P)-c(P)$ is divisible by $2$,
-      and $g(P)-c(P)$ is divisible by $1+i$.
+      If $u$ is odd, evaluating at $P=1$ then gives
+      $E(1)\equiv J(1)=u^2\equiv1\pmod{1+i}$. For $u=3$, four pairs of
+      ones vanish and the ninth one remains. Retain the exact divisibilities
+      $2\mid d(P)-c(P)$ and $1+i\mid g(P)-c(P)$ for Node 6.
 ---
 
 We now build a polynomial $E(P)$ from the differences $d(P)-c(P)$ and

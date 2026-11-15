@@ -11,22 +11,16 @@ mapPosition: [240, 220]
 mapSummary: The all-ones congruence
 ---
 
-## Statement
+> **Lemma (Every coefficient has residue one).** *Let $u$ be a positive
+> integer, and form $E(P)$ from the same four sign polynomials as in
+> Node 5.1. In $\mathbb Z[i][P]/(P^{u^2}-1)$,*
+>
+> $$
+> E(P)\equiv J(P)\pmod{1+i},
+> \qquad J(P):=1+P+\cdots+P^{u^2-1}.
+> $$
 
-Let $u$ be a positive odd integer, and let $c(P),d(P),g(P)$ come from the
-same four sign polynomials as in Node 3. Define $E(P)$ by the integral
-quotients from Node 5.1. In $\mathbb Z[i][P]/(P^{u^2}-1)$,
-
-$$
-E(P)\equiv1+P+\cdots+P^{u^2-1}\pmod{1+i}.
-$$
-
-We call the polynomial on the right the all-ones polynomial and use
-$J(P)$ as shorthand:
-
-$$
-J(P):=1+P+\cdots+P^{u^2-1}.
-$$
+The polynomial $J(P)$ is the all-ones polynomial.
 
 The congruence means that every coefficient of $E(P)-J(P)$ is divisible
 by $1+i$.
@@ -59,6 +53,18 @@ every $r$. Reducing each coefficient gives the claimed all-ones polynomial.
 This proves a congruence; the original coefficients of $E(P)$ need not
 equal $1$. The calculation uses only the common sign array, so it does
 not need the norm identities or the oddness of $u$.
+
+## Evaluate at one
+
+Substitution $P=1$ gives $E(1)\equiv J(1)=u^2$. If $u$ is odd, then
+
+$$
+E(1)\equiv1\pmod{1+i}.
+$$
+
+For $u=3$, the nine coefficient positions become nine ones; four pairs
+vanish in characteristic two, leaving one. Oddness is used here, after
+the coefficient congruence has already been proved.
 
 ## What the next nodes receive
 

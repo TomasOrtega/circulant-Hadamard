@@ -11,18 +11,21 @@ The active outline contains eight high-level proof nodes, with the theorem
 concluding Node 8, in one recursive proof journey. The main overviews use $n=36$ as
 the guiding example to explain the ideas. Opening a node develops its general
 statement and proof through smaller steps. The known order-four matrix and
-the order-16 obstruction remain useful supporting examples. Proposition 2.2
-remains an accepted input at the main level. [Group-Ring Encoding](nodes/group-ring-encoding.md)
+the order-16 obstruction remain useful supporting examples. The main videos
+state results whose detailed arguments appear in the refined nodes.
+[Group-Ring Encoding](nodes/group-ring-encoding.md)
 expands into five subnodes (1.1–1.5), each with a written proof and a separate
 video script. [Restriction on the Order](nodes/restriction-on-the-order.md)
-now has a six-node proof outline (2.1–2.6), with short statements and examples
-ahead of its detailed scripts. [The Three Evaluations](nodes/three-evaluations.md)
-has a five-node refinement (3.1–3.5) and a six-slide order-36 overview script.
+has six detailed nodes (2.1–2.6), each with a written argument and its own
+video script. [The Three Evaluations](nodes/three-evaluations.md)
+has five detailed nodes (3.1–3.5) alongside its six-slide order-36 overview.
 [The Δ-Theorem](nodes/delta-theorem.md) has six steps (4.1–4.6): circle
 evaluations, the alternating phase product, local character comparison,
 integrality, Kronecker's theorem, and odd order. Its overview script has a
-phase-circle storyboard. The detailed outline retains the technical
-character-comparison lemma (Lemma 3.1) and Kronecker's theorem as stated inputs.
+phase-circle storyboard. The detailed nodes prove the local comparison by
+descent and give the bounded-polynomial proof of Kronecker's theorem.
+Nodes 2.4 and 4.3 state the standard cyclotomic basis and valuation facts
+they use, with references to the source paper's Lemma 2.1.
 [Signs Become All Ones](nodes/signs-become-all-ones.md) has three smaller
 nodes (5.1–5.3): form the integral combination, explain Gaussian parity,
 and combine them to obtain the all-ones congruence. Its overview uses nine
@@ -63,6 +66,9 @@ The former background outline is retained in [archive/nodes/](archive/nodes/)
 and is not built. Active nodes have new descriptive URLs.
 
 Draft video narration and animation directions in [scripts/](scripts/README.md).
+Every one of the 34 refined nodes under Nodes 2–8 has a numbered script
+with spoken narration and animation directions for each slide. The
+[script index](scripts/README.md#refined-node-scripts) links to all of them.
 Keep the introduction in [scripts/overview.md](scripts/overview.md), and group
 each main node's script and subnode scripts in a numbered folder: Node 1 uses
 [scripts/node1/](scripts/node1/), Node 2 uses [scripts/node2/](scripts/node2/),

@@ -6,14 +6,11 @@ summary: Integrality and unit magnitude for every conjugate force the alternatin
 number: "4.5"
 draft: true
 video: null
-blackBox: Kronecker's theorem
 mapPosition: [40, 560]
 mapSummary: The product is a root of unity
 ---
 
-## The accepted criterion
-
-We use the following form of Kronecker's theorem as a black box:
+## From integrality to finite order
 
 > **Kronecker's theorem.** *If an algebraic integer has absolute value
 > $1$ under every embedding of its number field into $\mathbb C$, then
@@ -22,23 +19,38 @@ We use the following form of Kronecker's theorem as a black box:
 A root of unity is a complex number $z$ for which $z^r=1$ for some positive
 integer $r$. Its powers return to $1$ after finitely many rotations.
 
-## Both hypotheses matter
+An algebraic integer is a root of a monic polynomial with integer
+coefficients. That integer condition is what prevents indefinitely many
+different powers on the unit circle.
 
-Lying on the unit circle does not by itself imply finite order. Even
-requiring every conjugate to lie there is insufficient without integrality.
-For example,
+## Only finitely many polynomials can occur
+
+Let $d$ be the degree of $z$ over $\mathbb Q$. For every positive integer
+$m$, the power $z^m$ is still an algebraic integer, has degree at most
+$d$, and all its conjugates have magnitude $1$.
+
+Its monic minimal polynomial has integer coefficients. If its roots are
+$\alpha_1,\ldots,\alpha_r$, with $r\leq d$, the coefficient $k$ places
+below the leading term is, up to sign, the sum of products of $k$ distinct
+roots. Each product has magnitude $1$, so this coefficient has absolute
+value at most $\binom{r}{k}\leq\binom{d}{k}$.
+
+Thus the degree and every integer coefficient are bounded independently
+of $m$. Only finitely many such polynomials exist, and each has finitely
+many roots. All powers $z,z^2,z^3,\ldots$ therefore belong to a finite set.
+
+## Two equal powers finish the proof
+
+There are positive integers $a<b$ with $z^a=z^b$. Since $|z|=1$,
+we can divide by $z^a$ to obtain
 
 $$
-z=\frac{3+4i}{5}
+z^{b-a}=1.
 $$
 
-and its conjugate $(3-4i)/5$ both have magnitude $1$. But their sum is
-$6/5$, which is not an integer. An algebraic integer has integer trace,
-so $z$ is not an algebraic integer; it is therefore not a root of unity
-either, since roots of unity are algebraic integers.
-
-This is why the denominator calculation in the preceding node cannot
-be replaced by a picture of a circle.
+This proves the criterion. Both hypotheses were needed. For example,
+$(3+4i)/5$ and its conjugate both lie on the unit circle, but their trace
+is $6/5$, so they are not algebraic integers and are not roots of unity.
 
 ## Apply the criterion
 
@@ -52,7 +64,7 @@ $$
 \quad\text{for some positive integer }r.
 $$
 
-**Output.** The alternating product has finite order. This does not yet
+The alternating product has finite order. This does not yet
 specify that the order is odd; the next step uses the local residue
 information retained from the integrality argument.
 

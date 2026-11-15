@@ -10,34 +10,49 @@ mapPosition: [240, 420]
 mapSummary: 'Halve length; divide norm by $4$'
 ---
 
-## The step to repeat
+> **Lemma (One fold).** *Suppose $T(X)$ has odd coefficients on a cycle
+> of length $2^k$ and $T(X)T^*(X)=2^{2t}w^2$, with $t\geq2$ and $w$
+> odd. Averaging opposite coefficients gives an integer polynomial
+> $T_1(X)$ with odd coefficients on the cycle of length $2^{k-1}$ and*
+>
+> $$
+> T_1(X)T_1^*(X)=2^{2(t-1)}w^2.
+> $$
 
-Suppose $T(X)$ has odd coefficients $a_j$ on a cycle of length $2^k$, and
-$T(X)T^*(X)=2^{2t}w^2$, with $t\geq2$ and $w$ odd.
-The divisibility input makes opposite coefficients congruent modulo $4$.
-Therefore the averages
-
-$$
-b_j=\frac{a_j+a_{j+2^{k-1}}}{2}
-$$
-
-are odd integers. Fold opposite positions together and divide the resulting
-polynomial by two. The new polynomial $S(X)$ satisfies
+Node 2.4 gives $a_{j+2^{k-1}}\equiv a_j\pmod{2^t}$, hence modulo $4$.
+Write $a_{j+2^{k-1}}=a_j+4r_j$. Then
 
 $$
-S(X)S^*(X)=2^{2(t-1)}w^2
-\quad\text{in }\mathbb Z[X]/(X^{2^{k-1}}-1).
+b_j:=\frac{a_j+a_{j+2^{k-1}}}{2}=a_j+2r_j
 $$
 
-The cycle length halves, and the scalar norm is divided by four.
+is an odd integer. For instance, $3$ and $7$ average to $5$.
 
-## The averaging idea
+Let $q$ reduce exponents modulo $2^{k-1}$. Opposite coefficients add under
+this ring map, so $q(T(X))=2T_1(X)$, where
+$T_1(X)=\sum_jb_jX^j$. Projection commutes with star, giving
 
-For an individual pair, $3$ and $7$ agree modulo $4$, and their average is
-$5$, still odd. The divisibility lemma ensures this behavior simultaneously
-for every opposite pair in the polynomial.
+$$
+4T_1(X)T_1^*(X)=q\bigl(T(X)T^*(X)\bigr)=2^{2t}w^2.
+$$
 
-**Output.** If $s\geq2$, start at $(k,t)=(2s,s)$ and repeat this step $s-1$
-times. There are then $2^{s+1}$ odd coefficients with scalar norm $4w^2$.
-This iteration belongs inside the node; it does not create a loop in the graph.
-The detailed induction will be developed here later.
+The integer group ring is free as an abelian group, so equality can be
+divided coefficientwise by $4$. This proves the new norm identity.
+
+For the iteration, suppose $s\geq2$ and start with Node 2.3's polynomial
+$T_0(X)$, with length $2^{2s}$ and norm $2^{2s}w^2$.
+Inductively, after $j$ folds, for $0\leq j\leq s-1$,
+
+$$
+\begin{aligned}
+\text{length of }T_j(X)&=2^{2s-j},\\
+T_j(X)T_j^*(X)&=2^{2(s-j)}w^2,
+\end{aligned}
+$$
+
+and all coefficients are odd. The case $j=0$ is the projection. If
+$j<s-1$, then $t=s-j\geq2$, so the one-fold lemma applies and proves
+the next case. After exactly $s-1$ folds, the length is $2^{s+1}$ and
+the norm is $4w^2$. This is the endpoint used in Node 2.6.
+
+Source: [the paper, Section 2](https://github.com/openai/math/blob/main/preprints/The-circulant-Hadamard-conjecture-September-23-2026/paper.pdf).

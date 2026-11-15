@@ -11,7 +11,11 @@ mapPosition: [240, 24]
 mapSummary: 'Every evaluation has modulus $u$'
 ---
 
-## Evaluate the norm identity
+> **Lemma (The evaluation circle).** *If
+> $f(P)f^*(P)=u^2$ in $\mathbb Z[i][P]/(P^{u^2}-1)$, then
+> $|f(\zeta)|=u$ for every $u^2$th root of unity $\zeta$.*
+
+## Substitute a root of unity
 
 Let $u>1$ be odd, and suppose
 
@@ -26,7 +30,8 @@ $$
 Here star conjugates the coefficients and reverses the powers:
 
 $$
-f^*(P)=\overline{f(P^{-1})}.
+f(P)=\sum_j a_jP^j,
+\qquad f^*(P)=\sum_j\overline{a_j}P^{-j}.
 $$
 
 If $\zeta^{u^2}=1$, substitution $P=\zeta$ respects the cycle relation.
@@ -71,7 +76,6 @@ its product with its star is $9$. Its values at the nine ninth roots lie
 on the radius-three circle. This is an example with Gaussian coefficients,
 not a Hadamard sign row.
 
-**Output.** Nonzero evaluations of common magnitude, ready to be compared
-through their phases.
+We can therefore divide any two of these values and compare their phases.
 
 Source: [the paper, Section 3, equation (3.2)](https://github.com/openai/math/blob/main/preprints/The-circulant-Hadamard-conjecture-September-23-2026/paper.pdf).
