@@ -22,14 +22,14 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def formula(source, size=48, color=WHITE, width=12):
-    result = Tex(source, font_size=size, color=color)
+    result = Tex(source, font_size=size).set_color(color)
     if result.get_width() > width:
         result.set_width(width)
     return result
 
 
 def words(source, size=28, color=WHITE, width=12):
-    result = Text(source, font_size=size, color=color)
+    result = Text(source, font_size=size).set_color(color)
     if result.get_width() > width:
         result.set_width(width)
     return result

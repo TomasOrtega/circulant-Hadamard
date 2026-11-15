@@ -9,14 +9,25 @@ from unittest.mock import Mock, patch
 from narration.speech import AudioClip, Narrator
 
 with patch.object(sys, "argv", ["manimgl"]):
-    from manimlib import Tex
+    from manimlib import BLUE_C, YELLOW, Tex
 
+    from videos.node_scene import formula, words
     from videos.overview import Overview
 
 ROOT = Path(__file__).resolve().parents[1]
 
 
 class NodeVideoTests(unittest.TestCase):
+    def test_visible_formula_and_prose_paths_use_the_requested_colors(self):
+        for obj, color in [
+            (formula("h", color=BLUE_C), BLUE_C),
+            (words("focus", color=YELLOW), YELLOW),
+        ]:
+            with self.subTest(kind=type(obj).__name__):
+                visible = [m for m in obj.get_family() if m.has_points()]
+                self.assertTrue(visible)
+                self.assertEqual({m.get_color() for m in visible}, {color})
+
     def test_temporary_shift_rows_do_not_survive_into_the_conclusion(self):
         scene = Overview(skip_animations=True)
         scene.setup()
