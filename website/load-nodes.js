@@ -71,7 +71,9 @@ export function loadNodes({
       const target = records.get(child.node)?.node;
       if (!target)
         throw new Error(`${node.id}: unknown child node ${child.node}`);
-      const script = child.script ?? target.summary;
+      const script = child.script ?? (target.children.length
+        ? target.script.join("\n\n")
+        : target.summary);
       if (typeof script !== "string" || !script.trim()) {
         throw new Error(
           `${node.id}: the cut script for ${child.node} must be Markdown text`,

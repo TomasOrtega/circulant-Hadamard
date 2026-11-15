@@ -35,12 +35,26 @@ Keep one Markdown file per node in [nodes/](nodes/), starting at
 [overview.md](nodes/overview.md). Put metadata in YAML frontmatter and prose and
 LaTeX in the body. Child IDs replace code imports; cut scripts use YAML literal
 blocks (`script: |`) and support Markdown and math. Every view has its own full
-overview video, a dependency graph immediately below it, script-based text, and
-child previews.
-Each preview is a timed cut of the parent's video, using the corresponding
-parent-script excerpt; a child's own video is its separate, deeper overview.
+overview video, a dependency graph, and written explanations.
+After the video and graph, an expanded non-root node puts its exposition in
+the individual child sections, each with a link to go deeper. Its Markdown
+body states the goal proved by that node and appears in its parent's section,
+rather than as a separate block on its own page. A parent's explicit child
+`script` overrides that goal statement; a terminal child's fallback is its
+short summary. Put each step's explanation in the parent's child `script: |`.
+The main overview retains its definitions, example, and theorem after its
+graph. Terminal views retain their full Markdown body after the parent-map
+disclosure. Each preview is a timed cut of the parent's video alongside the
+reader-facing explanation of that step; a child's own video is its separate,
+deeper overview. Keep production narration in `scripts/`: `overview.md` at the
+top level, and each main node's script and subnode scripts in `node1/`, `node2/`,
+and so on, retaining descriptive filenames. Keep supporting sources in that
+node folder's `reference/` directory.
 Validate dependency references and cycles, cut bounds, and script content.
 Render inline `$...$` and display `$$...$$` math at build time with MathJax SVG.
+Refer directly to the group ring $\mathbb Z[X]/(X^n-1)$ or $\mathbb Z[C_n]$;
+avoid introducing an additional symbol for it. Use “this group ring” in prose
+once the context is clear.
 Keep generated math styles in the shared `math.css`; content needs no client
 math renderer. Preserve node paths and parent context when editing the loader.
 Every non-root view must have a visible link back to its direct parent.

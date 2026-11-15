@@ -132,9 +132,6 @@ describe("node files and dependency navigation", () => {
       const children = owner.node.children.filter(({ node }) => !node.supplemental);
       const graphStart = html.indexOf('aria-label="Node dependency graph"');
       expect(graphStart).toBeGreaterThan(html.indexOf("Full overview ·"));
-      expect(graphStart).toBeLessThan(
-        html.indexOf('class="max-w-175 text-center text-lg"'),
-      );
       expect([...html.matchAll(/aria-label="Explore node:/g)]).toHaveLength(
         children.length,
       );

@@ -28,7 +28,7 @@ describe("supplied eight-node proof map", () => {
     expect(html).toContain("fill-white stroke-theme/50");
   });
 
-  test("the example comes first, all eight titles remain, and no deeper proof is invented", () => {
+  test("the example comes first, all eight titles remain, and only supplied refinements appear", () => {
     expect(children.filter(({ node }) => node.number).map(({ node }) => node.title)).toEqual([
       "Group-Ring Encoding", "Restriction on the Order", "The Three Evaluations", "The Δ-Theorem",
       "Signs Become All Ones", "Odd-Order Rigidity", "From Products to Sums", "The Final Contradiction",
@@ -36,7 +36,9 @@ describe("supplied eight-node proof map", () => {
     expect(html.indexOf("Start here · Proof by Example: n = 36")).toBeLessThan(html.indexOf("Then · The General Odd-u Proof"));
     expect(html).toContain("Accepted black box · Proposition 2.2");
     expect(html).toContain("Accepted black box · Proposition 3.4");
-    for (const { node } of children) expect(node.children).toEqual([]);
+    for (const { node } of children) {
+      if (node.id !== "group-ring-encoding") expect(node.children).toEqual([]);
+    }
     expect(entries.find(({ node }) => node.id === "proof-by-example").node.script.join(" ")).not.toContain("\\zeta_S");
   });
 

@@ -12,27 +12,33 @@ conclusion, and two reading routes. Start with
 [proof-by-example.md](nodes/proof-by-example.md) for the order-36 case; the
 general route is [general-proof.md](nodes/general-proof.md). Each statement
 page puts the example before the general notation. Propositions 2.2 and 3.4
-are explicitly accepted black boxes. No internal proof graphs have been added.
+are explicitly accepted black boxes. [Group-Ring Encoding](nodes/group-ring-encoding.md)
+now expands into five subnodes (1.1–1.5); the other main nodes remain at the
+high level. Each new subnode has a written proof and a separate video script.
 
 The former background outline is retained in [archive/nodes/](archive/nodes/)
 and is not built. Active nodes have new descriptive URLs.
 
-Draft video narration and animation directions in [scripts/](scripts/README.md),
-using the corresponding node's filename. The supplied introduction is saved as
-[scripts/overview.md](scripts/overview.md). These production drafts are not
-automatically published by the website build.
+Draft video narration and animation directions in [scripts/](scripts/README.md).
+Keep the introduction in [scripts/overview.md](scripts/overview.md), and group
+each main node's script and subnode scripts in a numbered folder: Node 1 uses
+[scripts/node1/](scripts/node1/). Create the other numbered folders as their
+scripts are added.
+Retain descriptive filenames such as `group-ring-encoding.md` inside those
+folders. These production drafts are not automatically published by the website build.
 
-When ready, adapt the narration into the node's Markdown explanation and add
-the corresponding reader-facing `script: |` under its entry in `overview.md`
-for each overview cut. Until then, previews use the short summary. Keep video
-sources and cut timings unset until supplied.
+Adapt the narration into reader-facing explanations under each child's
+`script: |` entry in its parent file. A terminal node keeps its full explanation
+in its own Markdown body. A node with children uses its body for the goal
+statement displayed in its parent's section. Keep video sources and cut timings
+unset until supplied.
 
 Edit the `.md` files in [nodes/](nodes/), starting at
 [overview.md](nodes/overview.md). Use **node** at every level and name each file
 `<id>.md`. The shared vocabulary is in [GLOSSARY.md](../GLOSSARY.md).
 
-Each file begins with YAML frontmatter, followed by its written script and
-explanation in Markdown. Node references use IDs rather than JavaScript imports:
+Each file begins with YAML frontmatter, followed by its explanation or goal
+statement in Markdown. Node references use IDs rather than JavaScript imports:
 
 ```markdown
 ---
@@ -77,9 +83,18 @@ LaTeX backslashes need no JavaScript escaping. MathJax generates SVG at build
 time, with shared styles in `math.css`. No client-side math script is needed.
 Malformed YAML, missing node references, and malformed equations fail the build.
 
-The body is the node's readable script and explanation, rather than a required
-verbatim transcript. The parent file owns each cut's `script` as an indented
-Markdown literal block (`|`); the child's own file owns the deeper explanation.
+The text is reader-facing exposition, rather than a required verbatim
+transcript. The parent file owns each child's section text in an indented
+Markdown literal block (`script: |`). For example, Node 1 splits its explanation
+among the Group Ring, Cyclic Shifts, Star Operation, Correlation Identity, and
+Hadamard Dictionary sections beneath its graph.
+
+The body of a non-root node with children states the main result it establishes.
+When its parent omits a child `script`, that body becomes the text in the
+parent's corresponding section. Thus the main page's Group-Ring Encoding
+section states the dictionary lemma. An explicit child `script` takes precedence;
+for a terminal child, an omitted `script` falls back to its short summary.
+Terminal nodes display their complete Markdown explanation on their own pages.
 Display order follows the overview's narrative. Reused node IDs preserve each
 view's own breadcrumbs, back button, and graph links.
 
@@ -90,7 +105,13 @@ argument and videos still await the team's material.
 
 ## Dependency graph
 
-The graph directly below each overview links to the child nodes. An arrow
+Every view starts with its video and dependency graph. Expanded non-root views
+then present the written exposition in the child sections, with a deeper link
+for each step; they do not repeat a standalone body above those sections.
+On the main overview, the Markdown body after the graph gives the definitions,
+example, and theorem. Use a Markdown blockquote with a bold theorem label and
+an italic statement for the theorem environment. Terminal views put their full
+explanation after the parent-map disclosure. The graph links to the child nodes. An arrow
 points from a prerequisite to a node that uses it. Set `dependsOn` to the IDs
 of other children in this view; an empty array means no prerequisite here.
 Dependencies determine graph placement independently of narrative order.
@@ -100,7 +121,8 @@ Use `contextFrom` for shared-notation links. These are validated but are not
 logical prerequisites; in particular the Δ-theorem does not depend on the
 Hadamard signs. All connections use the same solid arrow styling; the statement
 pages explain their inputs in words. The root's `graphLayout: proof-map` uses each node's
-`mapPosition: [x, y]` and `mapSummary` to match the supplied diagram. `number`
+`mapPosition: [x, y]` and `mapSummary` to match the supplied diagram. Use
+`graphTitle` to label a refined map; its height follows the node positions. `number`
 keeps the eight node numbers stable. Nodes use white backgrounds and the
 website's blue accent; the current node and hovered links receive a blue tint.
 
