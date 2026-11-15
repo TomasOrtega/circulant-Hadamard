@@ -7,6 +7,7 @@ number: "2.4"
 draft: false
 video:
   src: media/cyclotomic-divisibility.mp4
+  poster: media/thumbnails/cyclotomic-divisibility.jpg
   captions: media/cyclotomic-divisibility.vtt
   duration: 228.066667
 blackBox: Lemma 2.1

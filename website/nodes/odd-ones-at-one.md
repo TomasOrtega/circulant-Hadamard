@@ -7,6 +7,7 @@ number: "8.2"
 draft: false
 video:
   src: media/odd-ones-at-one.mp4
+  poster: media/thumbnails/odd-ones-at-one.jpg
   captions: media/odd-ones-at-one.vtt
   duration: 135.333333
 mapPosition: [440, 24]

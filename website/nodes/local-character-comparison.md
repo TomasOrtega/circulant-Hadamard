@@ -7,6 +7,7 @@ number: "4.3"
 draft: false
 video:
   src: media/local-character-comparison.mp4
+  poster: media/thumbnails/local-character-comparison.jpg
   captions: media/local-character-comparison.vtt
   duration: 279.166667
 mapPosition: [440, 200]

@@ -7,6 +7,7 @@ number: "6.4"
 draft: false
 video:
   src: media/residue-one-rigidity.mp4
+  poster: media/thumbnails/residue-one-rigidity.jpg
   captions: media/residue-one-rigidity.vtt
   duration: 162.533333
 foundation: true

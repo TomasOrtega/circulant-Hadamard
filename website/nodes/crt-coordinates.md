@@ -7,6 +7,7 @@ number: "3.1"
 draft: false
 video:
   src: media/crt-coordinates.mp4
+  poster: media/thumbnails/crt-coordinates.jpg
   captions: media/crt-coordinates.vtt
   duration: 131.2
 foundation: true

@@ -7,6 +7,7 @@ number: "2.5"
 draft: false
 video:
   src: media/fold-and-divide.mp4
+  poster: media/thumbnails/fold-and-divide.jpg
   captions: media/fold-and-divide.vtt
   duration: 175.333333
 mapPosition: [240, 420]

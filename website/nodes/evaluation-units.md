@@ -7,6 +7,7 @@ number: "6.2"
 draft: false
 video:
   src: media/evaluation-units.mp4
+  poster: media/thumbnails/evaluation-units.jpg
   captions: media/evaluation-units.vtt
   duration: 185.666667
 mapPosition: [440, 24]

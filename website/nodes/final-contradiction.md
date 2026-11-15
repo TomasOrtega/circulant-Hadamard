@@ -8,6 +8,7 @@ number: 8
 draft: false
 video:
   src: media/final-contradiction.mp4
+  poster: media/thumbnails/final-contradiction.jpg
   captions: media/final-contradiction.vtt
   duration: 162.333333
 mapPosition:
@@ -19,7 +20,7 @@ graphTitle: Inside Node 8 · The Final Contradiction
 children:
   - node: roots-cancel-ones
     dependsOn: []
-    segment: { start: 17.47, end: 49.59 }
+    segment: { start: 17.47, end: 49.59, poster: media/thumbnails/excerpts/roots-cancel-ones.jpg }
     script: |
       > **Lemma (Vanishing away from one).** For
       > $J(P)=1+P+\cdots+P^{u^2-1}$ and every nonempty subset $S$ of the
@@ -37,7 +38,7 @@ children:
       any modular reduction.
   - node: odd-ones-at-one
     dependsOn: []
-    segment: { start: 76.37, end: 97.43 }
+    segment: { start: 76.37, end: 97.43, poster: media/thumbnails/excerpts/odd-ones-at-one.jpg }
     script: |
       > **Lemma (The value at one).** The remaining evaluation satisfies
       >
@@ -56,7 +57,7 @@ children:
     dependsOn:
       - roots-cancel-ones
       - odd-ones-at-one
-    segment: { start: 49.59, end: 97.43 }
+    segment: { start: 49.59, end: 97.43, poster: media/thumbnails/excerpts/surviving-odd-term.jpg }
     script: |
       > **Lemma (One surviving term).** The coefficient congruence
       > $E(P)\equiv J(P)\pmod{1+i}$ gives
@@ -75,7 +76,7 @@ children:
   - node: incompatible-residues
     dependsOn:
       - surviving-odd-term
-    segment: { start: 97.43, end: 115.83 }
+    segment: { start: 97.43, end: 115.83, poster: media/thumbnails/excerpts/incompatible-residues.jpg }
     script: |
       > **Proposition (The contradiction).** No circulant Hadamard matrix
       > has order $4u^2$ with $u>1$ odd: its polynomials would satisfy
@@ -94,7 +95,7 @@ children:
   - node: theorem
     dependsOn:
       - incompatible-residues
-    segment: { start: 115.83, end: 162.333333 }
+    segment: { start: 115.83, end: 162.333333, poster: media/thumbnails/excerpts/theorem.jpg }
     script: |
       > **Theorem (Circulant Hadamard).** A real circulant Hadamard matrix
       > exists if and only if its order is $1$ or $4$.

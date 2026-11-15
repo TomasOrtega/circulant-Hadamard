@@ -7,6 +7,7 @@ number: "2.3"
 draft: false
 video:
   src: media/power-of-two-cycle.mp4
+  poster: media/thumbnails/power-of-two-cycle.jpg
   captions: media/power-of-two-cycle.vtt
   duration: 156.5
 mapPosition: [40, 210]

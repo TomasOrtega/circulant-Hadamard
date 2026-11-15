@@ -7,6 +7,7 @@ number: "4.4"
 draft: false
 video:
   src: media/integral-delta.mp4
+  poster: media/thumbnails/integral-delta.jpg
   captions: media/integral-delta.vtt
   duration: 180.966667
 mapPosition: [240, 380]

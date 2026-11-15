@@ -7,6 +7,7 @@ number: "7.3"
 draft: false
 video:
   src: media/cancel-before-reduction.mp4
+  poster: media/thumbnails/cancel-before-reduction.jpg
   captions: media/cancel-before-reduction.vtt
   duration: 214.9
 mapPosition: [240, 220]

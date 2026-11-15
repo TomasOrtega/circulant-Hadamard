@@ -7,6 +7,7 @@ number: "7.2"
 draft: false
 video:
   src: media/expand-integral-products.mp4
+  poster: media/thumbnails/expand-integral-products.jpg
   captions: media/expand-integral-products.vtt
   duration: 203.2
 mapPosition: [440, 24]

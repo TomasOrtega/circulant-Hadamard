@@ -7,6 +7,7 @@ number: "7.4"
 draft: false
 video:
   src: media/vanishing-alternating-sum.mp4
+  poster: media/thumbnails/vanishing-alternating-sum.jpg
   captions: media/vanishing-alternating-sum.vtt
   duration: 194.533333
 mapPosition: [240, 420]

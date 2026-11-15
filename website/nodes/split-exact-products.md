@@ -7,6 +7,7 @@ number: "7.1"
 draft: false
 video:
   src: media/split-exact-products.mp4
+  poster: media/thumbnails/split-exact-products.jpg
   captions: media/split-exact-products.vtt
   duration: 153.533333
 mapPosition: [40, 24]

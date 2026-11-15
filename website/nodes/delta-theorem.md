@@ -9,6 +9,7 @@ number: 4
 draft: false
 video:
   src: media/delta-theorem.mp4
+  poster: media/thumbnails/delta-theorem.jpg
   captions: media/delta-theorem.vtt
   duration: 238.8
 mapPosition:
@@ -20,7 +21,7 @@ graphTitle: Inside Node 4 · From a Circle to Roots of Unity
 children:
   - node: circle-evaluations
     dependsOn: []
-    segment: { start: 15.81, end: 57.83 }
+    segment: { start: 15.81, end: 57.83, poster: media/thumbnails/excerpts/circle-evaluations.jpg }
     script: |
       > **Lemma (The evaluation circle).** *If
       > $f(P)f^*(P)=u^2$ in $\mathbb Z[i][P]/(P^{u^2}-1)$, then
@@ -47,7 +48,7 @@ children:
   - node: alternating-phase-product
     dependsOn:
       - circle-evaluations
-    segment: { start: 103.13, end: 168.05 }
+    segment: { start: 103.13, end: 168.05, poster: media/thumbnails/excerpts/alternating-phase-product.jpg }
     script: |
       Let $I$ be the set of distinct primes dividing $u$. Choose a primitive
       $p$th root $\zeta_p$ for each $p\in I$, and put
@@ -105,7 +106,7 @@ children:
     dependsOn:
       - alternating-phase-product
       - local-character-comparison
-    segment: { start: 188.5, end: 193.76 }
+    segment: { start: 188.5, end: 193.76, poster: media/thumbnails/excerpts/integral-delta.jpg }
     script: |
       > **Lemma (Integrality).** *The alternating product $\Delta(f)$
       > is an algebraic integer. Above each prime dividing $u$, it is
@@ -133,7 +134,7 @@ children:
     dependsOn:
       - alternating-phase-product
       - integral-delta
-    segment: { start: 168.05, end: 197.79 }
+    segment: { start: 168.05, end: 197.79, poster: media/thumbnails/excerpts/kronecker-step.jpg }
     script: |
       > **Kronecker's theorem.** *An algebraic integer all of whose
       > conjugates have absolute value $1$ is a root of unity.*
@@ -154,7 +155,7 @@ children:
     dependsOn:
       - local-character-comparison
       - kronecker-step
-    segment: { start: 197.79, end: 216.39 }
+    segment: { start: 197.79, end: 216.39, poster: media/thumbnails/excerpts/delta-odd-order.jpg }
     script: |
       > **Lemma (Odd order).** *The order of $\Delta(f)$ is a power
       > of every prime dividing $u$. In particular it is odd.*

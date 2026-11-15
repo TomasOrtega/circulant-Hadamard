@@ -8,6 +8,7 @@ number: 6
 draft: false
 video:
   src: media/odd-order-rigidity.mp4
+  poster: media/thumbnails/odd-order-rigidity.jpg
   captions: media/odd-order-rigidity.vtt
   duration: 261.966667
 mapPosition:
@@ -19,7 +20,7 @@ graphTitle: Inside Node 6 · Odd-Order Rigidity
 children:
   - node: odd-comparison-products
     dependsOn: []
-    segment: { start: 29.77, end: 55.63 }
+    segment: { start: 29.77, end: 55.63, poster: media/thumbnails/excerpts/odd-comparison-products.jpg }
     script: |
       > **Lemma (Odd comparison products).** The quantities
       >
@@ -41,7 +42,7 @@ children:
 
   - node: evaluation-units
     dependsOn: []
-    segment: { start: 71.29, end: 91.99 }
+    segment: { start: 71.29, end: 91.99, poster: media/thumbnails/excerpts/evaluation-units.jpg }
     script: |
       > **Lemma (Unit evaluations).** For odd $u>1$, work in
       >
@@ -68,7 +69,7 @@ children:
   - node: sign-ratio-congruences
     dependsOn:
       - evaluation-units
-    segment: { start: 55.63, end: 110.29 }
+    segment: { start: 55.63, end: 110.29, poster: media/thumbnails/excerpts/sign-ratio-congruences.jpg }
     script: |
       > **Lemma (Residue-one comparisons).** Every evaluated ratio
       > $d(\zeta_S)/c(\zeta_S)$ and $g(\zeta_S)/c(\zeta_S)$ has residue one.
@@ -92,7 +93,7 @@ children:
     dependsOn:
       - odd-comparison-products
       - sign-ratio-congruences
-    segment: { start: 110.29, end: 145.03 }
+    segment: { start: 110.29, end: 145.03, poster: media/thumbnails/excerpts/residue-one-rigidity.jpg }
     script: |
       > **Lemma (Odd-order rigidity).** A root of unity of odd order in a
       > characteristic-zero domain that reduces to one in a nonzero ring
@@ -114,7 +115,7 @@ children:
   - node: exact-comparison-identities
     dependsOn:
       - residue-one-rigidity
-    segment: { start: 145.03, end: 218.59 }
+    segment: { start: 145.03, end: 218.59, poster: media/thumbnails/excerpts/exact-comparison-identities.jpg }
     script: |
       > **Proposition (Exact comparisons).** In general, $R=W=1$ equates
       > the even- and odd-subset products. For $u=3$, it gives

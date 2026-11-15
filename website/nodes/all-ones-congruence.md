@@ -8,6 +8,7 @@ number: "5.3"
 draft: false
 video:
   src: media/all-ones-congruence.mp4
+  poster: media/thumbnails/all-ones-congruence.jpg
   captions: media/all-ones-congruence.vtt
   duration: 157.933333
 mapPosition: [240, 220]

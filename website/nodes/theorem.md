@@ -7,6 +7,7 @@ number: "8.5"
 draft: false
 video:
   src: media/theorem.mp4
+  poster: media/thumbnails/theorem.jpg
   captions: media/theorem.vtt
   duration: 119.266667
 mapPosition: [240, 620]

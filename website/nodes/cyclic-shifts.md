@@ -8,6 +8,7 @@ number: "1.2"
 draft: false
 video:
   src: media/cyclic-shifts.mp4
+  poster: media/thumbnails/cyclic-shifts.jpg
   captions: media/cyclic-shifts.vtt
   duration: 102.8
 mapPosition:

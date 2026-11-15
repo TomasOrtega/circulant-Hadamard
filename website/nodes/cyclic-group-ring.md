@@ -8,6 +8,7 @@ number: "1.1"
 draft: false
 video:
   src: media/cyclic-group-ring.mp4
+  poster: media/thumbnails/cyclic-group-ring.jpg
   captions: media/cyclic-group-ring.vtt
   duration: 120.033333
 mapPosition:

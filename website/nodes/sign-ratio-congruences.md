@@ -7,6 +7,7 @@ number: "6.3"
 draft: false
 video:
   src: media/sign-ratio-congruences.mp4
+  poster: media/thumbnails/sign-ratio-congruences.jpg
   captions: media/sign-ratio-congruences.vtt
   duration: 199.766667
 mapPosition: [440, 200]

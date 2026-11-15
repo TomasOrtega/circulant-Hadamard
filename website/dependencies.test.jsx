@@ -197,18 +197,36 @@ describe("one long video per node", () => {
     expect(html).toContain("Excerpt not added yet");
   });
 
-  test("native cuts share the overview source and include playback bounds", () => {
+  test("native cuts share the overview source and poster and include playback bounds", () => {
     const parent = {
       ...rootNode, graphLayout: null,
-      video: { src: "media/long.mp4", duration: 300 },
+      video: { src: "media/long.mp4", poster: "media/thumbnails/long.jpg", duration: 300 },
       children: [child("detail", [], { start: 10.5, end: 45.5 })],
     };
     const { html } = render(parent);
     expect(html).toContain('src="./media/long.mp4#t=10.5,45.5"');
+    expect([...html.matchAll(/poster="\.\/media\/thumbnails\/long\.jpg"/g)]).toHaveLength(2);
     expect(html).toContain('data-cut-start="10.5"');
     expect(html).toContain('data-cut-end="45.5"');
     expect(html).toContain('src="./video-player.js"');
     expect(html).toContain("Parent narration for detail");
+  });
+
+  test("a native excerpt can show its own frame without changing its parent video source", () => {
+    const parent = {
+      ...rootNode, graphLayout: null,
+      video: { src: "media/long.mp4", poster: "media/thumbnails/long.jpg", duration: 300 },
+      children: [child("detail", [], {
+        start: 10.5, end: 45.5, poster: "media/thumbnails/excerpts/detail.jpg",
+      })],
+    };
+    const { html } = render(parent);
+    const overview = html.match(/<video\b[^>]*aria-label="Overview video:[^"]*"[^>]*>/)[0];
+    const excerpt = html.match(/<video\b[^>]*aria-label="Node excerpt:[^"]*"[^>]*>[\s\S]*?<\/video>/)[0];
+    expect(overview).toContain('poster="./media/thumbnails/long.jpg"');
+    expect(excerpt).toContain('poster="./media/thumbnails/excerpts/detail.jpg"');
+    expect(excerpt).toContain('src="./media/long.mp4#t=10.5,45.5"');
+    expect(parent.video.poster).toBe("media/thumbnails/long.jpg");
   });
 
   test("invalid or out-of-video cut times fail before publishing", () => {

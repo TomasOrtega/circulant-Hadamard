@@ -8,6 +8,7 @@ number: 3
 draft: false
 video:
   src: media/three-evaluations.mp4
+  poster: media/thumbnails/three-evaluations.jpg
   captions: media/three-evaluations.vtt
   duration: 214.966667
 mapPosition:
@@ -19,7 +20,7 @@ graphTitle: Inside Node 3 · The Three Evaluations
 children:
   - node: crt-coordinates
     dependsOn: []
-    segment: { start: 16.55, end: 40.81 }
+    segment: { start: 16.55, end: 40.81, poster: media/thumbnails/excerpts/crt-coordinates.jpg }
     script: |
       Because $u$ is odd, $4$ and $u^2$ are coprime. Positions with
       the same residues modulo both have difference divisible by
@@ -37,7 +38,7 @@ children:
   - node: four-sign-polynomials
     dependsOn:
       - crt-coordinates
-    segment: { start: 40.81, end: 62.83 }
+    segment: { start: 40.81, end: 62.83, poster: media/thumbnails/excerpts/four-sign-polynomials.jpg }
     script: |
       Group the terms of $h(Z,P)$ by their $Z$-exponent:
 
@@ -56,7 +57,7 @@ children:
   - node: evaluate-four-cycle
     dependsOn:
       - four-sign-polynomials
-    segment: { start: 62.83, end: 90.45 }
+    segment: { start: 62.83, end: 90.45, poster: media/thumbnails/excerpts/evaluate-four-cycle.jpg }
     script: |
       The choices $Z=1,-1,i$ satisfy $Z^4=1$, so they define ring maps.
       They give
@@ -78,7 +79,7 @@ children:
   - node: halve-sign-sums
     dependsOn:
       - four-sign-polynomials
-    segment: { start: 115.07, end: 143.23 }
+    segment: { start: 115.07, end: 143.23, poster: media/thumbnails/excerpts/halve-sign-sums.jpg }
     script: |
       Fix the four signs $a_0,a_1,a_2,a_3$ belonging to one power of $P$.
       The coefficients at $Z=1,-1$ are
@@ -97,7 +98,7 @@ children:
     dependsOn:
       - evaluate-four-cycle
       - halve-sign-sums
-    segment: { start: 90.45, end: 115.07 }
+    segment: { start: 90.45, end: 115.07, poster: media/thumbnails/excerpts/normalized-evaluation-norms.jpg }
     script: |
       Define
 

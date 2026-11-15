@@ -8,6 +8,7 @@ number: 1
 draft: false
 video:
   src: media/group-ring-encoding.mp4
+  poster: media/thumbnails/group-ring-encoding.jpg
   captions: media/group-ring-encoding.vtt
   duration: 200.566667
 mapPosition:
@@ -19,7 +20,7 @@ graphTitle: Inside Node 1 · Group-Ring Encoding
 children:
   - node: cyclic-group-ring
     dependsOn: []
-    segment: { start: 16.51, end: 45.89 }
+    segment: { start: 16.51, end: 45.89, poster: media/thumbnails/excerpts/cyclic-group-ring.jpg }
     script: |
       Let $C_n=\langle X\mid X^n=1\rangle$. Its integer group ring is
 
@@ -47,7 +48,7 @@ children:
   - node: cyclic-shifts
     dependsOn:
       - cyclic-group-ring
-    segment: { start: 45.89, end: 69.27 }
+    segment: { start: 45.89, end: 69.27, poster: media/thumbnails/excerpts/cyclic-shifts.jpg }
     script: |
       Multiplication by $X$ shifts the coefficient list one position to
       the right. Reducing $X^n$ to $1$ gives
@@ -71,7 +72,7 @@ children:
   - node: star-operation
     dependsOn:
       - cyclic-group-ring
-    segment: { start: 69.27, end: 99.31 }
+    segment: { start: 69.27, end: 99.31, poster: media/thumbnails/excerpts/star-operation.jpg }
     script: |
       Define the star operation by
 
@@ -99,7 +100,7 @@ children:
       - star-operation
     contextFrom:
       - cyclic-group-ring
-    segment: { start: 99.31, end: 135.35 }
+    segment: { start: 99.31, end: 135.35, poster: media/thumbnails/excerpts/correlation-identity.jpg }
     script: |
       Multiplying by the reversed polynomial records all the cyclic dot
       products at once. For $0\leq a<n$,
@@ -128,7 +129,7 @@ children:
     dependsOn:
       - cyclic-shifts
       - correlation-identity
-    segment: { start: 135.35, end: 200.566667 }
+    segment: { start: 135.35, end: 200.566667, poster: media/thumbnails/excerpts/hadamard-dictionary.jpg }
     script: |
       > **Lemma (Circulant Hadamard Dictionary).** *Let $h(X)=\sum_{j=0}^{n-1}h_jX^j$
       > with every $h_j=\pm1$, and let $H$ be the circulant matrix whose first row is

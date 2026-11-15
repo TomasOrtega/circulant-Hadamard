@@ -58,19 +58,41 @@ describe("recursive node navigation", () => {
     }
   });
 
-  test("published local overview players resolve their videos and captions", () => {
+  test("published local overview players resolve their videos, captions, and posters", () => {
     for (const entry of entries.filter(({ node }) => node.video?.src?.startsWith("media/"))) {
       const html = readFileSync(join(output, pagePath(entry)), "utf8");
-      const player = html.match(/<video\b[^>]*aria-label="Overview video:[^"]*"[^>]*>([\s\S]*?)<\/video>/)?.[1];
+      const player = html.match(/<video\b[^>]*aria-label="Overview video:[^"]*"[^>]*>[\s\S]*?<\/video>/)?.[0];
       expect(player, entry.node.id).toBeDefined();
       const source = player.match(/<source\b[^>]*src="([^"]+)"/)?.[1];
       const captions = player.match(/<track\b[^>]*kind="captions"[^>]*src="([^"]+)"/)?.[1];
+      const poster = player.match(/\bposter="([^"]+)"/)?.[1];
       expect(source?.endsWith(entry.node.video.src), entry.node.id).toBe(true);
       expect(captions?.endsWith(entry.node.video.captions), entry.node.id).toBe(true);
+      expect(entry.node.video.poster, entry.node.id).toBe(`media/thumbnails/${entry.node.id}.jpg`);
+      expect(poster?.endsWith(entry.node.video.poster), entry.node.id).toBe(true);
       const page = pathToFileURL(resolve(output, pagePath(entry)));
       expect(existsSync(decodeURIComponent(new URL(source, page).pathname)), entry.node.id).toBe(true);
       expect(readFileSync(decodeURIComponent(new URL(captions, page).pathname), "utf8").startsWith("WEBVTT\n"), entry.node.id).toBe(true);
+      const image = readFileSync(decodeURIComponent(new URL(poster, page).pathname));
+      expect([...image.subarray(0, 3)], entry.node.id).toEqual([0xff, 0xd8, 0xff]);
       expect(entry.node.video.duration, entry.node.id).toBeGreaterThan(0);
+    }
+  });
+
+  test("every published native excerpt has its own reachable JPEG poster", () => {
+    for (const entry of entries.filter(({ node }) => node.video?.src?.startsWith("media/"))) {
+      const html = readFileSync(join(output, pagePath(entry)), "utf8");
+      const players = [...html.matchAll(/<video\b[^>]*aria-label="Node excerpt:[^"]*"[^>]*>[\s\S]*?<\/video>/g)];
+      const cuts = entry.node.children.filter(({ segment }) => segment);
+      expect(players, entry.node.id).toHaveLength(cuts.length);
+      cuts.forEach(({ node, segment }, index) => {
+        const poster = players[index][0].match(/\bposter="([^"]+)"/)?.[1];
+        expect(segment.poster, node.id).toBe(`media/thumbnails/excerpts/${node.id}.jpg`);
+        expect(poster?.endsWith(segment.poster), node.id).toBe(true);
+        const page = pathToFileURL(resolve(output, pagePath(entry)));
+        const image = readFileSync(decodeURIComponent(new URL(poster, page).pathname));
+        expect([...image.subarray(0, 3)], node.id).toEqual([0xff, 0xd8, 0xff]);
+      });
     }
   });
 
@@ -287,7 +309,7 @@ describe("node authoring constraints", () => {
   test("configured videos render real players and relative file URLs work at depth", () => {
     const child = {
       ...rootNode.children[0].node,
-      video: { src: "media/test.mp4", captions: "media/test.vtt" },
+      video: { src: "media/test.mp4", captions: "media/test.vtt", poster: "media/thumbnails/test.jpg" },
     };
     const configured = collectNodes({
       ...rootNode, graphLayout: null,
@@ -312,6 +334,7 @@ describe("node authoring constraints", () => {
     );
     expect(childHtml).toContain('src="../../media/test.mp4"');
     expect(childHtml).toContain('src="../../media/test.vtt"');
+    expect(childHtml).toContain('poster="../../media/thumbnails/test.jpg"');
     expect(childHtml).toContain("controls");
   });
 });

@@ -7,6 +7,7 @@ number: "3.5"
 draft: false
 video:
   src: media/normalized-evaluation-norms.mp4
+  poster: media/thumbnails/normalized-evaluation-norms.jpg
   captions: media/normalized-evaluation-norms.vtt
   duration: 138.566667
 mapPosition: [240, 560]

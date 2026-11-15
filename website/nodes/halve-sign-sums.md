@@ -7,6 +7,7 @@ number: "3.4"
 draft: false
 video:
   src: media/halve-sign-sums.mp4
+  poster: media/thumbnails/halve-sign-sums.jpg
   captions: media/halve-sign-sums.vtt
   duration: 127.466667
 mapPosition: [440, 360]

@@ -8,6 +8,7 @@ number: 2
 draft: false
 video:
   src: media/restriction-on-the-order.mp4
+  poster: media/thumbnails/restriction-on-the-order.jpg
   captions: media/restriction-on-the-order.vtt
   duration: 165.566667
 mapPosition:

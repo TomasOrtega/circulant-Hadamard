@@ -8,6 +8,7 @@ number: "1.3"
 draft: false
 video:
   src: media/star-operation.mp4
+  poster: media/thumbnails/star-operation.jpg
   captions: media/star-operation.vtt
   duration: 137.333333
 mapPosition:

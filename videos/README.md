@@ -33,6 +33,27 @@ without declaring it. The unchanged upstream [animation guide and license](refer
 are included locally. The [original Chirp recording](../narration/achird-math-sample.wav)
 and its [script](../narration/achird-math-sample.txt) remain the voice baseline.
 
+## Website thumbnails
+
+The website posters are selected frames from the published videos. They retain
+the original Manim typography, colors, and mathematical illustrations. Reviewed
+timestamps, selection reasons, and source-video hashes are recorded in
+[thumbnail-selections.json](thumbnail-selections.json). Each existing excerpt
+has a separate selection inside its playback bounds.
+
+Regenerate the 1280-by-720 JPEGs using the existing video environment:
+
+```sh
+uv run --locked --group video python -m videos.thumbnails
+```
+
+To regenerate one video and its excerpts, append its node ID, for example
+`signs-become-all-ones`. The script refuses a changed video hash: review a
+completed frame in the new render and update its selections first. It writes
+the final assets to `website/media/thumbnails/`; node `video.poster` and child
+`segment.poster` metadata attach them to the players. Rebuild the website after
+regenerating. Source videos, narration, and playback timings are untouched.
+
 ## Authenticate once for new narration
 
 Cloud Text-to-Speech is already enabled in the selected Google project. Install

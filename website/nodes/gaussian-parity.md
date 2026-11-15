@@ -7,6 +7,7 @@ number: "5.2"
 draft: false
 video:
   src: media/gaussian-parity.mp4
+  poster: media/thumbnails/gaussian-parity.jpg
   captions: media/gaussian-parity.vtt
   duration: 165.366667
 foundation: true

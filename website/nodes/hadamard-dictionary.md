@@ -7,6 +7,7 @@ number: "1.5"
 draft: false
 video:
   src: media/hadamard-dictionary.mp4
+  poster: media/thumbnails/hadamard-dictionary.jpg
   captions: media/hadamard-dictionary.vtt
   duration: 195.433333
 mapPosition:

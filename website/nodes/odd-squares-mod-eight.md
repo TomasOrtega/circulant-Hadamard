@@ -8,6 +8,7 @@ number: "2.6"
 draft: false
 video:
   src: media/odd-squares-mod-eight.mp4
+  poster: media/thumbnails/odd-squares-mod-eight.jpg
   captions: media/odd-squares-mod-eight.vtt
   duration: 166.233333
 mapPosition: [240, 600]
