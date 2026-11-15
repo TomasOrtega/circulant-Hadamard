@@ -243,6 +243,7 @@ falls back to copying the link.
 After the page title scrolls away, the top-left contents button opens links to
 the current page's headings. Section links keep the panel open; its first item
 returns to the title and closes it.
+Heading links scroll smoothly unless reduced motion is enabled.
 Desktop pages reserve a reading lane beside it; smaller screens use a drawer
 that closes with its close button, Escape, or a click outside. The masthead's
 top-right dark-mode switch remembers the appearance choice across pages.
