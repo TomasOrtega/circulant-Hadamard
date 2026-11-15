@@ -1,0 +1,134 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:05.420
+Let u be odd and greater than one, and
+let I be its distinct prime divisors.
+
+00:00:05.860 --> 00:00:10.740
+For each subset S, multiply its chosen
+prime roots to obtain zeta sub S.
+
+00:00:11.260 --> 00:00:14.360
+The empty subset gives one. At that input,
+
+00:00:14.360 --> 00:00:20.260
+let r sub S be d divided by c,
+and w sub S be g divided by c.
+
+00:00:21.240 --> 00:00:27.300
+Use one ring A: the integers with i, the
+chosen roots, and one over u adjoined.
+
+00:00:27.680 --> 00:00:33.100
+The norm identities make every evaluated
+polynomial a unit in A. In particular,
+
+00:00:33.700 --> 00:00:38.320
+the inverse of c at zeta sub S is its
+complex conjugate divided by u squared.
+
+00:00:38.980 --> 00:00:42.840
+Thus all these ratios belong
+to the same ring and are units.
+
+00:00:43.900 --> 00:00:48.720
+Node six gives an exact alternating
+product of the r ratios equal to one.
+
+00:00:49.040 --> 00:00:52.780
+An even subset contributes its
+ratio with exponent positive one.
+
+00:00:53.100 --> 00:00:56.530
+An odd subset contributes the
+inverse, with exponent negative one.
+
+00:00:56.560 --> 00:01:01.400
+Move the even factors above a fraction
+bar and the odd factors below it.
+
+00:01:01.680 --> 00:01:03.540
+This is the same exact product.
+
+00:01:04.600 --> 00:01:07.400
+Now multiply both sides
+by the odd-subset product.
+
+00:01:08.020 --> 00:01:11.460
+It is a product of units.
+The denominator cancels,
+
+00:01:11.760 --> 00:01:15.140
+leaving the even-subset product
+equal to the odd-subset product.
+
+00:01:15.660 --> 00:01:18.240
+This equality holds in
+A, before reduction.
+
+00:01:18.920 --> 00:01:20.900
+All factors now have positive exponents.
+
+00:01:21.820 --> 00:01:25.520
+For u equal to three, there
+are just two subsets: empty,
+
+00:01:25.520 --> 00:01:29.780
+and the subset containing three.
+The product equality is simply r
+
+00:01:29.780 --> 00:01:34.250
+at the empty subset equal to r
+at the subset containing three.
+
+00:01:34.800 --> 00:01:39.690
+For u equal to fifteen, the two
+distinct primes are three and five.
+
+00:01:40.080 --> 00:01:44.440
+There are four subsets. The even
+subsets are empty and the pair three,
+
+00:01:44.900 --> 00:01:47.500
+five; the odd subsets
+are the two singletons.
+
+00:01:48.060 --> 00:01:52.800
+The exact equality is r at the
+empty subset times r at the pair,
+
+00:01:52.800 --> 00:01:58.360
+equal to r at three times r at
+five. This constrains two products.
+
+00:01:59.060 --> 00:02:02.060
+It does not require all four
+individual ratios to coincide.
+
+00:02:03.180 --> 00:02:05.780
+Keep the product identity
+for the general argument.
+
+00:02:07.120 --> 00:02:11.160
+The w ratios obey the same exact
+alternating-product identity.
+
+00:02:11.640 --> 00:02:14.860
+Move their odd-subset factors
+across in the same way.
+
+00:02:15.360 --> 00:02:19.180
+Their even-subset product equals
+their odd-subset product, again in A.
+
+00:02:19.560 --> 00:02:23.860
+Keep both equalities together.
+We now have finite products with
+
+00:02:23.860 --> 00:02:27.400
+only positive exponents, built
+from the same evaluation ring.
+
+00:02:28.120 --> 00:02:32.000
+The next step can expand each side
+directly and compare the linear terms.

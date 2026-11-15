@@ -5,7 +5,10 @@ shortTitle: Split the Products
 summary: Put the even and odd subsets on opposite sides of each exact product identity.
 number: "7.1"
 draft: true
-video: null
+video:
+  src: media/split-exact-products.mp4
+  captions: media/split-exact-products.vtt
+  duration: 153.533333
 mapPosition: [40, 24]
 mapSummary: '$\prod_{\mathrm{even}}r_S=\prod_{\mathrm{odd}}r_S$'
 ---
