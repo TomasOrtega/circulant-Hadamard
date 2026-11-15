@@ -5,7 +5,10 @@ shortTitle: Roots Cancel the Ones
 summary: Every nonempty subset gives a nontrivial root at which the all-ones polynomial vanishes exactly.
 number: "8.1"
 draft: true
-video: null
+video:
+  src: media/roots-cancel-ones.mp4
+  captions: media/roots-cancel-ones.vtt
+  duration: 189.333333
 mapPosition: [40, 24]
 mapSummary: '$J(\zeta_S)=0\quad(S\ne\varnothing)$'
 ---

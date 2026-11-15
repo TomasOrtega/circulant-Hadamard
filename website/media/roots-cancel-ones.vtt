@@ -1,0 +1,176 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:02.220
+Let u be odd and greater than one.
+
+00:00:02.660 --> 00:00:06.140
+Our all-ones polynomial J of
+P is the sum of P to the r,
+
+00:00:06.360 --> 00:00:09.080
+from r equal to zero
+through u squared minus one.
+
+00:00:09.360 --> 00:00:12.140
+Let I contain the distinct
+primes dividing u.
+
+00:00:12.800 --> 00:00:16.620
+Choose a primitive p-th
+root for each prime p.
+
+00:00:17.280 --> 00:00:21.460
+For a subset S, multiply its
+chosen roots to obtain zeta sub S.
+
+00:00:22.000 --> 00:00:26.140
+The empty subset gives the input
+one; set it aside for the next node.
+
+00:00:26.700 --> 00:00:30.760
+Our target is exact zero at
+every nonempty-subset input.
+
+00:00:32.180 --> 00:00:37.340
+For a nonempty subset, put m equal to
+the product of its distinct primes.
+
+00:00:37.640 --> 00:00:42.380
+The root zeta sub S raised to m
+equals one, so its order divides m.
+
+00:00:43.100 --> 00:00:44.640
+Fix a prime p in S.
+
+00:00:45.660 --> 00:00:49.140
+Raising to m over p removes
+all the other root factors.
+
+00:00:49.840 --> 00:00:53.100
+The remaining factor is zeta
+sub p raised to m over p.
+
+00:00:53.100 --> 00:00:57.140
+This is not one, because p
+does not divide m over p.
+
+00:00:57.540 --> 00:01:01.060
+The order therefore contains every
+prime in the squarefree number m,
+
+00:01:01.340 --> 00:01:02.640
+and must equal m.
+
+00:01:03.680 --> 00:01:08.880
+For example, take u equal to fifteen
+and S containing three and five.
+
+00:01:09.220 --> 00:01:12.450
+The fifth power of the product
+of zeta three and zeta five
+
+00:01:12.540 --> 00:01:15.340
+leaves zeta three to the
+fifth, which is nontrivial.
+
+00:01:15.900 --> 00:01:19.050
+The third power leaves zeta
+five cubed, also nontrivial.
+
+00:01:19.380 --> 00:01:22.180
+The product has order fifteen. In general,
+
+00:01:22.530 --> 00:01:26.580
+nonempty S gives m greater than
+one, and m divides u squared.
+
+00:01:27.340 --> 00:01:31.870
+Thus zeta sub S is not one,
+while its u-squared power is one.
+
+00:01:32.520 --> 00:01:37.830
+Now use a formal polynomial identity.
+Multiply J of P by P minus one.
+
+00:01:38.100 --> 00:01:42.100
+The shifted row P times J has
+powers one through u squared.
+
+00:01:42.680 --> 00:01:45.900
+Subtracting J cancels every
+matching power from P through
+
+00:01:45.900 --> 00:01:49.020
+P to the exponent u squared minus one.
+
+00:01:49.280 --> 00:01:53.420
+Only P raised to u squared,
+minus one, remains.
+
+00:01:54.060 --> 00:01:58.820
+Therefore the product of P minus
+one and J of P equals the difference
+
+00:01:58.820 --> 00:02:03.840
+between P raised to u squared
+and one. Substitute the root.
+
+00:02:04.140 --> 00:02:08.420
+Its u-squared power is one,
+so zeta sub S minus one,
+
+00:02:08.540 --> 00:02:12.915
+multiplied by J of zeta
+sub S, equals zero.
+
+00:02:13.410 --> 00:02:17.640
+These evaluated values lie in the
+characteristic-zero domain A inside
+
+00:02:17.640 --> 00:02:21.560
+the complex numbers. The
+first factor is nonzero.
+
+00:02:22.180 --> 00:02:26.170
+Cancel it in that domain to obtain
+J of zeta sub S equal to zero.
+
+00:02:26.440 --> 00:02:30.020
+This is exact, before any
+reduction modulo one plus i.
+
+00:02:31.110 --> 00:02:36.060
+For u equal to three, let omega be the
+exponential of two pi i over three.
+
+00:02:36.380 --> 00:02:40.200
+The nine powers repeat one, omega,
+and omega squared three times.
+
+00:02:40.200 --> 00:02:45.640
+J of omega equals three times the quantity
+one plus omega plus omega squared,
+
+00:02:45.780 --> 00:02:50.000
+which is zero. Draw the three unit
+vectors in each group head to tail.
+
+00:02:50.460 --> 00:02:54.060
+Each triple closes into an equilateral
+triangle, so its sum is zero.
+
+00:02:54.480 --> 00:02:57.700
+All three groups vanish exactly.
+The geometric-sum argument
+
+00:02:57.700 --> 00:03:00.680
+proves the same cancellation
+for every nonempty subset.
+
+00:03:01.320 --> 00:03:04.700
+The waiting input P equal to one
+is excluded from that conclusion.
+
+00:03:05.180 --> 00:03:08.180
+It behaves differently, and
+the next node evaluates it.
