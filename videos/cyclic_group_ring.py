@@ -9,12 +9,15 @@ from manimlib import (
     YELLOW,
     Circle,
     Dot,
+    FadeOut,
     Rotate,
+    SurroundingRectangle,
     Transform,
+    TransformFromCopy,
     VGroup,
 )
 
-from videos.node_scene import NodeScene, formula, words
+from videos.node_scene import NodeScene, formula, sign_matrix, words
 
 
 class CyclicGroupRing(NodeScene):
@@ -34,12 +37,44 @@ class CyclicGroupRing(NodeScene):
         return center, circle, labels, pointer
 
     def present(self):
-        self.section("cycle", "Positions should wrap around")
+        self.section("cycle", "One matrix, one cyclic row")
+        matrix = sign_matrix(size=0.55).move_to(LEFT * 3.4 + UP * 0.2)
+        highlight = SurroundingRectangle(matrix.get_rows()[0], buff=0.1)
+        highlight.set_color(YELLOW)
+        row = VGroup(*(entry.copy() for entry in matrix.get_rows()[0]))
+        row.scale(1.45).arrange(RIGHT, buff=0.55).move_to(RIGHT * 2.8)
+        description = words("One row determines the matrix", size=26)
+        description.move_to(RIGHT * 2.8 + UP * 1.2)
+        self.show(matrix, run_time=0.75)
+        self.show(highlight, run_time=0.35)
+        self.play(
+            *(
+                TransformFromCopy(source, target)
+                for source, target in zip(matrix.get_rows()[0], row, strict=True)
+            ),
+            run_time=1.2,
+        )
+        self.body.add(row)
+        self.show(description, run_time=0.55)
+        self.wait(1.2)
+        self.play(
+            FadeOut(matrix), FadeOut(highlight), FadeOut(description), run_time=0.45
+        )
+        self.body.remove(matrix, highlight, description)
         center, circle, labels, pointer = self.circle()
-        self.show(circle, labels, pointer)
+        self.show(circle, labels, run_time=0.65)
+        self.play(
+            *(
+                Transform(entry, entry.copy().move_to(center + direction * 1.1))
+                for entry, direction in zip(row, [UP, RIGHT, DOWN, LEFT], strict=True)
+            ),
+            run_time=1.2,
+        )
+        self.show(pointer, run_time=0.35)
         self.show(
             words("n = 4 illustration", size=25).move_to(RIGHT * 2.8 + UP * 0.8),
             formula(r"X^4=1", color=YELLOW, size=60).move_to(RIGHT * 2.8 + DOWN * 0.6),
+            run_time=0.65,
         )
         for _ in range(4):
             self.play(Rotate(pointer, -PI / 2, about_point=center), run_time=0.7)

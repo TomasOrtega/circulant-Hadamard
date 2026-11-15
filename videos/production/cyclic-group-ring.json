@@ -1,6 +1,6 @@
 {
   "source": "website/scripts/node1/cyclic-group-ring.md",
-  "source_sha256": "69a0a29befab18a30a5fc48510ff5097fbca0d7e033cc764003fb5a98d0f0977",
+  "source_sha256": "e28f50c95cfa99eb756ab4d5f877305e07c8679d518b0393ee187a7d15af546b",
   "scene": "CyclicGroupRing",
   "scene_file": "videos/cyclic_group_ring.py",
   "voice": "en-US-Chirp3-HD-Achird",
@@ -18,11 +18,12 @@
   "narration_duration": 120.00022675736962,
   "duration": 120.033333,
   "narration_sha256": "4c6c58071a40ce7ef1aca5a484dd4f88335626067d37ae041115e26612545de3",
-  "video_sha256": "c753237406db37e3aa74771c9598348f83bd5f9990fbb1e27f9676c76f99234c",
+  "video_sha256": "af731ceb72517ca3fe48e96d1e0b678b9f41489ad673779e6fa1513b0b0d4701",
   "subtitle_safe_fraction": 0.2,
   "subtitle_band_max_luma": 16.0,
   "subtitle_frames_checked": 3601,
   "production_status": "final",
-  "scene_sha256": "5c3a91f2cba357a8ffecefa93873e95c81ffb3a51f49d6282970c131bccb181c",
-  "layout_sha256": "af65a79e6ee3c1e4c50be87eaf23e651674da7cae9a65dd5fa0a5b94e9c219f2"
+  "scene_sha256": "f07be27efb3db796fb53f469f176b785684ffbb131e6a6971586a599e8f665c8",
+  "layout_sha256": "af65a79e6ee3c1e4c50be87eaf23e651674da7cae9a65dd5fa0a5b94e9c219f2",
+  "revision_preflight_started_at": "2026-11-15T03:34:32-08:00"
 }
