@@ -163,7 +163,7 @@ function ChildNode({ child, entry, entries }) {
         {node.number ? `${node.number}. ` : ""}{node.title}
       </Heading>
       <div className="grid grid-cols-[minmax(0,1fr)_14rem] items-start gap-12 max-md:grid-cols-1 max-md:gap-8">
-        <div className="flex min-w-0 flex-col gap-8">
+        <div className="flex min-w-0 flex-col gap-8 [&_blockquote]:border-y [&_blockquote]:border-theme/25 [&_blockquote]:py-6">
           <Markdown script={child.script} />
           <div className="w-full max-w-125 self-center">
             <Media
@@ -242,6 +242,8 @@ export function NodePage({ entry, entries }) {
   const root = entries[0];
   const children = (node.children ?? []).filter(({ node: child }) => !child.supplemental);
   const base = assetRoot(entry);
+  const hasOwnProofMap = node.graphLayout === "proof-map";
+  const showOwnExplanation = !entry.ancestors.length || !children.length;
   return (
     <>
       <a
@@ -282,25 +284,25 @@ export function NodePage({ entry, entries }) {
                 : node.foundation
                 ? "Undergraduate foundation"
                 : node.draft
-                  ? "Exposition draft · video scripts forthcoming"
+                  ? "Exposition draft"
                   : "Draft node"}
             </span>
           </hgroup>
-          {!entry.ancestors.length && node.graphLayout === "proof-map" && (
-            <p className="max-w-175 text-center text-xl">
-              A real circulant Hadamard matrix exists exactly at orders 1 and 4.
-            </p>
-          )}
           <ReadingRoutes entry={entry} entries={entries} />
           <div className="w-full max-w-200">
             <Media video={node.video} title={node.title} base={base} />
           </div>
           <DependencyGraph entry={entry} entries={entries} />
-          <p className="max-w-175 text-center text-lg">{node.summary}</p>
+          {showOwnExplanation && hasOwnProofMap && (
+            <div className="w-full max-w-200 rounded-md bg-white p-8 text-left max-md:p-6 [&_blockquote]:border-y [&_blockquote]:border-theme/25 [&_blockquote]:py-6">
+              <Markdown script={node.script} />
+            </div>
+          )}
+          {showOwnExplanation && <p className="max-w-175 text-center text-lg">{node.summary}</p>}
         </section>
         <section>
           <NodeDependencies entry={entry} entries={entries} />
-          <Markdown script={node.script} />
+          {showOwnExplanation && !hasOwnProofMap && <Markdown script={node.script} />}
           {!!children.length && (
             <nav
               aria-label="Child nodes in this view"

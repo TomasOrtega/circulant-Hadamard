@@ -94,6 +94,19 @@ The full overview.
     ).toThrow("match the filename");
   });
 
+  test("expanded nodes supply their goal to parent cards while explicit excerpts take precedence", () => {
+    const directory = fixture({
+      "overview.md": "---\ntitle: Overview\nchildren:\n  - node: branch\n  - node: leaf\n  - node: custom\n    script: A parent-specific explanation.\n---\nIntroduction.\n",
+      "branch.md": "---\ntitle: Branch\nsummary: Short branch summary.\nchildren:\n  - node: leaf\n---\n**Lemma.** The result this node establishes.\n",
+      "custom.md": "---\ntitle: Custom\nchildren:\n  - node: leaf\n---\nA different goal statement.\n",
+      "leaf.md": "---\ntitle: Leaf\nsummary: Short leaf summary.\n---\nThe detailed terminal proof.\n",
+    });
+    const { children } = loadNodes({ directory });
+    expect(children[0].script).toEqual(["**Lemma.** The result this node establishes."]);
+    expect(children[1].script).toEqual(["Short leaf summary."]);
+    expect(children[2].script).toEqual(["A parent-specific explanation."]);
+  });
+
   test("unknown child IDs are rejected", () => {
     const directory = fixture({
       "overview.md":

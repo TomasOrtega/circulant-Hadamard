@@ -10,7 +10,7 @@ draft: true
 
 Assume a circulant Hadamard matrix of order 36 exists. The following route derives a contradiction, accepting the Δ-theorem. It is a proof of this case, not by itself a proof for every order.
 
-1. Assume $hh^*=36$ with $Z^4=P^9=1$ and 36 signs. Define $c(P)=h(1,P)/2$, $d(P)=h(-1,P)/2$, $g(P)=h(i,P)/2$. Then $cc^*=dd^*=gg^*=9$.
+1. Assume $h(Z,P)h^*(Z,P)=36$ in the group ring with $Z^4=P^9=1$ and 36 sign coefficients. Define $c(P)=h(1,P)/2$, $d(P)=h(-1,P)/2$, $g(P)=h(i,P)/2$. Then $cc^*=dd^*=gg^*=9$.
 2. Put $\omega=e^{2\pi i/3}$. The Δ-theorem says $\Delta(f)=f(1)/f(\omega)$ has odd order for each norm-9 element $f=c,d,g$.
 3. Set
    $$

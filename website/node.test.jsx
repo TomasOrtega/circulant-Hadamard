@@ -8,6 +8,7 @@ import { buildNodes } from "./build-nodes.jsx";
 import { collectNodes, hrefFor, pagePath, nodeAnchor } from "./node-tree.js";
 import { NodePage } from "./node.jsx";
 import { loadNodes } from "./load-nodes.js";
+import { renderMarkdown } from "./markdown.js";
 
 const rootNode = loadNodes();
 
@@ -19,7 +20,7 @@ describe("recursive node navigation", () => {
   test("every node has its own page, a deeper link, and a direct parent link", () => {
     expect(
       Math.max(...entries.map((entry) => entry.path.length)),
-    ).toBe(1);
+    ).toBe(2);
     for (const entry of entries) {
       const html = readFileSync(join(output, pagePath(entry)), "utf8");
       expect(html).toContain(`<h1>${entry.node.title}</h1>`);
@@ -62,11 +63,18 @@ describe("recursive node navigation", () => {
     }
   });
 
-  test("every view has an overview slot, and each child node has a clip and deeper button", () => {
+  test("every view orders video, graph, and text, with clips and deeper buttons for children", () => {
     for (const entry of entries) {
       const html = readFileSync(join(output, pagePath(entry)), "utf8");
       const children = (entry.node.children ?? []).filter(({ node }) => !node.supplemental);
       expect(html).toContain("Overview video");
+      const graph = html.indexOf('aria-label="Node dependency graph"');
+      const script = entry.ancestors.length && children.length
+        ? children[0].script
+        : entry.node.script;
+      const explanation = html.indexOf(renderMarkdown(script.join("\n\n")).html);
+      expect(graph).toBeGreaterThan(html.indexOf("Overview video"));
+      expect(explanation).toBeGreaterThan(graph);
       expect([...html.matchAll(/>Node excerpt</g)]).toHaveLength(
         children.length,
       );
@@ -104,7 +112,7 @@ describe("recursive node navigation", () => {
 
 describe("node authoring constraints", () => {
   test("undergraduate foundations are terminal views", () => {
-    const foundation = { ...rootNode.children[0].node, foundation: true };
+    const foundation = entries.find(({ node }) => node.foundation).node;
     const [entry] = collectNodes(foundation);
     expect(entry.node.children).toHaveLength(0);
     const html = renderToStaticMarkup(<NodePage entry={entry} entries={[entry]} />);
@@ -141,9 +149,9 @@ describe("node authoring constraints", () => {
     expect(() => collectNodes(circular)).toThrow("Circular node hierarchy");
   });
 
-  test("the displayed order-four example has orthogonal cyclic shifts", () => {
+  test.each(["overview", "theorem"])("the order-four example in %s has orthogonal cyclic shifts", (id) => {
     const source = entries
-      .find((entry) => entry.node.id === "theorem")
+      .find((entry) => entry.node.id === id)
       .node.script.join("\n\n");
     const matrix = source
       .match(/\\begin\{pmatrix\}([\s\S]*?)\\end\{pmatrix\}/)[1]
@@ -153,6 +161,7 @@ describe("node authoring constraints", () => {
     expect(matrix).toHaveLength(4);
     for (let row = 0; row < 4; row++) {
       expect(matrix[row]).toHaveLength(4);
+      expect(matrix[row]).toEqual(matrix[0].map((_, column) => matrix[0][(column - row + 4) % 4]));
       for (let other = 0; other < 4; other++) {
         const product = matrix[row].reduce(
           (sum, value, column) => sum + value * matrix[other][column],

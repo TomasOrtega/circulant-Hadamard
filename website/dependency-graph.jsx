@@ -31,7 +31,9 @@ export function DependencyGraph({ entry, entries }) {
   const rows = Math.max(...layers.map((layer) => layer.length));
   const width =
     proofMap ? 800 : padding * 2 + layers.length * nodeWidth + (layers.length - 1) * columnGap;
-  const height = proofMap ? 1100 : padding * 2 + rows * nodeHeight + (rows - 1) * rowGap;
+  const height = proofMap
+    ? Math.max(...children.map(({ node }) => node.mapPosition?.[1] ?? 0)) + nodeHeight + 24
+    : padding * 2 + rows * nodeHeight + (rows - 1) * rowGap;
   const positions = new Map();
   layers.forEach((layer, column) => {
     layer.forEach((child, row) =>
@@ -63,7 +65,7 @@ export function DependencyGraph({ entry, entries }) {
     >
       <figure className="flex flex-col gap-4">
         <figcaption className="text-center text-sm text-dark-gray">
-          {proofMap ? "Eight-node proof map · general argument" : `Draft dependency map · ${owner.node.shortTitle}`}
+          {owner.node.graphTitle ?? (proofMap ? "Eight-node proof map · general argument" : `Draft dependency map · ${owner.node.shortTitle}`)}
         </figcaption>
         <div
           className="overflow-x-auto rounded-md bg-white p-2"
@@ -110,6 +112,8 @@ export function DependencyGraph({ entry, entries }) {
               if (proofMap) {
                 if (from.y === to.y) {
                   path = `M ${startX} ${startY} L ${to.x} ${endY}`;
+                } else if (kind === "context" && to.y - from.y > nodeHeight + rowGap) {
+                  path = `M ${startX} ${startY} H ${width - 16} V ${endY} H ${to.x + nodeWidth}`;
                 } else if (source === "signs-become-all-ones" && target === "final-contradiction") {
                   path = `M ${from.x} ${startY} H 20 V ${endY} H ${to.x}`;
                 } else {
@@ -147,6 +151,12 @@ export function DependencyGraph({ entry, entries }) {
                   children.find((child) => child.node.id === id).node
                     .shortTitle,
               );
+              const contextNames = contextFrom.map((id) =>
+                children.find((child) => child.node.id === id).node.title,
+              );
+              const contextLabel = contextNames.length
+                ? `. Shared notation only from ${contextNames.join(", ")}`
+                : "";
               return (
                 <a
                   key={node.id}
@@ -154,10 +164,10 @@ export function DependencyGraph({ entry, entries }) {
                   tabIndex={0}
                   className={`group no-underline hocus:text-theme ${current ? "text-theme" : "text-black"}`}
                   aria-current={current ? "page" : undefined}
-                  aria-label={`Explore node: ${node.title}${prerequisites.length ? `. Uses: ${prerequisites.join(", ")}` : ". No prerequisites in this view"}${contextFrom.length ? ". Shared notation only from Group-Ring Encoding" : ""}`}
+                  aria-label={`Explore node: ${node.title}${prerequisites.length ? `. Uses: ${prerequisites.join(", ")}` : ". No prerequisites in this view"}${contextLabel}`}
                   data-node-id={node.id}
                 >
-                  <title>{`${node.title}${contextFrom.length ? ". Shared notation from Group-Ring Encoding; no sign hypothesis." : ""}`}</title>
+                  <title>{`${node.title}${contextLabel}`}</title>
                   <rect
                     x={position.x}
                     y={position.y}
@@ -211,7 +221,7 @@ export function DependencyGraph({ entry, entries }) {
   if (proofMap && entry !== owner) {
     return (
       <details className="w-full max-w-200 rounded-md bg-white p-4 font-sans">
-        <summary className="cursor-pointer">Show the high-level proof map</summary>
+        <summary className="cursor-pointer">{owner.ancestors.length ? "Show the parent proof map" : "Show the high-level proof map"}</summary>
         {graph}
       </details>
     );
