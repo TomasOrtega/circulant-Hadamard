@@ -23,14 +23,14 @@ class CyclicGroupRing(NodeScene):
 
     def circle(self):
         center = LEFT * 3 + DOWN * 0.3
-        circle = Circle(radius=1.5, color=BLUE_C).move_to(center)
+        circle = Circle(radius=1.5).set_color(BLUE_C).move_to(center)
         labels = VGroup(
             formula("1").move_to(center + UP * 1.95),
             formula("X").move_to(center + RIGHT * 1.95),
             formula("X^2").move_to(center + DOWN * 1.95),
             formula("X^3").move_to(center + LEFT * 1.95),
         )
-        pointer = Dot(center + UP * 1.5, color=YELLOW, radius=0.11)
+        pointer = Dot(center + UP * 1.5, radius=0.11).set_color(YELLOW)
         return center, circle, labels, pointer
 
     def present(self):

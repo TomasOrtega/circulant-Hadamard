@@ -11,6 +11,7 @@ from narration.speech import AudioClip, Narrator
 with patch.object(sys, "argv", ["manimgl"]):
     from manimlib import BLUE_C, YELLOW, Tex
 
+    from videos.cyclic_group_ring import CyclicGroupRing
     from videos.node_scene import formula, words
     from videos.overview import Overview
 
@@ -18,6 +19,11 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 class NodeVideoTests(unittest.TestCase):
+    def test_cycle_circle_and_marker_use_the_math_palette(self):
+        _, circle, _, marker = CyclicGroupRing.circle(None)
+        self.assertEqual(circle.get_color(), BLUE_C)
+        self.assertEqual(marker.get_color(), YELLOW)
+
     def test_visible_formula_and_prose_paths_use_the_requested_colors(self):
         for obj, color in [
             (formula("h", color=BLUE_C), BLUE_C),
