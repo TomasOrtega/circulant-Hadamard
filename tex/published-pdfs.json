@@ -1,7 +1,7 @@
 {
   "pdfs": {
-    "report.pdf": "e4da6473c9784d4cd466f02f2c1a81325be74b5f0574c63c32ee08840cbd54ea",
-    "slides.pdf": "6ae5f72a029a464d8cedb510c317dc445b15a44cdfc17a435f069395f5bbf276"
+    "report.pdf": "5b32743db26d603044124056d25e107157e6c42f1babe1d84dfd1605a0c2d948",
+    "slides.pdf": "aca09077db4b3c30eb0ae1a9e03d371c14923a7da0542b0e927942b4b4403f1b"
   },
   "sources": {
     "Makefile": "8d52c97c1f4b4080b4dd32604b8ad45fa51ca5abfb80dcf87fa4fa076057c6ff",
@@ -19,7 +19,7 @@
     "preamble.tex": "eb9c723c64911643970f1201025f3565f7e410d638c7f2359726150f1eacdbf8",
     "published_pdfs.py": "11bdfd268d08769a51d29346ef9fc5fd38692433783cbc9d8c6423aa3ca7d6cc",
     "references.bib": "5dfc38c1fde6b7486bf837a60d6756f661bdd9f0dd6947484dbdfdbe60b01985",
-    "report.tex": "9c8ab10e2d91beb8d3dfe1184c01eaacd44d50cde9313c2399f28a1252bfa48f",
-    "slides.tex": "fcb132a2c5d5515d8534ba70e1669bc8f4cc46ea61885615fd73226034319782"
+    "report.tex": "4976388e9d0de20395f5518da8d0a5f16b6b698c6340322b3ad9e060f047ad50",
+    "slides.tex": "c9f94a55084cb2755eb3c7f30c5067a44292a1313b682cb1c323312a064652b5"
   }
 }
