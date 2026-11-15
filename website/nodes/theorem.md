@@ -5,7 +5,10 @@ shortTitle: Theorem
 summary: The general contradiction excludes odd u greater than one; explicit examples supply the two remaining orders.
 number: "8.5"
 draft: true
-video: null
+video:
+  src: media/theorem.mp4
+  captions: media/theorem.vtt
+  duration: 119.266667
 mapPosition: [240, 620]
 mapSummary: 'Exactly orders $1$ and $4$'
 ---

@@ -1,0 +1,105 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:04.700
+A real circulant Hadamard matrix of
+positive integer order n exists if
+
+00:00:04.700 --> 00:00:08.900
+and only if n is one or four. We finish
+both directions of this statement:
+
+00:00:09.480 --> 00:00:13.580
+exclude every other order, and verify
+that the two remaining orders occur.
+
+00:00:14.800 --> 00:00:17.940
+Suppose first that n is greater than one.
+
+00:00:18.320 --> 00:00:22.360
+The order restriction from Node Two
+gives n equal to four u squared,
+
+00:00:22.940 --> 00:00:24.940
+where u is a positive odd integer.
+
+00:00:25.360 --> 00:00:28.460
+The general contradiction
+excludes every u greater than one.
+
+00:00:28.460 --> 00:00:32.340
+Thus u equals one, and n equals four.
+
+00:00:33.060 --> 00:00:36.760
+The order-one case is outside the
+hypothesis n greater than one of
+
+00:00:36.760 --> 00:00:40.980
+that restriction. Keep it on a separate
+path, and check its existence directly.
+
+00:00:42.360 --> 00:00:46.320
+At order one, take the
+one-by-one matrix with entry one.
+
+00:00:46.760 --> 00:00:50.500
+Its entry is a sign, and its
+only row has squared length one.
+
+00:00:50.860 --> 00:00:56.160
+There are no distinct rows to compare.
+A cyclic shift fixes this single entry.
+
+00:00:57.420 --> 00:01:01.080
+Multiplying the matrix by its transpose
+gives the one-by-one identity.
+
+00:01:01.920 --> 00:01:03.600
+This verifies the order-one example.
+
+00:01:05.240 --> 00:01:10.576
+At order four, take the matrix whose
+first row is negative one, one, one, one.
+
+00:01:10.980 --> 00:01:14.740
+Each following row is the cyclic
+right shift of the preceding row.
+
+00:01:15.300 --> 00:01:17.980
+This moves the negative sign
+through all four positions.
+
+00:01:19.300 --> 00:01:23.320
+Any two distinct rows agree in
+two positions and disagree in two.
+
+00:01:23.320 --> 00:01:28.220
+Their dot product is therefore two
+positive ones plus two negative ones,
+
+00:01:28.380 --> 00:01:31.630
+which is zero. Each row
+has squared length four.
+
+00:01:31.920 --> 00:01:36.760
+So the matrix times its transpose has
+fours on the diagonal and zeros elsewhere:
+
+00:01:37.660 --> 00:01:41.300
+H times H transpose equals
+four times the identity.
+
+00:01:42.000 --> 00:01:46.560
+Both remaining orders occur. The
+order-four example has u equal to one,
+
+00:01:46.560 --> 00:01:50.720
+outside the earlier Delta theorem's
+hypothesis u greater than one, so it is
+
+00:01:50.720 --> 00:01:54.560
+consistent with the contradiction. This
+completes both directions of the proof
+
+00:01:54.560 --> 00:01:57.780
+chain, using the stated inputs
+developed in the earlier nodes.
