@@ -28,7 +28,7 @@ Use Bun for dependency installation and scripts, with the pinned version in
 [package.json](package.json) and the committed `bun.lock`. Keep application code
 compatible with Node.js 24+ as a fallback. Use React to pre-render node views
 into static pages. Keep graph, breadcrumb, and parent navigation as ordinary
-links. Limit client JavaScript to playback bounds for native video cuts and
+links. Limit client JavaScript to page controls, playback bounds for native video cuts, and
 small, self-contained mathematical illustrations requested for a node.
 Keep a useful static diagram and explanation when JavaScript is unavailable;
 use native keyboard-accessible controls and keep arithmetic congruences

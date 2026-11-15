@@ -316,6 +316,29 @@ export function NodePage({ entry, entries }) {
           Ortega
         </p>
       </footer>
+      <aside id="page-controls" aria-label="Page controls" hidden
+        className="fixed right-2 bottom-2 z-20 flex flex-col items-end gap-2 text-white mix-blend-difference print:hidden">
+        {[
+          ["jump-to-top", "Jump to top", <path d="m6 15 6-6 6 6" />],
+          ["share-page", "Share this page", <>
+            <path d="m8 10 8-5M8 14l8 5" />
+            <circle cx="6" cy="12" r="3" />
+            <circle cx="18" cy="4" r="3" />
+            <circle cx="18" cy="20" r="3" />
+          </>],
+        ].map(([id, label, icon]) => (
+          <div key={id} className="group flex items-center gap-2">
+            <span className="pointer-events-none font-sans opacity-0 transition group-hover:opacity-100 group-focus-within:opacity-100">{label}</span>
+            <button id={id} type="button" aria-label={label}
+              className={`${buttonBase} text-current hocus:bg-white/15`}>
+              <svg viewBox="0 0 24 24" className="size-6" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                {icon}
+              </svg>
+            </button>
+          </div>
+        ))}
+      </aside>
+      <script src={`${base}page-controls.js`} defer />
       {node.video?.src && children.some((child) => child.segment) && (
         <script src={`${base}video-player.js`} defer />
       )}

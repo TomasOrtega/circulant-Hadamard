@@ -18,6 +18,11 @@ class conventions: a tinted lesson header, alternating article sections, narrow
 reading columns, and shared button colors and sizes. The React components are
 adapted for this project's static recursive nodes.
 
+The fixed page controls adapt the same revision's `ViewCorner.tsx`, `Jump.tsx`,
+`Share.tsx`, and `util/url.ts`: jump to top after scrolling and native sharing
+with a copy-link fallback. The static implementation uses inline SVG icons
+and no client React runtime.
+
 The upstream repository has no license file at this revision; this copy does
 not assign a license to their work. Tailwind's MIT license and the Fontsource
 fonts' SIL Open Font Licenses are included in the built website.
