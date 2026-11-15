@@ -32,6 +32,7 @@ export function buildNodes({
       <>
         <title>{title}</title>
         <meta name="description" content={entry.node.summary} />
+        <script dangerouslySetInnerHTML={{ __html: 'try { document.documentElement.classList.toggle("dark", localStorage.getItem("dark-mode") === "true"); } catch {}' }} />
       </>,
     );
     const content = renderToStaticMarkup(

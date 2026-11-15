@@ -180,7 +180,7 @@ describe("recursive node navigation", () => {
         entry.node.video?.src ? players : 0,
       );
       expect([...html.matchAll(/<script\b/g)]).toHaveLength(
-        1 + (entry.node.video?.src && cuts.length ? 1 : 0)
+        2 + (entry.node.video?.src && cuts.length ? 1 : 0)
           + (children.some(({ node }) => ["odd-order-rigidity", "exact-comparison-identities", "products-to-sums", "vanishing-alternating-sum"].includes(node.id)) ? 1 : 0),
       );
       for (const [, source] of html.matchAll(/<(?:source|track)\b[^>]*\bsrc="([^"]+)"/g)) {

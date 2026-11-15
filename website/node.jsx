@@ -139,6 +139,33 @@ function Markdown({ script }) {
   );
 }
 
+function TableOfContents() {
+  return (
+    <>
+      <button id="toc-toggle" type="button" popoverTarget="table-of-contents"
+        aria-label="Table of contents" hidden
+        className="fixed top-0 left-0 z-20 flex size-10 items-center justify-center bg-white text-black shadow-md hocus:text-theme print:hidden">
+        <svg viewBox="0 0 24 24" className="size-6" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+          <path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01" strokeLinecap="round" />
+        </svg>
+      </button>
+      <nav id="table-of-contents" popover="auto" aria-label="Table of contents"
+        className="fixed inset-y-0 left-0 right-auto m-0 h-dvh w-80 max-w-[75vw] overflow-y-auto border-0 bg-white p-4 font-sans text-black shadow-md print:hidden">
+        <div className="sticky top-0 flex items-center justify-between gap-4 bg-white">
+          <span className="font-medium">Table of Contents</span>
+          <button type="button" popoverTarget="table-of-contents" popoverTargetAction="hide"
+            aria-label="Close table of contents" className="flex size-10 shrink-0 items-center justify-center hocus:text-theme">
+            <svg viewBox="0 0 24 24" className="size-6" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+              <path d="m6 6 12 12M6 18 18 6" />
+            </svg>
+          </button>
+        </div>
+        <div id="toc-links" className="flex flex-col" />
+      </nav>
+    </>
+  );
+}
+
 function ChildNode({ child, entry, entries }) {
   const node = child.node;
   const target = findChildEntry(node, entry, entries);
@@ -237,6 +264,7 @@ export function NodePage({ entry, entries }) {
           </NodeButton>
         </nav>
       </header>
+      <TableOfContents />
       <main id="content" className="striped">
         <section className="items-center bg-theme/15 width-lg">
           <div className="flex w-full flex-wrap items-center justify-between gap-4">
@@ -260,22 +288,12 @@ export function NodePage({ entry, entries }) {
           )}
           {showOwnExplanation && <p className="max-w-175 text-center text-lg">{node.summary}</p>}
         </section>
-        <section>
-          <NodeDependencies entry={entry} entries={entries} />
-          {showOwnExplanation && !hasOwnProofMap && <Markdown script={node.script} />}
-          {!!children.length && (
-            <nav
-              aria-label="Child nodes in this view"
-              className="flex flex-col items-start gap-4 font-sans"
-            >
-              {children.map(({ node: child }, index) => (
-                <a key={child.id} href={`#${nodeAnchor(child)}`}>
-                  {child.number ? `${child.number}. ` : ""}{child.title}
-                </a>
-              ))}
-            </nav>
-          )}
-        </section>
+        {(entry.ancestors.length > 0 || showOwnExplanation && !hasOwnProofMap) && (
+          <section>
+            <NodeDependencies entry={entry} entries={entries} />
+            {showOwnExplanation && !hasOwnProofMap && <Markdown script={node.script} />}
+          </section>
+        )}
         {children.map((child) => (
           <ChildNode
             key={child.node.id}
@@ -290,14 +308,26 @@ export function NodePage({ entry, entries }) {
           </section>
         )}
       </main>
-      <footer className="flex flex-col items-center gap-4 bg-alt-white p-8 text-center font-sans text-sm text-dark-gray">
-        <p>
+      <footer className="flex items-center justify-between gap-4 bg-alt-white p-8 text-center font-sans text-sm text-dark-gray">
+        <button id="dark-mode-toggle" type="button" role="switch" aria-checked="false"
+          aria-label="Toggle dark mode" title="Toggle dark mode" hidden
+          className={`${buttonBase} group shrink-0 text-black hocus:bg-theme/15 hocus:text-theme print:hidden`}>
+          <svg viewBox="0 0 24 24" className="size-6 group-aria-checked:hidden" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+            <path d="M21 13a9 9 0 1 1-10-10 7 7 0 0 0 10 10Z" />
+          </svg>
+          <svg viewBox="0 0 24 24" className="hidden size-6 group-aria-checked:block" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 1v2M12 21v2M1 12h2M21 12h2M4 4l2 2M18 18l2 2M4 20l2-2M18 6l2-2" />
+          </svg>
+        </button>
+        <p className="flex-1">
           A project for the Caltech × SAIR Mathathon, by Steven Creech and Tomas
           Ortega
         </p>
+        <span className="size-12 shrink-0 max-md:hidden print:hidden" aria-hidden="true" />
       </footer>
       <aside id="page-controls" aria-label="Page controls" hidden
-        className="fixed right-2 bottom-2 z-20 flex flex-col items-end gap-2 text-white mix-blend-difference print:hidden">
+        className="fixed right-2 bottom-2 z-20 flex flex-col items-end gap-2 text-[white] mix-blend-difference print:hidden">
         {[
           ["jump-to-top", "Jump to top", <path d="m6 15 6-6 6 6" />],
           ["share-page", "Share this page", <>

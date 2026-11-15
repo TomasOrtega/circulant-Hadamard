@@ -18,7 +18,7 @@ dist/index.html: index.html $(NODE_SOURCES) load-nodes.js markdown.js node-tree.
 dist/math.css: dist/index.html
 	$(BUN) run --bun build:nodes
 
-dist/styles.css: styles.css vendor/3b1b.css index.html node.jsx dependency-graph.jsx phase-explorer.jsx node_modules/.installed
+dist/styles.css: styles.css vendor/3b1b.css index.html node.jsx dependency-graph.jsx phase-explorer.jsx page-controls.js node_modules/.installed
 	mkdir -p dist
 	$(BUN) run --bun build:css
 

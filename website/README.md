@@ -241,6 +241,10 @@ Bottom-right page controls share the current URL, jump to the top after scrollin
 and link to GitHub issues for feedback. Sharing uses the native share sheet or
 falls back to copying the link.
 
+After the masthead scrolls away, the top-left contents button opens links to
+the current page's headings. The footer's dark-mode switch remembers the
+appearance choice across pages.
+
 The shared renderer is [node.jsx](node.jsx), with the pinned
 [3Blue1Brown styling](vendor/README.md). Parsing and math rendering are in
 [load-nodes.js](load-nodes.js) and [markdown.js](markdown.js).
