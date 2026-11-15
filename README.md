@@ -11,6 +11,9 @@ Steven Creech (Rutgers University) and Tomas Ortega (Princeton University).
 - [GLOSSARY.md](GLOSSARY.md): the proof exposition's shared vocabulary.
 - [decision_log/](decision_log/): timestamped decisions and evidence for the report.
 
+<details>
+<summary>Installation and local build</summary>
+
 To build locally, install uv, Bun 1.4.4, and a TeX system with `bibtex`, `chktex`,
 `latexmk`, `latexpand`, and Beamer, and run:
 
@@ -25,4 +28,7 @@ make -C website
 ```
 
 Build files are in `tex/build/` and `website/dist/`.
+
+</details>
+
 We submitted `report.tex`, `report.pdf`, and `slides.pdf`.
