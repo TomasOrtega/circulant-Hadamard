@@ -6,7 +6,10 @@ summary: Each coefficient of h(X)h*(X) is a dot product with a cyclic shift of t
   original row.
 number: "1.4"
 draft: true
-video: null
+video:
+  src: media/correlation-identity.mp4
+  captions: media/correlation-identity.vtt
+  duration: 122.9
 mapPosition:
   - 460
   - 340

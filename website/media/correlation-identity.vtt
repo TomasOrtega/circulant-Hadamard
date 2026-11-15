@@ -1,0 +1,105 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:03.840
+Write h as the sum of h
+sub j times X to the j.
+
+00:00:04.200 --> 00:00:07.880
+Its star is the sum of h sub
+k times X to the negative k.
+
+00:00:08.480 --> 00:00:13.160
+Multiply these sums: each pair
+contributes h sub j times h sub k,
+
+00:00:13.160 --> 00:00:17.560
+at exponent j minus k.
+Exponents are read modulo n.
+
+00:00:18.640 --> 00:00:23.280
+In a four-position illustration, arrange
+the sixteen pairwise products in a grid.
+
+00:00:23.780 --> 00:00:28.450
+Each entry belongs to the coefficient
+indexed by j minus k modulo four.
+
+00:00:28.520 --> 00:00:30.460
+To collect a single coefficient,
+
+00:00:30.960 --> 00:00:34.200
+select exactly those cells
+with the same exponent.
+
+00:00:35.180 --> 00:00:36.880
+Fix an exponent a.
+
+00:00:37.280 --> 00:00:42.840
+A term contributes to X to the a precisely
+when j minus k is congruent to a modulo n.
+
+00:00:43.460 --> 00:00:47.080
+Equivalently, k is j minus a modulo n.
+
+00:00:47.640 --> 00:00:52.440
+Thus the coefficient of X to the a
+in h times h star is the sum, over j,
+
+00:00:52.440 --> 00:00:56.880
+of h sub j times h sub j minus a.
+
+00:00:57.740 --> 00:01:04.060
+But h sub j minus a is the jth entry
+of the row shifted a places right.
+
+00:01:04.560 --> 00:01:07.940
+Our coefficient is therefore the
+dot product of the original row with
+
+00:01:07.940 --> 00:01:11.960
+that shifted row. The coefficient
+notation always refers to the
+
+00:01:11.960 --> 00:01:14.720
+unique representative
+of degree less than n.
+
+00:01:15.880 --> 00:01:19.080
+Check the original row,
+negative one, one, one, one.
+
+00:01:19.520 --> 00:01:24.940
+Shift zero gives dot product four. Shifts
+one, two, and three each give zero:
+
+00:01:25.480 --> 00:01:28.600
+two negative contributions cancel
+two positive contributions.
+
+00:01:29.160 --> 00:01:32.240
+So the product has
+coefficients four, zero,
+
+00:01:32.820 --> 00:01:36.740
+zero, zero, and equals the
+constant polynomial four.
+
+00:01:37.960 --> 00:01:41.720
+For general n, collect every
+exponent in the same way.
+
+00:01:42.200 --> 00:01:47.820
+The product h times h star is the sum over
+a of the cyclic correlation at shift a,
+
+00:01:47.820 --> 00:01:53.280
+times X to the a. This identity works
+for arbitrary integer coefficients.
+
+00:01:54.180 --> 00:01:57.620
+For sign coefficients, the
+constant correlation is n.
+
+00:01:58.460 --> 00:02:01.340
+That extra hypothesis enters
+in the Hadamard dictionary.

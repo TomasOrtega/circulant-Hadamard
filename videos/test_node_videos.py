@@ -3,10 +3,12 @@ import subprocess
 import sys
 import unittest
 import xml.etree.ElementTree as ET
+from html import unescape
 from pathlib import Path
 from unittest.mock import Mock, patch
 
 from narration.speech import AudioClip, Narrator
+from videos.test_captions import parse_vtt
 
 with patch.object(sys, "argv", ["manimgl"]):
     from manimlib import BLUE_C, YELLOW, Tex
@@ -19,6 +21,35 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 class NodeVideoTests(unittest.TestCase):
+    def test_published_videos_leave_the_subtitle_band_empty(self):
+        for path in sorted((ROOT / "videos/production").glob("*.json")):
+            video = ROOT / "website/media" / f"{path.stem}.mp4"
+            if not video.exists():
+                continue
+            with self.subTest(node=path.stem):
+                result = subprocess.run(
+                    [
+                        "ffmpeg",
+                        "-v",
+                        "error",
+                        "-i",
+                        str(video),
+                        "-vf",
+                        "fps=1,crop=iw:ih*0.2:0:ih*0.8,scale=320:36",
+                        "-f",
+                        "rawvideo",
+                        "-pix_fmt",
+                        "gray",
+                        "pipe:1",
+                    ],
+                    capture_output=True,
+                    check=True,
+                )
+                self.assertTrue(result.stdout)
+                self.assertLess(
+                    max(result.stdout), 8, "Content enters the subtitle band"
+                )
+
     def test_cycle_circle_and_marker_use_the_math_palette(self):
         _, circle, _, marker = CyclicGroupRing.circle(None)
         self.assertEqual(circle.get_color(), BLUE_C)
@@ -53,6 +84,9 @@ class NodeVideoTests(unittest.TestCase):
     def test_published_videos_cover_their_narration_and_cues(self):
         for path in sorted((ROOT / "videos/production").glob("*.json")):
             with self.subTest(node=path.stem):
+                video = ROOT / "website/media" / f"{path.stem}.mp4"
+                if not video.exists():
+                    continue
                 data = json.loads(path.read_text())
                 script = (ROOT / "videos/scripts" / f"{path.stem}.ssml").read_text()
                 Narrator(ssml=True).validate_text(script)
@@ -61,9 +95,6 @@ class NodeVideoTests(unittest.TestCase):
                 cues = list(data["cues"].values())
                 self.assertEqual(cues, sorted(cues))
                 self.assertGreater(data["narration_duration"], cues[-1])
-                video = ROOT / "website/media" / f"{path.stem}.mp4"
-                if not video.exists():
-                    continue
                 captions = (
                     (ROOT / "website/media" / f"{path.stem}.vtt")
                     .read_text()
@@ -77,7 +108,14 @@ class NodeVideoTests(unittest.TestCase):
                 spoken_text = " ".join(
                     "".join(p.itertext()).strip() for p in paragraphs
                 )
-                self.assertEqual(caption_text, spoken_text)
+                self.assertEqual(unescape(caption_text), spoken_text)
+                previous_end = 0
+                for start, end, lines in parse_vtt("\n".join(captions)):
+                    self.assertGreaterEqual(start, previous_end)
+                    self.assertGreaterEqual(end - start, 0.999)
+                    self.assertLessEqual(len(lines), 2)
+                    self.assertTrue(all(len(line) <= 42 for line in lines))
+                    previous_end = end
                 result = subprocess.run(
                     [
                         "ffprobe",

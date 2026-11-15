@@ -1,0 +1,27 @@
+{
+  "source": "website/scripts/node1/correlation-identity.md",
+  "source_sha256": "8cc086f2f8be1acdc18a573d55016e0b4df884a7a51b7466f766965def6b694b",
+  "scene": "CorrelationIdentity",
+  "scene_file": "videos/correlation_identity.py",
+  "voice": "en-US-Chirp3-HD-Achird",
+  "work_started_at": "2026-11-14T22:33:05-08:00",
+  "cues": {
+    "expand": 0,
+    "grid": 18.49,
+    "coefficient": 35.03,
+    "dot": 57.59,
+    "example": 75.73,
+    "general": 97.81
+  },
+  "alignment_match_ratio": 0.9783,
+  "narration_duration": 122.88022675736961,
+  "duration": 122.9,
+  "narration_sha256": "c73ae28c9d0e5dc39310d41424729b755b15e90e62d57af7f752fb9330628ec6",
+  "video_sha256": "5e958339b341b3876ea12aad5bdde1d8fc3ecde28eee48294b90816442c13386",
+  "subtitle_safe_fraction": 0.2,
+  "subtitle_band_max_luma": 16.0,
+  "subtitle_frames_checked": 3687,
+  "production_status": "final",
+  "scene_sha256": "ac83d7a447f5b943c5dfc5a0ac71e6565c74fff0fa327da1a5af702ede159c04",
+  "layout_sha256": "af65a79e6ee3c1e4c50be87eaf23e651674da7cae9a65dd5fa0a5b94e9c219f2"
+}
