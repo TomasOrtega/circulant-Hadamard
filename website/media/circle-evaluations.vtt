@@ -1,0 +1,152 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:02.950
+Let u be an odd integer greater than one.
+
+00:00:03.220 --> 00:00:05.880
+Our polynomial has Gaussian
+integer coefficients,
+
+00:00:06.520 --> 00:00:10.300
+and its product with its star equals
+u squared in the cyclic group ring.
+
+00:00:10.580 --> 00:00:14.580
+We can substitute any u
+squaredth root of unity for P,
+
+00:00:14.880 --> 00:00:18.790
+because these inputs respect
+P to the u squared equals one.
+
+00:00:19.100 --> 00:00:22.340
+When u is three, there are nine
+allowed inputs on the unit circle.
+
+00:00:22.980 --> 00:00:25.560
+We want the distance of
+each output from the origin.
+
+00:00:26.510 --> 00:00:31.400
+Write f of P as the sum of
+a sub j times P to the j.
+
+00:00:31.780 --> 00:00:35.060
+Star conjugates each coefficient
+and reverses each power.
+
+00:00:35.880 --> 00:00:39.300
+The term a sub j times P to the j becomes
+
+00:00:39.300 --> 00:00:42.940
+the conjugate of a sub j
+times P to the negative j.
+
+00:00:43.600 --> 00:00:46.840
+Both changes matter when the
+coefficients are Gaussian integers.
+
+00:00:48.380 --> 00:00:51.040
+Now substitute a root of unity, zeta.
+
+00:00:51.740 --> 00:00:54.320
+Its inverse equals its complex conjugate.
+
+00:00:54.940 --> 00:00:58.580
+So the starred term is the conjugate
+of the whole evaluated term,
+
+00:00:59.020 --> 00:01:01.620
+a sub j times zeta to the j.
+
+00:01:02.200 --> 00:01:06.440
+In the complex plane, this reflects
+the term's arrow across the real axis.
+
+00:01:07.360 --> 00:01:11.760
+Add the terms: f star at zeta
+equals the conjugate of f at zeta.
+
+00:01:12.060 --> 00:01:16.520
+Polynomial star and complex conjugation
+agree after this substitution.
+
+00:01:18.360 --> 00:01:19.760
+Evaluate the norm identity.
+
+00:01:19.760 --> 00:01:23.820
+The output times its complex
+conjugate equals u squared.
+
+00:01:24.280 --> 00:01:27.820
+This is its squared absolute
+value, so its absolute value is u.
+
+00:01:28.440 --> 00:01:32.100
+Every output is nonzero and
+lies on the circle of radius u.
+
+00:01:32.620 --> 00:01:37.180
+Its angle may change with the input; its
+distance from the origin stays fixed.
+
+00:01:38.340 --> 00:01:39.860
+For a concrete example,
+
+00:01:40.700 --> 00:01:44.940
+let u equal three and
+f of P equal three i P.
+
+00:01:45.160 --> 00:01:48.520
+Its star is negative three i P
+inverse, so their product is nine.
+
+00:01:48.520 --> 00:01:52.800
+This is a Gaussian polynomial
+example, not a Hadamard sign row.
+
+00:01:53.560 --> 00:01:56.280
+Send the nine input roots
+through this polynomial.
+
+00:01:56.860 --> 00:02:01.300
+Multiplication by three i turns each
+input counterclockwise by ninety degrees
+
+00:02:01.300 --> 00:02:06.560
+and scales its magnitude by three. The
+outputs lie on the radius three circle.
+
+00:02:07.180 --> 00:02:10.160
+The input roots and output
+values occupy different planes.
+
+00:02:11.340 --> 00:02:16.420
+Compare f of one with f of omega, where
+omega is e to the two pi i over three.
+
+00:02:16.500 --> 00:02:19.320
+Divide the numerator by the denominator.
+
+00:02:19.480 --> 00:02:23.100
+Their magnitudes cancel, leaving
+a point on a separate unit circle.
+
+00:02:24.040 --> 00:02:27.250
+The phase is the numerator's
+angle minus the denominator's:
+
+00:02:27.820 --> 00:02:30.640
+the rotation from f of omega to f of one.
+
+00:02:30.980 --> 00:02:34.980
+Here it is clockwise one hundred
+twenty degrees, giving omega squared.
+
+00:02:35.780 --> 00:02:40.140
+Equal magnitudes alone do not limit
+this rotation to finitely many angles.
+
+00:02:40.540 --> 00:02:43.020
+We study that extra
+arithmetic restriction next.

@@ -5,7 +5,10 @@ shortTitle: Circle Evaluations
 summary: The polynomial norm identity puts every character value on a circle of radius u.
 number: "4.1"
 draft: true
-video: null
+video:
+  src: media/circle-evaluations.mp4
+  captions: media/circle-evaluations.vtt
+  duration: 164.066667
 foundation: true
 mapPosition: [240, 24]
 mapSummary: 'Every evaluation has modulus $u$'
