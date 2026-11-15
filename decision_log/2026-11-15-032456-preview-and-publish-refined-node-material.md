@@ -45,6 +45,21 @@ No hypothesis or mathematical conclusion changes.
   observed timestamp. No merge into main or rendered-video production is
   requested in this task.
 
+## Publication outcome
+
+- Follow-up recorded at: 2026-11-15T03:26:35-08:00. Total observed task interval from
+  2026-11-15T02:45:23-08:00 through this follow-up: 2472 seconds.
+- Pushed `steven/refined-node-scripts-and-exposition` and opened
+  [PR #11](https://github.com/TomasOrtega/circulant-Hadamard/pull/11),
+  non-draft, against main. GitHub confirms no merge conflicts.
+- Verified initial PR head `c97ff7fc4cc15ec4364ed898eec1a7d2164699ec`
+  and base `ae1e55484c0f21d582b28756e2271fee749f096f`. The PR changes
+  86 files and contains this refined-node stage rather than the prior PR's
+  already-merged work. Commit trailers identify Codex/GPT-6 assistance.
+- Add this observed outcome in a documentation-only follow-up commit and
+  verify the final pushed head. Automated CI may still be running; the local
+  test, build, lint, mathematical-review, and browser results above are complete.
+
 ## Report relevance
 
 Records comprehensive visual checking of the second-level proof content,
