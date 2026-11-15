@@ -56,13 +56,10 @@ remains a visual reference. The theorem is now inside Node 8; the former
 `/nodes/theorem/` URL redirects to its new location.
 
 The homepage presents one proof map: the overviews use order 36 to introduce
-the ideas, and following a node develops the general argument. The homepage's
-reading-route buttons open the supplementary
-[order-36 proof](reading-routes/proof-by-example.md) and
-[general odd-u proof](reading-routes/general-proof.md). These readable guides
-link into the same eight-node hierarchy and retain their published URLs at
-`nodes/proof-by-example/` and `nodes/general-proof/`. The earlier outlines remain
-in [the archive](archive/reading-routes/README.md).
+the ideas, and following a node develops the general argument. Steven Creech
+and Tomas Ortega are credited below the homepage title. The former
+`nodes/proof-by-example/` and `nodes/general-proof/` guides redirect to the
+homepage; earlier outlines remain in [the archive](archive/reading-routes/README.md).
 Old general-proof-prefixed deeper URLs still
 redirect to the corresponding current nodes, including their published videos.
 

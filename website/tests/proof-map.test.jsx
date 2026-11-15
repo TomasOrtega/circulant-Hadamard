@@ -78,13 +78,14 @@ describe("supplied eight-node proof map", () => {
     expect(page).not.toContain("<pre");
   });
 
-  test("reading-route start buttons appear only on the homepage", () => {
+  test("the homepage credits the authors without separate reading routes", () => {
+    const introduction = html.slice(html.indexOf("<hgroup"), html.indexOf('aria-label="Overview video:'));
+    expect(introduction.includes("Steven Creech and Tomas Ortega")).toBe(true);
     for (const entry of entries) {
       const page = renderToStaticMarkup(<NodePage entry={entry} entries={entries} />);
-      const homepage = entry.ancestors.length === 0;
-      expect(page.includes('aria-label="Reading routes"'), entry.node.id).toBe(homepage);
-      expect(page.includes("Start here · "), entry.node.id).toBe(homepage);
-      expect(page.includes("Then · "), entry.node.id).toBe(homepage);
+      expect(page.includes('aria-label="Reading routes"'), entry.node.id).toBe(false);
+      expect(page.includes('id="node-proof-by-example"'), entry.node.id).toBe(false);
+      expect(page.includes('id="node-general-proof"'), entry.node.id).toBe(false);
     }
   });
 

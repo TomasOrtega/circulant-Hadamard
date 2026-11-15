@@ -128,20 +128,6 @@ function Breadcrumbs({ entry }) {
   );
 }
 
-function ReadingRoutes({ entry }) {
-  if (entry.ancestors.length || entry.node.graphLayout !== "proof-map") return null;
-  return (
-    <nav aria-label="Reading routes" className="flex flex-wrap justify-center gap-4 font-sans">
-      <NodeButton href="nodes/proof-by-example/index.html" id="node-proof-by-example">
-        Start here · Proof by Example: n = 36
-      </NodeButton>
-      <NodeButton href="nodes/general-proof/index.html" id="node-general-proof">
-        Then · The General Odd-u Proof
-      </NodeButton>
-    </nav>
-  );
-}
-
 function Markdown({ script }) {
   return (
     <div className="flex min-w-0 flex-col gap-8 overflow-x-auto
@@ -260,7 +246,9 @@ export function NodePage({ entry, entries }) {
           <hgroup className="flex flex-col items-center gap-4 font-sans">
             <h1>{node.title}</h1>
           </hgroup>
-          <ReadingRoutes entry={entry} />
+          {!entry.ancestors.length && (
+            <p className="text-center font-sans text-lg">Steven Creech and Tomas Ortega</p>
+          )}
           <div className="w-full max-w-200">
             <Media video={node.video} title={node.title} base={base} />
           </div>

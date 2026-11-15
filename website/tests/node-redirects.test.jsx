@@ -3,6 +3,7 @@ import { existsSync, mkdtempSync, readFileSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { buildNodes } from "../build-nodes.jsx";
+import { loadNodes } from "../load-nodes.js";
 
 const directories = [];
 afterEach(() => {
@@ -27,7 +28,7 @@ function build(root) {
 
 function expectRedirect(directory, previousPath, destination, assetPrefix) {
   const html = readFileSync(join(directory, previousPath), "utf8");
-  expect(html).toContain(`http-equiv="refresh" content="0; url=${destination}"`);
+  expect(html.includes(`http-equiv="refresh" content="0; url=${destination}"`), previousPath).toBe(true);
   expect(html).toContain(`href="${destination}"`);
   expect(html).toContain(`href="${assetPrefix}styles.css"`);
   expect(existsSync(join(directory, previousPath, "..", destination))).toBe(true);
@@ -36,7 +37,7 @@ function expectRedirect(directory, previousPath, destination, assetPrefix) {
 
 describe("published proof route compatibility", () => {
   test("legacy reading-route URLs redirect to the root proof map", () => {
-    const directory = build(node("overview", [node("three-evaluations")]));
+    const directory = build(loadNodes());
     for (const route of ["general-proof", "proof-by-example"])
       expectRedirect(directory, `nodes/${route}/index.html`, "../../index.html", "../../");
   });
