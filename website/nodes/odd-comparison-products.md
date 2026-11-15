@@ -6,7 +6,10 @@ mapTitle: 'Compare the $\Delta$-Values'
 summary: The two comparison products inherit odd order from the Delta theorem.
 number: "6.1"
 draft: true
-video: null
+video:
+  src: media/odd-comparison-products.mp4
+  captions: media/odd-comparison-products.vtt
+  duration: 182.6
 mapPosition: [40, 24]
 mapSummary: '$R,W$ have odd order'
 ---

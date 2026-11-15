@@ -1,0 +1,165 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:04.280
+Let u be odd and greater than
+one. The normalized polynomials c,
+
+00:00:04.380 --> 00:00:07.680
+d, and g each have product with
+their star equal to u squared.
+
+00:00:08.540 --> 00:00:13.480
+At every subset input used below,
+each evaluated value has magnitude u.
+
+00:00:14.140 --> 00:00:16.160
+In particular, none is zero.
+
+00:00:17.220 --> 00:00:19.940
+Let I be the distinct primes dividing u.
+
+00:00:20.560 --> 00:00:24.640
+Choose a primitive p-th root
+zeta sub p for each prime.
+
+00:00:25.280 --> 00:00:30.260
+For a subset S, multiply its
+chosen roots to obtain zeta sub S;
+
+00:00:30.700 --> 00:00:32.900
+the empty subset gives one.
+
+00:00:33.400 --> 00:00:37.020
+Delta of f is the alternating
+product of these evaluations.
+
+00:00:37.960 --> 00:00:42.600
+Even subsets contribute above the
+fraction bar, and odd subsets below.
+
+00:00:43.340 --> 00:00:47.020
+Node four proves that each of the
+three Delta values is a root of
+
+00:00:47.020 --> 00:00:50.680
+unity of odd order. We use
+that theorem as an input.
+
+00:00:51.740 --> 00:00:57.020
+Use Delta of c as the reference. Define
+R as Delta of d divided by Delta of c,
+
+00:00:57.020 --> 00:01:00.060
+and W as Delta of g divided by Delta of c.
+
+00:01:00.620 --> 00:01:03.600
+These are well-defined complex
+quotients of Delta values.
+
+00:01:04.220 --> 00:01:06.640
+They do not compare individual
+polynomial coefficients.
+
+00:01:07.440 --> 00:01:09.940
+A common odd exponent
+will control their orders.
+
+00:01:11.260 --> 00:01:15.190
+Suppose alpha to the m equals
+one and beta to the n equals one,
+
+00:01:15.340 --> 00:01:20.753
+with m and n positive and odd. Raise
+alpha divided by beta to the product m n.
+
+00:01:21.100 --> 00:01:26.540
+Regrouping the powers gives alpha to the
+m, raised to n, divided by beta to the n,
+
+00:01:26.780 --> 00:01:30.870
+raised to m. Both numerator
+and denominator become one.
+
+00:01:31.280 --> 00:01:35.300
+The quotient therefore has order
+dividing the odd number m n.
+
+00:01:35.600 --> 00:01:39.880
+Its order is odd as well.
+This applies to both R and W.
+
+00:01:40.700 --> 00:01:42.180
+Order one is included.
+
+00:01:43.680 --> 00:01:45.730
+For the guiding case u equals three,
+
+00:01:45.980 --> 00:01:49.230
+set omega equal to the exponential
+of two pi i over three.
+
+00:01:49.280 --> 00:01:51.880
+The two subset roots are one and omega,
+
+00:01:52.180 --> 00:01:55.200
+so Delta of f equals f
+of one over f of omega.
+
+00:01:56.000 --> 00:02:01.580
+Unpacking R gives d of one over c of one,
+divided by d of omega over c of omega.
+
+00:02:02.160 --> 00:02:06.260
+W is the same ratio of
+ratios with g in place of d.
+
+00:02:06.960 --> 00:02:11.080
+The ratio at input one is on
+top; the ratio at omega is below.
+
+00:02:12.380 --> 00:02:16.880
+In this case, Node four restricts
+the three Delta values to one, omega,
+
+00:02:16.880 --> 00:02:18.100
+and omega squared.
+
+00:02:18.960 --> 00:02:22.880
+Dividing these cubic roots stays
+in the same three-element set.
+
+00:02:23.400 --> 00:02:28.080
+Thus each comparison has those three
+candidates. Keep all three available.
+
+00:02:28.860 --> 00:02:34.080
+These points represent complex phases,
+not residues modulo one plus i.
+
+00:02:35.040 --> 00:02:40.480
+If R equals one, the relative ratio d over
+c is unchanged between the two inputs.
+
+00:02:41.140 --> 00:02:44.760
+The analogous statement
+holds for W and g over c.
+
+00:02:45.180 --> 00:02:48.740
+This does not say that those two
+relative ratios equal each other,
+
+00:02:48.740 --> 00:02:51.020
+or that the three
+evaluated points coincide.
+
+00:02:51.840 --> 00:02:54.340
+We have not yet forced
+R and W to equal one.
+
+00:02:54.660 --> 00:02:57.070
+The separate sign condition
+in Node six point three,
+
+00:02:57.220 --> 00:03:01.260
+followed by rigidity in Node six point
+four, will supply the remaining argument.
