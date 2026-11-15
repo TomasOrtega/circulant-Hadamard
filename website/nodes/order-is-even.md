@@ -6,7 +6,10 @@ mapTitle: 'Pair $+1$ and $-1$ Terms'
 summary: Orthogonality pairs each positive contribution with a negative one, forcing an even number of terms.
 number: "2.2"
 draft: true
-video: null
+video:
+  src: media/order-is-even.mp4
+  captions: media/order-is-even.vtt
+  duration: 128.666667
 foundation: true
 mapPosition: [440, 24]
 mapSummary: '$n$ is even'

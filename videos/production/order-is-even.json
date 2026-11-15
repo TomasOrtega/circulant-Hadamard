@@ -1,0 +1,236 @@
+{
+  "source": "website/scripts/node2/order-is-even.md",
+  "source_sha256": "cbdf97dca86a95bccd4183953f55ddffedd759618607c8eedacfa20f0490d046",
+  "scene": "OrderIsEven",
+  "scene_file": "videos/order_is_even.py",
+  "voice": "en-US-Chirp3-HD-Achird",
+  "work_started_at": "2026-11-15T04:04:10-08:00",
+  "cues": {
+    "goal": 0,
+    "example": 18.31,
+    "pairing": 36.51,
+    "counts": 56.55,
+    "square": 75.85,
+    "substitute": 101.24,
+    "next": 117.49
+  },
+  "alignment_match_ratio": 0.8703,
+  "narration_duration": 128.66022675736963,
+  "detail_cues": {
+    "goal_choose": 4.44,
+    "goal_zero": 6.26,
+    "goal_signs": 8.48,
+    "goal_even": 13.84,
+    "example_rows": 21.38,
+    "example_multiply": 28.56,
+    "example_product_0": 33.52,
+    "example_product_1": 34.64,
+    "example_product_2": 35.69,
+    "example_product_3": 36.175,
+    "pairing_separate": 38.24,
+    "pairing_pair": 40.72,
+    "pairing_zero": 46.0,
+    "pairing_unpaired": 48.5,
+    "pairing_match": 52.66,
+    "counts_define": 58.58,
+    "counts_negative": 60.7,
+    "counts_zero": 62.8,
+    "counts_total": 66.32,
+    "counts_equal": 70.18,
+    "counts_double": 71.4,
+    "counts_even": 74.16,
+    "square_identity": 79.18,
+    "square_even": 83.18,
+    "square_assume": 86.66,
+    "square_expand": 90.52,
+    "square_contradiction": 95.78,
+    "square_conclude": 98.44,
+    "substitute_integer": 103.36,
+    "substitute_into": 105.58,
+    "substitute_square": 108.72,
+    "substitute_result": 111.88000000000001,
+    "substitute_example": 113.44,
+    "next_odd": 121.0
+  },
+  "detail_alignment": {
+    "goal_choose": {
+      "phrase": "choose two distinct rows,",
+      "source_word_start": 12,
+      "time": 4.44
+    },
+    "goal_zero": {
+      "phrase": "and their dot product is zero.",
+      "source_word_start": 16,
+      "time": 6.26
+    },
+    "goal_signs": {
+      "phrase": "Each coordinate contributes",
+      "source_word_start": 22,
+      "time": 8.48
+    },
+    "goal_even": {
+      "phrase": "Our goal is to show that",
+      "source_word_start": 34,
+      "time": 13.84
+    },
+    "example_rows": {
+      "phrase": "The two rows are",
+      "source_word_start": 54,
+      "time": 21.38
+    },
+    "example_multiply": {
+      "phrase": "Multiply the entries vertically,",
+      "source_word_start": 69,
+      "time": 28.56
+    },
+    "example_product_0": {
+      "phrase": "negative one,",
+      "source_word_start": 82,
+      "time": 33.52
+    },
+    "example_product_1": {
+      "phrase": "negative one,",
+      "source_word_start": 84,
+      "time": 34.64
+    },
+    "example_product_2": {
+      "phrase": "one,",
+      "source_word_start": 86,
+      "time": 35.69
+    },
+    "example_product_3": {
+      "phrase": "one.",
+      "source_word_start": 87,
+      "time": 36.175
+    },
+    "pairing_separate": {
+      "phrase": "from the negative contributions.",
+      "source_word_start": 92,
+      "time": 38.24
+    },
+    "pairing_pair": {
+      "phrase": "Pair each positive one with a negative one.",
+      "source_word_start": 96,
+      "time": 40.72
+    },
+    "pairing_zero": {
+      "phrase": "each pair sums to zero.",
+      "source_word_start": 110,
+      "time": 46.0
+    },
+    "pairing_unpaired": {
+      "phrase": "An unpaired contribution",
+      "source_word_start": 115,
+      "time": 48.5
+    },
+    "pairing_match": {
+      "phrase": "Orthogonality requires the positive and negative counts to match.",
+      "source_word_start": 125,
+      "time": 52.66
+    },
+    "counts_define": {
+      "phrase": "Let a be the number of positive products,",
+      "source_word_start": 138,
+      "time": 58.58
+    },
+    "counts_negative": {
+      "phrase": "and b the number of negative products.",
+      "source_word_start": 146,
+      "time": 60.7
+    },
+    "counts_zero": {
+      "phrase": "The zero dot product says a minus b equals zero.",
+      "source_word_start": 153,
+      "time": 62.8
+    },
+    "counts_total": {
+      "phrase": "Counting all the positions says a plus b equals n.",
+      "source_word_start": 163,
+      "time": 66.32
+    },
+    "counts_equal": {
+      "phrase": "Thus a equals b,",
+      "source_word_start": 173,
+      "time": 70.18
+    },
+    "counts_double": {
+      "phrase": "so n equals a plus a, which is two a.",
+      "source_word_start": 177,
+      "time": 71.4
+    },
+    "counts_even": {
+      "phrase": "Therefore n is even.",
+      "source_word_start": 187,
+      "time": 74.16
+    },
+    "square_identity": {
+      "phrase": "n equals m squared,",
+      "source_word_start": 200,
+      "time": 79.18
+    },
+    "square_even": {
+      "phrase": "We have just proved that n is even.",
+      "source_word_start": 209,
+      "time": 83.18
+    },
+    "square_assume": {
+      "phrase": "If m were odd,",
+      "source_word_start": 217,
+      "time": 86.66
+    },
+    "square_expand": {
+      "phrase": "Its square is four r squared plus four r plus one, which is odd.",
+      "source_word_start": 228,
+      "time": 90.52
+    },
+    "square_contradiction": {
+      "phrase": "That would contradict the evenness of n.",
+      "source_word_start": 242,
+      "time": 95.78
+    },
+    "square_conclude": {
+      "phrase": "Therefore m is even.",
+      "source_word_start": 249,
+      "time": 98.44
+    },
+    "substitute_integer": {
+      "phrase": "with u a positive integer.",
+      "source_word_start": 258,
+      "time": 103.36
+    },
+    "substitute_into": {
+      "phrase": "Substituting into n equals m squared",
+      "source_word_start": 263,
+      "time": 105.58
+    },
+    "substitute_square": {
+      "phrase": "n equals the square of two u,",
+      "source_word_start": 270,
+      "time": 108.72
+    },
+    "substitute_result": {
+      "phrase": "four u squared.",
+      "source_word_start": 279,
+      "time": 111.88000000000001
+    },
+    "substitute_example": {
+      "phrase": "The order four example corresponds to u equal to one.",
+      "source_word_start": 282,
+      "time": 113.44
+    },
+    "next_odd": {
+      "phrase": "We have not yet proved that this same u is odd.",
+      "source_word_start": 300,
+      "time": 121.0
+    }
+  },
+  "duration": 128.666667,
+  "narration_sha256": "d274133aa93d9e6e8b710b49cbd56089aae91774a59ea2fc96e6446b91bf08df",
+  "video_sha256": "23145b924355e28d212ecd175c29f1ecfe377eaf09359471b01921305070a889",
+  "subtitle_safe_fraction": 0.2,
+  "subtitle_band_max_luma": 16.0,
+  "subtitle_frames_checked": 3860,
+  "production_status": "final",
+  "scene_sha256": "7404e0f8249d646c1b982277ed0bb59effc284198d5557c4b9694259868bfff7",
+  "layout_sha256": "af65a79e6ee3c1e4c50be87eaf23e651674da7cae9a65dd5fa0a5b94e9c219f2"
+}

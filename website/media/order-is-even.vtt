@@ -1,0 +1,119 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:03.740
+Suppose a Hadamard matrix
+has order n greater than one.
+
+00:00:04.080 --> 00:00:08.100
+We can choose two distinct rows,
+and their dot product is zero.
+
+00:00:08.480 --> 00:00:11.260
+Each coordinate contributes
+positive or negative one,
+
+00:00:11.440 --> 00:00:13.100
+because both entries are signs.
+
+00:00:13.840 --> 00:00:17.580
+Our goal is to show that the number
+n of contributions must be even.
+
+00:00:18.460 --> 00:00:20.580
+Use our known order four example.
+
+00:00:21.380 --> 00:00:24.560
+The two rows are negative
+one, one, one, one;
+
+00:00:24.940 --> 00:00:28.150
+and one, negative one, one, one.
+
+00:00:28.560 --> 00:00:32.220
+Multiply the entries vertically,
+one coordinate at a time.
+
+00:00:32.660 --> 00:00:36.295
+The four products are negative
+one, negative one, one, one.
+
+00:00:36.660 --> 00:00:40.000
+Separate the positive contributions
+from the negative contributions.
+
+00:00:40.720 --> 00:00:43.610
+Pair each positive one
+with a negative one.
+
+00:00:43.980 --> 00:00:48.000
+Our example gives two pairs,
+and each pair sums to zero.
+
+00:00:48.500 --> 00:00:52.090
+An unpaired contribution would
+prevent the total from being zero.
+
+00:00:52.660 --> 00:00:55.700
+Orthogonality requires the positive
+and negative counts to match.
+
+00:00:56.700 --> 00:01:01.360
+Now count in general. Let a be the number
+of positive products, and b the number of
+
+00:01:01.360 --> 00:01:05.980
+negative products. The zero dot
+product says a minus b equals zero.
+
+00:01:06.320 --> 00:01:09.500
+Counting all the positions
+says a plus b equals n.
+
+00:01:10.180 --> 00:01:15.140
+Thus a equals b, so n equals a plus a,
+which is two a. Therefore n is even.
+
+00:01:16.000 --> 00:01:21.200
+For a circulant matrix, the preceding
+node also gives n equals m squared,
+
+00:01:21.540 --> 00:01:25.860
+with m a positive integer. We
+have just proved that n is even.
+
+00:01:26.660 --> 00:01:30.180
+If m were odd, write m as two r plus one.
+
+00:01:30.520 --> 00:01:35.080
+Its square is four r squared plus
+four r plus one, which is odd.
+
+00:01:35.780 --> 00:01:39.960
+That would contradict the evenness
+of n. Therefore m is even.
+
+00:01:40.690 --> 00:01:44.780
+Write m equals two u,
+with u a positive integer.
+
+00:01:45.580 --> 00:01:50.913
+Substituting into n equals m squared
+gives n equals the square of two u,
+
+00:01:51.000 --> 00:01:52.620
+which is four u squared.
+
+00:01:53.440 --> 00:01:57.030
+The order four example
+corresponds to u equal to one.
+
+00:01:57.640 --> 00:02:00.180
+We have reached n equals four u squared.
+
+00:02:01.000 --> 00:02:04.640
+We have not yet proved
+that this same u is odd.
+
+00:02:05.300 --> 00:02:07.340
+That is the remaining
+task for the next steps.

@@ -1,0 +1,9 @@
+<speak>
+<p>Suppose a Hadamard matrix has order n greater than one. We can choose two distinct rows, and their dot product is zero. Each coordinate contributes positive or negative one, because both entries are signs. Our goal is to show that the number n of contributions must be even.<break time="700ms"/></p>
+<p>Use our known order four example. The two rows are negative one, one, one, one; and one, negative one, one, one. Multiply the entries vertically, one coordinate at a time. The four products are negative one, negative one, one, one.<break time="700ms"/></p>
+<p>Separate the positive contributions from the negative contributions. Pair each positive one with a negative one. Our example gives two pairs, and each pair sums to zero. An unpaired contribution would prevent the total from being zero. Orthogonality requires the positive and negative counts to match.<break time="800ms"/></p>
+<p>Now count in general. Let a be the number of positive products, and b the number of negative products. The zero dot product says a minus b equals zero. Counting all the positions says a plus b equals n. Thus a equals b, so n equals a plus a, which is two a. Therefore n is even.<break time="800ms"/></p>
+<p>For a circulant matrix, the preceding node also gives n equals m squared, with m a positive integer. We have just proved that n is even. If m were odd, write m as two r plus one. Its square is four r squared plus four r plus one, which is odd. That would contradict the evenness of n. Therefore m is even.<break time="800ms"/></p>
+<p>Write m equals two u, with u a positive integer. Substituting into n equals m squared gives n equals the square of two u, which is four u squared. The order four example corresponds to u equal to one.<break time="700ms"/></p>
+<p>We have reached n equals four u squared. We have not yet proved that this same u is odd. That is the remaining task for the next steps.<break time="1000ms"/></p>
+</speak>
