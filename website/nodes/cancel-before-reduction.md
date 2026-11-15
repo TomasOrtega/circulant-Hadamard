@@ -5,7 +5,10 @@ shortTitle: Cancel, Then Reduce
 summary: Cancel the common factor in characteristic zero before reducing the two resulting sums modulo one plus i.
 number: "7.3"
 draft: true
-video: null
+video:
+  src: media/cancel-before-reduction.mp4
+  captions: media/cancel-before-reduction.vtt
+  duration: 214.9
 mapPosition: [240, 220]
 mapSummary: '$tL+t^2Q=0\ \Longrightarrow\ L\equiv0$'
 ---
