@@ -1,0 +1,13 @@
+<speak>
+<p>We now combine two vanishing sums into one. Let u be an odd integer greater than one, and let I contain its distinct prime divisors. A subset S selects roots whose product is zeta sub S. The empty subset gives the input one. Work in the common ring A, with i, those roots, and one over u adjoined to the integers. Write c sub S for c evaluated at zeta sub S, and similarly for d and g.</p>
+<break time="400ms"/>
+<p>Node seven point three gives two congruences. The alternating sum of d sub S minus c sub S, divided exactly by two and then by c sub S, has residue zero. So does the alternating sum of g sub S minus c sub S, divided exactly by one plus i and then by c sub S. Both reductions take place modulo one plus i, in the same quotient ring. Match the subset indices in the two rows. We can add corresponding terms.</p>
+<break time="450ms"/>
+<p>Recall the polynomial E of P. It is d of P minus c of P, divided by two, plus g of P minus c of P, divided by one plus i. These are exact coefficientwise divisions, performed before reduction. At each input, c sub S is a unit in A. Factor its inverse out of the two terms in one column. The bracketed numerator is precisely E evaluated at zeta sub S. Their sum is therefore E at zeta sub S, divided by c at zeta sub S. This identity is exact in A.</p>
+<break time="450ms"/>
+<p>Make that replacement for every subset. Adding the two zero residues gives one alternating sum, which we call script S. It is the sum over all subsets of I of minus one to the size of S, times E at zeta sub S divided by c at zeta sub S. Its residue modulo one plus i is zero. The signs remember the even and odd products from which we started. In characteristic two, plus and minus agree, but the signs still record the exact sum we constructed.</p>
+<break time="450ms"/>
+<p>For the guiding case u equals three, there are just two inputs, one and omega. Here the common rotation gives c at omega equal to lambda times c at one. The fixed linear combination defining E gives E at omega equal to lambda times E at one. In the normalized ratio, lambda cancels. We divide only by the nonzero denominator c, so this remains valid even when E at one is zero. The two normalized values are equal, and their difference, script S, is zero exactly.</p>
+<break time="450ms"/>
+<p>For general odd u greater than one, the product argument gives residue zero without requiring one common rotation across every input. Node eight will apply the coefficient congruence, E of P congruent to the all-ones polynomial J of P modulo one plus i, to this full subset sum. That separate calculation gives residue one, incompatible with the zero residue established here.</p>
+</speak>

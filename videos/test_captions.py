@@ -25,6 +25,13 @@ def timed_words(text, interval=0.32):
 
 
 class CaptionTests(unittest.TestCase):
+    def test_top_level_ssml_pauses_do_not_create_empty_paragraphs(self):
+        source = (
+            '<speak><break time="200ms"/><p>Zero.</p>'
+            '<break time="450ms"/><p>One.</p><break time="1s"/></speak>'
+        )
+        self.assertEqual(spoken_paragraphs(source), ["Zero.", "One."])
+
     def test_internal_ssml_breaks_separate_caption_words(self):
         source = (
             '<speak><p>Zero.<break time="700ms"/>Consequently, keep '

@@ -1,0 +1,167 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:02.440
+We now combine two
+vanishing sums into one.
+
+00:00:03.000 --> 00:00:05.180
+Let u be an odd integer greater than one,
+
+00:00:05.700 --> 00:00:08.620
+and let I contain its
+distinct prime divisors.
+
+00:00:09.180 --> 00:00:13.140
+A subset S selects roots
+whose product is zeta sub S.
+
+00:00:13.800 --> 00:00:17.980
+The empty subset gives the input
+one. Work in the common ring A,
+
+00:00:17.980 --> 00:00:22.620
+with i, those roots, and one
+over u adjoined to the integers.
+
+00:00:23.600 --> 00:00:29.560
+Write c sub S for c evaluated at zeta
+sub S, and similarly for d and g.
+
+00:00:30.140 --> 00:00:32.900
+Node seven point three
+gives two congruences.
+
+00:00:33.460 --> 00:00:36.660
+The alternating sum of
+d sub S minus c sub S,
+
+00:00:36.760 --> 00:00:41.140
+divided exactly by two and then
+by c sub S, has residue zero.
+
+00:00:41.700 --> 00:00:45.500
+So does the alternating sum
+of g sub S minus c sub S,
+
+00:00:45.560 --> 00:00:50.040
+divided exactly by one
+plus i and then by c sub S.
+
+00:00:50.520 --> 00:00:55.820
+Both reductions take place modulo one
+plus i, in the same quotient ring.
+
+00:00:56.400 --> 00:01:01.360
+Match the subset indices in the two
+rows. We can add corresponding terms.
+
+00:01:02.120 --> 00:01:04.500
+Recall the polynomial E of P.
+
+00:01:05.060 --> 00:01:09.160
+It is d of P minus c of P, divided by two,
+
+00:01:09.680 --> 00:01:14.500
+plus g of P minus c of
+P, divided by one plus i.
+
+00:01:14.920 --> 00:01:19.780
+These are exact coefficientwise
+divisions, performed before reduction.
+
+00:01:20.380 --> 00:01:24.500
+At each input, c sub S is a unit in A.
+
+00:01:24.960 --> 00:01:28.440
+Factor its inverse out of
+the two terms in one column.
+
+00:01:28.960 --> 00:01:33.180
+The bracketed numerator is
+precisely E evaluated at zeta sub S.
+
+00:01:33.960 --> 00:01:39.420
+Their sum is therefore E at zeta
+sub S, divided by c at zeta sub S.
+
+00:01:40.240 --> 00:01:45.020
+This identity is exact in A. Make
+that replacement for every subset.
+
+00:01:45.760 --> 00:01:50.520
+Adding the two zero residues gives one
+alternating sum, which we call script S.
+
+00:01:51.080 --> 00:01:55.380
+It is the sum over all subsets of
+I of minus one to the size of S,
+
+00:01:55.820 --> 00:02:00.500
+times E at zeta sub S
+divided by c at zeta sub S.
+
+00:02:00.980 --> 00:02:04.780
+Its residue modulo one plus i is zero.
+
+00:02:05.460 --> 00:02:08.640
+The signs remember the even and
+odd products from which we started.
+
+00:02:09.380 --> 00:02:10.580
+In characteristic two,
+
+00:02:10.820 --> 00:02:15.000
+plus and minus agree, but the signs still
+record the exact sum we constructed.
+
+00:02:15.940 --> 00:02:20.960
+For the guiding case u equals three,
+there are just two inputs, one and omega.
+
+00:02:21.680 --> 00:02:26.560
+Here the common rotation gives c at
+omega equal to lambda times c at one.
+
+00:02:27.100 --> 00:02:31.600
+The fixed linear combination
+defining E gives E at omega equal to
+
+00:02:31.600 --> 00:02:36.500
+lambda times E at one. In the
+normalized ratio, lambda cancels.
+
+00:02:36.900 --> 00:02:40.980
+We divide only by the nonzero
+denominator c, so this remains valid
+
+00:02:40.980 --> 00:02:45.000
+even when E at one is zero. The
+two normalized values are equal,
+
+00:02:45.000 --> 00:02:48.320
+and their difference,
+script S, is zero exactly.
+
+00:02:49.540 --> 00:02:54.340
+For general odd u greater than one,
+the product argument gives residue zero
+
+00:02:54.340 --> 00:02:58.640
+without requiring one common
+rotation across every input.
+
+00:02:59.260 --> 00:03:03.440
+Node eight will apply the coefficient
+congruence, E of P congruent to the
+
+00:03:03.440 --> 00:03:08.140
+all-ones polynomial J of P modulo
+one plus i, to this full subset sum.
+
+00:03:08.800 --> 00:03:11.140
+That separate calculation
+gives residue one,
+
+00:03:11.140 --> 00:03:14.320
+incompatible with the zero
+residue established here.

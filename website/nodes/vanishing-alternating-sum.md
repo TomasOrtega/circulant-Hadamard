@@ -5,7 +5,10 @@ shortTitle: One Vanishing Sum
 summary: Adding the two linear sums produces the alternating sum of normalized evaluations.
 number: "7.4"
 draft: true
-video: null
+video:
+  src: media/vanishing-alternating-sum.mp4
+  captions: media/vanishing-alternating-sum.vtt
+  duration: 194.533333
 mapPosition: [240, 420]
 mapSummary: '$\mathcal S\equiv0\pmod{1+i}$'
 ---

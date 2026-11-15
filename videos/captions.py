@@ -18,7 +18,8 @@ def spoken_paragraphs(ssml):
             parts.append(child.tail or "")
         return "".join(parts)
 
-    return [" ".join(content(p).split()) for p in ET.fromstring(ssml)]
+    paragraphs = [" ".join(content(p).split()) for p in ET.fromstring(ssml)]
+    return [paragraph for paragraph in paragraphs if paragraph]
 
 
 def _lines(words):

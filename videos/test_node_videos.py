@@ -2,7 +2,6 @@ import json
 import subprocess
 import sys
 import unittest
-import xml.etree.ElementTree as ET
 from html import unescape
 from pathlib import Path
 from unittest.mock import Mock, patch
@@ -91,7 +90,7 @@ class NodeVideoTests(unittest.TestCase):
                 data = json.loads(path.read_text())
                 script = (ROOT / "videos/scripts" / f"{path.stem}.ssml").read_text()
                 Narrator(ssml=True).validate_text(script)
-                paragraphs = list(ET.fromstring(script))
+                paragraphs = spoken_paragraphs(script)
                 self.assertEqual(len(paragraphs), len(data["cues"]))
                 cues = list(data["cues"].values())
                 self.assertEqual(cues, sorted(cues))
