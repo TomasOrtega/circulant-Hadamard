@@ -5,7 +5,10 @@ shortTitle: Kronecker's Theorem
 summary: Integrality and unit magnitude for every conjugate force the alternating product to be a root of unity.
 number: "4.5"
 draft: true
-video: null
+video:
+  src: media/kronecker-step.mp4
+  captions: media/kronecker-step.vtt
+  duration: 183.933333
 mapPosition: [40, 560]
 mapSummary: The product is a root of unity
 ---

@@ -1,0 +1,162 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:04.240
+Two results now meet. Delta
+of f is an algebraic integer,
+
+00:00:04.760 --> 00:00:08.027
+and every algebraic conjugate
+has absolute value one.
+
+00:00:08.473 --> 00:00:11.820
+Kronecker's theorem says that these
+two facts force a root of unity.
+
+00:00:12.520 --> 00:00:17.600
+To see why, call this number z, and
+let d be its degree over the rationals.
+
+00:00:18.380 --> 00:00:20.880
+Algebraic integrality
+means that z satisfies
+
+00:00:20.880 --> 00:00:23.340
+a monic polynomial with
+integer coefficients.
+
+00:00:24.640 --> 00:00:30.220
+Take any positive integer m. The power z
+to the m is still an algebraic integer.
+
+00:00:31.000 --> 00:00:35.860
+Its degree is at most d, and every
+conjugate still has absolute value one.
+
+00:00:36.500 --> 00:00:41.040
+Write its monic minimal polynomial
+with degree r, where r is at most d.
+
+00:00:41.640 --> 00:00:44.920
+We will bound its integer
+coefficients independently of m.
+
+00:00:45.960 --> 00:00:49.740
+Start with a schematic degree
+three picture. Its three roots,
+
+00:00:50.080 --> 00:00:53.540
+alpha, beta, and gamma,
+each have magnitude one.
+
+00:00:53.980 --> 00:00:56.600
+Expand the product of X minus each root.
+
+00:00:57.000 --> 00:01:01.200
+Up to signs, the coefficients
+are alpha plus beta plus gamma;
+
+00:01:01.480 --> 00:01:06.120
+alpha beta plus alpha gamma plus
+beta gamma; and alpha beta gamma.
+
+00:01:06.560 --> 00:01:08.680
+Every product has magnitude one.
+
+00:01:09.140 --> 00:01:13.467
+The triangle inequality bounds the
+three coefficient magnitudes by three,
+
+00:01:13.853 --> 00:01:17.860
+three, and one. In
+degree r, the coefficient
+
+00:01:17.860 --> 00:01:22.180
+k places below the leading term is a
+sum of products of k distinct roots.
+
+00:01:22.860 --> 00:01:26.940
+There are r choose k such
+terms, each of magnitude one.
+
+00:01:27.420 --> 00:01:33.380
+Its magnitude is at most r choose
+k, and hence at most d choose k.
+
+00:01:34.040 --> 00:01:36.200
+This bound does not depend on m.
+
+00:01:37.220 --> 00:01:41.100
+Now use the integer condition.
+For each possible degree,
+
+00:01:41.260 --> 00:01:43.740
+every coefficient is an
+integer in a bounded range.
+
+00:01:43.740 --> 00:01:46.380
+The leading coefficient is one.
+
+00:01:46.780 --> 00:01:49.740
+Only finitely many coefficient
+lists are possible,
+
+00:01:50.200 --> 00:01:53.200
+so only finitely many
+polynomials can occur.
+
+00:01:54.140 --> 00:01:57.580
+The degree bound and the coefficient
+bounds work for every power of z.
+
+00:01:58.500 --> 00:02:02.700
+Each of these finitely many
+polynomials has finitely many roots.
+
+00:02:03.300 --> 00:02:06.000
+Collect all their roots
+into one finite set.
+
+00:02:06.660 --> 00:02:11.920
+Every positive power of z belongs to
+this set. If the set has N elements,
+
+00:02:12.600 --> 00:02:15.800
+N plus one powers cannot
+all occupy different slots.
+
+00:02:16.600 --> 00:02:19.000
+Some two actual powers must agree.
+
+00:02:20.280 --> 00:02:26.380
+So z to the a equals z to the b for
+some positive integers a less than b.
+
+00:02:26.720 --> 00:02:30.380
+Since z has magnitude one, it is nonzero.
+
+00:02:31.100 --> 00:02:36.670
+Divide both sides by z to the a. We
+obtain z to the b minus a equals one.
+
+00:02:36.780 --> 00:02:41.740
+The exponent is positive. That is exactly
+the definition of a root of unity.
+
+00:02:42.960 --> 00:02:45.500
+Apply this to z equals Delta of f.
+
+00:02:46.120 --> 00:02:49.760
+Our two preceding results supply
+algebraic integrality and unit
+
+00:02:49.900 --> 00:02:53.860
+magnitude for every conjugate, so
+Delta has some finite positive order.
+
+00:02:54.500 --> 00:02:58.840
+We have not yet shown that the order is
+odd. The next node brings back the residue
+
+00:02:58.880 --> 00:03:02.680
+one information from the local comparisons
+to prove that further restriction.
