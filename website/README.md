@@ -130,8 +130,7 @@ Reading-route nodes use `supplemental: true`: they have their own pages and
 entry buttons but do not appear as extra nodes or video cuts in the proof map.
 Terminal statement pages offer the parent map in a collapsed disclosure and
 list their incoming and outgoing links. No disclosure contains an invented
-internal proof. Math-bearing explanations include selectable Markdown and
-LaTeX in a separate disclosure for copying.
+internal proof.
 
 At a terminal node, the graph shows its siblings and highlights the current
 node. Native SVG links support clicking and keyboard navigation. Wide graphs

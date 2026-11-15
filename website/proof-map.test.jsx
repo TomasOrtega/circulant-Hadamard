@@ -42,14 +42,28 @@ describe("supplied eight-node proof map", () => {
     expect(entries.find(({ node }) => node.id === "proof-by-example").node.script.join(" ")).not.toContain("\\zeta_S");
   });
 
-  test("statement pages expose incoming and outgoing links and selectable source", () => {
+  test("statement pages expose incoming and outgoing links without a source dropdown", () => {
     const entry = entries.find(({ node }) => node.id === "odd-order-rigidity");
     const page = renderToStaticMarkup(<NodePage entry={entry} entries={entries} />);
     const relations = page.match(/<nav aria-label="Incoming and outgoing dependencies"[\s\S]*?<\/nav>/)[0];
     for (const slug of ["three-evaluations", "delta-theorem", "signs-become-all-ones", "products-to-sums"])
       expect(relations).toContain(`../${slug}/index.html`);
-    expect(page).toContain("Copyable text and LaTeX");
-    expect(page).toContain("<pre");
+    expect(page).not.toContain("Copyable text and LaTeX");
+    expect(page).not.toContain("<pre");
+  });
+
+  test("the highlighted reading route matches the current page", () => {
+    for (const entry of entries.filter(({ node }) => node.supplemental)) {
+      const page = renderToStaticMarkup(<NodePage entry={entry} entries={entries} />);
+      const navigation = page.match(/<nav aria-label="Reading routes"[\s\S]*?<\/nav>/)[0];
+      const links = [...navigation.matchAll(/<a\b([^>]*)>([^<]*)<\/a>/g)];
+      const highlighted = links.filter(([, attributes]) =>
+        attributes.match(/class="([^"]*)"/)[1].split(/\s+/).includes("bg-theme"));
+      expect(highlighted).toHaveLength(1);
+      expect(highlighted[0][1]).toContain('aria-current="page"');
+      expect(highlighted[0][2]).toEndWith(entry.node.title);
+      expect(links.filter(([, attributes]) => attributes.includes('aria-current="page"'))).toHaveLength(1);
+    }
   });
 
   test("malformed context edges cannot silently enter a proof map", () => {

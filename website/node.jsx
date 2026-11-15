@@ -140,16 +140,8 @@ function Heading({ id, children }) {
 
 function Markdown({ script }) {
   return (
-    <>
-      <div className="flex min-w-0 flex-col gap-8 overflow-x-auto"
-        dangerouslySetInnerHTML={{ __html: renderMarkdown(script.join("\n\n")).html }} />
-      {script.some((text) => text.includes("$")) && (
-        <details className="w-full max-w-200 font-sans text-sm text-dark-gray">
-          <summary className="cursor-pointer">Copyable text and LaTeX</summary>
-          <pre className="mt-4 max-h-100 overflow-auto whitespace-pre-wrap rounded-md bg-light-gray p-4">{script.join("\n\n")}</pre>
-        </details>
-      )}
-    </>
+    <div className="flex min-w-0 flex-col gap-8 overflow-x-auto"
+      dangerouslySetInnerHTML={{ __html: renderMarkdown(script.join("\n\n")).html }} />
   );
 }
 
@@ -200,10 +192,11 @@ function ChildNode({ child, entry, entries }) {
 function ReadingRoutes({ entry, entries }) {
   const routes = entries.filter(({ node, ancestors }) => node.supplemental && ancestors.length === 1);
   if (!routes.length) return null;
+  const primaryRoute = routes.includes(entry) ? entry : routes[0];
   return (
     <nav aria-label="Reading routes" className="flex flex-wrap justify-center gap-4 font-sans">
       {routes.map((route, index) => (
-        <NodeButton key={route.node.id} href={hrefFor(route, entry)} primary={index === 0}
+        <NodeButton key={route.node.id} href={hrefFor(route, entry)} primary={route === primaryRoute}
           id={entry.ancestors.length ? undefined : nodeAnchor(route.node)}
           aria-current={route === entry ? "page" : undefined}>
           {index === 0 ? "Start here · " : "Then · "}{route.node.title}
