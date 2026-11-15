@@ -1,0 +1,172 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:03.660
+Let the n coefficients of h be
+positive or negative one, and
+
+00:00:03.660 --> 00:00:07.880
+form the circulant matrix from that row
+and its successive right cyclic shifts.
+
+00:00:08.300 --> 00:00:11.160
+Define h star by replacing
+X with X inverse.
+
+00:00:11.600 --> 00:00:17.160
+We claim that H times H transpose
+equals n times the identity if and
+
+00:00:17.160 --> 00:00:22.980
+only if h times h star equals n, in the
+integer group ring of the cyclic group.
+
+00:00:24.040 --> 00:00:27.180
+First, suppose the matrix is Hadamard.
+
+00:00:27.820 --> 00:00:31.740
+The first row is orthogonal to
+every nontrivial cyclic shift.
+
+00:00:32.200 --> 00:00:35.680
+By the correlation identity,
+every nonconstant coefficient
+
+00:00:35.680 --> 00:00:39.330
+of h times h star is therefore zero.
+
+00:00:40.020 --> 00:00:43.480
+The constant coefficient is the sum
+of the squares of the row entries.
+
+00:00:44.560 --> 00:00:47.660
+Every coefficient is a
+sign, so this sum is n.
+
+00:00:48.340 --> 00:00:51.600
+The product is exactly
+the constant polynomial n.
+
+00:00:52.380 --> 00:00:56.800
+Conversely, start with n sign
+coefficients and assume their
+
+00:00:56.800 --> 00:01:01.060
+polynomial satisfies h
+times h star equals n.
+
+00:01:01.620 --> 00:01:04.460
+Form the circulant matrix
+from those coefficients.
+
+00:01:05.280 --> 00:01:09.680
+Uniqueness of the representative
+of degree less than n says that
+
+00:01:09.680 --> 00:01:13.230
+each nonconstant coefficient
+of the product is zero.
+
+00:01:13.660 --> 00:01:17.140
+Thus the first row is orthogonal
+to every nontrivial cyclic shift.
+
+00:01:18.300 --> 00:01:22.960
+Why does that give every pair
+of rows? Number rows from zero.
+
+00:01:23.380 --> 00:01:28.620
+Compare row r and row s, then
+shift both back by r places.
+
+00:01:29.340 --> 00:01:31.700
+A common shift does not
+change a dot product.
+
+00:01:31.900 --> 00:01:36.320
+We are left with row zero
+and the shift by s minus r.
+
+00:01:36.840 --> 00:01:41.560
+In formulas, substitute
+k equal to j minus r.
+
+00:01:42.200 --> 00:01:47.640
+The resulting sum is the coefficient of
+X to the s minus r in h times h star.
+
+00:01:47.640 --> 00:01:52.220
+It is zero for distinct
+rows, and n for equal rows.
+
+00:01:52.920 --> 00:01:57.140
+Hence H times H transpose
+is n times the identity.
+
+00:01:58.440 --> 00:02:01.700
+The sign assumption is part
+of the dictionary. Forward,
+
+00:02:01.720 --> 00:02:04.780
+it makes the squared norm exactly n.
+
+00:02:05.440 --> 00:02:08.440
+Backward, it guarantees
+that every entry of
+
+00:02:08.440 --> 00:02:11.390
+the constructed matrix is
+positive or negative one.
+
+00:02:11.720 --> 00:02:15.600
+The polynomial equation alone
+does not guarantee those entries.
+
+00:02:16.820 --> 00:02:22.000
+For example, in dimension four
+take the constant polynomial two.
+
+00:02:22.500 --> 00:02:25.240
+Its product with its star is four.
+
+00:02:25.880 --> 00:02:30.496
+But its coefficient list
+is two, zero, zero, zero.
+
+00:02:31.100 --> 00:02:35.240
+The circulant matrix is twice
+the identity: orthogonal rows,
+
+00:02:36.000 --> 00:02:39.800
+yet its entries are not
+signs. It is not Hadamard.
+
+00:02:40.960 --> 00:02:45.180
+For another useful check, take the
+all ones row in dimension four.
+
+00:02:45.480 --> 00:02:50.590
+Every shift is the same row, so two
+distinct rows have dot product four.
+
+00:02:50.960 --> 00:02:54.270
+The polynomial product has
+every coefficient equal to four,
+
+00:02:54.540 --> 00:02:56.640
+rather than only its constant coefficient.
+
+00:02:57.440 --> 00:03:00.820
+Circulant symmetry alone
+does not give orthogonality.
+
+00:03:01.520 --> 00:03:05.540
+With the sign hypothesis included,
+both implications are proved.
+
+00:03:06.520 --> 00:03:09.360
+Many matrix conditions have
+become one polynomial equation.
+
+00:03:10.500 --> 00:03:14.180
+In the next main node, we will ask what
+that equation tells us about the order n.
