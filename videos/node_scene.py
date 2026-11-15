@@ -4,16 +4,17 @@ from pathlib import Path
 from manimlib import (
     BLUE_C,
     DOWN,
-    GREY_B,
     UP,
     WHITE,
     YELLOW,
     FadeIn,
     FadeOut,
+    LaggedStart,
     Matrix,
     Tex,
     Text,
     VGroup,
+    Write,
 )
 
 from videos.narrated_scene import NarratedScene
@@ -49,6 +50,7 @@ class NodeScene(NarratedScene):
     narration_ssml = True
 
     def construct(self):
+        self.frame.set_height(10).move_to(DOWN)
         production = json.loads(
             (ROOT / "videos" / "production" / f"{self.node_id}.json").read_text()
         )
@@ -56,12 +58,9 @@ class NodeScene(NarratedScene):
         self.body = VGroup()
         self.heading = words(self.title, size=35).to_edge(UP, buff=0.28)
         self.subtitle = words("", size=25, color=BLUE_C)
-        footer = words(
-            "Circulant Hadamard · proof exposition draft", size=16, color=GREY_B
-        ).to_edge(DOWN, buff=0.16)
         full_script = (ROOT / "videos" / "scripts" / f"{self.node_id}.ssml").read_text()
         with self.narrate(full_script):
-            self.add(self.heading, footer)
+            self.add(self.heading)
             self.present()
 
     def section(self, cue, title):
@@ -74,9 +73,25 @@ class NodeScene(NarratedScene):
         self.subtitle.next_to(self.heading, DOWN, buff=0.25)
         self.play(FadeIn(self.subtitle), run_time=0.35)
 
-    def show(self, *objects, run_time=0.7):
+    def show(self, *objects, run_time=1.2):
         self.body.add(*objects)
-        self.play(*(FadeIn(obj) for obj in objects), run_time=run_time)
+        animations = []
+        for obj in objects:
+            if type(obj) is VGroup and all(
+                isinstance(part, (Tex, Text)) for part in obj
+            ):
+                animations.append(
+                    LaggedStart(
+                        *(
+                            Write(part) if isinstance(part, Tex) else FadeIn(part)
+                            for part in obj
+                        ),
+                        lag_ratio=0.3,
+                    )
+                )
+            else:
+                animations.append(Write(obj) if isinstance(obj, Tex) else FadeIn(obj))
+        self.play(*animations, run_time=run_time)
 
     def stack(self, *objects, buff=0.6):
         return VGroup(*objects).arrange(DOWN, buff=buff).move_to(DOWN * 0.25)

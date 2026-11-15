@@ -1,196 +1,198 @@
 WEBVTT
 
-00:00:00.000 --> 00:00:01.740
+00:00:00.000 --> 00:00:01.860
 Consider this four by four matrix.
 
-00:00:02.680 --> 00:00:06.400
-Put negative ones on the diagonal and positive ones everywhere else.
+00:00:02.680 --> 00:00:06.520
+Put negative ones on the diagonal
+and positive ones everywhere else.
 
-00:00:07.040 --> 00:00:11.520
-Its rows have a special property: every row is perpendicular to every
+00:00:07.040 --> 00:00:12.240
+Its rows have a special property: every
+row is perpendicular to every other row.
 
-00:00:11.520 --> 00:00:12.120
-other row.
+00:00:12.980 --> 00:00:17.920
+Compare the first two rows. Two positions
+disagree and contribute negative one.
 
-00:00:12.980 --> 00:00:14.440
-Compare the first two rows.
+00:00:18.560 --> 00:00:22.580
+Two agree and contribute positive
+one. Their dot product is zero.
 
-00:00:15.160 --> 00:00:17.800
-Two positions disagree and contribute negative one.
+00:00:22.580 --> 00:00:25.150
+Every row has squared length four,
 
-00:00:18.560 --> 00:00:20.600
-Two agree and contribute positive one.
-
-00:00:21.280 --> 00:00:22.580
-Their dot product is zero.
-
-00:00:22.580 --> 00:00:27.640
-Every row has squared length four, so H times H transpose equals
-
-00:00:27.820 --> 00:00:28.900
+00:00:25.500 --> 00:00:29.020
+so H times H transpose equals
 four times the identity.
 
-00:00:30.240 --> 00:00:34.100
-A matrix of signs with mutually orthogonal rows is called a Hadamard
+00:00:30.240 --> 00:00:34.420
+A matrix of signs with mutually orthogonal
+rows is called a Hadamard matrix.
 
-00:00:34.100 --> 00:00:34.300
-matrix.
+00:00:35.100 --> 00:00:37.880
+In dimension n, its defining equation is H
 
-00:00:35.100 --> 00:00:39.740
-In dimension n, its defining equation is H times H transpose equals
-
-00:00:39.740 --> 00:00:41.220
+00:00:37.880 --> 00:00:41.340
+times H transpose equals
 n times the identity.
 
-00:00:42.360 --> 00:00:45.750
-Hadamard matrices exist in dimensions one and two.
+00:00:42.360 --> 00:00:45.870
+Hadamard matrices exist
+in dimensions one and two.
 
-00:00:46.260 --> 00:00:50.150
-In every larger dimension, the order must be divisible by four.
+00:00:46.260 --> 00:00:50.270
+In every larger dimension, the
+order must be divisible by four.
 
-00:00:50.580 --> 00:00:55.140
-The general Hadamard conjecture asks whether every positive multiple of four works.
+00:00:50.580 --> 00:00:54.500
+The general Hadamard conjecture asks
+whether every positive multiple of
 
-00:00:56.180 --> 00:00:57.980
-Our original matrix has an extra symmetry.
+00:00:54.510 --> 00:00:58.100
+four works. Our original
+matrix has an extra symmetry.
 
-00:00:58.520 --> 00:01:01.740
-Shift the first row cyclically one place to the right, and you
+00:00:58.520 --> 00:01:02.600
+Shift the first row cyclically one place
+to the right, and you get the second row.
 
-00:01:01.740 --> 00:01:02.480
-get the second row.
+00:01:03.320 --> 00:01:07.320
+Repeat to get the third and fourth. The
+entire matrix is determined by one row.
 
-00:01:03.320 --> 00:01:04.520
-Repeat to get the third and fourth.
-
-00:01:05.200 --> 00:01:07.200
-The entire matrix is determined by one row.
-
-00:01:07.960 --> 00:01:09.920
+00:01:07.960 --> 00:01:12.700
 Such a matrix is called circulant.
+The circulant Hadamard conjecture
 
-00:01:10.800 --> 00:01:15.600
-The circulant Hadamard conjecture says that this extra symmetry leaves only orders
+00:01:12.700 --> 00:01:16.760
+says that this extra symmetry
+leaves only orders one and four.
 
-00:01:15.780 --> 00:01:16.640
-one and four.
+00:01:17.020 --> 00:01:20.520
+We will explain the proposed proof
+through algebra and number theory.
 
-00:01:17.020 --> 00:01:20.400
-We will explain the proposed proof through algebra and number theory.
+00:01:21.020 --> 00:01:24.360
+At this overview level, two deeper
+results are accepted inputs:
 
-00:01:21.020 --> 00:01:25.220
-At this overview level, two deeper results are accepted inputs: the order
+00:01:24.940 --> 00:01:27.140
+the order restriction
+and the delta theorem.
 
-00:01:25.220 --> 00:01:27.020
-restriction and the delta theorem.
+00:01:28.240 --> 00:01:30.460
+The proof is organized
+into eight components.
 
-00:01:28.240 --> 00:01:30.340
-The proof is organized into eight components.
+00:01:31.080 --> 00:01:34.280
+Follow the arrows from each
+ingredient to the steps that use it.
 
-00:01:31.080 --> 00:01:34.160
-Follow the arrows from each ingredient to the steps that use it.
+00:01:35.100 --> 00:01:38.820
+First, group ring encoding replaces
+the first row by a polynomial.
 
-00:01:35.100 --> 00:01:38.700
-First, group ring encoding replaces the first row by a polynomial.
+00:01:39.320 --> 00:01:42.380
+Multiplication by its cyclic
+reversal records every dot product.
 
-00:01:39.320 --> 00:01:42.260
-Multiplication by its cyclic reversal records every dot product.
+00:01:42.920 --> 00:01:45.140
+Orthogonality becomes
+one polynomial equation.
 
-00:01:42.920 --> 00:01:45.020
-Orthogonality becomes one polynomial equation.
+00:01:46.060 --> 00:01:49.580
+Second, the order restriction
+says that, apart from order one,
 
-00:01:46.060 --> 00:01:50.320
-Second, the order restriction says that, apart from order one, n is
+00:01:49.860 --> 00:01:52.940
+n is four times u squared, with u odd.
 
-00:01:50.460 --> 00:01:52.820
-four times u squared, with u odd.
-
-00:01:53.440 --> 00:01:56.110
+00:01:53.440 --> 00:01:56.230
 It remains to rule out u greater than one.
 
-00:01:56.600 --> 00:02:00.880
-Third, split the cyclic structure into a part of size four and
+00:01:56.600 --> 00:02:02.080
+Third, split the cyclic structure into a
+part of size four and a part of odd size.
 
-00:02:00.880 --> 00:02:01.960
-a part of odd size.
+00:02:02.440 --> 00:02:06.060
+Evaluating the resulting
+polynomial at one, negative one,
 
-00:02:02.440 --> 00:02:07.240
-Evaluating the resulting polynomial at one, negative one, and i produces three
+00:02:06.220 --> 00:02:10.940
+and i produces three polynomials, c,
+d, and g, with the same norm identity.
 
-00:02:07.240 --> 00:02:10.820
-polynomials, c, d, and g, with the same norm identity.
+00:02:12.000 --> 00:02:15.420
+Fourth, the delta theorem supplies
+the number theoretic input.
 
-00:02:12.000 --> 00:02:15.300
-Fourth, the delta theorem supplies the number theoretic input.
+00:02:16.120 --> 00:02:19.660
+A special product of values at
+roots of unity must itself be a
 
-00:02:16.120 --> 00:02:19.560
-A special product of values at roots of unity must itself be
+00:02:19.660 --> 00:02:24.160
+root of unity of odd order. The three
+polynomials satisfy its hypotheses.
 
-00:02:19.560 --> 00:02:21.040
-a root of unity of odd order.
+00:02:25.600 --> 00:02:28.920
+Fifth, the original signs give
+another constraint. Combine c,
 
-00:02:21.660 --> 00:02:24.040
-The three polynomials satisfy its hypotheses.
+00:02:29.040 --> 00:02:31.620
+d, and g into a new polynomial, E.
 
-00:02:25.600 --> 00:02:27.560
-Fifth, the original signs give another constraint.
+00:02:32.420 --> 00:02:36.510
+Modulo one plus i, every
+coefficient of E becomes one.
 
-00:02:28.400 --> 00:02:31.500
-Combine c, d, and g into a new polynomial, E.
-
-00:02:32.420 --> 00:02:36.390
-Modulo one plus i, every coefficient of E becomes one.
-
-00:02:36.960 --> 00:02:39.220
+00:02:36.960 --> 00:02:39.340
 Sixth, bring the two branches together.
 
-00:02:40.240 --> 00:02:43.700
-Certain odd order roots of unity are also congruent to one modulo
+00:02:40.240 --> 00:02:44.660
+Certain odd order roots of unity are
+also congruent to one modulo one plus i.
 
-00:02:43.860 --> 00:02:44.540
-one plus i.
+00:02:45.010 --> 00:02:48.980
+Rigidity forces those roots to equal
+one, giving exact product relations.
 
-00:02:45.010 --> 00:02:48.860
-Rigidity forces those roots to equal one, giving exact product relations.
-
-00:02:50.180 --> 00:02:52.360
+00:02:50.180 --> 00:02:52.480
 Seventh, turn those products into sums.
 
-00:02:53.440 --> 00:02:58.400
-A first order expansion shows that a particular alternating sum, S, is
+00:02:53.440 --> 00:02:57.000
+A first order expansion shows
+that a particular alternating sum,
 
-00:02:58.590 --> 00:03:00.680
-zero modulo one plus i.
+00:02:57.280 --> 00:03:00.800
+S, is zero modulo one plus i.
 
-00:03:01.560 --> 00:03:03.760
+00:03:01.560 --> 00:03:03.880
 Eighth, use the all ones coefficients.
 
-00:03:05.100 --> 00:03:07.940
-At nontrivial roots of unity their contributions cancel.
+00:03:05.100 --> 00:03:08.060
+At nontrivial roots of unity
+their contributions cancel.
 
-00:03:08.660 --> 00:03:12.780
-At one, an odd number of ones survives, forcing that same sum
+00:03:08.660 --> 00:03:11.120
+At one, an odd number of ones survives,
 
-00:03:12.780 --> 00:03:14.740
-to be one modulo one plus i.
+00:03:11.760 --> 00:03:14.860
+forcing that same sum to
+be one modulo one plus i.
 
-00:03:15.540 --> 00:03:19.550
-The same sum cannot be both zero and one in this nonzero
+00:03:15.540 --> 00:03:20.540
+The same sum cannot be both zero
+and one in this nonzero quotient.
 
-00:03:19.880 --> 00:03:20.420
-quotient.
-
-00:03:21.060 --> 00:03:21.820
+00:03:21.060 --> 00:03:25.110
 That is the contradiction.
-
-00:03:23.020 --> 00:03:24.990
 Thus u cannot exceed one.
 
-00:03:25.560 --> 00:03:29.200
-Together with the trivial case, the only possible orders are one and
+00:03:25.560 --> 00:03:30.000
+Together with the trivial case, the
+only possible orders are one and four.
 
-00:03:29.880 --> 00:03:29.980
-four.
-
-00:03:30.560 --> 00:03:33.540
-Open each node to explore its argument and the inputs it uses.
+00:03:30.560 --> 00:03:33.660
+Open each node to explore its
+argument and the inputs it uses.

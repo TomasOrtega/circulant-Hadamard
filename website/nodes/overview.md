@@ -14,11 +14,11 @@ graphTitle: The proof at a glance
 children:
   - node: group-ring-encoding
     dependsOn: []
-    segment: null
+    segment: { start: 94.95, end: 105.91 }
   - node: restriction-on-the-order
     dependsOn:
       - group-ring-encoding
-    segment: null
+    segment: { start: 105.91, end: 116.45 }
     script: |
       > **Lemma (Order restriction, Proposition 2.2).** *If a real circulant Hadamard
       > matrix has order $n>1$, then $n=4u^2$ for an odd positive integer $u$.*
@@ -47,10 +47,10 @@ children:
   - node: three-evaluations
     dependsOn:
       - restriction-on-the-order
-    segment: null
+    segment: { start: 116.45, end: 131.85 }
   - node: delta-theorem
     dependsOn: []
-    segment: null
+    segment: { start: 131.85, end: 145.45 }
     contextFrom:
       - group-ring-encoding
     script: |
@@ -82,7 +82,7 @@ children:
   - node: signs-become-all-ones
     dependsOn:
       - three-evaluations
-    segment: null
+    segment: { start: 145.45, end: 156.81 }
     script: |
       > **Lemma (Signs become all ones).** *Let $c(P),d(P),g(P)$ be the normalized
       > evaluations from the same four sign polynomials in Node 3. Then*
@@ -106,7 +106,7 @@ children:
       - three-evaluations
       - delta-theorem
       - signs-become-all-ones
-    segment: null
+    segment: { start: 156.81, end: 170.03 }
     script: |
       > **Lemma (Odd-order rigidity).** *Let $u>1$ be odd, and let
       > $c(P),d(P),g(P)$ be the normalized norm solutions from the common sign
@@ -135,7 +135,7 @@ children:
     dependsOn:
       - signs-become-all-ones
       - odd-order-rigidity
-    segment: null
+    segment: { start: 170.03, end: 181.41 }
     script: |
       > **Lemma (From products to sums).** *Let $u>1$ be odd, and let
       > $c(P),d(P),g(P)$ be the normalized polynomials from the common sign array.
@@ -164,7 +164,7 @@ children:
     dependsOn:
       - signs-become-all-ones
       - products-to-sums
-    segment: null
+    segment: { start: 181.41, end: 214.933333 }
     script: |
       > **Final contradiction and theorem.** *For an odd $u>1$, the polynomials
       > from a hypothetical circulant Hadamard matrix of order $4u^2$ would

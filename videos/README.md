@@ -159,7 +159,11 @@ again. The published MP4 preserves the finished recording.
 
 Final 1080p, 30 fps MP4s and matching WebVTT captions live in `website/media/`.
 Captions retain the exact spoken source text; local speech recognition helps
-align them and the animation cues. Recognition is supporting evidence, not
-human listening acceptance. Preserve the site's draft and accepted-input
-labels when attaching videos. Child previews use measured sections of their
-parent's recording, and remain empty when that parent has no video.
+align them and the animation cues. [captions.py](captions.py) groups measured
+words into at most two 42-character lines, avoiding flashing fragments.
+Recognition is supporting evidence, not human listening acceptance.
+
+Finished videos have no draft watermark. The camera reserves the bottom 20%
+for subtitles, and export checks inspect this band. Mathematical assumptions
+and accepted inputs remain explicit. Child previews use measured sections of
+their parent's recording, and remain empty when that parent has no video.

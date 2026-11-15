@@ -26,5 +26,45 @@
   "narration_duration": 214.92022675736962,
   "duration": 214.933333,
   "narration_sha256": "89f0467b4359847144ba7cfb91b7cd8e795875201e0bf6f46e0124e16c9bac95",
-  "video_sha256": "2e35106881db5a862273400927ed550cfb9e2cd0b2196bacffe43ba3c54a1def"
+  "video_sha256": "c4205c63b00c55047ed2f8adf9b03569f2af769d066abd2233052c2c3759aca3",
+  "subtitle_safe_fraction": 0.2,
+  "subtitle_band_max_luma": 16.0,
+  "subtitle_frames_checked": 6448,
+  "production_status": "final",
+  "child_segments": {
+    "group-ring-encoding": {
+      "start": 94.95,
+      "end": 105.91
+    },
+    "restriction-on-the-order": {
+      "start": 105.91,
+      "end": 116.45
+    },
+    "three-evaluations": {
+      "start": 116.45,
+      "end": 131.85
+    },
+    "delta-theorem": {
+      "start": 131.85,
+      "end": 145.45
+    },
+    "signs-become-all-ones": {
+      "start": 145.45,
+      "end": 156.81
+    },
+    "odd-order-rigidity": {
+      "start": 156.81,
+      "end": 170.03
+    },
+    "products-to-sums": {
+      "start": 170.03,
+      "end": 181.41
+    },
+    "final-contradiction": {
+      "start": 181.41,
+      "end": 214.933333
+    }
+  },
+  "scene_sha256": "a3a8f7c3d7aeae2012763145e036631cc07c1f283bbad961fccbb5dcb5dc4726",
+  "layout_sha256": "af65a79e6ee3c1e4c50be87eaf23e651674da7cae9a65dd5fa0a5b94e9c219f2"
 }
