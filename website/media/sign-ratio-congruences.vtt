@@ -1,0 +1,173 @@
+WEBVTT
+
+00:00:00.000 --> 00:00:02.360
+Let u be odd and greater than one.
+
+00:00:02.700 --> 00:00:07.073
+Each coefficient of the four sign
+polynomials is positive or negative one.
+
+00:00:07.407 --> 00:00:11.240
+These same polynomials define c, d, and g.
+
+00:00:12.080 --> 00:00:15.800
+Node five formed exact
+polynomial quotients a and b:
+
+00:00:16.120 --> 00:00:21.960
+d minus c equals two a, while g minus c
+equals the product of one plus i and b.
+
+00:00:22.520 --> 00:00:27.020
+The coefficients of a are integers,
+and those of b are Gaussian integers.
+
+00:00:27.640 --> 00:00:29.780
+These divisions were
+made before reduction.
+
+00:00:30.860 --> 00:00:32.760
+Keep one evaluation ring throughout.
+
+00:00:33.400 --> 00:00:37.180
+Let B be the integers with i and
+the chosen prime roots adjoined,
+
+00:00:37.620 --> 00:00:40.600
+and let A be B with one over u adjoined.
+
+00:00:41.240 --> 00:00:44.200
+For a subset S of the primes dividing u,
+
+00:00:44.600 --> 00:00:47.600
+multiply its chosen roots
+to obtain zeta sub S.
+
+00:00:48.340 --> 00:00:52.460
+Write c sub S for c at that
+input, and similarly for d and g.
+
+00:00:52.960 --> 00:00:56.180
+The preceding node proves
+that all three are units in A,
+
+00:00:56.180 --> 00:01:01.100
+and that A modulo one plus
+i is nonzero. In particular,
+
+00:01:01.540 --> 00:01:07.420
+c sub S has inverse its complex conjugate
+divided by u squared, belonging to A.
+
+00:01:08.200 --> 00:01:12.620
+Evaluate the two exact identities and
+keep this unit denominator visible.
+
+00:01:14.220 --> 00:01:18.300
+Define r sub S as d sub
+S divided by c sub S,
+
+00:01:18.700 --> 00:01:21.860
+and w sub S as g sub S divided by c
+
+00:01:21.860 --> 00:01:27.220
+sub S. Subtract one from the first
+ratio. Combine the fractions,
+
+00:01:27.700 --> 00:01:32.480
+then replace d sub S minus c sub
+S by two times a at zeta sub S.
+
+00:01:32.820 --> 00:01:36.700
+The result is two times a at
+that input divided by c sub S.
+
+00:01:37.500 --> 00:01:43.260
+Repeat with the second ratio: w sub S
+minus one equals the factor one plus i,
+
+00:01:43.560 --> 00:01:47.160
+multiplied by b at that
+input and divided by c sub S.
+
+00:01:48.200 --> 00:01:52.420
+Both remaining quotients belong to
+A, because the denominator is a unit.
+
+00:01:52.850 --> 00:01:56.360
+Two equals negative i times
+the square of one plus i,
+
+00:01:56.660 --> 00:01:59.940
+so both displayed factors
+vanish modulo one plus i.
+
+00:02:00.440 --> 00:02:02.320
+The reduced differences are zero.
+
+00:02:02.840 --> 00:02:06.620
+Therefore r sub S and w sub
+S each have residue one.
+
+00:02:07.000 --> 00:02:11.180
+Every division was by a unit; we
+did not divide by a zero residue.
+
+00:02:12.320 --> 00:02:15.380
+Now unpack the Delta
+comparisons into alternating
+
+00:02:15.380 --> 00:02:18.540
+products of the r ratios and the w ratios,
+
+00:02:19.050 --> 00:02:24.000
+with positive exponents for even subsets
+and negative exponents for odd subsets.
+
+00:02:24.580 --> 00:02:26.880
+Every factor is a unit of residue one.
+
+00:02:27.180 --> 00:02:31.680
+Its inverse has residue one too: reduce
+the product of a unit and its inverse,
+
+00:02:31.980 --> 00:02:35.540
+and their product is still one.
+Since the first residue is one,
+
+00:02:35.740 --> 00:02:39.500
+the inverse residue must also
+be one. Thus every factor in
+
+00:02:39.500 --> 00:02:43.480
+both alternating products reduces to
+one, including the inverse factors.
+
+00:02:44.140 --> 00:02:49.400
+Both capital R and capital W have
+residue one modulo one plus i.
+
+00:02:50.440 --> 00:02:55.920
+For u equal to three, the two inputs are
+one and omega, a primitive cube root.
+
+00:02:56.460 --> 00:03:02.030
+Capital R is r at the empty subset divided
+by r at the subset containing three;
+
+00:03:02.600 --> 00:03:04.940
+capital W has the same form using w.
+
+00:03:05.940 --> 00:03:08.000
+More distinct primes give more factors.
+
+00:03:08.800 --> 00:03:11.640
+The same product and inverse
+rule applies to all of them.
+
+00:03:11.640 --> 00:03:14.560
+This is an algebraic residue condition.
+
+00:03:15.080 --> 00:03:18.340
+The exact comparisons still
+await odd-order rigidity.

@@ -5,7 +5,10 @@ shortTitle: Ratios Have Residue One
 summary: Divisibility from the common signs survives evaluation and division by the unit denominators.
 number: "6.3"
 draft: true
-video: null
+video:
+  src: media/sign-ratio-congruences.mp4
+  captions: media/sign-ratio-congruences.vtt
+  duration: 199.766667
 mapPosition: [440, 200]
 mapSummary: '$R\equiv W\equiv1\pmod{1+i}$'
 ---
